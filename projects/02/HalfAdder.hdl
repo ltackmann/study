@@ -15,6 +15,6 @@ CHIP HalfAdder {
         carry; // MSB of a + b
 
     PARTS:
-    Or(a=a, b=b, out=sum);
+    Xor(a=a, b=b, out=sum);
     And(a=a, b=b, out=carry);
 }
