@@ -1,24 +1,15 @@
 // I/O handling: Infinite loop that blackens the screen when any key is pressed
 
 // while(true) {
-//  row=0
 //  color=0
 //  if(key) {
-//    color = [1111 1111 1111 1111]
-//  else
-//    color = [0000 0000 0000 0000]
+//    color = -1
 //  }
-//
-//  while(row-256 < 0) {
-//    row_adr = SCREEN + row*32
-//
-//    column=0
-//    while(column-32 < 0) {
-//        adr = row_adr + column
-//        M[adr] = color 
-//        column++
-//    }
-//    row++
+//  max = SCREN + (256 * 32)
+//  pointer = SCREEN
+//  while(pointer-max < 0) {
+//    M[pointer] = color 
+//    pointer++
 //  }
 // }
 
