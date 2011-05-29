@@ -13,9 +13,22 @@
 //  }
 // }
 
+(INPUT_LOOP)
+
 // black is -1 and white is 0 (since we use 16 bit two complement words)
 @color
+M=0
+
+// non-zero key codes should set the color to black 
+@KBD
+D=M
+@SKIP_BLACK
+D;JEQ 
+
+@color
 M=-1
+
+(SKIP_BLACK)
 
 // set screen pointer to start of screen memory map
 @SCREEN
@@ -57,5 +70,5 @@ M=D
 (END_SCREEN_LOOP)
 
 // infinite loop
-@END_SCREEN_LOOP
+@INPUT_LOOP
 0;JMP
