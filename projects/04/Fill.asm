@@ -1,34 +1,19 @@
 // I/O handling: Infinite loop that blackens the screen when any key is pressed
 
 // while(true) {
-//  color=0
-//  if(key) {
-//    color = -1
-//  }
 //  max = SCREN + (256 * 32)
 //  pointer = SCREEN
 //  while(pointer-max < 0) {
+//    color=0
+//    if(key) {
+//      color = -1
+//    }
 //    M[pointer] = color 
 //    pointer++
 //  }
 // }
 
 (INPUT_LOOP)
-
-// black is -1 and white is 0 (since we use 16 bit two complement words)
-@color
-M=0
-
-// non-zero key codes should set the color to black 
-@KBD
-D=M
-@SKIP_BLACK
-D;JEQ 
-
-@color
-M=-1
-
-(SKIP_BLACK)
 
 // set screen pointer to start of screen memory map
 @SCREEN
@@ -52,6 +37,18 @@ M=D
   D=D-M
   @END_SCREEN_LOOP
   D;JGT 
+
+  // set screen color to white (0) when no keyboard input exists 
+  @color
+  M=0
+  @KBD
+  D=M
+  @SKIP_BLACK
+  D;JEQ 
+  // black is -1 and white is 0 (since we use 16 bit two complement words)
+  @color
+  M=-1
+  (SKIP_BLACK)
 
   //
   @color
