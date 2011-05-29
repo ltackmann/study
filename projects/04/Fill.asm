@@ -9,7 +9,7 @@
 //    color = [0000 0000 0000 0000]
 //  }
 //
-//  while(row-512 < 0) {
+//  while(row-256 < 0) {
 //    row_adr = SCREEN + row*32
 //
 //    column=0
@@ -32,9 +32,11 @@ D=A
 @pointer
 M=D
 
-// max number of words in screen memory mao (512 rows with 256 pixes = 512rows x 32words = 16384)  
-@16666
+// number of words in screen memory (256 rows with 512 pixes = 256rows x 32words = 8192)  
+@8192
 D=A
+@SCREEN
+D=D+A
 @max
 M=D
 
