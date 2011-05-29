@@ -22,14 +22,9 @@
 //  }
 // }
 
-// 2^15 - 1 (since we use 16 bit two complement words)
-//@32767
-//D=A
-//@black
-//M=D
-
-//@white
-//M=0
+// black is -1 and white is 0 (since we use 16 bit two complement words)
+@color
+M=-1
 
 // set screen pointer to start of screen memory map
 @SCREEN
@@ -53,8 +48,8 @@ M=D
   D;JGT 
 
   //
-  @32767
-  D=A
+  @color
+  D=M
   @pointer
   A=M
   M=D
