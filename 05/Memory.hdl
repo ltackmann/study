@@ -32,15 +32,11 @@ CHIP Memory {
     // we have 2^13 = 8196bits for screen memory map 
     // we have 1 word at for keyboard memory map
 
-    // 000 000000000000 - 0x0    - memory min 
-    // 011 111111111111 - 0x3FFF - memory max
-    // 100 000000000000 - 0x4000 - screen min 
-    // 101 111111111111 - 0x5FFF - screen max
-    // 110 000000000000 - 0x6000 - keyboard  
-
-    // memory   = in, load, address[14] and out
-    // keyboard = out
-    // screen   = in, load, address[13] and out 
+    // 00 0000000000000 - 0x0    - memory min 
+    // 01 1111111111111 - 0x3FFF - memory max
+    // 10 0000000000000 - 0x4000 - screen min 
+    // 10 1111111111111 - 0x5FFF - screen max
+    // 11 0000000000000 - 0x6000 - keyboard  
 
     DMux(sel=address[14], in=load, a=mem-load, b=io-load);
 
@@ -49,8 +45,8 @@ CHIP Memory {
     Keyboard(out=out-kb);
     
     // adr MSB combinations: 
-    // - memory: 000 001 011 => 00|01
-    // - screen: 100 101     => 10
-    // - keyboard:110        => 11
+    // - memory:   00|01
+    // - screen:   10
+    // - keyboard: 11
     Mux4Way16(sel=address[13..14], a=out-mem, b=out-mem, c=out-screen, d=out-kb, out=out);
 }
