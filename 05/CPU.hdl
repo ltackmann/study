@@ -41,17 +41,16 @@ CHIP CPU {
     PARTS:
 
     // decode instruction
-    // itype = true then a type else c type 
-    And(a=instruction[15], b=true, out=itype);
+    And(a=instruction[15], b=true, out=ctype);
 
-    // for a type store instruction value in register else store alu output
-    Mux16(a=aluout, b=instruction, sel=itype, out=aregin);
+    // for a-type send instruction value to a-register else send alu-out to a-register
+    Mux16(a=instruction, b=aluout, sel=ctype, out=aregin);
 
-    // a register used for
-    // 1) storing constants
-    // 2) storing memory addresses
-    // 3) storing jump addresses
-    ARegister(in=aregin, load=itype, out=aregout);
+    // for a-type always store input 
+    // for c-type store input when d1=true (c[5]=true)
+    And(a=ctype, b=c[5], out=storealu);
+    Mux(a=true, b=storealu, sel=ctype, out=aregload);
+    ARegister(in=aregin, load=aregload, out=aregout);
 
     // select between alu input from A register or memory
     Mux16(a=inM, b=aregout, sel=instruction[12], out=alux); 
@@ -60,7 +59,7 @@ CHIP CPU {
     DRegister(in=aluout, load=, out=aluy);
     
     // ALU
-    // the alu controlbits corrosponds to the c1-c6 fields of the c instruction
+    // the alu control bits corrosponds to the c1-c6 fields of the c instruction
     ALU(x=alux, y=aluy, zx=instruction[11], nx=instruction[10], zy=instruction[9], ny=instruction[8], f=instruction[7], no=instruction[6]);
 
     // OUT 16-bit output
