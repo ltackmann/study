@@ -43,20 +43,26 @@ CHIP CPU {
     // decode instruction
     And(a=instruction[15], b=true, out=ctype);
 
-    // for a-type send instruction value to a-register else send alu-out to a-register
+    // for a-type use instruction value as input
+    // else for c-type use aluout as input
     Mux16(a=instruction, b=aluout, sel=ctype, out=aregin);
+    
+    // for c-type instructions when d1 (c[5]) = true then store aluout 
+    // else for a-type instructions always store instruction value 
+    And(a=instruction[5], b=ctype, out=storealu);
+    Mux(a=true, b=storealu, sel=ctype, out=aload);
 
-    // for a-type always store input 
-    // for c-type store input when d1=true (c[5]=true)
-    And(a=ctype, b=c[5], out=storealu);
-    Mux(a=true, b=storealu, sel=ctype, out=aregload);
-    ARegister(in=aregin, load=aregload, out=aregout);
+    // A registry
+    ARegister(in=aregin, load=aload, out=aregout);
 
-    // select between alu input from A register or memory
-    Mux16(a=inM, b=aregout, sel=instruction[12], out=alux); 
+    // select between alu input from A-registry or memory
+    Mux16(a=aregout, a=inM, sel=instruction[12], out=alux); 
 
-    // D register
-    DRegister(in=aluout, load=, out=aluy);
+    // for c-type only store aluout when d2 (c[4]) = true
+    Mux(a=ctype, b=instruction[c4], dload);
+    
+    // D registry
+    DRegister(in=aluout, load=dload, out=aluy);
     
     // ALU
     // the alu control bits corrosponds to the c1-c6 fields of the c instruction
