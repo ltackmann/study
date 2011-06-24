@@ -53,7 +53,7 @@ CHIP CPU {
     Mux(a=true, b=storealu, sel=ctype, out=aload);
 
     // A register
-    ARegister(in=aregin, load=aload, out=aregout, out=addressM);
+    ARegister(in=aregin, load=aload, out=aregout, out=addressM, out=pcin);
 
     // use c-instructions a-bit (c[12]) to select between alu input from A-register or memory 
     And(a=instruction[12], b=ctype, out=selectaluin);
@@ -66,17 +66,32 @@ CHIP CPU {
     DRegister(in=aluout, load=dload, out=aluy);
     
     // ALU control bits corrosponds to the c1-c6 fields of the c instruction
-    ALU(x=alux, y=aluy, zx=instruction[11], nx=instruction[10], zy=instruction[9], ny=instruction[8], f=instruction[7], no=instruction[6], out=aluout, out=outM);
+    ALU(x=alux, y=aluy, zx=instruction[11], nx=instruction[10], zy=instruction[9], ny=instruction[8], f=instruction[7], no=instruction[6], out=aluout, out=outM, zr=eq, ng=lt);
 
     // for c-instructions store aluout in memory when d3 (c[3]) = true 
     And(a=ctype, b=instruction[3], out=mload);
     Mux(a=false, b=true, sel=mload, out=writeM);
 
-    // ALU output flags
-    //   zr, - 1 if out=0, 0 otherwise
-    //   ng; - 1 if out<0, 0 otherwise
+    // determine if aluout is <, >, =, !=, >= or <= zero 
+    Not(a=eq, out=neq);
+    Not(a=lt, out=nlt);
+    // out > 0
+    And(a=neq, b=nlt, out=gt);
+    // out >= 0
+    Or(a=gt, b=eq, out=ge);
+    // out != 0
+    Ot(a=gt, b=lt, out=ne);
+    // out <= 0
+    Or(a=lt, b=eq, out=le);
 
+    // jump for c-instructions based on j1 (c[2]), j2(c[1]) and j3(c[0]) 
+    Mux8Way16(sel[2]=c[2], sel[1]=c[1], sel[0]=c[0], a=false, b=gt, c=eq, d=ge, e=lt, f=ne, g=le, h=true, out=jmp);
+    Mux(sel=ctype, a=false, b=jmp, out=pcload);
+
+    // increment unless pc-load 
+    Mux(sel=pcload, a=true, b=false, out=pcinc);
+    
     // PC
-    PC(in[16], load, inc, reset=reset);
+    PC(in=pcin, load=pcload, inc=pcinc, reset=reset, out=pc);
 }
 
