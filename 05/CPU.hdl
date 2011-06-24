@@ -43,33 +43,35 @@ CHIP CPU {
     // decode instruction
     And(a=instruction[15], b=true, out=ctype);
 
-    // for a-type use instruction value as input
-    // else for c-type use aluout as input
+    // for a-instructions use instruction value as input
+    // else for c-instructions use aluout as input
     Mux16(a=instruction, b=aluout, sel=ctype, out=aregin);
     
-    // for c-type instructions when d1 (c[5]) = true then store aluout 
-    // else for a-type instructions always store instruction value 
+    // for c-instructions when d1 (c[5]) = true then store aluout in A-register 
+    // else for a-instructions store instruction value in A-register 
     And(a=instruction[5], b=ctype, out=storealu);
     Mux(a=true, b=storealu, sel=ctype, out=aload);
 
-    // A registry
-    ARegister(in=aregin, load=aload, out=aregout);
+    // A register
+    ARegister(in=aregin, load=aload, out=aregout, out=addressM);
 
-    // select between alu input from A-registry or memory
-    Mux16(a=aregout, a=inM, sel=instruction[12], out=alux); 
+    // use c-instructions a-bit (c[12]) to select between alu input from A-register or memory 
+    And(a=instruction[12], b=ctype, out=selectaluin);
+    Mux16(a=aregout, a=inM, sel=selectaluin, out=alux); 
 
-    // for c-type only store aluout when d2 (c[4]) = true
-    Mux(a=ctype, b=instruction[c4], dload);
+    // for c-instructions store aluout in D-register when d2 (c[4]) = true
+    And(a=ctype, b=instruction[4], out=dload);
     
     // D registry
     DRegister(in=aluout, load=dload, out=aluy);
     
-    // ALU
-    // the alu control bits corrosponds to the c1-c6 fields of the c instruction
-    ALU(x=alux, y=aluy, zx=instruction[11], nx=instruction[10], zy=instruction[9], ny=instruction[8], f=instruction[7], no=instruction[6]);
+    // ALU control bits corrosponds to the c1-c6 fields of the c instruction
+    ALU(x=alux, y=aluy, zx=instruction[11], nx=instruction[10], zy=instruction[9], ny=instruction[8], f=instruction[7], no=instruction[6], out=aluout, out=outM);
 
-    // OUT 16-bit output
-    //    out[16],
+    // for c-instructions store aluout in memory when d3 (c[3]) = true 
+    And(a=ctype, b=instruction[3], out=mload);
+    Mux(a=false, b=true, sel=mload, out=writeM);
+
     // ALU output flags
     //   zr, - 1 if out=0, 0 otherwise
     //   ng; - 1 if out<0, 0 otherwise
