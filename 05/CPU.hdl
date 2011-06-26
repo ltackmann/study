@@ -57,7 +57,7 @@ CHIP CPU {
 
     // use c-instructions a-bit (c[12]) to select between alu input from A-register or memory 
     And(a=instruction[12], b=ctype, out=selectaluin);
-    Mux16(a=aregout, a=inM, sel=selectaluin, out=aluy); 
+    Mux16(a=aregout, b=inM, sel=selectaluin, out=aluy); 
 
     // for c-instructions store aluout in D-register when d2 (c[4]) = true
     And(a=ctype, b=instruction[4], out=dload);
