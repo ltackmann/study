@@ -1,2 +1,11 @@
 *.out
+.cache
+.classpath
+.project
+.settings
+.target
+.scala_dependencies
 software/*
+target
+project/target
+project/project
