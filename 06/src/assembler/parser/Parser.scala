@@ -9,10 +9,9 @@ object Parser {
     val filePath = """test/max/MaxL.asm"""
     val sourceFile = new File(filePath)
     if(!sourceFile.exists()) {
-      // TODO how to raise exceptions in scala
-      // TODO add logger
-      return
+      throw new java.io.FileNotFoundException(filePath)
     } 
+    
     parse(sourceFile)
   }
   
