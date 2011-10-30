@@ -10,17 +10,18 @@ class Parser(sourceFile: File) {
     // read file into sequence
     val asmSource = Source.fromFile(sourceFile)
 
-    // TODO remove empty lines
     val commentRegex = "(^//.*)".r
     val emptyLineRegex = "(^$)".r
-    
+
+    // TODO move to function and read in book what the correct term for comments/newlines is (non-term ?)
     for (line <- asmSource.getLines) {
       line match {
-        case commentRegex(comment) => println("comment: " + comment)
-        case emptyLineRegex(emptyLine) => println("got a empty line")
-        case code => println("got code" + code)
+        case commentRegex(comment) => ()
+        case emptyLineRegex(emptyLine) => ()
+        case code => sourceLines +:= code
       }
     }
+    sourceLines.foreach(println)
   }
 }
 
