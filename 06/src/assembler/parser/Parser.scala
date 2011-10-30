@@ -14,6 +14,8 @@ class Parser(sourceFile: File) {
     val emptyLineRegex = "(^$)".r
 
     // TODO move to function and read in book what the correct term for comments/newlines is (non-term ?)
+    // TODO also extract it so it can be tested without a file (i.e. scala multiline string) - 
+    // TODO ensure a empty line with spaces is handled correctly
     for (line <- asmSource.getLines) {
       line match {
         case commentRegex(comment) => ()
