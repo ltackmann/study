@@ -4,8 +4,7 @@ import java.io.File
 import scala.io._
 
 class Parser(sourceFile: File) {
-  // TODO move this into actual constructor
-  // TODO dual constructor val sourceFile = new File(String path)
+  def this(sourceFilePath: String) = this(new File(sourceFilePath))
   if (!sourceFile.exists()) {
     throw new java.io.FileNotFoundException(sourceFile.getAbsolutePath())
   }
