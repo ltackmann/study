@@ -30,10 +30,10 @@ class Parser(sourceFile: File) {
 object Parser {
   def main(args: Array[String]): Unit = {
     // TODO grab from main args 
-    val filePath = """test/max/MaxL.asm"""
+    val filePath = """src/test/resources/max/MaxL.asm"""
     val sourceFile = new File(filePath)
     if (!sourceFile.exists()) {
-      throw new java.io.FileNotFoundException(filePath)
+      throw new java.io.FileNotFoundException(sourceFile.getAbsolutePath())
     }
 
     val parser = new Parser(sourceFile)
