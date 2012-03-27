@@ -1,0 +1,8 @@
+syntax: glob
+
+*.swp
+*.exe
+.DS_Store
+glob:Visual Studio 2010
+glob:*.ini
+glob:LogExpert/*
