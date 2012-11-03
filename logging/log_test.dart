@@ -1,4 +1,4 @@
-#import("package:logging/logging.dart");
+import "package:logging/logging.dart";
 
 void main() {
   //var logger = new Logger("test");

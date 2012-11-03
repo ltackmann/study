@@ -1,3 +1,7 @@
+import "dart:isolate";
+import "dart:io";
+
+// TODO unit test isolates (async testing)
 class FileIsolate extends Isolate {
   main() {
     port.receive((path, replyTo) {
@@ -5,10 +9,10 @@ class FileIsolate extends Isolate {
       
       String content = null;
       StringInputStream stringStream = new StringInputStream(file.openInputStream());
-      stringStream.dataHandler = () {
+      stringStream.onData = () {
         content = stringStream.read();
       };
-      stringStream.closeHandler = () {
+      stringStream.onClosed = () {
         replyTo.send(content);
       };
     });
