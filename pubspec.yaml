@@ -3,3 +3,4 @@ description: Dart samples
 dependencies:
   logging:
     sdk: logging
+  sqljocky: any

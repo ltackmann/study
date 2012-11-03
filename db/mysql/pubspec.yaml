@@ -1,3 +1,0 @@
-name: mysql_test
-dependencies:
-   sqljocky: 0.0.4
