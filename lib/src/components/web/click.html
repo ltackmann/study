@@ -6,6 +6,14 @@
 	        <button data-action="click:increment">Click me</button>
 	        <span>(click count: {{count}})</span>
 	      </div>
+	      <script type="application/dart">
+	      import 'package:web_components/web_component.dart';
+	      
+	      class CounterComponent extends WebComponent {
+          int count = 0;
+          void increment(e) { count++; }
+        }
+	      </script>
 	    </template>
 	  </element>
 	</body>

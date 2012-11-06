@@ -1,0 +1,5 @@
+name: web_components_sandbox
+description: Web Components Sandbox
+dependencies:
+  unittest: { sdk: unittest }
+  web_components: any

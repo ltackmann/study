@@ -1,8 +1,6 @@
-library web_components_sample;
+library web_components_example;
 
-import 'package:web_components/web_component.dart';
-
-part "counter_component.dart";
+part "counter_presenter.dart";
 
 main() {
       
