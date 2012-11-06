@@ -7,3 +7,4 @@ dependencies:
     sdk: logging
   sqljocky: any
   js: any
+  web_components: any
