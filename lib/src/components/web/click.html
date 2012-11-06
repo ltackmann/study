@@ -8,10 +8,13 @@
 	      </div>
 	      <script type="application/dart">
 	      import 'package:web_components/web_component.dart';
+	      import "../lib/counter_lib.dart";
 	      
 	      class CounterComponent extends WebComponent {
           int count = 0;
-          void increment(e) { count++; }
+          void increment(e) { 
+            count = incrementer(count); 
+          }
         }
 	      </script>
 	    </template>
