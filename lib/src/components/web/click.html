@@ -10,11 +10,14 @@
 	      import 'package:web_components/web_component.dart';
 	      import "../lib/counter_lib.dart";
 	      
-	      class CounterComponent extends WebComponent {
-          int count = 0;
-          void increment(e) { 
-            count = incrementer(count); 
-          }
+	      class CounterComponent extends WebComponent implements CounterView {
+	        CounterComponent(): _presenter = new CounterPresenter(this);
+	      
+          int get count => _presenter.count;
+          
+          increment(e) => _presenter.increment(); 
+          
+          CounterPresenter _presenter;
         }
 	      </script>
 	    </template>

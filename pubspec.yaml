@@ -1,9 +1,7 @@
 name: sandbox
 description: Dart samples
 dependencies:
-  unittest:
-    sdk: unittest
-  logging:
-    sdk: logging
-  sqljocky: any
+  logging: any
+  unittest: any
+  #sqljocky: any
   js: any
