@@ -1,5 +1,5 @@
-function returnTest() {
-   return "hello";
+function returnTest(msg) {
+   return "Hello " + msg;
 }
 
 function objectTest() {
