@@ -1,5 +1,0 @@
-name: web_components_sandbox
-description: Web Components Sandbox
-dependencies:
-  unittest: any
-  web_components: any

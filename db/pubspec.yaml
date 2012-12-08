@@ -1,7 +1,4 @@
-name: sandbox
-description: Dart samples
+name: db_sandbox
+description: DB Sandbox
 dependencies:
-  logging: any
-  unittest: any
-  #sqljocky: any
-  js: any
+  sqljocky: any

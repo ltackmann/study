@@ -1,4 +1,5 @@
 import 'dart:html';
+import 'dart:web_audio';
 
 main () {
   var audioSource = new SourceElement();
@@ -8,5 +9,5 @@ main () {
   var audio = new AudioElement();
   audio.attributes["controls"] = "controls";
   audio.nodes.add(audioSource);
-  window.document.body.nodes.add(audio);
+  document.body.nodes.add(audio);
 }

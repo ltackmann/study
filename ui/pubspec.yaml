@@ -1,0 +1,5 @@
+name: ui_sandbox
+description: Ui Sandbox
+dependencies:
+  unittest: any
+  web_ui: 0.2.8+5

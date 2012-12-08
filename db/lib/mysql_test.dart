@@ -1,4 +1,4 @@
-import 'package:sqljocky/sqljocky.dart';
+import '../packages/sqljocky/sqljocky.dart';
 
 main() {
   var cnx = new Connection();
