@@ -2,11 +2,11 @@ function returnTest(msg) {
    return "Hello " + msg;
 }
 
-function objectTest() {
+function objectTest(initial) {
   var value;
 
   var reset = function() {
-    value = "initial";
+    value = initial;
   } 
   reset();
 
