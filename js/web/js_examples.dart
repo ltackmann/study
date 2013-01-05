@@ -5,10 +5,10 @@ import 'package:unittest/unittest.dart';
 
 main() {
   // call javascript from Dart
-  //testDart2Js();
+  testDart2Js();
   
   // call dart from javascript
-  // TODO understand callback
+  testCallback();
   
   // keep object alive  
   testGlobalScope();
@@ -17,11 +17,16 @@ main() {
 testDart2Js() {
   js.scoped(() {
     // call build in function
-    js.context.alert('Hello from Dart via JavaScript.');
+    final a = js.context.parseInt('10');
+    expect(a, equals(10));
     
-    // call custom function
-    var res = js.context.returnTest("Custom Function");
-    window.alert(res);
+    // get proxy to JS object
+    final b = new js.Proxy(js.context.Date);
+    expect(b.getTime(), isNotNull);
+    
+    // call custom function (js.context is a proxy to the top level JS object)
+    final c = js.context.increment(1);
+    expect(c, equals(2));
   });
 }
 
@@ -30,14 +35,22 @@ testGlobalScope() {
   js.scoped(() {
     x = js.context.objectTest("hello"); 
     expect(x.getValue(), equals("hello"));
+    // retain proxy object when scope is ended
     js.retain(x);
   });
   js.scoped(() {
     x.setValue("world");
     expect(x.getValue(), equals("world"));
+    
     x.resetValue();
     expect(x.getValue(), equals("hello"));
+    // release proxy object after use
     js.release(x);
   });
+}
+
+testCallback() {
+  // register a function in javascript called testCallback that call's Dart code
+  js.context.testCallback = new js.Callback.once(display);
 }
 

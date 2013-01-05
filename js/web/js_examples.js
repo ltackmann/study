@@ -1,5 +1,5 @@
-function returnTest(msg) {
-   return "Hello " + msg;
+function increment(int) {
+   return int + 1;
 }
 
 function objectTest(initial) {
