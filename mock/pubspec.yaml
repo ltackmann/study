@@ -1,0 +1,5 @@
+name: mock_sandbox
+description: Mock sandbox
+
+dependencies:
+  unittest: any

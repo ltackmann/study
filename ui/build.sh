@@ -1,1 +1,2 @@
-rm -rf web/out && dart build.dart
+rm -rf web/out 
+dart build.dart

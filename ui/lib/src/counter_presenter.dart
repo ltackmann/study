@@ -5,6 +5,8 @@ abstract class CounterView {
 }
 
 class CounterPresenter {
+  CounterPresenter(this._view);
   
+  final CounterView _view;
 }
 

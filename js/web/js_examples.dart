@@ -10,7 +10,7 @@ main() {
   // call dart from javascript
   testCallback();
   
-  // keep object alive  
+  // keep objects alive in a long running JS communication 
   testGlobalScope();
 }
 
@@ -50,7 +50,22 @@ testGlobalScope() {
 }
 
 testCallback() {
-  // register a function in javascript called testCallback that call's Dart code
-  js.context.testCallback = new js.Callback.once(display);
+  var called = 0;
+  var callback = () => called++;
+  
+  js.scoped(() {
+    // register a javascript function called testCallbackOnce that can call Dart once
+    js.context.testCallbackOnce = new js.Callback.once(callback);
+    
+    // call the javascript function and test that the callback worked
+    js.context.testCallbackOnce();
+    expect(called, equals(1));
+    
+    // test we can only call the function once
+    js.context.testCallbackOnce();
+    // TODO test exception when 
+  });
+  
+  // TODO arguments and callback multiple times
 }
 

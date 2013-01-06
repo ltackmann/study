@@ -1,1 +1,1 @@
-rm -rf pubspec.lock packages && pub install
+rm -rf pubspec.lock packages web/packages && pub install
