@@ -1,5 +1,5 @@
 import 'dart:io';
-import '../../dart-warrior/packages/unittest/unittest.dart';
+import 'package:unittest/unittest.dart';
 
 main(){
   test("call shell", () {

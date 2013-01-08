@@ -1,0 +1,5 @@
+name: io_sandbox
+description: IO sandbox
+
+dependencies:
+  unittest: any
