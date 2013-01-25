@@ -1,7 +1,8 @@
 import "dart:isolate";
 import "dart:io";
 
-// TODO unit test isolates (async testing)
+// TODO async testing with unittest lib
+// TODO http://api.dartlang.org/docs/releases/latest/dart_isolate.html
 class FileIsolate extends Isolate {
   main() {
     port.receive((path, replyTo) {

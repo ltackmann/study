@@ -1,0 +1,4 @@
+name: mixin_sandbox
+description: Mixins sandbox
+dependencies:
+  unittest: any
