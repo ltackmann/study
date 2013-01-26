@@ -1,4 +1,0 @@
-name: core_sandbox
-description: Core sandbox
-dependencies:
-  unittest: any
