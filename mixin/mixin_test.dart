@@ -5,7 +5,7 @@ import "package:unittest/unittest.dart";
 part "mixins.dart";
 
 main() {
-  var maestro = new Maestro("high", "violin");
+  var maestro = new Maestro("Mozart","high", "violin");
   expect(maestro.instrument, equals("violin"));
   expect(maestro.aggressionLevel, equals("high"));
   
