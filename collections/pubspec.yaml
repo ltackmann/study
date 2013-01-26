@@ -1,4 +1,0 @@
-name: collections_sandbox
-description: Collections sandbox
-dependencies:
-  unittest: any

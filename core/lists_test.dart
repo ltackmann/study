@@ -13,7 +13,7 @@ main() {
     test("add", () {
       var list = [2];
       
-      expect(list..add(3), orderedEquals([2,3]));
+      expect(list..add(3), orderedEquals([2,3]), reason:"must add to the end of the list");
     });
   });
 }
