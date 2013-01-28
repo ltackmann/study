@@ -1,0 +1,5 @@
+name: meta_sandbox
+description: Meta sandbox
+dependencies:
+  meta: any
+  unittest: any

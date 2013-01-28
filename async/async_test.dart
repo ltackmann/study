@@ -1,19 +1,5 @@
-// TODO http://api.dartlang.org/docs/releases/latest/dart_async.html
-// TODO async testing with unittest lib
-
 import "dart:async";
-import 'package:unittest/unittest.dart';
-
-// http://stackoverflow.com/questions/13678993/how-should-i-test-a-future
-
-class Compute {
-  Future<int> sumIt(List<int> data) {
-    var completer = new Completer<int>();
-    int sum = data.reduce(0, (a,b) => a+b);
-    completer.complete(sum);
-    return completer.future;
-  }
-}
+import "package:unittest/unittest.dart";
 
 void main() {
   group("future -", () {
@@ -30,4 +16,25 @@ void main() {
       }));
     });
   });
+  
+  group("stream -", () {
+  });
+  
+  //Stream<T>
+  //StreamConsumer<S, T>
+  //StreamSink<T>
+  //StreamSubscription<T>
+  //StreamTransformer<S, T>
+  //Timer
+  
+  // TODO http://api.dartlang.org/docs/releases/latest/dart_async.html
+}
+
+class Compute {
+  Future<int> sumIt(List<int> data) {
+    var completer = new Completer<int>();
+    int sum = data.reduce(0, (a,b) => a+b);
+    completer.complete(sum);
+    return completer.future;
+  }
 }
