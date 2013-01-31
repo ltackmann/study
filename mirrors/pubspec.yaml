@@ -1,2 +1,4 @@
 name: mirrors_sandbox
 description: Mirrors sandbox
+dependencies:
+  unittest: any

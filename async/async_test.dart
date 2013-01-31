@@ -1,6 +1,7 @@
 import "dart:async";
 import "package:unittest/unittest.dart";
 
+/// Test http://api.dartlang.org/docs/releases/latest/dart_async.html
 void main() {
   group("future -", () {
     test("testing with completion", () {
@@ -18,6 +19,8 @@ void main() {
   });
   
   group("stream -", () {
+    new File('/etc/passwd').openForRead() // returns a Stream.
+    .subscribe(onData: (List<int> data) { print(data.length); });
   });
   
   //Stream<T>
@@ -27,7 +30,7 @@ void main() {
   //StreamTransformer<S, T>
   //Timer
   
-  // TODO http://api.dartlang.org/docs/releases/latest/dart_async.html
+  // TODO http://news.dartlang.org/2012/11/introducing-new-streams-api.html
 }
 
 class Compute {
