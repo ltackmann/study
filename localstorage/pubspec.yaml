@@ -1,7 +1,4 @@
-name: sandbox
-description: Dart samples
+name: localstorage_sandbox
+description: LocalStorage sandbox
 dependencies:
-  logging: any
-  unittest: any
-  #sqljocky: any
-  js: any
+  browser: any

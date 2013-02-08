@@ -1,6 +1,8 @@
-#import('dart:html');
+import "dart:html";
 
 TextAreaElement area;
+
+// TODO http://html5doctor.com/storing-data-the-simple-html5-way-and-a-few-tricks-you-might-not-have-known/
 main() {
   document.query('#content').innerHTML =
     'save text locally (it will still be available after you restart your browser)';
@@ -22,6 +24,8 @@ main() {
   updateLog();
   window.setInterval(updateLog, 5000);
 }
+
+// TODO session storage
 
 updateLog() {
   var delta = 0;
