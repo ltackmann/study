@@ -19,26 +19,10 @@ main() {
   });
   
   group("class structure -", () {
-    test("generic parameter type name", () {
-      // TODO move to dart_store
-      var typeExtractor = (Type type) {
-        var typeName = type.toString();
-        var regex = new RegExp(r"(.*)<(.*)>");
-        expect(regex.hasMatch(typeName), isTrue);
-        regex.allMatches(typeName).forEach((m) {
-          print("count ${m.groupCount} group ${m.group(2)}");
-        });
-      };
-      
-      var obj = new MyGenericClass<MyClass>();
-      typeExtractor(obj.runtimeType);
-      
-      //
-      //var instanceMirror = reflect(obj);
-      //print(instanceMirror.type.typeArguments.forEach((k,v) => print("type key $k value $v")));
-      
-      // typeArguments #
-    });
+    //test("generic parameter type name", () {
+    //  var instanceMirror = reflect(obj);
+    //  print(instanceMirror.type.typeArguments.forEach((k,v) => print("type key $k value $v")));
+    //});
     
     //  im.type.methods.values.forEach((MethodMirror method) => print(method.simpleName));
     // TODO class methods/fields (and access level (public, final, private)) 
@@ -46,6 +30,8 @@ main() {
     // TODO access meta data
     // TODO class Type hireacy (super classes and generic arguments (get T's type from Class<T> at runtime))
   });
+  
+  // TODO EMIT http://phylotic.blogspot.dk/2012/08/working-with-mirrors-in-dart-brief.html
   
   // TODO http://stackoverflow.com/questions/13205176/how-can-i-use-reflection-mirrors-to-access-the-method-names-in-a-dart-class
 
