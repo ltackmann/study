@@ -15,21 +15,21 @@ main() {
       expect(obj.runtimeType.toString(), equals("MyGenericClass<MyClass>"));
     });
     
-    // TODO instatiate method from Class.type can I do Class<T>
-    //test("generic parameter type name", () {
-    //  var instanceMirror = reflect(obj);
-    //  print(instanceMirror.type.typeArguments.forEach((k,v) => print("type key $k value $v")));
-    //});
+    test("generic parameter type name", () {
+      var obj = new MyGenericClass<MyClass>();
+      var im = reflect(obj);
+      expect(im.type.typeArguments.values.first, equals("MyClass"));
+    });
     
-    solo_test("reflect methods", () {
+    test("reflect methods", () {
       var obj = new MyClass();
-      var instanceMirror = reflect(obj);
+      var im = reflect(obj);
       
       int passed = 0;
-      instanceMirror.type.methods.values.forEach((MethodMirror method) {
+      im.type.methods.values.forEach((MethodMirror method) {
         if(method.simpleName == "_privateMethod") {
           _assertMethod(method, isPrivate:true, isStatic:false, returnType:"String", argTypes:[]); 
-          // TODO invoke methods
+          // TODO invoke methods http://phylotic.blogspot.dk/2012/08/working-with-mirrors-in-dart-brief.html
           passed++;
         }
         if(method.simpleName == "_privateStaticMethod") {
@@ -53,19 +53,24 @@ main() {
       
     });
     
-    // TODO class methods/fields (and access level (public, final, private)) http://api.dartlang.org/docs/releases/latest/dart_mirrors/MethodMirror.html 
-    // TODO method parameter types/numbers
+    solo_test("emit instance", () {
+      var im = reflect(new MyClass());
+      var cm = im.type;
+      cm.newInstance('',[]).then(expectAsync1((InstanceMirror newIm) {
+        var instance = newIm.reflectee;
+        expect(instance.publicField, equals("public field"));
+      })); 
+      // TODO emit instance from type (the above example uses an instance to emit another instance)
+    });
     
     // TODO access meta data
-    // TODO class Type hireacy (super classes and generic arguments (get T's type from Class<T> at runtime))
+    // TODO class type hireacy (super class) and constructors 
   });
   
   // TODO EMIT http://phylotic.blogspot.dk/2012/08/working-with-mirrors-in-dart-brief.html
   
-  // TODO http://stackoverflow.com/questions/13205176/how-can-i-use-reflection-mirrors-to-access-the-method-names-in-a-dart-class
-
   // if possible
-  // TODO find all versions of a loaded type 
+  // TODO find all versions of a loaded type (perhaps by hooking into current isolate)
   // TODO name of calling class (perhaps using getName(type)
 }
 
