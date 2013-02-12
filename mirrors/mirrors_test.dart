@@ -8,6 +8,7 @@ main() {
     test("type name", () {
       var obj = new MyClass();
       expect(obj.runtimeType.toString(), equals("MyClass"));
+      // TODO also get lib name from type
     });
     
     test("generic type name", () {
@@ -70,7 +71,7 @@ main() {
   // TODO EMIT http://phylotic.blogspot.dk/2012/08/working-with-mirrors-in-dart-brief.html
   
   // if possible
-  // TODO find all versions of a loaded type (perhaps by hooking into current isolate)
+  // TODO find all versions of a loaded type (perhaps by hooking into current isolate/LibraryMirror)
   // TODO name of calling class (perhaps using getName(type)
 }
 

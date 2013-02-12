@@ -29,6 +29,7 @@ void main() {
   //StreamSubscription<T>
   //StreamTransformer<S, T>
   //Timer
+  //Sink
   
   // TODO http://news.dartlang.org/2012/11/introducing-new-streams-api.html
 }
