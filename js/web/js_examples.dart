@@ -4,68 +4,66 @@ import 'package:js/js.dart' as js;
 import 'package:unittest/unittest.dart';
 
 main() {
-  // call javascript from Dart
-  testDart2Js();
+  test("call javascript from Dart", () {
+    js.scoped(() {
+      // call build in function
+      final a = js.context.parseInt('10');
+      expect(a, equals(10));
+      
+      // get proxy to JS object
+      final b = new js.Proxy(js.context.Date);
+      expect(b.getTime(), isNotNull);
+      
+      // call custom function (js.context is a proxy to the top level JS object)
+      final c = js.context.increment(1);
+      expect(c, equals(2));
+    });
+  });
   
-  // call dart from javascript
-  testCallback();
+  test("call dart from javascript", () {
+    var called = 0;
+    var callback = () => called++;
+    
+    js.scoped(() {
+      // register a javascript function called testCallbackOnce that can call Dart once
+      js.context.testCallbackOnce = new js.Callback.once(callback);
+      
+      // call the javascript function and test that the callback worked
+      js.context.testCallbackOnce();
+      expect(called, equals(1));
+      
+      // test we can only call the function once
+      bool catched = false;
+      try {
+        js.context.testCallbackOnce();
+      } catch(e) {
+        catched = true;
+      }
+      expect(catched, isTrue);
+      expect(called, equals(1));
+    });
+    
+    // TODO arguments and callback multiple times
+  });
   
-  // keep objects alive in a long running JS communication 
-  testGlobalScope();
-}
-
-testDart2Js() {
-  js.scoped(() {
-    // call build in function
-    final a = js.context.parseInt('10');
-    expect(a, equals(10));
-    
-    // get proxy to JS object
-    final b = new js.Proxy(js.context.Date);
-    expect(b.getTime(), isNotNull);
-    
-    // call custom function (js.context is a proxy to the top level JS object)
-    final c = js.context.increment(1);
-    expect(c, equals(2));
+  test("keep objects alive in a long running JS communication ", () {
+    var x;
+    js.scoped(() {
+      x = js.context.objectTest("hello"); 
+      expect(x.getValue(), equals("hello"));
+      // retain proxy object when scope is ended
+      js.retain(x);
+    });
+    js.scoped(() {
+      x.setValue("world");
+      expect(x.getValue(), equals("world"));
+      
+      x.resetValue();
+      expect(x.getValue(), equals("hello"));
+      // release proxy object after use
+      js.release(x);
+    });
   });
 }
 
-testGlobalScope() {
-  var x;
-  js.scoped(() {
-    x = js.context.objectTest("hello"); 
-    expect(x.getValue(), equals("hello"));
-    // retain proxy object when scope is ended
-    js.retain(x);
-  });
-  js.scoped(() {
-    x.setValue("world");
-    expect(x.getValue(), equals("world"));
-    
-    x.resetValue();
-    expect(x.getValue(), equals("hello"));
-    // release proxy object after use
-    js.release(x);
-  });
-}
-
-testCallback() {
-  var called = 0;
-  var callback = () => called++;
-  
-  js.scoped(() {
-    // register a javascript function called testCallbackOnce that can call Dart once
-    js.context.testCallbackOnce = new js.Callback.once(callback);
-    
-    // call the javascript function and test that the callback worked
-    js.context.testCallbackOnce();
-    expect(called, equals(1));
-    
-    // test we can only call the function once
-    js.context.testCallbackOnce();
-    // TODO test exception when 
-  });
-  
-  // TODO arguments and callback multiple times
-}
 

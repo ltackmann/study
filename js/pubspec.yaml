@@ -3,3 +3,4 @@ description: JS Sandbox
 dependencies:
   js: any
   unittest: any
+  browser: any
