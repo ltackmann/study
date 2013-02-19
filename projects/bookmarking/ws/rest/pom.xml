@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.randompage.bookmarking</groupId>
+        <artifactId>bookmarking-parent</artifactId>
+        <version>1.0.0</version>
+        <relativePath>../../builds/pom.xml</relativePath>
+    </parent>
+    <artifactId>bookmarking-rest</artifactId>
+    <name>${project.artifactId}</name>
+    <packaging>war</packaging>
+    <dependencies>
+        <!-- Internal frameworks -->
+        <dependency>
+            <groupId>org.randompage.bookmarking</groupId>
+            <artifactId>bookmarking-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.randompage.bookmarking</groupId>
+            <artifactId>bookmarking-backend-spring</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.randompage.bookmarking</groupId>
+            <artifactId>bookmarking-schemas</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.randompage.bookmarking</groupId>
+            <artifactId>bookmarking-testUtils</artifactId>
+        </dependency>
+        <!-- Various frameworks -->
+        <dependency>
+            <groupId>com.sun.jersey.contribs</groupId>
+            <artifactId>jersey-spring</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <!-- needed for spring-security from intercept secured HTTP requests and from inject JAX-RS resources -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+        </dependency>
+
+        <!-- Test frameworks -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-all</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mortbay.jetty</groupId>
+            <artifactId>jetty-embedded</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-client</artifactId>
+        </dependency>
+    </dependencies>
+</project>

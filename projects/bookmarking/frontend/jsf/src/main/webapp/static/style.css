@@ -1,0 +1,87 @@
+/*
+ * blue: #c3d9ff
+ * blue (light): #e0ecff
+ * blue (dark): #0099FF
+ * green: #b5edbc
+ */
+
+#loginBox {
+    margin: 0 auto 10px auto;
+    background: #c3d9ff;
+    width: 205px
+}
+
+#loginBox h3 {
+    color: #0099FF;
+}
+
+#logout {
+    position: absolute;
+    right: 0pt;
+    top: 0pt;
+}
+
+#signupBox {
+    margin: 0 auto;
+    background-color: #b5edbc;
+    margin-bottom: 15px;
+    width: 205px
+}
+
+#signupBox h3 {
+    color: #1F7F00;
+}
+
+#loginBox table, #signupBox table {
+    border: medium none;
+    margin: 0pt;
+    padding: 0pt;
+}
+
+#loginBox form, #signupBox form {
+    display: block;
+    padding: 0pt 10px;
+}
+
+#userInfo {
+    position: absolute;
+    left: 0pt;
+    top: 0pt;
+}
+
+.bannerMessage {
+    color: #FF0099;
+    float: left;
+    font-size: 36px;
+    font-weight: bold;
+    width: 500px;
+    padding: 35px 0 0 20px;
+}
+
+.errors {
+    font-style: italic;
+    font-size: 11px;
+    color: red;
+}
+
+label {
+    -x-system-font: none;
+    color: #444444;
+    display: block;
+    font-family: verdana;
+    font-size: 11px;
+    font-weight: bold;
+    padding-top: 2px;
+}
+
+.evenRows {
+    background: #c3d9ff;
+}
+
+.oddRows {
+    background: #e0ecff;
+}
+
+.tags {
+    color: #b5edbc;
+}

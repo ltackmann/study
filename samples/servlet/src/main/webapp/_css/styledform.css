@@ -1,0 +1,23 @@
+@CHARSET "US-ASCII";
+@IMPORT url("basic.css");
+
+BODY {
+	background: #efe5d0;
+	font-family: Verdena, Helvetica, Ariel, sans-serif;
+	margin: 20px;
+}
+
+TD {
+	vertical-align: top;
+	padding-bottom: 15px;
+}
+
+TABLE TABLE {
+	border: none;
+	padding: 0px;
+}
+
+TABLE TABLE TD {
+	text-align: right;
+	padding-bottom: 0px;
+}

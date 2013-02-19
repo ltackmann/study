@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd">
+
+    <!-- load REST resource setup -->
+    <import resource="springResources.xml"/>
+
+    <!-- load spring backend configuration -->
+    <import resource="classpath*:/spring.xml"/>
+
+    <!-- configure spring security from protect resources based on role -->
+    <security:http auto-config="true">
+        <security:intercept-url pattern="/users" method="GET" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+        <security:intercept-url pattern="/**" access="ROLE_USER"/>
+    </security:http>
+</beans>

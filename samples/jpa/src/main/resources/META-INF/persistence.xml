@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="1.0"
+             xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+    <persistence-unit name="example"
+                      transaction-type="RESOURCE_LOCAL">
+        <provider>
+            org.eclipse.persistence.jpa.PersistenceProvider
+        </provider>
+        <class>org.randompage.samples.jpa.domain.Address</class>
+        <class>org.randompage.samples.jpa.domain.AuditLog</class>
+        <class>org.randompage.samples.jpa.domain.Category</class>
+        <class>org.randompage.samples.jpa.domain.Country</class>
+        <class>org.randompage.samples.jpa.domain.Customer</class>
+        <class>org.randompage.samples.jpa.domain.Employee</class>
+        <class>org.randompage.samples.jpa.domain.LoginLog</class>
+        <class>org.randompage.samples.jpa.domain.Order</class>
+        <class>org.randompage.samples.jpa.domain.OrderItem</class>
+        <class>org.randompage.samples.jpa.domain.Product</class>
+        <class>org.randompage.samples.jpa.domain.products.Book</class>
+        <class>org.randompage.samples.jpa.domain.products.Music</class>
+        <class>org.randompage.samples.jpa.domain.products.Software</class>
+        <class>org.randompage.samples.jpa.domain.Supplier</class>
+        <class>org.randompage.samples.jpa.domain.User</class>
+
+        <properties>
+            <property name="eclipselink.jdbc.user" value="dbuser"/>
+            <property name="eclipselink.jdbc.password" value="buf@s3123"/>
+            <property name="eclipselink.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="eclipselink.jdbc.url" value="jdbc:postgresql://127.0.0.1:5432/jpadb"/>
+            <!--<property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>-->
+            <property name="eclipselink.logging.level" value="INFO"/>
+        </properties>
+    </persistence-unit>
+</persistence>

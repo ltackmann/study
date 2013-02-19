@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+   		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.5.xsd
+       	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+	<!-- annotation based dependency injection -->
+	<context:component-scan base-package="org.randompage" />
+	<context:annotation-config />
+
+	<!-- constant injection -->
+	<bean id="appName" class="java.lang.String">
+		<constructor-arg>
+			<value>SeamWiki</value>
+		</constructor-arg>
+	</bean>
+
+	<!-- enables @AspectJ support -->
+	<aop:aspectj-autoproxy />
+
+	<!-- data source via JNDI -->
+	<jee:jndi-lookup id="dataSource"
+		jndi-name="java:comp/env/jdbc/seamdb" />
+
+	<!-- spring managed entity manager -->
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
+		<property name="persistenceUnitName" value="wiki" />
+	</bean>
+
+	<!-- SEAM managed, conversation scoped, entity manager -->
+	<bean id="seamEntityManagerFactory"
+		class="org.jboss.seam.ioc.spring.SeamManagedEntityManagerFactoryBean"
+		lazy-init="true">
+		<property name="persistenceContextName" value="entityManager" />
+		<property name="persistenceUnitName" value="wiki:seam" />
+	</bean>
+
+	<!-- enables @PersistenceUnit/@PersistenceContext annotations -->
+	<bean
+		class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor">
+		<property name="defaultPersistenceUnitName" value="wiki" />
+	</bean>
+
+	<!-- enables JPA transaction manager -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory"
+			ref="entityManagerFactory" />
+	</bean>
+
+	<!-- enables @Transactional for transaction management -->
+	<tx:annotation-driven proxy-target-class="true" />
+</beans>

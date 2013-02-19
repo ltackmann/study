@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="guestbook" namespace="/guestbook" extends="struts-default">
+<!--		<interceptors>-->
+<!--			<interceptor name="authentication"-->
+<!--				class="org.randompage.samples.struts2.demo.interceptors.AuthenticationInterceptor">-->
+<!--			</interceptor>-->
+<!--		</interceptors>-->
+		<action name="GuestBook_*" class="org.randompage.samples.struts2.demo.actions.GuestBookAction"
+			method="{1}">
+			<result name="input">/jsp/GuestBookInput.jsp</result>
+			<result name="success">/jsp/GuestBookMessages.jsp</result>
+			<result name="list">/jsp/GuestBookMessages.jsp</result>		
+		</action>
+	</package>
+</struts>

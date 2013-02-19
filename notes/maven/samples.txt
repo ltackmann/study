@@ -1,0 +1,110 @@
+[Lars Tackmann: 21-jun-2009, Maven: The Definitive Guide]
+
+==Maven help plugin==
+1. mvn help:help 
+    - information about how to use the help plugin
+2. mvn help:effective-settings 
+    - the settings this project will run with (i.e. combination of ~/.m2/settings.xml, M2_HOME/config and pom.xml)
+3. mvn help:effective-pom 
+    - shows effective pom with full version info, when all settings (inherited or configured) and default values are resolved. 
+4. mvn help:describe -Dplugin=surefire 
+    - describe specific plugin, such as supported goals (also takes version if needed).
+5. mvn help:describe -Dcmd=install 
+    - describe lifecycle/phase install (list order of commands and what plugin they will be delegated to)
+6. mvn help:describe -Dmojo=install -Dplugin=org.apache.maven.plugins:maven-install-plugin 
+    - see what parameters a goal takes 
+
+==Archetypes==
+> mvn archetype:create -DgroupId=dk.pfa -DartifactId=ny-portal
+ny-portal/ 
+ny-portal/pom.xml 
+ny-portal/src 
+ny-portal/src/main 
+ny-portal/src/main/java 
+ny-portal/src/main/java/dk 
+ny-portal/src/main/java/dk/pfa 
+ny-portal/src/main/java/dk/pfa/App.java 
+ny-portal/src/test ny-portal//src/test/java 
+ny-portal/src/test/java/dk
+ny-portal/src/test/java/dk/pfa 
+ny-portal/src/test/java/dk/pfa/AppTest.java
+
+==Testing==
+Skip using: -Dmaven.test.skip=true
+Ignore test by:
+---- 
+<plugin> 
+    <groupId>org.apache.maven.plugins</groupId> 
+    <artifactId>maven-surefire-plugin</artifactId> 
+    <configuration> 
+        <skip>false</skip> 
+        <testFailureIgnore>true</testFailureIgnore> 
+    </configuration> 
+</plugin>
+----
+
+==Properties==
+Accessed via ${NAME}:
+    - java.lang.System = ${user.home}, $java.home}...
+    - <properties> <property-name> VALUE </property-name> </properties>
+    - environment variables via fx. env.PATH
+    - project coordinates = ${project.version}, ${project.artifactId}. You may
+        see things such as pom.version this is the old deprecated method for accessing
+        project coordinates
+    - settings = settings from settings.xml (${settings.proxy} = access proxy info)
+
+==Profiles==
+Profiles are used for customizing builds for a particular env
+(production/deployment or mac/windows...) and can configure almost any aspects
+of a pom.
+----
+<profiles>
+    <profile>
+        <id>production</id>
+        <build>
+            <defaultGoal>
+            <finalName>
+            <resources>
+            <testResources>
+            <plugins>
+        </build>
+        <reporting>
+        <modules>
+        <dependencies>
+        <dependencyManagement>
+        <pluginManagement>
+        <distributionManagement>
+        <repositories>
+        <pluginRepositories>
+        <properties>
+    <profile>
+ </profiles>
+----
+
+When the profile is activated it replaces the sections already in and/or adds
+new ones (to remove a section add a empty section in the profile). Profiles are
+activated by:
+    - Default: <profile><activation><activeByDefault> (i.e. unless other is specified)
+    - Name: mvn -Pprofile
+    - Java version: <profile><activation><jdk>1.5
+    - OS: <profile><activation><os><name>Windows XP
+        = Can also specify version number
+    - Property <profile><activation><property><name>mavenVersion</name><value>2.0.7
+        = Can also activate on absence of property: <profile><activation><property><name>!env.dev
+        = Note env will access the OS environment variables and look for a variable called dev
+    - File <profile><activation><file><exists>dev.env<exists>
+        = Can also target <missing> files
+
+Profiles can be placed in file for them self by creating a file called
+profiles.xml or they can be made global in settings.xml (this file can also set
+the default (settings) profile via the <activeProfiles> element) You can see
+what profiles exists on any given time with: mvn help:active-profiles.
+
+==Versions==
+1. versions:display-dependency-updates
+    - display artifacts where new versions are avaliable
+2. versions:display-plugin-updates
+    - display plugins where new versions are avaliable
+3. versions:update-child-modules
+    - update parent version number in child modules
+

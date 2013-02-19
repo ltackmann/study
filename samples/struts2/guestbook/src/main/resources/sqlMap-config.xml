@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMapConfig
+PUBLIC "-//iBATIS.com//DTD SQL Map Config 2.0//EN"
+"http://www.ibatis.com/dtd/sql-map-config-2.dtd">
+<sqlMapConfig>
+	<settings cacheModelsEnabled="true" enhancementEnabled="true"
+		lazyLoadingEnabled="true" maxRequests="32" maxSessions="10"
+		maxTransactions="5" useStatementNamespaces="false" />
+	<transactionManager type="JDBC">
+		<dataSource type="SIMPLE">
+			<!--
+				property name="JDBC.Driver" value="org.postgresql.Driver" />
+				<property name="JDBC.ConnectionURL"
+				value="jdbc:postgresql://localhost:5432/devdb" /
+			-->
+			<property name="JDBC.Driver" value="oracle.jdbc.driver.OracleDriver" />
+			<property name="JDBC.ConnectionURL" value="jdbc:oracle:thin:@127.0.0.1:1521:XE" />
+			<property name="JDBC.Username" value="strutsdemo" />
+			<property name="JDBC.Password" value="secret" />
+		</dataSource>
+	</transactionManager>
+	<!--  sqlMap resource="schema/PostgreSQL.xml" /-->
+	<sqlMap resource="schema/Oracle.xml" />
+	<sqlMap resource="mapping/User.xml" />
+</sqlMapConfig>

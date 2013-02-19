@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="UserSQL">
+	<!-- class mappings -->
+	<typeAlias alias="user"
+		type="org.randompage.samples.struts2.demo.domain.User" />
+	<resultMap id="userResult" class="user">
+		<result property="id" column="id" />
+		<result property="firstName" column="first_name" />
+		<result property="lastName" column="last_name" />
+		<result property="username" column="username" />
+	</resultMap>
+	
+	<!-- parameter mappings -->
+	<parameterMap id="userParam" class="user">
+		<parameter property="firstName" />
+		<parameter property="lastName" />
+		<parameter property="username" />
+		<parameter property="id" />
+	</parameterMap>
+	
+	<!-- Stored procedures -->
+	<procedure id="getUsersLike" resultMap="userResult">
+		<![CDATA[
+			{call ? = findUsersLike(#value#)}
+		]]>
+	</procedure>
+	
+	<!-- SQL for CRUD -->
+	<select id="getUsers" resultMap="userResult">
+    	<![CDATA[
+        	select * from users
+    	]]>
+	</select>
+	<select id="getUser" resultMap="userResult">
+    	<![CDATA[
+        	select * from users where username = #username#
+    	]]>
+	</select>
+	<insert id="addUser" parameterMap="userParam">
+		<selectKey resultClass="int" keyProperty="id">
+		<![CDATA[
+			select seq_users_id.nextval as id from dual
+		]]>
+		</selectKey>       
+		<![CDATA[
+            insert into users (first_name,last_name,username,id) values ( ?,?,?,? )
+        ]]>
+	</insert>
+	<update id="updateUser" parameterMap="userParam">
+    	<![CDATA[
+        	update users set first_name = ?, last_name = ?, username = ? where id = ?
+    	]]>
+	</update>
+	<delete id="deleteUser">
+    	<![CDATA[
+        	delete from users where username = #username#
+    	]]>
+	</delete>
+</sqlMap>

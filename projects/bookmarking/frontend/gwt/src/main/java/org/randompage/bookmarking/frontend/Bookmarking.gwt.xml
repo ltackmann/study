@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to='bookmarking'>
+    <!-- Inherit the core Web Toolkit stuff. -->
+    <inherits name='com.google.gwt.user.User'/>
+    <inherits name="com.google.gwt.resources.Resources"/>
+    <inherits name="com.google.gwt.i18n.I18N"/>
+    <inherits name="org.randompage.bookmarking.api.Api"/>
+
+    <!-- inherit default GWT styles -->
+    <inherits name="com.google.gwt.user.theme.standard.Standard"/>
+    <inherits name="com.google.gwt.json.JSON"/>
+    <!-- custom style sheets (IMPORTANT this must come after the styles inherited
+        from GWT as we are overwriting some of them) -->
+    <stylesheet src="layout.css"/>
+    <stylesheet src="design.css"/>
+
+    <!-- App entry point class. -->
+    <entry-point class="org.randompage.bookmarking.frontend.client.BookmarkingEntryPoint"/>
+
+    <!-- Specify the paths for translatable code -->
+    <source path="client"/>
+    <source path="shared"/>
+
+    <!-- default local configuration -->
+    <extend-property name="locale" values="en"/>
+</module>

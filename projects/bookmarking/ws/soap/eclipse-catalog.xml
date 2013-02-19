@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE catalog
+   PUBLIC "-//OASIS/DTD Entity Resolution XML Catalog V1.0//EN"
+   "http://www.oasis-open.org/committees/entity/release/1.0/catalog.dtd">
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+	<group prefer="public"
+		xml:base="platform:/resource/bookmarking-ws-soap/src/schemas/bookmarking/v1/">
+		<!-- resolve by name-space -->
+		<public publicId="http://www.randompage.org/xml/ns/bookmarking/v1/request"
+			uri="BookmarkingRequest.xsd" />
+		<public publicId="http://www.randompage.org/xml/ns/bookmarking/v1/response"
+			uri="BookmarkingResponse.xsd" />
+		<!-- resolve by location -->
+		<system
+			systemId="http://host/schemas/bookmarking/v1/BookmarkingRequest.xsd"
+			uri="BookmarkingRequest.xsd" />
+		<system systemId="http://host/schemas/bookmarking/v1/BookmarkingResponse.xsd"
+			uri="BookmarkingResponse.xsd" />
+	</group>
+</catalog>

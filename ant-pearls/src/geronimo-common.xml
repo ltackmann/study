@@ -1,0 +1,57 @@
+<project name="glassfish-common" basedir=".">
+	<property file="../config/system.properties" />
+	<property name="login" value="--user ${geronimo.user} --password ${geronimo.pwd}" />
+
+	<macrodef name="geronimo-start" description="Starts Geronimo">
+		<sequential>
+			<if>
+				<http url="${geronimo.url}" />
+				<then>
+					<echo level="info">Geronimo is already running</echo>
+				</then>
+				<else>
+					<echo level="info">Starting Geronimo...</echo>
+					<exec spawn="true" dir="${geronimo.home}" executable="${geronimo.bin}/${geronimo.start}">
+					</exec>
+				</else>
+			</if>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="geronimo-stop" description="Stops Geronimo">
+		<sequential>
+			<if>
+				<http url="${geronimo.url}" />
+				<then>
+					<echo level="info">Stopping Geronimo...</echo>
+					<exec dir="${geronimo.home}" executable="${geronimo.bin}/${geronimo.stop}">
+						<arg line="${login}" />
+					</exec>
+				</then>
+				<else>
+					<echo level="info">Geronimo is not running!</echo>
+				</else>
+			</if>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="deploy" description="Deploy application">
+		<attribute name="target" />
+		<sequential>
+			<echo level="info">Deploying @{target}</echo>
+			<exec dir="${geronimo.home}" executable="${geronimo.bin}/${geronimo.deploy}" failonerror="true">
+				<arg line="${login} deploy @{target}" />
+			</exec>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="undeploy" description="Undeploy application">
+		<attribute name="target" />
+		<sequential>
+			<echo level="info">Undeploying @{target}</echo>
+			<exec dir="${geronimo.home}" executable="${geronimo.bin}/${geronimo.deploy}" failonerror="false">
+				<arg line="${login} undeploy @{target}" />
+			</exec>
+		</sequential>
+	</macrodef>
+</project>

@@ -1,0 +1,33 @@
+- TODO:
+- make rerunable unit tests
+- create login page
+- add navigation.xml (see JSF samples)
+- use selenium/webtest instead of 
+- use guice to inject iBATIS connection
+- add validation of user creation form (both xml and annotation based validation)
+- ensure that only logged in user can view page (auth interceptor)
+- iBATIS mapping (see http://www.javalobby.org/articles/ibatis-introduction/)
+- iBATIS function/procedure call
+- Add some pretty CSS
+- Logging (clean up log4j.properties)
+
+- Story:
+0) all users can view guest book entries (front page)
+1) User should be created
+2) Auth users can write guest book entries
+3) ensure that this is not possible for non auth.
+4) Auth users can delete their own entries 
+5) Test that users cannot delete other users entries (unless ADMIN user).
+6) Delete page and creation page should only be viewable by auth users
+7) JSP should be protected (WEB-INF or jsp security filter ala. xhtml from SEAM).
+8) Exceptions should be redirected to special error page
+
+- links:
+http://www.javabeat.net/articles/67-struts-20-introduction-and-validations-using-annotatio-1.html
+http://www.wantii.com/wordpress/?p=13
+http://www.vitarara.org/cms/struts_2_cookbook/creating_a_ui_component
+
+- postgresql
+CREATE DATABASE guestbookdb
+  WITH ENCODING='UTF8'
+       OWNER="admin";

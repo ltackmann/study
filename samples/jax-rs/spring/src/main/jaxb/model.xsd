@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified">
+	<!-- ROOT ELEMENTS -->
+	<xsd:element name="users">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="user" maxOccurs="unbounded" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="user">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element name="id" type="xsd:long" />
+				<xsd:element name="name" type="xsd:string" />
+				<xsd:element name="username" type="xsd:string" />
+				<xsd:element name="password" type="xsd:string" />
+				<xsd:element name="role" type="UserRole" />
+			</xsd:all>
+		</xsd:complexType>
+	</xsd:element>
+	
+    <!-- TYPES -->
+	<xsd:simpleType name="UserRole">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="USER" />
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

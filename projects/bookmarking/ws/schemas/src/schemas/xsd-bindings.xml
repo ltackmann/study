@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jaxb:bindings jaxb:version="2.1"
+               xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+               xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://java.sun.com/xml/ns/jaxb http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd">
+    <!-- Global customization -->
+    <jaxb:bindings>
+        <jaxb:globalBindings>
+            <!-- Customize Java/XML mapping -->
+            <jaxb:javaType name="java.util.Date" xmlType="xsd:dateTime"
+                           parseMethod="org.randompage.bookmarking.schemas.adapters.DateAdapter.parseDate"
+                           printMethod="org.randompage.bookmarking.schemas.adapters.DateAdapter.printDate"/>
+            <!-- Enable XML root elements -->
+            <xjc:simple/>
+        </jaxb:globalBindings>
+    </jaxb:bindings>
+    <!-- Custom bindings for Common.xsd -->
+    <jaxb:bindings schemaLocation="bookmarking/v1/common/Common.xsd" node="/xsd:schema">
+        <jaxb:schemaBindings>
+            <jaxb:package name="org.randompage.bookmarking.ws.api"/>
+        </jaxb:schemaBindings>
+    </jaxb:bindings>
+     <!-- Custom bindings for Users.xsd -->
+    <jaxb:bindings schemaLocation="bookmarking/v1/users/Users.xsd" node="/xsd:schema">
+        <jaxb:schemaBindings>
+            <jaxb:package name="org.randompage.bookmarking.ws.api"/>
+        </jaxb:schemaBindings>
+        <jaxb:bindings node="//xsd:element[@name='user']">
+			<jaxb:class name="UserType" />
+		</jaxb:bindings>
+    </jaxb:bindings>
+</jaxb:bindings>

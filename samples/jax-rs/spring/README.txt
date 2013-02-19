@@ -1,0 +1,1 @@
+# generate JAXB XML beans by running: "mvn generate-sources"

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+    <!-- Module for selected parts of the core shared model -->
+    <source path="domain">
+        <include name="**/Role.java"/>
+    </source>
+</module>

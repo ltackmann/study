@@ -1,0 +1,41 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+	version="1.0">
+	<persistence-unit name="wiki"
+		transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<non-jta-data-source>
+			java:comp/env/jdbc/wikidb
+		</non-jta-data-source>
+		<class>org.randompage.samples.seam.wiki.domain.User</class>
+		<class>org.randompage.samples.seam.wiki.domain.LoginLog</class>
+
+		<properties>
+			<!-- connection pool -->
+			<property name="hibernate.c3p0.acquire_increment" value="2" />
+			<property name="hibernate.c3p0.idle_test_period" value="60" />
+			<property name="hibernate.c3p0.min_size" value="2" />
+			<property name="hibernate.c3p0.max_size" value="20" />
+			<property name="hibernate.c3p0.max_statements" value="0" />
+			<property name="hibernate.c3p0.timeout" value="1800" />
+			<property name="hibernate.c3p0.unreturnedConnectionTimeout" value="120" />
+			<property name="hibernate.c3p0.debugUnreturnedConnectionStackTraces" value="true" />
+				
+			<!-- configuration -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.DerbyDialect" />
+			<property name="hibernate.generate_statistics" value="true" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
+
+			<!-- session-per-transaction strategy -->
+			<property name="hibernate.current_session_context_class" value="thread" />
+			<property name="hibernate.transaction.factory_class"
+				value="org.hibernate.transaction.JDBCTransactionFactory" />
+
+			<!-- disable cache -->
+			<property name="hibernate.cache.provider_class"
+				value="org.hibernate.cache.NoCacheProvider" />
+		</properties>
+	</persistence-unit>
+</persistence>

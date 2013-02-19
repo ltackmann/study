@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP-ENV:Header/>
+   <SOAP-ENV:Body>
+      <ns2:HolidayResponse xmlns:ns2="http://randompage.org/hr/schemas">
+         <ns2:HolidayGranted>false</ns2:HolidayGranted>
+         <ns2:HolidayList/>
+      </ns2:HolidayResponse>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

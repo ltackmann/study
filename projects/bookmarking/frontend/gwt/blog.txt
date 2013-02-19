@@ -1,0 +1,105 @@
+##########################################################
+### Lessons Learned from an Enterprise GWT Application ###
+##########################################################
+
+Everybody wants funky, graphically impressive enterprise applications these days. I have recently worked on a large
+portal project where GWT was deployed without much success. This article discusses what went wrong and what I would
+do differently if I had to do it all again. It also includes my best shot at a sample GWT application done right.
+
+[GWT: An unfulfilled promise]
+So why did it go wrong ?, interestingly the fault did not lie with GWT, instead an old culprit showed its ugly face
+again. "Never start on a project without having well defined technical requirements and a prototype that supports
+these requirements." Ignore the business requirements; you will never get a full specification beforehand anyway.
+But you need to ensure that your technical architecture can support your business:
+- Should the page loads partially or fully ?. GWT is good for asyncronoys partial loading of separate widgets, it
+is not so great for coordinated loading of many widgets. If you want such functionality use a server side framework
+such as JSF or ASP.NET.
+- Do you design for testing ?. Technically GWT allows you to unit test everything, including your view code. But
+only if you design for testing, using the Model-View-Presenter pattern.
+- How and on which level is security going to be enforced ?. GWT itself is fairly secure (the security company
+we hired could not crack it) but how about application and business security ?. Are you going to handle a lot of
+adaptive content, where certain users are not allowed access to links, forms, tabs ?. GWT excels at this stuff,
+but if you want a unified security model then you will have to roll your own little security framework. So if in-house
+framework development scares you, then don't use GWT.
+- Transient data. If your user object have a password field and you use it on the client then you better make it
+transient. Server side frameworks does not have this problem, as the data is not going to be exposed unless
+you do explicitly.
+
+This is a long list, however if you stick with GWT it really boils down to one requirement "design to test". If you
+cannot test your neatly layered application, how many layers do you then have ?. Your UML model might show 3, 5 or
+even 7 layers but if they cannot be tested separately then you really only have one spaghetti layer.
+
+How does one escape the spaghetti tarpit ?. In the attached sample project I have managed to cook
+up a rather nifty design by being completely anal about ensuring I can mock each layer as I pleace. Now
+you might claim, that dependency injection (say using Spring) allows your to replace any part of your code as
+you see fit. Ha ha ha.. here is a dollar, go get yourself a new Java book. What most people will experience
+once they actually try to mock is that cannot test anything without having a full blown DI container running.
+
+To sum up, don't just talk about how your awesome application design allows for separate testing of each layer.
+You have to actually do it, to see if its even possible. And when it fails, you will just have keep refactoring
+until it works.
+
+[TESTING]
+GWT views are notoriously hard to test. However inability to test is usually a consequence of bad design and this
+is also the case of most GWT views. Many come to GWT with some knowledge of server side web programming, using the
+model-view-controller approach. Lets consider how a modern server side MVC framework such as JSF would implement a
+login form:
+1) A view would be implemented using XHTML (facelets), containing a username and password input field bound to
+   a backing model bean and a login button bound to some server side controller using a HTML form (POST).
+2) The user enters his data and pushes the login button, causing the browser to post the login form to the server,
+here username and password will be bound to a model bean which will be passed on to a login controller that
+decides if the user will have access or not.
+3) The view is updated based on the answer from the controller (i.e. access granted or denied).
+
+Thus we see the following characteristics of MVC
+
+* The view (login form) communicates both with the model (backing bean) and the controller (server side form handler)
+* The controller updates the view and uses the model.
+
+This design can become problematic if an unhealthy amount of business logic is pushed to the view. In the case of
+JSF this is rarely a problem as the amount of frontend business logic constructible using its expression language
+is rather limited (with good reason). However for GWT we have full access to the Java language inside our views,
+allowing us to pollute the frontend with any amount of devilish business rules.
+
+As pointed out by the fine folks at Google we can solve this problem by using the model-view-presenter design
+pattern. Using this approach the above Login form would function like this:
+1) The view builds a login form. It also constructs a presenter and passes a reference to itself on to this presenter.
+2) A user fills in the form causing a eventhandler in the view to notify the presenter. The presenter then
+performs the business logic (i.e. contact backend services to figure out if access should be granted or denied)
+and then updates the view accordingly.
+
+In this design the view becomes passive, it's only responsibility is to notify the presenter when events happens, causing
+the presenter to update the model and the view accordingly. This design forces all business logic out of the view, creating
+presenter classes that can easily be tested. Of cause for the entire application to be testable we would have to require
+that our backend services are also subject to tests.
+
+The application outlined below uses the model-view-presenter paradigm and uses dependency injection in our backend
+services to facilitate easy testing of the separate layers.
+
+
+[Resources]
+- EventBus
+*** http://www.webspin.be/2009/06/learning-gwt-managing-events-with-eventbus/
+*** http://www.youtube.com/watch?v=PDuhR18-EdM
+*** http://groups.google.com/group/Google-Web-Toolkit/browse_thread/thread/8b0ae5eaf84d8bc2
+- MVP
+http://code.google.com/webtoolkit/doc/latest/tutorial/mvp-architecture.html
+http://code.google.com/webtoolkit/articles/testing_methodologies_using_gwt.html
+http://www.martinfowler.com/eaaDev/uiArchs.html
+- GWT
+*** http://code.google.com/p/google-web-toolkit/wiki/WAR_Design_1_6
+*** http://code.google.com/webtoolkit/doc/1.6/ReleaseNotes_1_6.html
+- Spring
+*** http://www.tapina.com/blog/integrating-gwt-with-spring.html
+(END)
+
+==Open Issues==
+- Describe event handling and that this is only nice if many things must change immediatly on value change
+and can do so without server intervention
+- Describe async testing
+- Describe internationalization
+- Describe Spring/security (GWT client/server security is hard - transient fields)
+- Session problems. Server side and client side session is hard.
+- Needs access to source files inorder to compile to JavaScript
+---> DigestUtils for hashing passwords and reflection in toString
+---> Use interfaces or DTOs instead

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<entity-mappings
+        xmlns="http://www.eclipse.org/eclipselink/xsds/persistence/orm"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.eclipse.org/eclipselink/xsds/persistence/orm
+            http://www.eclipse.org/eclipselink/xsds/eclipselink_orm_1_0.xsd"
+        version="1.0">
+    <!--<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"-->
+    <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+    <!--xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm-->
+    <!--http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"-->
+    <!--version="1.0">-->
+
+    <!-- Address queries -->
+    <named-query name="Address.findByCountry">
+        <query>select a from Address a where a.country = ?1</query>
+    </named-query>
+    <named-query name="Address.findByCountryCodes">
+        <query>select a from Address a where a.country.code in (?1)</query>
+    </named-query>
+
+    <!-- Product queries -->
+    <named-query name="Product.findInList">
+        <query>select p from Product p where p.productName in (?1)</query>
+    </named-query>
+
+    <!-- Supplier queries -->
+    <named-query name="Supplier.findByName">
+        <query>select s from Supplier s where s.name like ?1</query>
+    </named-query>
+    <named-query name="Supplier.updateContactLike">
+        <query>update Supplier s set s.contactPerson = ?1
+            where s.contactPerson like ?2
+        </query>
+    </named-query>
+
+    <!-- -->
+    <named-stored-procedure-query name="User.findByUsername" procedure-name="get_user"
+                                  result-class="org.randompage.samples.jpa.domain.User">
+        <parameter query-parameter="username" name="v_username"/>
+    </named-stored-procedure-query>
+</entity-mappings>

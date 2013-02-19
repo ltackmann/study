@@ -1,0 +1,54 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.randompage.samples.ws</groupId>
+		<artifactId>ws-project</artifactId>
+		<version>1.0-SNAPSHOT</version>
+		<relativePath>../project/pom.xml</relativePath>
+	</parent>
+	<artifactId>ws-api</artifactId>
+	<name>${project.artifactId}</name>
+	<dependencies>
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.xml.ws</groupId>
+			<artifactId>webservices-rt</artifactId>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jaxws-maven-plugin</artifactId>
+				<version>1.12</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>wsimport</goal>
+						</goals>
+						<configuration>
+							<verbose>true</verbose>
+							<xdebug>true</xdebug>
+							<wsdlDirectory>src/main/resources/</wsdlDirectory>
+							<wsdlFiles>
+								<wsdlFile>holiday.wsdl</wsdlFile>
+							</wsdlFiles>
+							<bindingDirectory>src/main/resources/</bindingDirectory>
+							<bindingFiles>
+								<!-- customize XML mapping -->
+								<bindingFile>xsd-bindings.xml</bindingFile>
+								<!-- customize WSDL mapping -->
+								<bindingFile>wsdl-bindings.xml</bindingFile>
+							</bindingFiles>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

@@ -1,0 +1,117 @@
+[Lars Tackmann: 10-july-2008, Core JavaServer Faces, 2ed]
+
+==Goals==
+* Master the JSF programming model
+* Learn to use custom renders, localization, adaptive content, input conversion/validation, error handling, result paging ....
+* Discover JSF best practices, problems and pitfalls.
+* Learn how to build reusable user interface components.
+
+
+==Success==
+* Implemented a example applications that covers all major areas of JSF.
+* Learned why one should use Facelts and understood why using JSF with JSP can cause problems.
+* Learned how to use JSF together with Spring applications.
+* Build a AJAX/GWT enabled JSF component.
+
+
+==Expert Questions==
+Q: What problems arise when using JSP together with JSF. 
+A: JSFs works by first creating a pages components, then asking them process their input (if any), and finally to render themselves.
+When you use JSF with JSP these steps that should happen sequntially will happen in parallel (due to the fact that JSP generates a
+response by processing a page in one pass from top to buttom). So if we have this JSF view inside a JSP page
+----
+<f:view>
+  <h:form>
+    <h:outputLabel for="name">
+      <h:outputText value="Name:" />
+    </h:outputLabel>
+    <h:inputText id="name" />
+    <h:commandButton value="Submit" />
+  </h:form>
+</f:view>
+----
+the following will happen 
+1. First time a page is visited JSF creates a new compoenet tree (UIViewRoot) and forwards the request to the JSP container. 
+2. JSP process the page from top to buttom and invokes the JSF tag action handler for each component it encounters.
+3. Each tag handler will create its component, add it to the component tree and ask the component to render itself 
+    (it must render immediatly as JSP processes the page top-down in a single pass).
+
+So on the first request, the <h:outputLabel> action creates its component and asks it to render itself, but this cannot happen as
+the component referenced in the "for" attribute doesn't exists yet, so the <h:outputLabel> action can't render its <label>
+element.  On the second request, all components already exist, so the component represented by the <h:outputLabel> finds the
+component the label belongs to and happily renders the <label> element. Another sample of the JSP vs JSF lifecycle problem is
+demostrated with this code
+----
+<h:panelGroup>
+  <h:outputText value="Some text" />
+  Some more text
+</h:panelGroup>
+----
+
+Which in JSP gets rendered in reverse. This happens because the JSP container adds the plain text to the response as soon as it
+encounters it, but the <h:panelGroup> tag is a component type that renders its children itself, and that doesn't happen until the
+custom action end tag is reached. [More here http://onjava.com/pub/a/onjava/2004/06/09/jsf.html]
+
+Q; What is Facelets and why use it
+A: Facelets is a rendering technology based on XML/XHTML, it follows the JSF lifecycle and provides a clean seperation between
+views and logic (since XHTML, unlike JSP, cannot contain Java code). It also allows you to create Tiles style templates to
+seperate layout and content to facilitate reuse. Finally it enables you to build your pages using a visual XHTML designer by
+attaching components via the "jsfc" attribute 
+----
+<input type="submit" jsfc="h:commandButton" .../>
+----
+unfortunatly this does not scale to advanced compoenets such as h:dataTable.
+
+Q: What is the design philosophy behind JSF ?: 
+A: 
+    1. Not having to mix code and markup (JSP) 
+    2. Allowing for easy reuse of UI components. 
+    3. Support different render technologies (endpoints like web browsers, phones, CLI). 
+    4. Separation of presentation, business logic, navigation and external service dependencies.
+    5. Abstract the low level HTTP nitty gritty details. 
+
+Q: What is the core technologies that a modern web framework must contain ?: 
+A: 
+    - Sub views (templating): Reuse of common layout elements accross pages
+    - Internationalization: adapt text and content to the users locale. 
+    - Adaptive content: render site content differently according to some business rule. 
+
+Q: Describe the JSF event and session model: 
+
+Q: Describe the JSF life cycle: 
+
+Q: What is the difference between a resource and a message bundle: 
+
+Q: What is a managed bean and which types exists and why ?: 
+A: A managed bean is a software component that is accessible in EL expressions. Four different types exists, separated by their session scope.
+    - None scoped: Not bound to any scope, only available for EL expressions in other beans (QUESTION is this true ?). 
+    - Application scoped: Available throughout the lifetime of the application and can be injected into every other session scoped bean 
+    - Session scoped: Available in the current HTTP session context (i.e. retrievable by the clients cookie identifier). 
+    - Request scoped: Available in the current HTTP request (i.e. lost when the next redirect is performed). 
+
+Q: What is a JSF component, how are they build and how do they relate to renders ?. 
+
+Q: What are data tables, descibe their advantages/disadvangtes. What alternatives exists. 
+A: A data table is a simplified way to display tabulated data. 
+    - Advantages:  Simple and standadized way to display tables 
+    - Disadvantages: Cannot handle arbitray collection backends (i.e. Sets, navigatable maps). Has no default support for paging of results.
+    - Alternatives: 
+        = Datascroller 
+        = Rich faces 
+
+Q: Explain the difference and use of div/span and id/class tags. 
+
+Q: What is a anchor element. 
+A: Part the URL which follows a #. Such elements are not posted to the server but can be used client side for JavaScript state
+(fx. to keep track on history). 
+
+Q: What is cross site scripting attacks and how does JSF help you to prevent them. 
+
+Q: Describe the use and difference between the Java script elements listed below: 
+    - onClick: Script fired when element is clicked.
+    - onSubmit: Occurs when a form is submitted. It only applies to the FORM element.
+    - onChange: Script fired when client changes values. Typically used together with a submit which posts the surrounding form
+      (onChange="submit()") 
+    - onMouseOver: Script fired when mouse is moved onto an element.
+    - onSelect: Occurs when a user selects some text in a text field 
+

@@ -1,0 +1,13 @@
+@CHARSET "US-ASCII";
+
+TABLE {
+	border: thin dotted #7e7e7e;
+	padding: 10px;
+}
+
+TH {
+	text-align: right;
+	vertical-align: top;
+	padding-right: 10px;
+	padding-top: 2px;
+}

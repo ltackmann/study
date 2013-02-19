@@ -1,0 +1,6 @@
+<!-- JNDI for tomcat -->
+<Context reloadable="true" privileged="true" crossContext="true">
+    <Resource name="jdbc/devdb" auth="Container"
+              type="javax.sql.DataSource" driverClassName="org.h2.Driver"
+              url="jdbc:h2:~/.h2/devdb;FILE_LOCK=NO" username="" password=""/>
+</Context>

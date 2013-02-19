@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.w3.org/1999/xhtml http://www.w3.org/2002/08/xhtml/xhtml1-transitional.xsd">
+<f:view>
+    <head>
+        <meta http-equiv="Content-Type"
+              content="text/html; charset=ISO-8859-1"/>
+        <title>
+            <h:outputFormat value="#{msgs.messageWindowTitle}">
+                <f:param value="#{message.title}"/>
+            </h:outputFormat>
+        </title>
+        <link href="static/layout.css" type="text/css" rel="stylesheet"/>
+        <link href="static/style.css" type="text/css" rel="stylesheet"/>
+    </head>
+    <body>
+    <div id="wrapper">
+        <div id="container">
+            <h:outputLabel value="#{msgs.messageTitleLabel}"/>
+            <h:outputText value="#{message.title}"/>
+            <br/>
+            <h:outputLabel value="#{msgs.messageTextLabel}"/>
+			<pre>
+			    <h:outputText value="#{message.text}"/>
+			</pre>
+        </div>
+    </div>
+    </body>
+</f:view>
+</html>

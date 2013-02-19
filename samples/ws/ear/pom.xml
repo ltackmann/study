@@ -1,0 +1,44 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.randompage.samples.ws</groupId>
+		<artifactId>ws-project</artifactId>
+		<version>1.0-SNAPSHOT</version>
+		<relativePath>../project/pom.xml</relativePath>
+	</parent>
+	<artifactId>ws-ear</artifactId>
+	<packaging>ear</packaging>
+	<name>${project.artifactId}</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.randompage.samples.ws</groupId>
+			<artifactId>ws-impl</artifactId>
+			<version>${project.version}</version>
+			<type>war</type>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-ear-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+						</manifest>
+					</archive>
+					<modules>
+						<webModule>
+							<groupId>org.randompage.samples.ws</groupId>
+							<artifactId>ws-impl</artifactId>
+							<context-root>service</context-root>
+						</webModule>
+					</modules>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://www.randompage.org/xml/ns/bookmarking/v1/tags"
+            targetNamespace="http://www.randompage.org/xml/ns/bookmarking/v1/tags"
+            elementFormDefault="qualified" version="1.0">
+
+    <!-- types -->
+    <xsd:complexType name="TagType">
+        <xsd:sequence>
+            <xsd:element name="Tag" type="xsd:token"/>
+            <xsd:element name="CreationDate" type="xsd:dateTime"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="TagList">
+        <xsd:sequence maxOccurs="unbounded">
+            <xsd:element name="Tags" type="TagType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

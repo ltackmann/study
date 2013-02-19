@@ -1,0 +1,101 @@
+body {
+	background-color: #FFFFFF;
+	color: #202020;
+	font-family: Arial, Helvatica, sans-serif;
+	margin: auto auto 15px;
+	padding: 0pt;
+	width: 800px;
+}
+
+#login_div .submit {
+	margin: 10px 0pt 0pt;
+	vertical-align: text-bottom;
+}
+
+#signup_div {
+	font-size: 12px;
+	margin-top: 20px;
+}
+
+dt,form,dl {
+	font-size: 12px;
+	margin: 0pt;
+	padding: 0pt;
+}
+
+.sign_up {
+	text-decoration: underline;
+}
+
+#header {
+	border-bottom: 1px solid #999999;
+	height: 50px;
+	padding-top: 13px;
+	text-align: center;
+}
+
+#header_right {
+	float: right;
+	font-size: 11px;
+	text-align: right;
+}
+
+img {
+	border: 0pt none;
+	vertical-align: middle;
+}
+
+#footer {
+	border-top: 1px solid #999999;
+	color: #555555;
+	font-size: 11px;
+	margin: 350px 0pt 20px;
+	padding: 8px 0pt;
+	text-align: center;
+}
+
+#logo {
+	float: left;
+	margin-top: 4px;
+}
+
+.column {
+	float: left;
+	position: relative;
+}
+
+#login_div {
+	float: right;
+	margin: 0pt 0pt 18px 18px;
+	padding: 4px 15px 10px;
+	width: 220px;
+}
+
+#center {
+	padding: 0pt 20px;
+	width: 100%;
+}
+
+.forgot { /* float: right; */
+	font-size: 11px;
+}
+
+
+a, .highlighted {
+	padding: 1px;
+	color: blue;
+}
+
+a {
+	text-decoration: none;
+}
+
+.important {
+	background: #FFCC00;
+	text-decoration: none;
+}
+
+.column {
+	padding-top: 1em;
+	text-align: justify;
+}

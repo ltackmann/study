@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="US-ASCII" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII"/>
+<link type="text/css" rel="stylesheet" href="../_css/styledform.css"/>
+<title>Form Data Test</title>
+</head>
+<body>
+<h1>The Mighty Tea Machine</h1>
+<h2>Fill out the form below and click submit to order</h2>
+
+<form action="../servlets/formprinter" method="post">
+
+<table>
+	<tr>
+		<th>Choose your tea type:</th>
+		<td><select name="Tea type">
+			<option value="Green Tea">Green Tea</option>
+			<option value="Black Tea">Black Tea</option>
+			<option value="White Tea">White Tea</option>
+		</select></td>
+	</tr>
+
+	<tr>
+		<th>Amount:</th>
+		<td><input type="radio" name="tea-pot" value="pot" />Tea Pot<br />
+		<input type="radio" name="tea-cup" value="cup" checked="checked" />Tea
+		Cup<br />
+		</td>
+	</tr>
+
+	<tr>
+		<th>Extras:</th>
+		<td><input type="checkbox" name="champagne" value="champagne" />Champagne<br />
+		<input type="checkbox" name="cake" value="cake" />Chocolate Cake<br />
+		<input type="checkbox" name="catalog" value="catalog"
+			checked="checked" />Include catalog with order<br />
+		</td>
+	</tr>
+
+	<tr>
+		<th>Credit card:</th>
+		<td>
+		<table>
+			<tr>
+				<td>Card type:</td>
+				<td><select name="Card type">
+					<option value="Visa">Visa</option>
+					<option value="Master Card">Master Card</option>
+					<option value="American Express">American Express</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>Name on card:</td>
+				<td><input type="text" name="cardholder" value="" /></td>
+			</tr>
+			<tr>
+				<td>Card number:</td>
+				<td><input type="text" name="cardholder" value="" /></td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+
+	<tr>
+		<th>Customer Comments:</th>
+		<td><textarea name="comments" rows="10" cols="48"></textarea></td>
+	</tr>
+
+	<tr>
+		<th></th>
+		<td><input type="submit" value="Submit"/></td>
+	</tr>
+</table>
+
+</form>
+</body>
+</html>

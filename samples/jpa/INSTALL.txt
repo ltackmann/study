@@ -1,0 +1,10 @@
+[POSTGRESQL SETUP]
+# create user: dbuser, without ability to create new users (-R) but with rights to create databases (-d)
+/createuser -P -R -d dbuser -U postgres
+
+# Create database jpadb owned by dbuser
+createdb jpadb -O dbuser -U dbuser
+
+# import database schema
+psql -U dbuser jpadb < jpadb_schema.sql
+

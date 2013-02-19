@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0">
+
+	<persistence-unit name="bookmarking" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<non-jta-data-source> java:comp/env/jdbc/devdb </non-jta-data-source>
+		<!-- mapping -->
+		<mapping-file>queries.xml</mapping-file>
+		<class>org.randompage.bookmarking.api.domain.Bookmark</class>
+		<class>org.randompage.bookmarking.api.domain.Bundle</class>
+		<class>org.randompage.bookmarking.api.domain.Tag</class>
+		<class>org.randompage.bookmarking.api.domain.User</class>
+		<!-- configuration -->
+		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
+
+			<!-- development setup -->
+			<!--property name="hibernate.hbm2ddl.auto" value="create" /-->
+			<property name="hibernate.show_sql" value="true" />
+
+			<!-- session-per-transaction strategy -->
+			<property name="hibernate.current_session_context_class"
+				value="thread" />
+			<property name="hibernate.transaction.factory_class"
+				value="org.hibernate.transaction.JDBCTransactionFactory" />
+
+			<!-- disable cache -->
+			<property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider" />
+		</properties>
+	</persistence-unit>
+</persistence>

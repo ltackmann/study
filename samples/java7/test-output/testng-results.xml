@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="28" started-at="2011-11-29T08:12:55Z" finished-at="2011-11-29T08:12:55Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="28" started-at="2011-11-29T08:12:55Z" finished-at="2011-11-29T08:12:55Z">
+      <class name="uge7.VarianceTest">
+        <test-method status="PASS" signature="covarianceTest()[pri:0, instance:uge7.VarianceTest@6189076]" name="covarianceTest" duration-ms="14" started-at="2011-11-29T08:12:55Z" finished-at="2011-11-29T08:12:55Z">
+        </test-method>
+      </class>
+    </test>
+  </suite>
+</testng-results>

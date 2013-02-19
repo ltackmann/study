@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:s="http://jboss.com/products/seam/taglib">
+<head>
+<title>Register new account.</title>
+</head>
+<body>
+<f:view>
+	<h3>Signup.</h3>
+	<h:messages globalOnly="false" />
+	<h:form id="register">
+		<h:panelGrid columns="2" rowClasses="prop" columnClasses="name,value">
+			<h:outputLabel for="name">Real name</h:outputLabel>
+			<h:inputText id="name" value="#{user.name}" required="true" />
+			<h:outputLabel for="email">Email</h:outputLabel>
+			<h:inputText id="email" value="#{user.email}" required="true" />
+			<h:outputLabel for="username">Username</h:outputLabel>
+			<h:inputText id="username" value="#{user.username}" required="true" />
+			<h:outputLabel for="password">Password</h:outputLabel>
+			<h:inputSecret id="password" value="#{user.password}" required="true" />
+			<h:outputLabel for="verify">Verify Password:</h:outputLabel>
+			<h:inputSecret id="verify" value="#{register.verify}" required="true" />
+		</h:panelGrid>
+		<h:commandButton id="register" value="Register"
+			action="#{register.register}" />
+		<s:button id="cancel" value="Cancel" view="/home.xhtml" />
+	</h:form>
+</f:view>
+</body>
+</html>

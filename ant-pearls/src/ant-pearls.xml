@@ -1,0 +1,78 @@
+<project name="ant-pearls" basedir=".">
+	<!-- Import configuration for containers -->
+	<property file="../config/system.properties" />
+	<import file="${container.type}-common.xml" />
+
+	<!-- 
+		Builds jar 
+	-->
+	<macrodef name="build-jar">
+		<attribute name="target" />
+		<attribute name="src.dir" />
+		<attribute name="build.dir" default="${basedir}/build" />
+		<attribute name="classpath" default="classpath" />
+		<attribute name="metainf" default="@{src.dir}/META-INF" />
+		<attribute name="basedir" default="@{build.dir}" />
+		<sequential>
+			<delete dir="@{build.dir}" />
+			<mkdir dir="@{build.dir}/META-INF" />
+			<javac classpathref="@{classpath}" debug="yes" srcdir="@{src.dir}" destdir="@{build.dir}" />
+			<copy todir="@{build.dir}/META-INF">
+				<fileset dir="@{metainf}" />
+			</copy>
+			<jar destfile="@{target}" basedir="@{basedir}" />
+		</sequential>
+	</macrodef>
+
+	<!-- 
+		Run unit tests
+	-->
+	<macrodef name="unit-test">
+		<attribute name="suite" />
+		<attribute name="result.file" />
+		<attribute name="report.dir" />
+		<attribute name="classpath" default="classpath" />
+		<attribute name="failonerror" default="true" />
+		<sequential>
+			<junit printsummary="false" haltonfailure="@{failonerror}" fork="true">
+				<classpath refid="@{classpath}" />
+				<test name="@{suite}" todir="@{report.dir}" outfile="@{result.file}">
+					<formatter type="plain" usefile="false" />
+					<formatter type="xml" />
+				</test>
+			</junit>
+		</sequential>
+	</macrodef>
+
+	<!-- 
+		Create javadoc
+		
+		TAGS: @TODO (todo tag), @UC (use case tag)
+	-->
+	<macrodef name="java-doc">
+		<attribute name="docdest" />
+		<attribute name="src" />
+		<attribute name="exclude" />
+		<attribute name="classpath" default="classpath" />
+		<attribute name="title" />
+		<sequential>
+			<delete dir="@{docdest}" />
+			<mkdir dir="@{docdest}" />
+			<javadoc classpathref="@{classpath}" sourcepathref="@{src}" destdir="@{docdest}" version="true" use="true" windowtitle="@{title}">
+				<package name="*" />
+				<excludepackage name="@{exclude}" />
+				<!-- TODO move this out as arguments -->
+				<doctitle>
+					<![CDATA[>
+					<h1>SoftScan Service</h1>]]></doctitle>
+				<bottom>
+					<![CDATA[>
+					<i>Copyright 2007 SoftScan Solutions. All Rights Reserved.</i>]]>
+					</bottom>
+				<tag name="TODO" scope="all" description="TODO Item" />
+				<tag name="UC" scope="all" description="Use Case" />
+				<link href="http://developer.java.sun.com/developer/products/xml/docs/api/" />
+			</javadoc>
+		</sequential>
+	</macrodef>
+</project>
