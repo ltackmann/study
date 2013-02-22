@@ -8,6 +8,7 @@ main() {
   var maestro = new Maestro("Mozart","high", "violin");
   expect(maestro.instrument, equals("violin"));
   expect(maestro.aggressionLevel, equals("high"));
+  //expect(maestro.getType(), equals("Musical"));
   
   // TODO extension methods
 }

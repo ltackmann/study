@@ -9,6 +9,8 @@ class Person {
 class Musical {
   //Musical(this.instrument);
   
+  //static String getType() => "Musical";
+  
   String instrument;
 }
 

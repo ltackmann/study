@@ -1,6 +1,7 @@
 
 import 'dart:io';
 
+// TODO http://news.dartlang.org/2013/02/io-library-now-uses-streams.html
 main() {
   group("file test", () {
     setUp(() {
