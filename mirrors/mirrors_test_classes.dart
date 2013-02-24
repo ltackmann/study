@@ -18,7 +18,7 @@ class MyClass {
     publicFinalField = "public final field",
     _privateFinalField = "private final field";
   
-  @override
+  @deprecated
   String publicMethod(String str, int integer) => "public method";
   String _privateMethod() => "private method";
   
@@ -28,7 +28,6 @@ class MyClass {
   set publicSetter(String value) => publicField = value;
   set _privateSetter(String value) => _privateField = value;
   
-  @override
   String publicField;
   String _privateField;
   final String publicFinalField;
@@ -39,4 +38,5 @@ class MyGenericClass<T> {
   
 }
 
+String myFunction() => "mirrors_test_classes";
 

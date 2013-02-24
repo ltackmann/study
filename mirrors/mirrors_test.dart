@@ -5,10 +5,29 @@ import "mirrors_test_classes.dart";
 
 main() {
   group("mirrors -", () {
-    test("type name", () {
+    test("simple type name", () {
       var obj = new MyClass();
       expect(obj.runtimeType.toString(), equals("MyClass"));
-      // TODO also get lib name from type
+    });
+    
+    solo_test("qualified type name", () {
+      var obj = new MyClass();
+      var im = reflect(obj);
+      expect(im.type.qualifiedName, equals("mirrors_test_classes.MyClass"));
+      //print(im.type.qualifiedName);
+      
+      var tm = reflect(MyClass);
+      var typeName = tm.reflectee.toString();
+      currentMirrorSystem().libraries.forEach((k,v) {
+        if(!k.startsWith("dart")) {
+          if(v.classes.containsKey(typeName)) {
+            print("name is ${k}.${typeName}");
+            return;
+          }
+        }
+      });
+      // TODO also do on type
+      //var t = MyClass;
     });
     
     test("generic type name", () {
@@ -20,6 +39,25 @@ main() {
       var obj = new MyGenericClass<MyClass>();
       var im = reflect(obj);
       expect(im.type.typeArguments.values.first, equals("MyClass"));
+    });
+    
+    test("reflect libraries", () {
+      var mirrorSystem = currentMirrorSystem();
+      expect(mirrorSystem.libraries, isNot(isEmpty));
+      
+      var lib = mirrorSystem.libraries["mirrors_test_classes"];
+      expect(lib, isNotNull);
+      
+      expect(lib.classes.length, equals(2));
+      expect(lib.classes["MyClass"], isNotNull);
+      expect(lib.functions.length, equals(1));
+      expect(lib.functions["myFunction"], isNotNull);
+    });
+    
+    test("reflect class", () {
+      // TODO access meta data
+      // TODO class type hireacy (super class) and constructors 
+      expect(false, isTrue);
     });
     
     test("reflect methods", () {
@@ -63,16 +101,10 @@ main() {
       })); 
       // TODO emit instance from type (the above example uses an instance to emit another instance)
     });
-    
-    // TODO access meta data
-    // TODO class type hireacy (super class) and constructors 
   });
   
-  // TODO EMIT http://phylotic.blogspot.dk/2012/08/working-with-mirrors-in-dart-brief.html
-  
   // if possible
-  // TODO find all versions of a loaded type (perhaps by hooking into current isolate/LibraryMirror)
-  // TODO name of calling class (perhaps using getName(type)
+  // TODO name and source location of calling method/class 
 }
 
 _assertMethod(MethodMirror method, {bool isPrivate: null, bool isStatic:null, String returnType:null, List<String> argTypes: null}) {
