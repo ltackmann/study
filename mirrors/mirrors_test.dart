@@ -54,7 +54,7 @@ main() {
       
     });
     
-    solo_test("emit instance", () {
+    test("emit instance", () {
       var im = reflect(new MyClass());
       var cm = im.type;
       cm.newInstance('',[]).then(expectAsync1((InstanceMirror newIm) {
