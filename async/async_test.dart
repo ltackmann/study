@@ -1,4 +1,5 @@
 import "dart:async";
+import "dart:io";
 import "package:unittest/unittest.dart";
 
 // TODO http://www.dartlang.org/articles/using-future-based-apis/ (Futures.wait + chains)
@@ -17,11 +18,30 @@ void main() {
         expect(sum, equals(6));
       }));
     });
+    
+    test("return immediatly", () {
+      expect(isOnline(), completion(equals(true)));
+    });
+    
+    test("convert sync function into async", () {
+      expect(isOffline(), completion(equals(false)));
+    });
+    
+    test("run command after completion", () {
+      var hasRun = false;
+      var compute = new Compute();
+      compute.sumIt([1, 2, 3]).then(expectAsync1((int sum) {
+        expect(sum, equals(6));
+        hasRun = true;
+      })).whenComplete(() {
+        expect(hasRun, isTrue);
+      });
+    });
   });
   
   group("stream -", () {
-    new File('/etc/passwd').openForRead() // returns a Stream.
-    .subscribe(onData: (List<int> data) { print(data.length); });
+    var stream = new File('/etc/passwd').openRead();
+    stream.listen(onData: (List<int> data) { print(data.length); });
   });
   
   //Stream<T>
@@ -35,6 +55,10 @@ void main() {
   // TODO http://news.dartlang.org/2012/11/introducing-new-streams-api.html
 }
 
+/*
+ * Helpers 
+ */
+
 class Compute {
   Future<int> sumIt(List<int> data) {
     var completer = new Completer<int>();
@@ -43,3 +67,12 @@ class Compute {
     return completer.future;
   }
 }
+
+Future<bool> isOnline() {  
+  return new Future.immediate(true);  
+}  
+
+bool checkConnection() => false; 
+Future<bool> isOffline() {  
+  return new Future.of(checkConnection);  
+ }  
