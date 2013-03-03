@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 import 'package:unittest/unittest.dart';
 
@@ -46,12 +47,32 @@ main() {
     
     test("call shell and parse output", () {
       Process.start('ls', ['/']).then(expectAsync1((Process process) {
-        var stringStream = new StringStream(process.stdout);
-        stringStream.onData = () {
-          String content = stringStream.read();
-          print("process: $content");
-        };
+        process.stdout.listen((List<int> data) {
+          var result = new String.fromCharCodes(data);
+          expect(result, isNot(isEmpty));
+        });
       }));
+    });
+  });
+  
+  group("http test -", () {
+    test("get", () {
+      var completer = new Completer<String>();
+      var httpClient = new HttpClient();
+      var conn = httpClient.get("http://www.google.com", 80, "");
+      conn.then((HttpClientRequest request) {
+        // fire request.
+        return request.close();
+      }).then((HttpClientResponse response) {
+        if(response.statusCode != 200) {
+          completer.completeError(new StateError("HTTP faild with ${response.statusCode}"));
+        } else {
+          response.listen((List<int> bodyData) {
+            var body = new String.fromCharCodes(bodyData);
+            completer.complete(body);
+          });
+        }
+      });
     });
   });
   
