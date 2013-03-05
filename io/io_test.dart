@@ -17,7 +17,7 @@ main() {
     });
     
     test("read file async", () {
-      var file = new File('sandbox/io/pubspec.lock');  
+      var file = new File('sandbox/io/pubspec.lock'); 
       var future = file.readAsString(); // returns immediately  
       future.then(expectAsync1((String content) {
         expect(content, isNot(isEmpty));
