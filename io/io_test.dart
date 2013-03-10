@@ -4,6 +4,14 @@ import 'package:unittest/unittest.dart';
 
 // TODO http://news.dartlang.org/2013/02/io-library-now-uses-streams.html
 main() {
+  group("system", () {
+    test("env", () {
+      var env = Platform.environment;
+      env.forEach((k,v) => print("$k:$v"));
+      expect(env["HOME"], isNot(isEmpty));
+    });
+  });
+  
   group("file test -", () {
     test("get current directory", () {
       var dir = new Directory.current();
