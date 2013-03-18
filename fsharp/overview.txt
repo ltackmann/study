@@ -1,5 +1,0 @@
-==Roadmap==
-- Go though Haskell Cheat-Sheet/code.hs and implement/document for F#
-
-==Expert Questions==
-Q: Implement the dispatcher pattern in F# (http://leftrightfold.com/?p=85)
