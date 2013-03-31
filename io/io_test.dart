@@ -43,7 +43,9 @@ main() {
     });
     
     test("write to file", () {
-      // assert by readin file
+      var file = new File('sandbox/io/packages/test.txt'); 
+      file.openSync(FileMode.APPEND).writeStringSync("test ${(new DateTime.now()).toString()}\n");
+      // TODO add assertion
     });
   });
   

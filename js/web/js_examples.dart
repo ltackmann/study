@@ -6,7 +6,7 @@ import 'package:unittest/unittest.dart';
 main() {
   test("call javascript from Dart", () {
     js.scoped(() {
-      // call build in function
+      // call build in js function
       final a = js.context.parseInt('10');
       expect(a, equals(10));
       
@@ -17,19 +17,25 @@ main() {
       // call custom function (js.context is a proxy to the top level JS object)
       final c = js.context.increment(1);
       expect(c, equals(2));
+      
+      // access a nested property
+      final d = js.context.navigator.platform;
+      print("platform ${d}");
     });
   });
   
   test("call dart from javascript", () {
     var called = 0;
-    var callback = () => called++;
+    var callback = (int i) => called += i;
     
     js.scoped(() {
       // register a javascript function called testCallbackOnce that can call Dart once
       js.context.testCallbackOnce = new js.Callback.once(callback);
-      
+    });
+    
+    js.scoped(() {
       // call the javascript function and test that the callback worked
-      js.context.testCallbackOnce();
+      js.context.testCallback();
       expect(called, equals(1));
       
       // test we can only call the function once

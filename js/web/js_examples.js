@@ -22,3 +22,8 @@ function objectTest(initial) {
     }
   }
 }
+
+function testCallback() {
+   // call function in dart
+   testCallbackOnce(1);
+}

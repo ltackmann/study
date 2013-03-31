@@ -20,7 +20,7 @@ String _namedFunction(String msg, {int repeat: null}) {
     repeat = 1;
   }
   while(repeat > 0) {
-    res = res.concat(msg);
+    res = "$res$msg";
     repeat--;
   }
   return res;
@@ -32,7 +32,7 @@ String _positionalFunction(String msg, [int repeat = null]) {
     repeat = 1;
   }
   while(repeat > 0) {
-    res = res.concat(msg);
+    res = "$res$msg";
     repeat--;
   }
   return res;
