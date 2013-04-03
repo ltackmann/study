@@ -32,10 +32,9 @@ main() {
       }));
     });
     
-    test("read file as stream", () {
-      var stream = new File('/etc/passwd').openRead();
-      stream.listen((List<int> data) => print(data.length));
-      //(onData: );
+    solo_test("read file as stream", () {
+      Stream<String> stream = new File('/etc/passwd').openRead().transform(new StringDecoder());
+      stream.listen((String data) => print(data));
     });
     
     test("create file", () {
@@ -44,8 +43,8 @@ main() {
     
     test("write to file", () {
       var file = new File('sandbox/io/packages/test.txt'); 
-      file.openSync(FileMode.APPEND).writeStringSync("test ${(new DateTime.now()).toString()}\n");
-      // TODO add assertion
+      file.openSync(mode:FileMode.APPEND).writeStringSync("test ${(new DateTime.now()).toString()}\n");
+      // TODO assert by reading list line of file 
     });
   });
   

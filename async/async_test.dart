@@ -20,11 +20,16 @@ void main() {
     });
     
     test("return immediatly", () {
+      Future<bool> isOnline() => new Future.immediate(true);
+      
       expect(isOnline(), completion(equals(true)));
     });
     
     test("convert sync function into async", () {
-      expect(isOffline(), completion(equals(false)));
+      bool checkConnection() => false; 
+      Future<bool> asyncCheckConnection() => new Future.of(checkConnection);
+      
+      expect(asyncCheckConnection(), completion(equals(false)));
     });
     
     test("run command after completion", () {
@@ -37,28 +42,72 @@ void main() {
         expect(hasRun, isTrue);
       });
     });
+    
+    test("bundle multiple async calls together", () {
+    });
   });
   
   group("stream -", () {
-    var stream = new File('/etc/passwd').openRead();
-    stream.listen(onData: (List<int> data) { print(data.length); });
+    test("construct and consume unicast stream (single-subscriber) stream", () {
+      var data = <int>[1,2,3,4,5]; 
+      var stream = new Stream<int>.fromIterable(data);  
+      expect(stream.isBroadcast, isFalse);
+      
+      var sum = 0;
+      stream.listen((int value) {      
+        sum += value;
+      }).onDone(() {
+        expect(sum, equals(16));
+      });  
+    });
+    
+    test("construct and consume broadcast (multiple subscriber) stream", () {
+      var data = <int>[1,2,3,4,5]; 
+      var stream = (new Stream<int>.fromIterable(data)).asBroadcastStream();  
+      expect(stream.isBroadcast, isTrue);
+      
+      var sumUneven = 0;
+      var sumEven = 0;
+      
+      StreamSubscription<int> subscriber1 = stream.where((value) => value % 2 == 0).listen((int value) => sumEven += value);
+      StreamSubscription<int> subscriber2 = stream.where((value) => value % 2 != 0).listen((int value) => sumUneven += value);
+      subscriber1.onDone(() => expect(sumEven, equals(6)));  
+      subscriber2.onDone(() => expect(sumUneven, equals(9)));  
+    });
+    
+    test("stream transformation", () {
+      var data = <int>[1,2,3,4,5]; 
+      var stream = new Stream<int>.fromIterable(data);  
+      
+      var transformer = new StreamTransformer(handleData: (value, sink) {
+        // transform the value in the stream
+        sink.add(value * -1);
+      });
+      
+      var sum = 0;
+      stream.transform(transformer).listen((int value) {
+        sum += value;
+      }).onDone(() {
+        expect(sum, equals(-15));
+      });  
+    });
+    
+    solo_test("query stream", () {
+      var data = <int>[1,2,3,4,5]; 
+      var stream = new Stream<int>.fromIterable(data).asBroadcastStream();  
+      
+      expect(stream.any((v) => v < 0), completion(isFalse));
+      expect(stream.contains(1), completion(isTrue));
+      expect(stream.every((v) => v > 0), completion(isTrue));
+    });
   });
   
-  //Stream<T>
-  //StreamConsumer<S, T>
-  //StreamSink<T>
-  //StreamSubscription<T>
-  //StreamTransformer<S, T>
-  //Timer
-  //Sink
-  
-  // TODO http://news.dartlang.org/2012/11/introducing-new-streams-api.html
+  //TODO StreamConsumer<S, T>
+  //TODO StreamSink<T>
+  //TODO Sink
 }
 
-/*
- * Helpers 
- */
-
+/** Helpers */
 class Compute {
   Future<int> sumIt(List<int> data) {
     var completer = new Completer<int>();
@@ -68,11 +117,7 @@ class Compute {
   }
 }
 
-Future<bool> isOnline() {  
-  return new Future.immediate(true);  
-}  
+  
 
-bool checkConnection() => false; 
-Future<bool> isOffline() {  
-  return new Future.of(checkConnection);  
- }  
+
+
