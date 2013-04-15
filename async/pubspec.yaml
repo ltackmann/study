@@ -1,4 +1,0 @@
-name: async_sandbox
-description: Async sandbox
-dependencies:
-  unittest: any

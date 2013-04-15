@@ -1,7 +1,0 @@
-name: sandbox
-description: Dart samples
-dependencies:
-  logging: any
-  unittest: any
-  #sqljocky: any
-  js: any

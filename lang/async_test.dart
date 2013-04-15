@@ -1,6 +1,6 @@
 import "dart:async";
 import "dart:io";
-import "package:unittest/unittest.dart";
+import '../../handheld/packages/unittest/unittest.dart';
 
 // TODO http://www.dartlang.org/articles/using-future-based-apis/ (Futures.wait + chains)
 /// Test http://api.dartlang.org/docs/releases/latest/dart_async.html
