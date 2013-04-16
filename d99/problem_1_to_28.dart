@@ -63,19 +63,18 @@ main() {
         equals('[[4, a], [1, b], [2, c], [2, a], [1, d], [4, e]]'));
   });
   
-  test('P11: Modified run-length encoding', () {
-    //Modify the result of problem P10 in such a way that if an element has no duplicates it is simply copied into the result list. Only elements with duplicates are transferred as (N, E) terms.
-    //scala> encodeModified(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e))
-    //res0: List[Any] = List((4,'a), 'b, (2,'c), (2,'a), 'd, (4,'e))
+  test('P11: Run-length encoding of consecutive duplicates', () {
+    List encodeModified(List list) => new List.from( pack(list).map((l) => (l.length > 1) ? [l.length, l.first] : l.first) );
+    expect(
+        encodeModified(['a', 'a', 'a', 'a', 'b', 'c', 'c', 'a', 'a', 'd', 'e', 'e', 'e', 'e']).toString(),
+        equals('[[4, a], b, [2, c], [2, a], d, [4, e]]'));
   });
   
   test('P12: Decode a run-length encoded list', () {
-    /*
-    Given a run-length code list generated as specified in problem P10, construct its uncompressed version.
-    Example:
-    scala> decode(List((4, 'a), (1, 'b), (2, 'c), (2, 'a), (1, 'd), (4, 'e)))
-    res0: List[Symbol] = List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)
-     */
+    List decode(List<List> list) => list.map((l) => new List.filled(l.first, l.last)).fold([], (p, n) => p..addAll(n));
+    expect(
+        decode([[4, 'a'], [1, 'b'], [2, 'c'], [2, 'a'], [1, 'd'], [4, 'e']]),
+        orderedEquals(['a', 'a', 'a', 'a', 'b', 'c', 'c', 'a', 'a', 'd', 'e', 'e', 'e', 'e']));
   });
   
   test('P13: Run-length encoding of a list (direct solution)', () {
