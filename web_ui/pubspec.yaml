@@ -1,6 +1,0 @@
-name: ui_sandbox
-description: Ui sandbox
-dependencies:
-  browser: any
-  js: any
-  web_ui: any

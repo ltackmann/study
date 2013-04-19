@@ -5,49 +5,43 @@ import 'package:unittest/unittest.dart';
 
 main() {
   test("call javascript from Dart", () {
-    js.scoped(() {
-      // call build in js function
-      final a = js.context.parseInt('10');
-      expect(a, equals(10));
-      
-      // get proxy to JS object
-      final b = new js.Proxy(js.context.Date);
-      expect(b.getTime(), isNotNull);
-      
-      // call custom function (js.context is a proxy to the top level JS object)
-      final c = js.context.increment(1);
-      expect(c, equals(2));
-      
-      // access a nested property
-      final d = js.context.navigator.platform;
-      print("platform ${d}");
-    });
+    // call build in js function
+    final a = js.context.parseInt('10');
+    expect(a, equals(10));
+    
+    // get proxy to JS object
+    final b = new js.Proxy(js.context.Date);
+    expect(b.getTime(), isNotNull);
+    
+    // call custom function (js.context is a proxy to the top level JS object)
+    final c = js.context.increment(1);
+    expect(c, equals(2));
+    
+    // access a nested property
+    final d = js.context.navigator.platform;
+    print("platform ${d}");
   });
   
   test("call dart from javascript", () {
     var called = 0;
     var callback = (int i) => called += i;
     
-    js.scoped(() {
-      // register a javascript function called testCallbackOnce that can call Dart once
-      js.context.testCallbackOnce = new js.Callback.once(callback);
-    });
+    // register a javascript function called testCallbackOnce that can call Dart once
+    js.context.testCallbackOnce = new js.Callback.once(callback);
     
-    js.scoped(() {
-      // call the javascript function and test that the callback worked
-      js.context.testCallback();
-      expect(called, equals(1));
-      
-      // test we can only call the function once
-      bool catched = false;
-      try {
-        js.context.testCallbackOnce();
-      } catch(e) {
-        catched = true;
-      }
-      expect(catched, isTrue);
-      expect(called, equals(1));
-    });
+    // call the javascript function and test that the callback worked
+    js.context.testCallback();
+    expect(called, equals(1));
+    
+    // test we can only call the function once
+    bool catched = false;
+    try {
+      js.context.testCallbackOnce();
+    } catch(e) {
+      catched = true;
+    }
+    expect(catched, isTrue);
+    expect(called, equals(1));
     
     // TODO arguments and callback multiple times
   });

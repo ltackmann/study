@@ -1,4 +1,4 @@
-import '../packages/sqljocky/sqljocky.dart';
+import 'package:sqljocky/sqljocky.dart';
 
 main() {
   var cnx = new ConnectionPool(user:"user", password:"password", db:"dbName");

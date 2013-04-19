@@ -4,30 +4,11 @@ import "package:unittest/unittest.dart";
 import "mirrors_test_classes.dart";
 
 main() {
-  group("mirrors -", () {
-    test("simple type name", () {
-      var obj = new MyClass();
-      expect(obj.runtimeType.toString(), equals("MyClass"));
-    });
-    
-    solo_test("qualified type name", () {
+  group("mirrors on instances -", () {
+    test("qualified type name", () {
       var obj = new MyClass();
       var im = reflect(obj);
-      expect(im.type.qualifiedName, equals("mirrors_test_classes.MyClass"));
-      //print(im.type.qualifiedName);
-      
-      var tm = reflect(MyClass);
-      var typeName = tm.reflectee.toString();
-      currentMirrorSystem().libraries.forEach((k,v) {
-        if(!k.startsWith("dart")) {
-          if(v.classes.containsKey(typeName)) {
-            print("name is ${k}.${typeName}");
-            return;
-          }
-        }
-      });
-      // TODO also do on type
-      //var t = MyClass;
+      expect(im.type.qualifiedName, equals(new Symbol("mirrors_test_classes.MyClass")));
     });
     
     test("generic type name", () {
@@ -39,25 +20,6 @@ main() {
       var obj = new MyGenericClass<MyClass>();
       var im = reflect(obj);
       expect(im.type.typeArguments.values.first, equals("MyClass"));
-    });
-    
-    test("reflect libraries", () {
-      var mirrorSystem = currentMirrorSystem();
-      expect(mirrorSystem.libraries, isNot(isEmpty));
-      
-      var lib = mirrorSystem.libraries["mirrors_test_classes"];
-      expect(lib, isNotNull);
-      
-      expect(lib.classes.length, equals(2));
-      expect(lib.classes["MyClass"], isNotNull);
-      expect(lib.functions.length, equals(1));
-      expect(lib.functions["myFunction"], isNotNull);
-    });
-    
-    test("reflect class", () {
-      // TODO access meta data
-      // TODO class type hireacy (super class) and constructors 
-      expect(false, isTrue);
     });
     
     test("reflect methods", () {
@@ -87,12 +49,11 @@ main() {
       expect(passed, equals(4));
     });
     
-    
     test("reflect fields", () {
       
     });
     
-    test("emit instance", () {
+    test("emit instance from prototype", () {
       var im = reflect(new MyClass());
       var cm = im.type;
       cm.newInstance('',[]).then(expectAsync1((InstanceMirror newIm) {
@@ -101,10 +62,43 @@ main() {
       })); 
       // TODO emit instance from type (the above example uses an instance to emit another instance)
     });
+    
+    test("emit instance from class", () {
+    });
   });
   
-  // if possible
-  // TODO name and source location of calling method/class 
+  group("mirrors on classes -", () {
+    test("simple type name", () {
+      var obj = new MyClass();
+      expect(obj.runtimeType.toString(), equals("MyClass"));
+    });
+    
+    test('qualified type name', () {
+      var type = MyClass;
+      var name = new Symbol(type.toString());
+      //TODO reflectClass(MyClass);
+      var cm = currentMirrorSystem().libraries.values
+          .where((lib) => lib.classes.containsKey(name))
+          .map((lib) => lib.classes[name])
+          .first;
+      expect(cm.qualifiedName, equals(new Symbol("mirrors_test_classes.MyClass")));
+    });
+  });
+  
+  group("mirrors on libraries -", (){
+    test("reflect libraries", () {
+      var mirrorSystem = currentMirrorSystem();
+      expect(mirrorSystem.libraries, isNot(isEmpty));
+      
+      var lib = mirrorSystem.libraries["mirrors_test_classes"];
+      expect(lib, isNotNull);
+      
+      expect(lib.classes.length, equals(2));
+      expect(lib.classes["MyClass"], isNotNull);
+      expect(lib.functions.length, equals(1));
+      expect(lib.functions["myFunction"], isNotNull);
+    });
+  });
 }
 
 _assertMethod(MethodMirror method, {bool isPrivate: null, bool isStatic:null, String returnType:null, List<String> argTypes: null}) {

@@ -26,6 +26,8 @@ main() {
       var r = new RegExp('[^0-9]');
       expect("sdfsdf3234f34f".replaceAll(r, ''), equals("323434"));
     });
+    
+    //TODO "str".splitMapJoin(Pattern pattern, {String onMatch(Match match), String onNonMatch(String nonMatch)})
   });
 }
 

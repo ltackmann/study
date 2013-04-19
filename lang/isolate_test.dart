@@ -1,6 +1,6 @@
 import "dart:isolate";
 import "dart:io";
-import '../../dart_warrior/packages/unittest/unittest.dart';
+import 'package:unittest/unittest.dart';
 
 // TODO http://api.dartlang.org/docs/releases/latest/dart_isolate.html
 
