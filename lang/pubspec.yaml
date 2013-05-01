@@ -1,4 +1,5 @@
 name: lang_sandbox
 description: Lang sandbox
 dependencies:
+  meta: any
   unittest: any
