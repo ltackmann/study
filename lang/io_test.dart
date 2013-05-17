@@ -1,6 +1,6 @@
-import 'dart:async';
-import 'dart:io';
-import 'package:unittest/unittest.dart';
+import '../../../../../../Applications/dart/dart-sdk/lib/async/async.dart';
+import '../../../../../../Applications/dart/dart-sdk/lib/io/io.dart';
+import '../../../../.pub-cache/hosted/pub.dartlang.org/unittest-0.4.7+1/lib/unittest.dart';
 
 // TODO http://news.dartlang.org/2013/02/io-library-now-uses-streams.html
 main() {
