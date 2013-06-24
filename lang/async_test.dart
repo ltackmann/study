@@ -44,7 +44,7 @@ void main() {
       stream.listen((int value) {      
         sum += value;
       }).onDone(() {
-        expect(sum, equals(16));
+        expect(sum, equals(15));
       });  
     });
     
@@ -98,7 +98,7 @@ void main() {
 class Compute {
   Future<int> sumIt(List<int> data) {
     var completer = new Completer<int>();
-    int sum = data.reduce(0, (a,b) => a+b);
+    int sum = data.fold(0, (a,b) => a+b);
     completer.complete(sum);
     return completer.future;
   }

@@ -23,9 +23,9 @@ main() {
     
     test("reduce", () {
       var concat = (String i,String j) => i + j;
-      expect([].reduce("0", concat), "0"); 
-      expect(["1"].reduce("0", concat), "01"); 
-      expect(["1","2"].reduce("0", concat), "012"); 
+      expect([].fold("0", concat), "0"); 
+      expect(["1"].fold("0", concat), "01"); 
+      expect(["1","2"].fold("0", concat), "012"); 
     });
     
     test("sort and reverse", () {
