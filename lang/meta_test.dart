@@ -1,36 +1,66 @@
-import "package:meta/meta.dart";
-import "package:unittest/unittest.dart";
+library test.metadata_test;
 
-/// Test http://news.dartlang.org/2012/06/proposal-to-add-metadata-to-dart.html
+import 'dart:mirrors';
+import 'package:meta/meta.dart';
+import 'package:unittest/unittest.dart';
+
+const string = 'a metadata string';
+
+const symbol = const Symbol('symbol');
+
+const hest = 'hest';
+
+@symbol @string
+class MyClass {
+  @hest @hest @symbol
+  var x;
+  var y;
+
+  @string @symbol @string
+  myMethod() => 1;
+}
+
+checkMetadata(DeclarationMirror mirror, List expectedMetadata) {
+  List metadata = mirror.metadata.map((m) => m.reflectee).toList();
+  if (metadata == null) {
+    throw 'Null metadata on $mirror';
+  }
+  int expectedLength = expectedMetadata.length;
+  int actualLength = metadata.length;
+  if (expectedLength != actualLength) {
+    throw 'Expected length = $expectedLength, but got length = $actualLength.';
+  }
+  for (int i = 0; i < expectedLength; i++) {
+    if (metadata[i] != expectedMetadata[i]) {
+      throw '${metadata[i]} is not "${expectedMetadata[i]}"'
+          ' in $mirror at index $i';
+    }
+  }
+  print(metadata);
+}
+
+@symbol @string @symbol
 main() {
-  test("build in meta data", () {
-    expect((new Customer()).name, equals("customer"));
-  });
-  
-  test("custom meta data", () {
-    // TODO access security annotation with reflection
-  });
+  if (MirrorSystem.getName(symbol) != 'symbol') {
+    // This happened in dart2js due to how early library metadata is
+    // computed.
+    throw 'Bad constant: $symbol';
+  }
+
+  MirrorSystem mirrors = currentMirrorSystem();
+  ClassMirror myClassMirror = reflectClass(MyClass);
+  checkMetadata(myClassMirror, [symbol, string]);
+  LibraryMirror lib = mirrors.findLibrary(const Symbol('test.metadata_test')).first;
+  MethodMirror function = lib.functions[const Symbol('main')];
+  checkMetadata(function, [symbol, string, symbol]);
+  MethodMirror method = myClassMirror.methods[const Symbol('myMethod')];
+  checkMetadata(method, [string, symbol, string]);
+
+  VariableMirror xMirror = myClassMirror.variables[const Symbol('x')];
+  checkMetadata(xMirror, [hest, hest, symbol]);
+
+  VariableMirror yMirror = myClassMirror.variables[const Symbol('y')];
+  checkMetadata(yMirror, []);
+
+  // TODO(ahe): Test local functions.
 }
-
-@secured("CUSTOMER_ACCESS")
-class Customer extends User {
-  @override
-  String get name => "customer";
-}
-
-class User {
-  @deprecated
-  int get age => 42;
-  
-  String get name => "user";
-}
-
-/**
- * TODO how to add arguments to meta data ?
- */
-const secured = const _Secured();
-
-class _Secured {
-  const _Secured();
-}
-
