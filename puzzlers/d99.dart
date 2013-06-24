@@ -1,8 +1,12 @@
-import 'dart:collection';
+import 'dart:collections';
 
 import 'package:unittest/unittest.dart';
 
-// http://aperiodic.net/phil/scala/s-99/
+/**
+ * TODO how to make link
+ * 
+ * http://aperiodic.net/phil/scala/s-99/
+ */
 main() {
   test('P01: Find the last element of a list', () {
     dynamic last(List list) => list.last;

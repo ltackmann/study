@@ -76,11 +76,7 @@ main() {
     test('qualified type name', () {
       var type = MyClass;
       var name = new Symbol(type.toString());
-      // TODO reflectClass(MyClass);
-      var cm = currentMirrorSystem().libraries.values
-          .where((lib) => lib.classes.containsKey(name))
-          .map((lib) => lib.classes[name])
-          .first;
+      var cm = reflectClass(MyClass);
       expect(cm.qualifiedName, equals(new Symbol("mirrors_test_classes.MyClass")));
     });
   });
@@ -90,7 +86,9 @@ main() {
       var mirrorSystem = currentMirrorSystem();
       expect(mirrorSystem.libraries, isNot(isEmpty));
       
-      var lib = mirrorSystem.libraries[new Symbol("mirrors_test_classes")];
+      mirrorSystem.libraries.forEach((k,v)=> print(k));
+      var libUri = mirrorSystem.libraries.keys.firstWhere((uri) => uri.toString().contains("mirrors_test_classes"));
+      var lib = mirrorSystem.libraries[libUri];
       expect(lib, isNotNull);
       
       expect(lib.classes.length, equals(2));

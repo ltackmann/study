@@ -14,7 +14,7 @@ main() {
   
   group("file test -", () {
     test("get current directory", () {
-      var dir = new Directory.current();
+      var dir = Directory.current;
       expect(dir.path, equals("/Users/lt/Projects/dart"));
     });
     
@@ -33,7 +33,7 @@ main() {
     });
     
     solo_test("read file as stream", () {
-      Stream<String> stream = new File('/etc/passwd').openRead().transform(new StringDecoder());
+      var stream = new File('/etc/passwd').openRead().transform(new StringDecoder());
       stream.listen((String data) => print(data));
     });
     

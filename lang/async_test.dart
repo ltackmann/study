@@ -6,28 +6,15 @@ import 'package:unittest/unittest.dart';
 /// Test http://api.dartlang.org/docs/releases/latest/dart_async.html
 void main() {
   group("future -", () {
-    test("testing with completion", () {
-      var compute = new Compute();    
-      var future = compute.sumIt([1, 2, 3]);
-      expect(future, completion(equals(6)));
-    });
-    
-    test("testing with expectAsync", () {
-      var compute = new Compute();
-      compute.sumIt([1, 2, 3]).then(expectAsync1((int sum) {
-        expect(sum, equals(6));
-      }));
-    });
-    
-    test("return immediatly", () {
-      Future<bool> isOnline() => new Future.immediate(true);
+    test("return value immediatly", () {
+      Future<bool> isOnline() => new Future.value(true);
       
       expect(isOnline(), completion(equals(true)));
     });
     
-    test("convert sync function into async", () {
+    test("create future from non-async function", () {
       bool checkConnection() => false; 
-      Future<bool> asyncCheckConnection() => new Future.of(checkConnection);
+      Future<bool> asyncCheckConnection() => new Future.sync(checkConnection);
       
       expect(asyncCheckConnection(), completion(equals(false)));
     });
@@ -92,7 +79,7 @@ void main() {
       });  
     });
     
-    solo_test("query stream", () {
+    test("query stream", () {
       var data = <int>[1,2,3,4,5]; 
       var stream = new Stream<int>.fromIterable(data).asBroadcastStream();  
       

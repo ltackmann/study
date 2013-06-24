@@ -1,5 +1,5 @@
 class ArgsParser {
-  Map<String, String> _help = const {
+  var _help = const {
      "install": "Install a package",
      "link": "Symlink a package folder",
      "list": "List installed packages",
@@ -16,7 +16,7 @@ class ArgsParser {
       "help": _showHelp
     };
     
-    //Options opts = new Options();
+    var opts = new Options();
     List<String> arguments = opts.arguments;
     final int numArgs = arguments.length;
     
