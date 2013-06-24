@@ -1,66 +1,25 @@
 library test.metadata_test;
 
 import 'dart:mirrors';
-import 'package:meta/meta.dart';
 import 'package:unittest/unittest.dart';
 
-const string = 'a metadata string';
-
-const symbol = const Symbol('symbol');
-
-const hest = 'hest';
-
-@symbol @string
-class MyClass {
-  @hest @hest @symbol
-  var x;
-  var y;
-
-  @string @symbol @string
-  myMethod() => 1;
+class Awesome {
+  final String msg;
+  const Awesome(this.msg);
+  
+  String toString() => msg;
 }
 
-checkMetadata(DeclarationMirror mirror, List expectedMetadata) {
-  List metadata = mirror.metadata.map((m) => m.reflectee).toList();
-  if (metadata == null) {
-    throw 'Null metadata on $mirror';
-  }
-  int expectedLength = expectedMetadata.length;
-  int actualLength = metadata.length;
-  if (expectedLength != actualLength) {
-    throw 'Expected length = $expectedLength, but got length = $actualLength.';
-  }
-  for (int i = 0; i < expectedLength; i++) {
-    if (metadata[i] != expectedMetadata[i]) {
-      throw '${metadata[i]} is not "${expectedMetadata[i]}"'
-          ' in $mirror at index $i';
-    }
-  }
-  print(metadata);
+@Awesome('it works!')
+class Cool {
+  
 }
 
-@symbol @string @symbol
-main() {
-  if (MirrorSystem.getName(symbol) != 'symbol') {
-    // This happened in dart2js due to how early library metadata is
-    // computed.
-    throw 'Bad constant: $symbol';
-  }
-
-  MirrorSystem mirrors = currentMirrorSystem();
-  ClassMirror myClassMirror = reflectClass(MyClass);
-  checkMetadata(myClassMirror, [symbol, string]);
-  LibraryMirror lib = mirrors.findLibrary(const Symbol('test.metadata_test')).first;
-  MethodMirror function = lib.functions[const Symbol('main')];
-  checkMetadata(function, [symbol, string, symbol]);
-  MethodMirror method = myClassMirror.methods[const Symbol('myMethod')];
-  checkMetadata(method, [string, symbol, string]);
-
-  VariableMirror xMirror = myClassMirror.variables[const Symbol('x')];
-  checkMetadata(xMirror, [hest, hest, symbol]);
-
-  VariableMirror yMirror = myClassMirror.variables[const Symbol('y')];
-  checkMetadata(yMirror, []);
-
-  // TODO(ahe): Test local functions.
+void main() {
+  test("meta test", (){
+    var classMirror = reflectClass(Cool);
+    var metadata = classMirror.metadata;
+    var obj = metadata.first.reflectee;
+    expect(obj.toString(), equals("it works!"));
+  });
 }
