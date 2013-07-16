@@ -16,7 +16,7 @@ main() {
 
 String _namedFunction(String msg, {int repeat: null}) {
   String res = "";
-  if(!?repeat) {
+  if(repeat == null) {
     repeat = 1;
   }
   while(repeat > 0) {
@@ -28,7 +28,7 @@ String _namedFunction(String msg, {int repeat: null}) {
 
 String _positionalFunction(String msg, [int repeat = null]) {
   String res = "";
-  if(!?repeat) {
+  if(repeat == null) {
     repeat = 1;
   }
   while(repeat > 0) {

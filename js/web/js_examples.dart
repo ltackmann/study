@@ -64,6 +64,14 @@ main() {
       js.release(x);
     });
   });
+  
+  test("listen to event in dart", () {
+    callback(arg) {
+      print("custom event recieved in Dart");
+    }
+    js.context.document.addEventListener("CustomEvent",callback,false);
+    js.context.invokeCustomEvent();
+  });
 }
 
 
