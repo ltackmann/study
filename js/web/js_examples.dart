@@ -66,11 +66,13 @@ main() {
   });
   
   test("listen to event in dart", () {
+    var event;
     callback(arg) {
-      print("custom event recieved in Dart");
+      event = arg;
     }
-    js.context.document.addEventListener("CustomEvent",callback,false);
+    js.context.document.addEventListener("CustomEvent",new js.Callback.many(callback),false);
     js.context.invokeCustomEvent();
+    expect(event, isNotNull);
   });
 }
 

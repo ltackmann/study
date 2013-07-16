@@ -35,14 +35,7 @@ function invokeCustomEvent() {
 	// add custom property
 	evt.eventType = "CustomEvent";
 	
-	// add listener
-	document.addEventListener("CustomEvent",listenForCustomEvent,false);
-	
 	// dispatch
 	console.log("custom event send");
 	document.dispatchEvent(evt);
-}
-
-function listenForCustomEvent(arg) {
-	console.log("custom event recieved in JavaScript");
 }
