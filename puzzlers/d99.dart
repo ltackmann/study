@@ -2,9 +2,7 @@ import 'dart:collection';
 
 import 'package:unittest/unittest.dart';
 
-/**
- * Dart implementation of the [99 scala problems](http://aperiodic.net/phil/scala/s-99/)
- */
+/** Dart implementation of the [99 scala problems](http://aperiodic.net/phil/scala/s-99/) */
 main() {
   test('P01: Find the last element of a list', () {
     dynamic last(List list) => list.last;

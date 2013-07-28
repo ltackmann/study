@@ -1,8 +1,6 @@
 import 'package:unittest/unittest.dart';
 
-/**
- * Dart solutions to [project euler](http://projecteuler.net)
- */
+/** Dart solutions to [project euler](http://projecteuler.net) */
 main() {
   /** [Problem 1](http://projecteuler.net/problem=1) */
   test('Find the sum of all the multiples of 3 or 5 below 1000.', () {
