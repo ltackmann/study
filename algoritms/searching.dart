@@ -1,8 +1,7 @@
 import 'package:unittest/unittest.dart';
 
-/** Dart implementations of algorithms from [Algorithms Unlocked](http://www.amazon.com/Algorithms-Unlocked-Thomas-H-Cormen/dp/0262518805) */
 main() {
-  group("sorting and searching -", () {
+  group("searching algorithms -", () {
     test("binary search iterative", () {
       int binarySearch(List<Comparable> list, Comparable target) {
         var start = 0;
