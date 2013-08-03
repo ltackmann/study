@@ -12,10 +12,10 @@ class BurnsQuestionnaire extends Questionnaire<BurnsQuestionGroup> {
       group.questions.add(new BurnsQuestion(1, "Feeling discouraged."));
       group.questions.add(new BurnsQuestion(1, "Feeling hopeless."));
       group.questions.add(new BurnsQuestion(1, "Low self-esteem."));
-      group.questions.add(new BurnsQuestion(1, " Feeling worthless or inadequate."));
+      group.questions.add(new BurnsQuestion(1, "Feeling worthless or inadequate."));
       group.questions.add(new BurnsQuestion(1, "Guilt or shame."));
       group.questions.add(new BurnsQuestion(1, "Criticizing yourself or blaming others."));
-      group.questions.add(new BurnsQuestion(1, " Difficulty making decisions."));
+      group.questions.add(new BurnsQuestion(1, "Difficulty making decisions."));
       group.questions.add(new BurnsQuestion(1, "Loss of interest in family, friends, or colleagues."));
       group.questions.add(new BurnsQuestion(1, "Loneliness."));
       group.questions.add(new BurnsQuestion(1, "Spending less time with family or friends."));
@@ -47,14 +47,6 @@ class BurnsQuestionGroup extends QuestionGroup<BurnsQuestion> {
 }
 
 class BurnsQuestion extends Question {
-  static final Map<String, int> _options = const {
-    "Not at all": 0,
-    "Somewhat": 1,
-    "Moderate": 2,
-    "A lot":3,
-    "Extremely":4
-  };
-  
   BurnsQuestion(int id, this.question): super(id);
   
   List get options => _options.keys.toList();
@@ -62,6 +54,13 @@ class BurnsQuestion extends Question {
   int get score => _score;
       set score(var value) => _score = _options[value];
       
+  final String question;    
   int _score = 0;
-  final String question;
+  static final Map<String, int> _options = const {
+    "Not at all": 0,
+    "Somewhat": 1,
+    "Moderate": 2,
+    "A lot":3,
+    "Extremely":4
+  };
 }

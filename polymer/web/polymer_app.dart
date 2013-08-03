@@ -8,7 +8,7 @@ import 'package:route/client.dart';
 class WebApp {
   WebApp() {
     _router.addHandler(_burnsQuestionnaireUrl, (path) {
-      query('#questionnaire').model.showBurnsQuestionnaire();
+      query('#questionnaire').model.showBurnsQuestionnaire(); 
     });
     _router.addHandler(_dasQuestionnaireUrl, (path) {
       query('#questionnaire').model.showDasQuestionnaire();
@@ -26,14 +26,14 @@ class WebApp {
 }
 
 main() {
-  mdv.initialize();
-  
   runAsync(() {
+    mdv.initialize();
+    
     var webApp = new WebApp();
     webApp.go();
+    
+    print("app started");
   });
-  
-  print("app started");
 }
 
 

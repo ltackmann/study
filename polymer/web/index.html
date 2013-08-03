@@ -17,7 +17,7 @@
     <section id="templates">
       <polymer-element name="x-questionnaire">
         <template id="questionnaire">
-          <template bind="{{questionnaire}}">
+          <template bind="{{questionnaire}}" if="{{questionnaire != null}}">
             <h1>{{questionnaireName}}</h1>
             <template repeat="{{ groups }}">
               <article>
@@ -44,7 +44,7 @@
 
           @CustomTag('x-questionnaire')
           class XQuestionnaire extends PolymerElement with ObservableMixin {
-            @observable Questionnaire questionnaire = new BurnsQuestionnaire();
+            @observable Questionnaire questionnaire;
             
             showDasQuestionnaire() {
                questionnaire = new DasQuestionnaire();

@@ -86,6 +86,15 @@ class DasQuestionGroup extends QuestionGroup<DasQuestion> {
 }
 
 class DasQuestion extends Question {
+  DasQuestion(int id, this.question): super(id);
+  
+  List get options => _options.keys.toList();
+  
+  int get score => _score;
+      set score(var value) => _score = _options[value];
+     
+  final String question;    
+  int _score;
   static final Map<String, int> _options = const {
     "Strongly agree": -2,
     "Slightly agree": -1,
@@ -93,16 +102,4 @@ class DasQuestion extends Question {
     "Slightly disagree":1,
     "Strongly disagree":2
   };
-  
-  DasQuestion(int id, this.question): super(id);
-  
-  List get options => _options.keys.toList();
-  
-  int get score => _score;
-      set score(var value) => _score = _options[value];
-      
-  showMessage(var event) => print("clicked");
-  
-  int _score;
-  final String question;
 }
