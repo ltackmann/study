@@ -3,6 +3,7 @@
   <head>
     <title>Daido</title>
     <link rel="stylesheet" href="styles.css">
+      <link rel="import" href="templates/questionnaire_widget.html">
   </head>
  
   <body>
@@ -11,62 +12,9 @@
         <li><a href="#questionnaire/burns">Burns Depression Scale</a></li>
         <li><a href="#questionnaire/das">Dysfunctional Attitude Scale</a></li>
       </ul>
-      <x-questionnaire><x-questionnaire>
+      <x-questionnaire-widget><x-questionnaire-widget>
     </section>
     
-    <section id="templates">
-      <polymer-element name="x-questionnaire">
-        <template id="questionnaire">
-          <template bind="{{questionnaire}}" if="{{questionnaire != null}}">
-            <h1>{{questionnaireName}}</h1>
-            <template repeat="{{ groups }}">
-              <article>
-                <h3>{{description}}</h3>
-                <p>{{score}}</p>
-                <table class="question-group">
-                  <tr template repeat="{{ questions }}">
-                    <td>{{question}}</td>
-                    <td>
-                      <select on-change="showMessage">
-                        <option template repeat="{{ options }}">{{}}</option>
-                      </select>
-                    </td>
-                  </tr>              
-                </table>
-              </article>
-            </template>
-          </template>
-        </template>
-        
-        <script type="application/dart">
-          import 'package:polymer/polymer.dart';
-          import 'package:polymer_app/polymer_lib.dart';
-
-          @CustomTag('x-questionnaire')
-          class XQuestionnaire extends PolymerElement with ObservableMixin {
-            @observable Questionnaire questionnaire;
-            
-            showDasQuestionnaire() {
-               questionnaire = new DasQuestionnaire();
-               Observable.dirtyCheck();
-            }
-            
-            showBurnsQuestionnaire() {
-              questionnaire = new BurnsQuestionnaire();
-              Observable.dirtyCheck();
-            }
-
-            showMessage(event) {
-              var target = event.target; 
-              //var model = target.model;
-              print("event ${event.toString()} value ${target.value}");
-              Observable.dirtyCheck();
-            }       
-          }
-        </script>
-      </polymer-element>
-    </section>
-     
     <script type="application/dart" src="polymer_app.dart"></script>
     <script src="packages/polymer/boot.js"></script>
   </body>
