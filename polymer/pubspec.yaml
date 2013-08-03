@@ -1,0 +1,7 @@
+name: daido
+description: Stop suffering, Start living
+dependencies:
+  polymer: any
+  route: any
+dev_dependencies:
+  unittest: any
