@@ -1,4 +1,4 @@
-part of daido_lib;
+part of polymer_lib;
 
 /** [Burns Depression Scale](http://www.hopeenrichmentcenter.com/Burns-Depression-scale.html) */
 class BurnsQuestionnaire extends Questionnaire<BurnsQuestionGroup> {

@@ -1,4 +1,4 @@
-library daido_lib;
+library polymer_lib;
 
 import 'package:meta/meta.dart';
 

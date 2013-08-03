@@ -1,5 +1,4 @@
-name: daido
-description: Stop suffering, Start living
+name: polymer_app
 dependencies:
   polymer: any
   route: any
