@@ -1,10 +1,3 @@
-[POSTGRESQL SETUP]
-# create user: dbuser, without ability to create new users (-R) but with rights to create databases (-d)
-/createuser -P -R -d dbuser -U postgres
-
-# Create database jpadb owned by dbuser
-createdb jpadb -O dbuser -U dbuser
-
-# import database schema
-psql -U dbuser jpadb < jpadb_schema.sql
-
+http://hsqldb.org/doc/guide/sqlroutines-chapt.html
+http://stackoverflow.com/questions/10338044/create-a-stored-procedure-in-hsqldb-with-spring-embedded-databases-api
+http://java.dzone.com/articles/persistence-layer-spring-31-0
