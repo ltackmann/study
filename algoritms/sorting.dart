@@ -2,8 +2,8 @@ import 'package:unittest/unittest.dart';
 
 main() {
   group("sorting algorithms -", () {
-    solo_test("selection sort", () {
-      selectionSort(List<Comparable> list) {
+    test("selection sort", () {
+      List<Comparable> selectionSort(List<Comparable> list) {
         final length = list.length;
         for(int i=0; i<length-1; i++) {
           var smallest = i;
@@ -16,11 +16,24 @@ main() {
         }
         return list;
       }
-      expect(selectionSort([6,3,1,4,2,5]), equals([1,2,3,4,5,6]));
+      assertIntegerSort(selectionSort);
     });
     
-    test("insertion sort", () {
-      
+    solo_test("insertion sort", () {
+      List<Comparable> insertionSort(List<Comparable> list) {
+        final length = list.length;
+        for(int i=1; i<length; i++) {
+          var key = list[i];
+          int j = i - 1;
+          while(j >= 0 && list[j].compareTo(key) > 0) {
+            list[j+1] = list[j];
+            j--;
+          }
+          list[j+1] = key;
+        }
+        return list;
+      }
+      assertIntegerSort(insertionSort);
     });
     
     test("merge sort", () {
@@ -30,6 +43,14 @@ main() {
     test("quick sort", () {
       
     });
+    
+    test("count sort", () {
+      
+    });
+    
+    test("radix sort", () {
+      
+    });
   });
 }
 
@@ -37,4 +58,9 @@ swap(List list, int i, int j) {
   var tmp = list[i];
   list[i] = list[j];
   list[j] = tmp;
+}
+
+assertIntegerSort(List<Comparable> sorter(List<Comparable> list)) {
+  expect(sorter([3,1,2,5,4]), equals([1,2,3,4,5]));
+  expect(sorter([6,3,1,4,2,5]), equals([1,2,3,4,5,6]));
 }
