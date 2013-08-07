@@ -36,16 +36,16 @@ main() {
       assertSort(insertionSort);
     });
     
-    solo_test("merge sort", () {
+    test("merge sort", () {
       merge(List<Comparable> list, int start, int pivot, int end) {
-        List<Comparable> tmp1 = list.getRange(start, pivot+1).toList()..add(null); 
-        List<Comparable> tmp2 = list.getRange(pivot+1, end+1).toList()..add(null); 
+        List<Comparable> tmp1 = list.getRange(start, pivot+1).toList(); 
+        List<Comparable> tmp2 = list.getRange(pivot+1, end+1).toList(); 
         int i = 0, j = 0;
         for(int k=start; k<=end; k++) {
-          if(tmp1[i] != null && tmp2[j] == null) {
+          if(tmp1.length > i && tmp2.length <= j) {
             list[k] = tmp1[i];
             i++;
-          } else if(tmp1[i] == null && tmp2[j] != null) {
+          } else if(tmp1.length <= i && tmp2.length > j) {
             list[k] = tmp2[j];
             j++;
           } else if(tmp1[i].compareTo(tmp2[j]) <= 0) {
@@ -97,6 +97,7 @@ swap(List list, int i, int j) {
 }
 
 assertSort(List<Comparable> sorter(List<Comparable> list)) {
+  expect(sorter([4,3,1,2]), equals([1,2,3,4]));
   expect(sorter([3,1,2,5,4]), equals([1,2,3,4,5]));
   expect(sorter([6,3,1,4,2,5]), equals([1,2,3,4,5,6]));
 }
