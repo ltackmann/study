@@ -42,10 +42,10 @@ main() {
         List<Comparable> tmp2 = list.getRange(pivot+1, end+1).toList(); 
         int i = 0, j = 0;
         for(int k=start; k<=end; k++) {
-          if(tmp1.length > i && tmp2.length <= j) {
+          if(i < tmp1.length && j >= tmp2.length) {
             list[k] = tmp1[i];
             i++;
-          } else if(tmp1.length <= i && tmp2.length > j) {
+          } else if(i >= tmp1.length && j < tmp2.length) {
             list[k] = tmp2[j];
             j++;
           } else if(tmp1[i].compareTo(tmp2[j]) <= 0) {
