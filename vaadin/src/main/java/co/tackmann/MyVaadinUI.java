@@ -26,7 +26,6 @@ public class MyVaadinUI extends UI {
 	private final Label nameLabel = new Label();
 	private Button button = new Button("Click Me");
 	private ComboBox combo = new ComboBox("Test");
-	private ActionType actionType;
 
 	// private CheckBox checkBox = new CheckBox(" Keep previous results");
 	// private Button button = new Button(" Time it!");
@@ -61,8 +60,14 @@ public class MyVaadinUI extends UI {
 		combo.addValueChangeListener(new ValueChangeListener() {
 			@Override
 			public void valueChange(ValueChangeEvent event) {
-				actionType = (ActionType) combo.getValue();
-				button.setDescription(actionType.name);
+				ActionType actionType = (ActionType) combo.getValue();
+				if(actionType != null) {
+					button.setDescription(actionType.name);
+					button.setData(actionType);
+					button.setVisible(true);
+				} else {
+					button.setVisible(false);
+				}
 			}
 		});
 		combo.setImmediate(true);
@@ -70,27 +75,21 @@ public class MyVaadinUI extends UI {
 
 	void initButtons() {
 		button.addClickListener(new Button.ClickListener() {
-			// TODO first show button when event is clicked
 			public void buttonClick(ClickEvent event) {
-				if (actionType == null) {
-					Notification.show("please select",
-							Notification.TYPE_ERROR_MESSAGE);
-				} else {
-					switch (actionType) {
-					case NOTIFICATION:
-						Notification.show("Hello " + nameField.getValue());
-						break;
-					case FIELD:
-						nameLabel.setCaption("Hello " + nameField.getValue());
-						break;
-					default:
-						throw new IllegalArgumentException(
-								"unhandled enum value");
-					}
+				ActionType actionType = (ActionType) button.getData();
+				switch (actionType) {
+				case NOTIFICATION:
+					Notification.show("Hello " + nameField.getValue());
+					break;
+				case FIELD:
+					nameLabel.setCaption("Hello " + nameField.getValue());
+					break;
+				default:
+					Notification.show("please select", Notification.TYPE_ERROR_MESSAGE);
 				}
-
 			}
 		});
+		button.setVisible(false);
 	}
 
 	// TODO can this be moved out ?
