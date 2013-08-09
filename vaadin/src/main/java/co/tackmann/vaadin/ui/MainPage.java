@@ -15,9 +15,9 @@ import com.vaadin.ui.VerticalLayout;
 
 @SuppressWarnings("serial")
 public class MainPage {
-	private VerticalLayout layout = new VerticalLayout();
-	private HorizontalLayout actionLayout = new HorizontalLayout();
-	private VerticalLayout outputLayout = new VerticalLayout();
+	private VerticalLayout pageLayout = new VerticalLayout();
+	private VerticalLayout actionLayout = new VerticalLayout();
+	private VerticalLayout actionResultLayout = new VerticalLayout();
 
 	private final TextField nameField = new TextField("Type message");
 	private final Label actionLabel = new Label();
@@ -82,35 +82,43 @@ public class MainPage {
 			public void buttonClick(ClickEvent event) {
 				ActionType actionType = (ActionType) actionButton.getData();
 				switch (actionType) {
-				case NOTIFICATION:
-					Notification.show("Hello " + nameField.getValue());
+				case SHOUT:
+					showResult("Shouting " + nameField.getValue());
 					break;
-				case FIELD:
-					actionLabel.setCaption("Hello " + nameField.getValue());
+				case WISPER:
+					showResult("Wispering " + nameField.getValue());
 					break;
 				default:
-					Notification.show("please select",
-							Notification.TYPE_ERROR_MESSAGE);
+					Notification.show("please select", Notification.TYPE_ERROR_MESSAGE);
 				}
 			}
 		});
 		actionLayout.setVisible(false);
 	}
+	
+	private void showResult(String message) {
+		if(actionResultLayout.iterator().hasNext()) {
+			// clear old content
+			actionResultLayout.removeAllComponents();
+		}
+		actionResultLayout.addComponent(new Label(message));
+	}
 
 	private void initLayout(UI ui) {
-		layout.setMargin(true);
-		ui.setContent(layout);
+		pageLayout.setMargin(true);  
+		pageLayout.setSpacing(true); 
+		ui.setContent(pageLayout);
 
 		// input
-		layout.addComponent(nameField);
-		layout.addComponent(combo);
+		pageLayout.addComponent(nameField);
+		pageLayout.addComponent(combo);
 
 		// action
-		actionLayout.addComponent(actionLabel);
-		actionLayout.addComponent(actionButton);
-		layout.addComponent(actionLayout);
-		
-		// result
-		layout.addComponent(outputLayout);
+		HorizontalLayout wrapper = new HorizontalLayout();
+		wrapper.addComponent(actionLabel);
+		wrapper.addComponent(actionButton);
+		actionLayout.addComponent(wrapper);
+		actionLayout.addComponent(actionResultLayout);
+		pageLayout.addComponent(actionLayout);
 	}
 }

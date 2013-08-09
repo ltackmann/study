@@ -1,7 +1,7 @@
 package co.tackmann.vaadin.ui;
 
 public enum ActionType {
-	NOTIFICATION("Notification"), FIELD("Field");
+	SHOUT("Shout"), WISPER("Wisper");
 	
 	final String name;
 	
