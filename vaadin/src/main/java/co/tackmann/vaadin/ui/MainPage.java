@@ -2,6 +2,7 @@ package co.tackmann.vaadin.ui;
 
 import com.vaadin.data.Property.ValueChangeEvent;
 import com.vaadin.data.Property.ValueChangeListener;
+import com.vaadin.server.UserError;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.ComboBox;
@@ -18,19 +19,35 @@ public class MainPage {
 	private HorizontalLayout actionLayout = new HorizontalLayout();
 	private VerticalLayout outputLayout = new VerticalLayout();
 
-	private final TextField nameField = new TextField("Type your name");
+	private final TextField nameField = new TextField("Type message");
 	private final Label actionLabel = new Label();
 	private Button actionButton = new Button("Click Me");
-	private ComboBox combo = new ComboBox("Test");
+	private ComboBox combo = new ComboBox("Select action");
 
 	// private CheckBox checkBox = new CheckBox(" Keep previous results");
 
 	// TODO MVP style testing with mockito
 
 	public void attachTo(UI ui) {
+		initField();
 		initCombo();
 		initAction();
 		initLayout(ui);
+	}
+	
+	private void initField() {
+		nameField.addValueChangeListener(new ValueChangeListener() {
+			@Override
+			public void valueChange(ValueChangeEvent event) {
+				if(nameField.getValue().isEmpty()) {
+					combo.setVisible(false);
+					actionLayout.setVisible(false);
+				} else {
+					combo.setVisible(true);
+				}
+			}
+		});
+		nameField.setImmediate(true);
 	}
 	
 	private void initCombo() {
@@ -43,17 +60,21 @@ public class MainPage {
 			@Override
 			public void valueChange(ValueChangeEvent event) {
 				ActionType actionType = (ActionType) combo.getValue();
-				if (actionType != null) {
+				if (actionType == null) {
+					actionLayout.setVisible(false);
+					combo.setComponentError(new UserError("Please select an action"));
+				} else {
 					actionLabel.setCaption(actionType.name);
 					actionButton.setDescription(actionType.name); // tool tip
 					actionButton.setData(actionType);
 					actionLayout.setVisible(true);
-				} else {
-					actionLayout.setVisible(false);
+					// clear any errors
+					combo.setComponentError(null);
 				}
 			}
 		});
 		combo.setImmediate(true);
+		combo.setVisible(false);
 	}
 
 	private void initAction() {
