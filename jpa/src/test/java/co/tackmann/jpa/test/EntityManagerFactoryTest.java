@@ -19,15 +19,15 @@ import co.tackmann.jpa.domain.User;
 import co.tackmann.jpa.domain.UserType;
 
 /**
- * Show how a entitymanager can be created by hand
+ * Test creating an entitymanager by hand 
  */
 public class EntityManagerFactoryTest {
-    private EntityManagerFactory entityManagerFactory;
-    private EntityManager entityManager;
+    private static EntityManagerFactory entityManagerFactory;
+    private static EntityManager entityManager;
 
     @BeforeClass
-    public void setUp() {
-        // misc JPA
+    public static void setUp() {
+        // TODO can this be loaded from java instead of persistence.xml ?
         entityManagerFactory = Persistence.createEntityManagerFactory("example");
         entityManager = entityManagerFactory.createEntityManager();
     }
@@ -54,7 +54,7 @@ public class EntityManagerFactoryTest {
     }
 
     @AfterClass
-    public void tearDown() {
+    public static void tearDown() {
         // Stop JPA
         if (entityManager != null)
             entityManager.close();

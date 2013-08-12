@@ -15,10 +15,6 @@ import org.junit.Test;
 import co.tackmann.jpa.domain.Product;
 import co.tackmann.jpa.test.utils.SpringTester;
 
-/**
- * User: "Lars Tackmann"
- * Date: Dec 16, 2008
- */
 public class QueryTest extends SpringTester {
     @PersistenceContext
     private EntityManager entityManager;

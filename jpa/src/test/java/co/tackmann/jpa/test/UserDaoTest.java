@@ -11,7 +11,7 @@ import co.tackmann.jpa.domain.User;
 import co.tackmann.jpa.domain.UserType;
 import co.tackmann.jpa.test.utils.SpringTester;
 
-public class UserDaoTest extends SpringTester{
+public class UserDaoTest extends SpringTester {
     @Autowired
     private UserDao userDao;
 

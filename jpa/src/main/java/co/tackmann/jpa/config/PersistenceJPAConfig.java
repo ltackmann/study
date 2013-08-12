@@ -38,10 +38,10 @@ public class PersistenceJPAConfig {
 	@Bean
 	public DataSource restDataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setDriverClassName("jdbc:postgresql://127.0.0.1:5432/jpadb");
-		dataSource.setUrl("org.postgresql.Driver");
-		dataSource.setUsername("restUser");
-		dataSource.setPassword("restmy5ql");
+		dataSource.setDriverClassName("org.hsqldb.jdbcDriver");
+		dataSource.setUrl("jdbc:hsqldb:file:~/Projects/java/jpa/hsql.db");
+		dataSource.setUsername("sa");
+		dataSource.setPassword("");
 		return dataSource;
 	}
 

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- No longer needed, see PersistenceJPAConfig instead -->
+<!-- TODO change to hibernate and persistence 2.0-->
+<!-- TODO is there an ability to search through a package instead of listing every class -->
 <persistence version="1.0"
              xmlns="http://java.sun.com/xml/ns/persistence"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -9,27 +11,30 @@
         <provider>
             org.eclipse.persistence.jpa.PersistenceProvider
         </provider>
-        <class>org.randompage.samples.jpa.domain.Address</class>
-        <class>org.randompage.samples.jpa.domain.AuditLog</class>
-        <class>org.randompage.samples.jpa.domain.Category</class>
-        <class>org.randompage.samples.jpa.domain.Country</class>
-        <class>org.randompage.samples.jpa.domain.Customer</class>
-        <class>org.randompage.samples.jpa.domain.Employee</class>
-        <class>org.randompage.samples.jpa.domain.LoginLog</class>
-        <class>org.randompage.samples.jpa.domain.Order</class>
-        <class>org.randompage.samples.jpa.domain.OrderItem</class>
-        <class>org.randompage.samples.jpa.domain.Product</class>
-        <class>org.randompage.samples.jpa.domain.products.Book</class>
-        <class>org.randompage.samples.jpa.domain.products.Music</class>
-        <class>org.randompage.samples.jpa.domain.products.Software</class>
-        <class>org.randompage.samples.jpa.domain.Supplier</class>
-        <class>org.randompage.samples.jpa.domain.User</class>
+        <class>co.tackmann.jpa.domain.Address</class>
+        <class>co.tackmann.jpa.domain.AuditLog</class>
+        <class>co.tackmann.jpa.domain.Category</class>
+        <class>co.tackmann.jpa.domain.Country</class>
+        <class>co.tackmann.jpa.domain.Customer</class>
+        <class>co.tackmann.jpa.domain.Employee</class>
+        <class>co.tackmann.jpa.domain.LoginLog</class>
+        <class>co.tackmann.jpa.domain.Order</class>
+        <class>co.tackmann.jpa.domain.OrderItem</class>
+        <class>co.tackmann.jpa.domain.Product</class>
+        <class>co.tackmann.jpa.domain.products.Book</class>
+        <class>co.tackmann.jpa.domain.products.Music</class>
+        <class>co.tackmann.jpa.domain.products.Software</class>
+        <class>co.tackmann.jpa.domain.Supplier</class>
+        <class>co.tackmann.jpa.domain.User</class>
 
         <properties>
-            <property name="eclipselink.jdbc.user" value="dbuser"/>
-            <property name="eclipselink.jdbc.password" value="buf@s3123"/>
-            <property name="eclipselink.jdbc.driver" value="org.postgresql.Driver"/>
-            <property name="eclipselink.jdbc.url" value="jdbc:postgresql://127.0.0.1:5432/jpadb"/>
+        	<!-- connection -->
+         	<property name="eclipselink.jdbc.driver" value="org.hsqldb.jdbcDriver"/>
+            <property name="eclipselink.jdbc.url" value="jdbc:hsqldb:file:~/Projects/java/jpa/hsql.db"/>
+            <property name="eclipselink.jdbc.user" value="sa"/>
+            <property name="eclipselink.jdbc.password" value=""/>
+           
+           	<!-- configuration -->
             <!--<property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>-->
             <property name="eclipselink.logging.level" value="INFO"/>
         </properties>
