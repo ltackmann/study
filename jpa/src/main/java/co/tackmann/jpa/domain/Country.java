@@ -19,6 +19,18 @@ public class Country implements Serializable {
 
 	@Column(unique = true, nullable = false, length = 2)
 	private String code;
+	
+	@Column(unique = true, nullable = false)
+	private String name;
+	
+	public Country(String name, String code) {
+		this.name = name;
+		this.code = code;
+	}
+	
+	public Country() {
+		
+	}
 
 	public boolean equals(Object obj) {
 		if (this == obj)

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- No longer needed, see PersistenceJPAConfig instead -->
+<!-- TODO change to hibernate and persistence 2.0 -->
+<!-- TODO is there an ability to search through a package instead of listing 
+	every class -->
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0">
+	<persistence-unit name="jpa" transaction-type="RESOURCE_LOCAL">
+		<!-- <provider>org.hibernate.ejb.HibernatePersistence</provider> -->
+		<class>co.tackmann.jpa.domain.Address</class>
+		<class>co.tackmann.jpa.domain.AuditLog</class>
+		<class>co.tackmann.jpa.domain.Category</class>
+		<class>co.tackmann.jpa.domain.Country</class>
+		<class>co.tackmann.jpa.domain.Customer</class>
+		<class>co.tackmann.jpa.domain.Employee</class>
+		<class>co.tackmann.jpa.domain.LoginLog</class>
+		<class>co.tackmann.jpa.domain.Order</class>
+		<class>co.tackmann.jpa.domain.OrderItem</class>
+		<class>co.tackmann.jpa.domain.Product</class>
+		<class>co.tackmann.jpa.domain.products.Book</class>
+		<class>co.tackmann.jpa.domain.products.Music</class>
+		<class>co.tackmann.jpa.domain.products.Software</class>
+		<class>co.tackmann.jpa.domain.Supplier</class>
+		<class>co.tackmann.jpa.domain.User</class>
+
+		<properties>
+			<!-- connection -->
+			<property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:file:~/Projects/java/jpa/hsql.db" />
+			<property name="javax.persistence.jdbc.user" value="sa" />
+			<property name="javax.persistence.jdbc.password" value="" />
+
+			<!-- configuration -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" />
+			<!-- property name="hibernate.hbm2ddl.auto" value="update" /-->
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.use_sql_comments" value="true" />
+		</properties>
+	</persistence-unit>
+</persistence>
+
+
