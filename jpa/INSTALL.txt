@@ -1,3 +1,1 @@
-http://hsqldb.org/doc/guide/sqlroutines-chapt.html
 http://stackoverflow.com/questions/10338044/create-a-stored-procedure-in-hsqldb-with-spring-embedded-databases-api
-http://java.dzone.com/articles/persistence-layer-spring-31-0

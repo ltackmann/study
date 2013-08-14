@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- No longer needed, see PersistenceJPAConfig instead -->
-<!-- TODO change to hibernate and persistence 2.0 -->
-<!-- TODO is there an ability to search through a package instead of listing 
-	every class -->
 <persistence xmlns="http://java.sun.com/xml/ns/persistence"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
 	version="2.0">
 	<persistence-unit name="jpa" transaction-type="RESOURCE_LOCAL">
-		<!-- <provider>org.hibernate.ejb.HibernatePersistence</provider> -->
 		<class>co.tackmann.jpa.domain.Address</class>
 		<class>co.tackmann.jpa.domain.AuditLog</class>
 		<class>co.tackmann.jpa.domain.Category</class>
