@@ -5,9 +5,6 @@ import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * @author Lars Tackmann
- */
 @Entity
 @DiscriminatorValue("1")
 @SecondaryTable(name = "EMPLOYEE_DETAILS", pkJoinColumns = @PrimaryKeyJoinColumn(name = "EMP_ID"))

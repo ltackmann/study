@@ -5,8 +5,6 @@ import java.io.Serializable;
 
 /**
  * Supported country names and their ISO 3166 2-letter code
- * 
- * @author Lars Tackmann
  */
 @Entity
 @Table(name = "COUNTRIES")

@@ -5,6 +5,7 @@ import java.util.Properties;
 import javax.sql.DataSource;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -17,12 +18,13 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
+@ComponentScan("co.tackmann.jpa.impl")
 public class PersistenceJPAConfig {
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean() {
 		LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
 		factoryBean.setDataSource(this.restDataSource());
-		factoryBean.setPackagesToScan(new String[] { "org.rest" });
+		factoryBean.setPackagesToScan(new String[] { "co.tackmann.jpa.domain" });
 
 		JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter() {
 			{

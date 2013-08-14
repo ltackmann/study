@@ -4,9 +4,6 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * @author Lars Tackmann
- */
 @Entity
 @DiscriminatorValue("0")
 public class Customer extends User {

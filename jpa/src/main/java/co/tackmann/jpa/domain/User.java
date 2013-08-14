@@ -5,12 +5,13 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * @author Lars Tackmann
+ * Abstract base class for all user types
  */
 @Entity
 @Table(name = "USERS")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "USER_TYPE", discriminatorType = DiscriminatorType.INTEGER)
+@NamedQuery(name="User.findByUsername", query="SELECT u FROM User u where u.username = :username") 
 public abstract class User implements Serializable {
     private static final long serialVersionUID = -7002387611847834396L;
 

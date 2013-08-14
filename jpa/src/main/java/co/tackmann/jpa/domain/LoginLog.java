@@ -4,9 +4,6 @@ import javax.persistence.*;
 
 /**
  * Track system logins
- * 
- * @author Lars Tackmann
- * 
  */
 @Entity
 @Table(name = "LOGIN_LOG")

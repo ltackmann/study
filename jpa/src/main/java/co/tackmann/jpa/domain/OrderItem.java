@@ -6,9 +6,6 @@ import java.math.BigDecimal;
 
 /**
  * Represents part of a order and its configuration
- * 
- * @author Lars Tackmann
- * 
  */
 @Entity
 @Table(name = "ORDER_ITEMS")

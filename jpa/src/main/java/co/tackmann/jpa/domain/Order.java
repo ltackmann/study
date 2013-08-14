@@ -7,9 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Order in the EasyBox system
- * 
- * @author Lars Tackmann
+ * An order and its items 
  */
 @Entity
 @Table(name = "ORDERS")

@@ -4,9 +4,6 @@ import javax.persistence.*;
 
 /**
  * Used to track auditable actions
- * 
- * @author Lars Tackmann
- * 
  */
 @Entity
 @Table(name="AUDIT_LOG")

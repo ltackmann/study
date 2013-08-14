@@ -5,8 +5,6 @@ import java.io.Serializable;
 
 /**
  * Product categories
- * 
- * @author Lars Tackmann
  */
 @Entity
 @Table(name = "CATEGORIES")

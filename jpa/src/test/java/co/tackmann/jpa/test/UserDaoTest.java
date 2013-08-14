@@ -17,9 +17,9 @@ public class UserDaoTest extends SpringTester {
 
     @Test
     public void userTest() {
-		User user = userDao.findUser("jd");
+		User user = userDao.findUser("donald");
         
-        assertThat(user.getUsername(), is("jd"));
+        assertThat(user.getName(), is("Donald Duck"));
         assertThat(user.getUserType(), is(UserType.CUSTOMER));
 	}
 }
