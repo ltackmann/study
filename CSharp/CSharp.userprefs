@@ -1,0 +1,15 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Nancy/SampleModule.cs">
+    <Files>
+      <File FileName="Nancy/SampleModule.cs" Line="30" Column="3" />
+      <File FileName="Nancy/Web.config" Line="1" Column="22" />
+      <File FileName="Nancy/packages.config" Line="1" Column="1" />
+      <File FileName="Nancy/Views/index.sshtml" Line="9" Column="8" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
