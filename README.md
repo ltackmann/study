@@ -1,4 +1,3 @@
-dotnet-samples
-==============
+# dotnet-samples
 
-.Net experiments
+## .Net experiments
