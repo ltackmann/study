@@ -80,7 +80,7 @@ main() {
       assertSort(mergeSort);
     });
     
-    solo_test("quick sort", () {
+    test("quick sort", () {
       // rearranges list[start..end] so that every element in 
       // list[start..pivot] is less than list[pivot] and every 
       // element in list[pivot..end] is greater than list[pivot]
@@ -113,7 +113,7 @@ main() {
       assertSort(quickSort);
     });
     
-    test("count sort", () {
+    solo_test("count sort", () {
       
     });
     

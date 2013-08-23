@@ -1,4 +1,4 @@
-part of polymer_lib;
+part of questionnaire_lib;
 
 /** [Dysfunctional Attitude Scale](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2712063) */
 class DasQuestionnaire extends Questionnaire<DasQuestionGroup> {

@@ -1,7 +1,7 @@
 library polymer_lib_test;
 
 import 'package:unittest/unittest.dart';
-import 'package:polymer_app/polymer_lib.dart';
+import 'package:polymer_app/questionnaire_lib.dart';
 
 main() {
   group("dysfunctional attitude scale -", () {

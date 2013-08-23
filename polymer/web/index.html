@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Daido</title>
+    <title>Questionnaire App</title>
+    
     <link rel="stylesheet" href="styles.css">
-      <link rel="import" href="templates/questionnaire_widget.html">
+    <link rel="import" href="templates/questionnaire_widget.html">
+    
+    <script src="packages/polymer/boot.js"></script>
   </head>
  
   <body>
@@ -12,10 +15,9 @@
         <li><a href="#questionnaire/burns">Burns Depression Scale</a></li>
         <li><a href="#questionnaire/das">Dysfunctional Attitude Scale</a></li>
       </ul>
-      <questionnaire-widget><questionnaire-widget>
+      <questionnaire-widget id="questionnaire"><questionnaire-widget>
     </section>
     
-    <script type="application/dart" src="polymer_app.dart"></script>
-    <script src="packages/polymer/boot.js"></script>
+    <script type="application/dart" src="web_app.dart"></script>
   </body>
 </html>

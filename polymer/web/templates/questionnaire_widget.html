@@ -2,8 +2,8 @@
 <html>
   <body>
     <polymer-element name="questionnaire-widget">
-      <template id="questionnaire" if="{{questionnaire != null}}">
-        <template bind="{{questionnaire}}">
+      <template>
+        <template bind="{{questionnaire}}" if="{{questionnaire}}">
           <h1>{{questionnaireName}}</h1>
           <template repeat="{{ groups }}">
             <article>

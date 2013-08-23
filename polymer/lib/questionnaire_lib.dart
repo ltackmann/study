@@ -1,4 +1,4 @@
-library polymer_lib;
+library questionnaire_lib;
 
 import 'package:meta/meta.dart';
 

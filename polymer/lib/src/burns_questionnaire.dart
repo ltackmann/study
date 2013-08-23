@@ -1,4 +1,4 @@
-part of polymer_lib;
+part of questionnaire_lib;
 
 /** [Burns Depression Scale](http://www.hopeenrichmentcenter.com/Burns-Depression-scale.html) */
 class BurnsQuestionnaire extends Questionnaire<BurnsQuestionGroup> {
@@ -42,7 +42,7 @@ class BurnsQuestionGroup extends QuestionGroup<BurnsQuestion> {
   @override
   bool get canProcede => false;
   
-  int get score => questions.fold(0,(a,b) => a+b);
+  int get score => questions.map((q) => q.score).fold(0,(a,b) => a+b);
   final String description;
 }
 
