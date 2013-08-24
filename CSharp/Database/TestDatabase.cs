@@ -43,7 +43,7 @@ namespace Database
 
 		private void InsertData(IDbConnection connection)
 		{
-			// TODO switch to NdbUnit
+			// TODO switch to NdbUnit https://code.google.com/p/ndbunit/wiki/QuickStartGuide
 			var command = connection.CreateCommand();
 			command.CommandText = @"
 			INSERT INTO
@@ -69,8 +69,7 @@ namespace Database
 			while(reader.Read()) {
 				string FirstName = reader.GetString (0);
 				string LastName = reader.GetString (1);
-				Console.WriteLine("Name: " +
-				                  FirstName + " " + LastName);
+				Console.WriteLine("Name: " + FirstName + " " + LastName);
 			}
 			// clean up
 			// TODO switch to USING

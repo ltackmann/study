@@ -9,6 +9,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>EntityFrameworkDemo</RootNamespace>
     <AssemblyName>EntityFrameworkDemo</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,17 +33,41 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
-    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="Mono.Data.Sqlite" />
     <Reference Include="System" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\..\..\..\..\Library\Frameworks\Mono.framework\Libraries\mono\4.5\EntityFramework.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CreateDB.cs" />
+    <Compile Include="Models\Country.cs" />
+    <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\AuditLog.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\EmployeeType.cs" />
+    <Compile Include="Models\Log.cs" />
+    <Compile Include="Models\LoginLog.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderItem.cs" />
+    <Compile Include="Models\OrderItemPK.cs" />
+    <Compile Include="Models\OrderStatus.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Supplier.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserType.cs" />
+    <Compile Include="DAL\UserContext.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+    <Folder Include="Models\" />
+    <Folder Include="DAL\" />
   </ItemGroup>
 </Project>

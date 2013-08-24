@@ -10,6 +10,15 @@ namespace EntityFrameworkDemo
 	{
 		public static void Main(string[] args)
 		{
+			using (var context = new UserContext())
+			{
+				var employees = context.Employees;
+
+				foreach (var employee in employees)
+				{
+					Console.WriteLine("Name: " + employee.FirstName + " " + employee.LastName);
+				}
+			}
 		}
 	}
 }
