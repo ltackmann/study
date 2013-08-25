@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EntityFrameworkDemo.Models
 {
-	[Table("EMPLOYEE")]
+	//[Table("EMPLOYEE")]
 	public class Employee
 	{
 		//[Column("BlogDescription")]
