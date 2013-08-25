@@ -4,6 +4,7 @@ import javax.servlet.annotation.WebServlet;
 
 import co.tackmann.vaadin.ui.MainPage;
 
+import com.google.gwt.thirdparty.guava.common.eventbus.EventBus;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.server.VaadinRequest;
@@ -15,7 +16,8 @@ import com.vaadin.ui.UI;
 public class AppUI extends UI {
 	@Override
 	protected void init(VaadinRequest request) {
-		MainPage mainPage = new MainPage();
+		EventBus eventBus = new EventBus();
+		MainPage mainPage = new MainPage(eventBus);
 		mainPage.attachTo(this);
 	}
 	

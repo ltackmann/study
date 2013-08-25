@@ -8,6 +8,7 @@ import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.CustomComponent;
 import com.vaadin.ui.VerticalLayout;
 
+@SuppressWarnings("serial")
 public class MenuComponent extends CustomComponent {
 	public MenuComponent(EventBus eventBus) {
 		VerticalLayout layout = new VerticalLayout();
@@ -17,12 +18,11 @@ public class MenuComponent extends CustomComponent {
 	}
 
 	private void initLayout(final VerticalLayout layout, final EventBus eventBus) {
-		layout.addComponent(buildTextInputButton(eventBus));
-		layout.addComponent(buildNotificationButton(eventBus));
+		layout.addComponent(getTextInputButton(eventBus));
+		layout.addComponent(getNotificationButton(eventBus));
 	}
 	
-	@SuppressWarnings("serial")
-	private Button buildTextInputButton(final EventBus eventBus) {
+	private Button getTextInputButton(final EventBus eventBus) {
 		// TODO i18n
 		final Button button = new Button("Text input");
 		button.addClickListener(new Button.ClickListener() {
@@ -33,8 +33,7 @@ public class MenuComponent extends CustomComponent {
 		return button;
 	}
 	
-	@SuppressWarnings("serial")
-	private Button buildNotificationButton(final EventBus eventBus) {
+	private Button getNotificationButton(final EventBus eventBus) {
 		// TODO i18n
 		final Button button = new Button("Notifications");
 		button.addClickListener(new Button.ClickListener() {
