@@ -3,9 +3,6 @@ package co.tackmann.jpa.test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -22,7 +19,7 @@ import co.tackmann.jpa.domain.User;
 import co.tackmann.jpa.domain.UserType;
 
 /**
- * Test creating an entitymanager by hand 
+ * Test creating an entity manager by hand 
  */
 public class EntityManagerFactoryTest {
     private static EntityManagerFactory entityManagerFactory;
@@ -52,22 +49,6 @@ public class EntityManagerFactoryTest {
 
         assertThat(user.getName(), is("Donald Duck"));
         assertThat(user.getUserType(), is(UserType.CUSTOMER));
-    }
-    
-	@Test
-	public void unwrapAndUseConnection() {
-		// TODO unwrap and use connection (see HsqlDbTest)
-	}
-
-    //@Test
-    public void storedProcedureTest() throws SQLException {
-        entityManager.getTransaction().begin();
-        Query query = entityManager.createNativeQuery("select get_user('jd')");
-        ResultSet resultSet = (ResultSet) query.getSingleResult();
-        resultSet.next();
-        String username = resultSet.getString("username");
-        assertThat("should execute a stored procedure", username, is("jd"));
-        entityManager.getTransaction().rollback();
     }
 
     @AfterClass
