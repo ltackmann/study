@@ -1,4 +1,5 @@
-name: polymer_app
+name: polymer_sandbox
+description:  A sample application
 dependencies:
   polymer: any
   route: any
