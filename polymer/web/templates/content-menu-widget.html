@@ -1,0 +1,27 @@
+<polymer-element name="content-menu-widget">
+  <template>
+    <aside class="content-menu-widget">
+      <nav>
+        <ul>
+          <li><button id="effects-demo">Effects demo</button></li>
+          <!-- TODO try effects using keyframes -->
+          <!-- TODO make tool tips (show that effects also contains drag-n-drop) -->
+          <li><button id="input-demo">Input demo</button></li>
+          <li><button id="layout-demo">Layout demo</button></li>
+          <li><button id="storage-demo">Storage demo</button></li>
+          <li><button id="svg-demo">SVG demo</button></li>
+        </ul>
+      </nav>
+    </aside>
+    
+    <style>
+      @host {
+        content-menu-widget {
+           background: yellow;
+        }
+      }
+    </style>
+  </template>
+  <script type="application/dart" src="../widgets/content_menu_widget.dart"></script>
+</polymer-element>
+      

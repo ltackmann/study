@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:unittest/unittest.dart';
 
-// TODO http://news.dartlang.org/2013/02/io-library-now-uses-streams.html
 main() {
   group("system", () {
     test("env", () {
@@ -85,6 +84,8 @@ main() {
       }));
     });
   });
+  
+  // TODO path package for manipulating paths accross operating systems
   
   group("socket test -", () {
     // TODO local, http and web sockets

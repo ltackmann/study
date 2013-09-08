@@ -1,0 +1,37 @@
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* style elements */
+body {
+  background-color: #F8F8F8;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.2em;
+}
+
+h1, p {
+  color: #333;
+}
+
+/* classes */
+.question-group {
+  max-width: 40%;  
+}
+
+.horizontal_list li {
+  display: inline;  
+  list-style: none;
+}
+
+/* id's */
+#top-bar {
+  background: green;
+}
+#content-container {
+  background: red;  
+}
+
