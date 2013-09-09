@@ -1,15 +1,17 @@
+<link rel="import" href="../components/navigation-button.html">
 <polymer-element name="content-menu-widget">
   <template>
     <aside class="content-menu-widget">
+      <input type="text">Search</input>
       <nav>
         <ul>
-          <li><button id="effects-demo">Effects demo</button></li>
+          <li><navigation-button target='effects-demo'>Effects demo</navigation-button></li>
           <!-- TODO try effects using keyframes -->
-          <!-- TODO make tool tips (show that effects also contains drag-n-drop) -->
-          <li><button id="input-demo">Input demo</button></li>
-          <li><button id="layout-demo">Layout demo</button></li>
-          <li><button id="storage-demo">Storage demo</button></li>
-          <li><button id="svg-demo">SVG demo</button></li>
+          <li><navigation-button target='input-demo'>Input demo</navigation-button></li>
+          <li><navigation-button target='layout-demo'>Layout demo</navigation-button></li>
+          <li><navigation-button target='notification-demo'>Notification demo</navigation-button></li>
+          <li><navigation-button target='storage-demo'>Storage demo</navigation-button></li>
+          <li><navigation-button target='svg-demo'>SVG demo</navigation-button></li>
         </ul>
       </nav>
     </aside>
@@ -18,6 +20,10 @@
       @host {
         content-menu-widget {
            background: yellow;
+        }
+        
+        .active {
+          background-color: blue;
         }
       }
     </style>

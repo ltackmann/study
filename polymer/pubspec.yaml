@@ -1,5 +1,5 @@
 name: polymer_sandbox
-description:  A sample application
+description: HTML5 Demo in Polymer
 dependencies:
   polymer: any
   route: any
