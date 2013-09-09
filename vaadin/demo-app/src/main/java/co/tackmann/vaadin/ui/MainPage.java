@@ -7,7 +7,7 @@ import com.vaadin.ui.VerticalLayout;
 
 // http://gwt.googleusercontent.com/samples/Showcase/Showcase.html#!CwCheckBox
 public class MainPage {
-	final EventBus eventBus;
+	final transient EventBus eventBus;
 	
 	public MainPage(EventBus eventBus) {
 		this.eventBus = eventBus;

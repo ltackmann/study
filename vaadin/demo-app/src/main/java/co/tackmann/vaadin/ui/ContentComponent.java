@@ -67,6 +67,7 @@ public class ContentComponent extends CustomComponent {
 		textField.setImmediate(true);
 		
 		clearButton.addClickListener(new Button.ClickListener() {
+			@Override
 			public void buttonClick(ClickEvent event) {
 				outputLabel.setCaption("");
 				textField.setValue("");
