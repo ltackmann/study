@@ -1,4 +1,4 @@
-package co.tackmann.vaadin.ui;
+package co.tackmann.vaadin.ui.old;
 
 public enum ActionType {
 	SHOUT("Shout"), WISPER("Wisper");

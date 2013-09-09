@@ -1,4 +1,4 @@
-package co.tackmann.vaadin.ui;
+package co.tackmann.vaadin.ui.old;
 
 import com.vaadin.data.Property.ValueChangeEvent;
 import com.vaadin.data.Property.ValueChangeListener;
