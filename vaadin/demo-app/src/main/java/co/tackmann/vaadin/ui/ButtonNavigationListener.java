@@ -1,14 +1,14 @@
 package co.tackmann.vaadin.ui;
 
-
-import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.navigator.Navigator;
 
-public class ButtonNavigationListener implements Button.ClickListener {
+public class ButtonNavigationListener implements ClickListener {
     private static final long serialVersionUID = -4941184695301907995L;
     private final Navigator navigator;
     private final String targetUrl;
+    public ClickListener deferredListener;
     
     public ButtonNavigationListener(Navigator navigator, String viewUrl, String subViewUrl) {
     	String url = viewUrl;
@@ -22,6 +22,9 @@ public class ButtonNavigationListener implements Button.ClickListener {
 
 	@Override
 	public void buttonClick(ClickEvent event) {
+		if(deferredListener != null) {
+			deferredListener.buttonClick(event);
+		}
 		// Navigate to a specific state
         navigator.navigateTo(targetUrl);
 	}

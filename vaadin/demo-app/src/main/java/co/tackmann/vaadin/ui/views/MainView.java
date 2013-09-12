@@ -13,41 +13,47 @@ import com.vaadin.ui.VerticalLayout;
 // http://gwt.googleusercontent.com/samples/Showcase/Showcase.html#!CwCheckBox
 @SuppressWarnings("serial")
 public class MainView extends VerticalLayout implements View {
-	private final Navigator navigator;
-	private ContentComponent content;
-	
+	private final ContentComponent content;
+	private final MenuComponent menu;
+
 	public MainView(Navigator navigator, UI ui) {
-		this.navigator = navigator;
+		this.menu = new MenuComponent(navigator);
+		this.content = new ContentComponent();
 		initLayout(ui);
 	}
-	
+
 	private void initLayout(UI ui) {
 		ui.getPage().setTitle("Vaadin Showcases");
-		
+
 		HorizontalLayout header = new HorizontalLayout();
-		MenuComponent menu = new MenuComponent(navigator);
 		HorizontalLayout contentContainer = new HorizontalLayout();
-		content = new ContentComponent();
-		
+
 		addComponent(header);
 		addComponent(contentContainer);
 		contentContainer.addComponent(menu);
 		contentContainer.addComponent(content);
-		setMargin(true);  
-		setSpacing(true); 
+		setMargin(true);
+		setSpacing(true);
 	}
 
 	@Override
 	public void enter(ViewChangeEvent event) {
 		final String viewName = event.getViewName().trim();
 		final String viewParameters = event.getParameters().trim();
-		// TODO Use Java 7 and do switch on strings
-		if(viewParameters.isEmpty() || viewParameters.equals("inputDemo")) {
+
+		switch (viewParameters) {
+		case "":
 			content.showTextInput();
-		} else if(viewParameters.equals("notificationDemo")) {
+			break;
+		case "inputDemo":
+			content.showTextInput();
+			break;
+		case "notificationDemo":
 			content.showNotification();
-		} else {
-			throw new IllegalArgumentException("unhandled view state [" + viewName + "] with parameters [" + viewParameters + "]");
+			break;
+		default:
+			throw new IllegalArgumentException("unhandled view state ["
+					+ viewName + "] with parameters [" + viewParameters + "]");
 		}
 	}
 }
