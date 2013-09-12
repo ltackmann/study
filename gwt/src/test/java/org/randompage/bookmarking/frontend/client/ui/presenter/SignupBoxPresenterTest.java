@@ -1,20 +1,29 @@
 package org.randompage.bookmarking.frontend.client.ui.presenter;
 
+import static org.mockito.Matchers.anyString;
+import static org.mockito.Matchers.eq;
+import static org.mockito.Matchers.isA;
+import static org.mockito.Mockito.doAnswer;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import static org.randompage.bookmarking.frontend.testUtils.AsyncCallbackTester.returnValue;
+import static org.randompage.bookmarking.frontend.testUtils.AsyncCallbackTester.throwError;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import co.tackmann.gwt.client.event.AccessGrantedEvent;
+import co.tackmann.gwt.client.resource.i18n.Messages;
+import co.tackmann.gwt.client.service.UserServiceAsync;
+import co.tackmann.gwt.client.ui.presenter.SignupBoxPresenter;
+import co.tackmann.gwt.shared.UserDTO;
+
+import com.google.gwt.aria.client.Role;
 import com.google.gwt.event.shared.GwtEvent;
 import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.user.client.rpc.AsyncCallback;
-import org.junit.Before;
-import org.junit.Test;
-import org.randompage.bookmarking.api.domain.Role;
-import org.randompage.bookmarking.frontend.client.event.AccessGrantedEvent;
-import org.randompage.bookmarking.frontend.client.resource.i18n.Messages;
-import org.randompage.bookmarking.frontend.client.service.UserServiceAsync;
-import org.randompage.bookmarking.frontend.shared.UserDTO;
-
-import static org.mockito.Matchers.eq;
-import static org.mockito.Mockito.*;
-import static org.randompage.bookmarking.frontend.testUtils.AsyncCallbackTester.returnValue;
-import static org.randompage.bookmarking.frontend.testUtils.AsyncCallbackTester.throwError;
 
 /**
  * Test presenter used by sign up box

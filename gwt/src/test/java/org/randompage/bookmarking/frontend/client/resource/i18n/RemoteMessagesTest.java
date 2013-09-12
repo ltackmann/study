@@ -1,14 +1,18 @@
 package org.randompage.bookmarking.frontend.client.resource.i18n;
 
-import com.google.gwt.http.client.RequestBuilder;
+import static org.mockito.Matchers.anyString;
+import static org.mockito.Mockito.doAnswer;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.when;
+import static org.randompage.bookmarking.frontend.testUtils.RequestCallbackTester.returnResponse;
+
 import org.junit.Test;
 
-import com.google.gwt.http.client.Request;
-import com.google.gwt.http.client.RequestCallback;
-import com.google.gwt.http.client.Response;
+import co.tackmann.gwt.client.resource.i18n.RemoteMessages;
 
-import static org.mockito.Mockito.*;
-import static org.randompage.bookmarking.frontend.testUtils.RequestCallbackTester.returnResponse;
+import com.google.gwt.http.client.Request;
+import com.google.gwt.http.client.Response;
 
 /**
  * Test JSON message handler

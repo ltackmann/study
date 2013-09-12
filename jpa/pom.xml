@@ -5,7 +5,7 @@
 		<groupId>co.tackmann</groupId>
 		<artifactId>maven-parent</artifactId>
 		<version>1.0.0</version>
-		<relativePath>../../maven/pom.xml</relativePath>
+		<relativePath>../maven/pom.xml</relativePath>
 	</parent>
 	<artifactId>jpa</artifactId>
 

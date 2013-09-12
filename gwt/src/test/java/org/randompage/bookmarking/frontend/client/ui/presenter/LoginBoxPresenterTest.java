@@ -1,17 +1,24 @@
 package org.randompage.bookmarking.frontend.client.ui.presenter;
 
-import com.google.gwt.event.shared.HandlerManager;
-import com.google.gwt.user.client.rpc.AsyncCallback;
-import org.junit.Before;
-import org.junit.Test;
-import org.randompage.bookmarking.frontend.client.event.AccessGrantedEvent;
-import org.randompage.bookmarking.frontend.client.service.UserServiceAsync;
-import org.randompage.bookmarking.frontend.shared.UserDTO;
-
 import static org.mockito.Matchers.eq;
-import static org.mockito.Mockito.*;
+import static org.mockito.Matchers.isA;
+import static org.mockito.Mockito.doAnswer;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.verify;
 import static org.randompage.bookmarking.frontend.testUtils.AsyncCallbackTester.returnValue;
 import static org.randompage.bookmarking.frontend.testUtils.AsyncCallbackTester.throwError;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import co.tackmann.gwt.client.event.AccessGrantedEvent;
+import co.tackmann.gwt.client.service.UserServiceAsync;
+import co.tackmann.gwt.client.ui.presenter.LoginBoxPresenter;
+import co.tackmann.gwt.shared.UserDTO;
+
+import com.google.gwt.event.shared.HandlerManager;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 
 /**
  * Test presenter used by log on box
