@@ -18,12 +18,12 @@ public class ContentComponent extends CustomComponent {
 	}
 	
 	// TODO make into custom widgets for each use case
-	public void showNotification() {
+	public void showNotificationDemo() {
 		layout.removeAllComponents();
 		layout.addComponent(new Label("Notification"));
 	}
 	
-	public void showTextInput() {
+	public void showInputDemo() {
 		layout.removeAllComponents();
 		
 		final Label outputLabel = new Label();
@@ -57,7 +57,7 @@ public class ContentComponent extends CustomComponent {
 		layout.addComponents(textField, outputLabel, clearButton);
 	}
 	
-	public void showValidation() {
+	public void showValidationDemo() {
 		layout.removeAllComponents();
 		layout.addComponent(new Label("Validation"));
 	}

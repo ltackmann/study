@@ -20,7 +20,7 @@ public class MenuComponent extends CustomComponent {
 	private final Button validationDemoButton;
 	
 	public MenuComponent(Navigator navigator) {
-		inputDemoButton = createButton("Text input", navigator, "main", "inputDemo");
+		inputDemoButton = createButton("Input", navigator, "main", "inputDemo");
 		notificationDemoButton = createButton("Notifications", navigator, "main", "notificationDemo");
 		validationDemoButton = createButton("Validations", navigator, "main", "validationDemo");
 		

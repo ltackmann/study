@@ -42,19 +42,19 @@ public class MainView extends VerticalLayout implements View {
 
 		switch (viewParameters) {
 		case "":
-			content.showTextInput();
+			content.showInputDemo();
 			header.setTitle("Vaadin Demo");
 			break;
 		case "inputDemo":
-			content.showTextInput();
+			content.showInputDemo();
 			header.setTitle("Vaadin Input Demo");
 			break;
 		case "notificationDemo":
-			content.showNotification();
+			content.showNotificationDemo();
 			header.setTitle("Vaadin Notification Demo");
 			break;
 		case "validationDemo":
-			content.showValidation();
+			content.showValidationDemo();
 			header.setTitle("Vaadin Validation Demo");
 			break;
 		default:
