@@ -56,4 +56,9 @@ public class ContentComponent extends CustomComponent {
 		
 		layout.addComponents(textField, outputLabel, clearButton);
 	}
+	
+	public void showValidation() {
+		layout.removeAllComponents();
+		layout.addComponent(new Label("Validation"));
+	}
 }

@@ -1,6 +1,7 @@
 package co.tackmann.vaadin.ui.views;
 
 import co.tackmann.vaadin.ui.components.ContentComponent;
+import co.tackmann.vaadin.ui.components.HeaderComponent;
 import co.tackmann.vaadin.ui.components.MenuComponent;
 
 import com.vaadin.navigator.Navigator;
@@ -14,20 +15,18 @@ import com.vaadin.ui.VerticalLayout;
 @SuppressWarnings("serial")
 public class MainView extends VerticalLayout implements View {
 	private final ContentComponent content;
+	private final HeaderComponent header;
 	private final MenuComponent menu;
 
 	public MainView(Navigator navigator, UI ui) {
-		this.menu = new MenuComponent(navigator);
 		this.content = new ContentComponent();
-		initLayout(ui);
+		this.header = new HeaderComponent(ui);
+		this.menu = new MenuComponent(navigator);
+		initLayout();
 	}
 
-	private void initLayout(UI ui) {
-		ui.getPage().setTitle("Vaadin Showcases");
-
-		HorizontalLayout header = new HorizontalLayout();
+	private void initLayout() {
 		HorizontalLayout contentContainer = new HorizontalLayout();
-
 		addComponent(header);
 		addComponent(contentContainer);
 		contentContainer.addComponent(menu);
@@ -35,7 +34,7 @@ public class MainView extends VerticalLayout implements View {
 		setMargin(true);
 		setSpacing(true);
 	}
-
+	
 	@Override
 	public void enter(ViewChangeEvent event) {
 		final String viewName = event.getViewName().trim();
@@ -44,12 +43,19 @@ public class MainView extends VerticalLayout implements View {
 		switch (viewParameters) {
 		case "":
 			content.showTextInput();
+			header.setTitle("Vaadin Demo");
 			break;
 		case "inputDemo":
 			content.showTextInput();
+			header.setTitle("Vaadin Input Demo");
 			break;
 		case "notificationDemo":
 			content.showNotification();
+			header.setTitle("Vaadin Notification Demo");
+			break;
+		case "validationDemo":
+			content.showValidation();
+			header.setTitle("Vaadin Validation Demo");
 			break;
 		default:
 			throw new IllegalArgumentException("unhandled view state ["

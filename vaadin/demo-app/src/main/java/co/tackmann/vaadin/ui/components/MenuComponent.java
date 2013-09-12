@@ -22,7 +22,7 @@ public class MenuComponent extends CustomComponent {
 	public MenuComponent(Navigator navigator) {
 		inputDemoButton = createButton("Text input", navigator, "main", "inputDemo");
 		notificationDemoButton = createButton("Notifications", navigator, "main", "notificationDemo");
-		validationDemoButton = createButton("Validations", navigator, "main", "notificationDemo");
+		validationDemoButton = createButton("Validations", navigator, "main", "validationDemo");
 		
 		VerticalLayout layout = new VerticalLayout();
 		initLayout(layout);
@@ -41,6 +41,7 @@ public class MenuComponent extends CustomComponent {
 		listener.deferredListener = new ClickListener() {
 			@Override
 			public void buttonClick(ClickEvent event) {
+				// TODO ensure menu is also made active on navigation changes
 				makeButtonActive(button);
 			}
 		};
