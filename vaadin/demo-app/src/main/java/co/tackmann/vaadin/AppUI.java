@@ -12,7 +12,7 @@ import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.UI;
 
-@Theme("mytheme")
+@Theme("runo")
 @SuppressWarnings("serial")
 public class AppUI extends UI {
 	@Override
@@ -25,7 +25,7 @@ public class AppUI extends UI {
 	}
 	
 	@WebServlet(value = "/*", asyncSupported = true)
-	@VaadinServletConfiguration(productionMode = false, ui = AppUI.class, widgetset = "co.tackmann.vaadin.AppWidgetSet")
+	@VaadinServletConfiguration(productionMode = false, ui = AppUI.class, widgetset = "com.vaadin.DefaultWidgetSet")
 	public static class Servlet extends VaadinServlet {
 	}
 }

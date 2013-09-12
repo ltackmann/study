@@ -11,8 +11,8 @@ import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
 // http://gwt.googleusercontent.com/samples/Showcase/Showcase.html#!CwCheckBox
+@SuppressWarnings("serial")
 public class MainView extends VerticalLayout implements View {
-	private static final long serialVersionUID = 7049561594037817863L;
 	private final Navigator navigator;
 	private ContentComponent content;
 	
