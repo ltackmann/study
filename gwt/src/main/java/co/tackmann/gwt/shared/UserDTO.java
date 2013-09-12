@@ -2,7 +2,6 @@ package co.tackmann.gwt.shared;
 
 import java.io.Serializable;
 
-@SuppressWarnings("serial")
 public class UserDTO implements Serializable {
 	private String email;
 	private String name;
@@ -12,7 +11,6 @@ public class UserDTO implements Serializable {
 	}
 
 	public UserDTO(String name, String email) {
-		this();
 		setName(name);
 		setEmail(email);
 	}

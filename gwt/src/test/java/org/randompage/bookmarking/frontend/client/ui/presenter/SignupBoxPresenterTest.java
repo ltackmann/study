@@ -29,8 +29,6 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
  * Test presenter used by sign up box
  *
  * @author Lars Tackmann
- * @see org.randompage.bookmarking.frontend.client.ui.presenter.SignupBoxPresenter
- * @see org.randompage.bookmarking.frontend.client.ui.SignupBox
  */
 public class SignupBoxPresenterTest {
     private UserServiceAsync userService;

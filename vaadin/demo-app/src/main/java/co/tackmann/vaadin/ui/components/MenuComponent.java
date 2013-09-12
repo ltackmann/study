@@ -14,7 +14,7 @@ import com.vaadin.ui.VerticalLayout;
 
 @SuppressWarnings("serial")
 public class MenuComponent extends CustomComponent {
-	private List<Button> buttons = new LinkedList<Button>();
+	private final List<Button> buttons = new LinkedList<Button>();
 	private final Button inputDemoButton;
 	private final Button notificationDemoButton;
 	private final Button validationDemoButton;
@@ -57,6 +57,4 @@ public class MenuComponent extends CustomComponent {
 			}
 		}
 	}
-	
-	// TODO figure out how to show button as active based on URL
 }
