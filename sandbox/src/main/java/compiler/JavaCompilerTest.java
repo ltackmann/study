@@ -1,4 +1,4 @@
-package test;
+package compiler;
 
 import javax.tools.JavaCompiler;
 import javax.tools.JavaFileObject;
@@ -12,7 +12,7 @@ import java.net.URI;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class MyCompiler2 {
+public class JavaCompilerTest {
     public static void main(String[] args) throws Exception {
         String program = "";
         try {

@@ -1,8 +1,8 @@
-package test;
+package compiler;
 
 import javax.tools.*;
 
-public class MyCompiler {
+public class SystemCompilerTest {
     public static void main(String[] args) {
         String fileToCompile = "test" + java.io.File.separator + "C.java";
         JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
