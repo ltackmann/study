@@ -8,6 +8,7 @@
 	<name>${project.artifactId}</name>
 	<inceptionYear>2008</inceptionYear>
 	<url>http://www.tackmann.co</url>
+	
 	<developers>
 		<developer>
 			<id>ltackmann</id>
@@ -19,12 +20,7 @@
 			<timezone>+1</timezone>
 		</developer>
 	</developers>
-	<licenses>
-		<license>
-			<name>Apache 2</name>
-			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-		</license>
-	</licenses>
+	
 	<repositories>
 		<repository>
 			<id>vaadin-addons</id>
@@ -59,7 +55,7 @@
 		<!-- freeze versions -->
 		<gwt-version>2.5.1</gwt-version>
 		<jersey-version>2.2</jersey-version>
-		<jetty-version>8.1.12.v20130726</jetty-version>
+		<jetty-version>9.0.5.v20130815</jetty-version>
 		<jsf-version>2.2.2</jsf-version>
 		<slf4j-version>1.7.5</slf4j-version>
 		<spring-version>3.2.2.RELEASE</spring-version>
@@ -99,7 +95,6 @@
 				<!-- slf4j log4j implementation is only needed runtime -->
 				<scope>runtime</scope>
 			</dependency>
-
 
 			<!-- Spring -->
 			<dependency>
