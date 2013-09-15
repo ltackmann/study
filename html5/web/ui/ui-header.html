@@ -4,12 +4,14 @@
     <header class="ui-header">
       <!-- TODO set title -->
       <p class="title">Title</p>
-      <select class="language">
-        <!-- TODO load from external -->
-        <option>English</option>
-        <option>Danish</option>
-      </select>
+      <div class="language"> 
+        Language     
+        <select selectedIndex="{{selected}}" value="{{value}}">
+          <option template repeat="{{language in languages}}">{{language}}</option>
+        </select>
+       </div>
     </header>
+    
     <style>
       @host {
         
