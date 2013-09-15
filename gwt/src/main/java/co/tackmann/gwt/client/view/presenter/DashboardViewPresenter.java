@@ -1,9 +1,11 @@
 package co.tackmann.gwt.client.view.presenter;
 
+import co.tackmann.gwt.shared.UserDTO;
+
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Widget;
+
 import org.randompage.bookmarking.api.domain.Role;
-import org.randompage.bookmarking.frontend.shared.UserDTO;
 
 public class DashboardViewPresenter implements ViewPresenter {
     private final Display display;

@@ -3,13 +3,14 @@ package org.randompage.bookmarking.frontend.server.rpc;
 import org.randompage.bookmarking.api.UserManager;
 import org.randompage.bookmarking.api.domain.Role;
 import org.randompage.bookmarking.api.domain.User;
-import org.randompage.bookmarking.frontend.client.service.UserService;
 import org.randompage.bookmarking.frontend.server.rpc.BaseServlet;
-import org.randompage.bookmarking.frontend.shared.UserDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import co.tackmann.gwt.client.service.UserService;
+import co.tackmann.gwt.shared.UserDTO;
 
 import javax.inject.Inject;
 

@@ -1,14 +1,15 @@
 package co.tackmann.gwt.client.view;
 
+import co.tackmann.gwt.client.resource.i18n.Messages;
+import co.tackmann.gwt.client.resource.i18n.RemoteMessages;
+import co.tackmann.gwt.client.view.presenter.LoginViewPresenter;
+
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiTemplate;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.*;
-import org.randompage.bookmarking.frontend.client.resource.i18n.Messages;
-import org.randompage.bookmarking.frontend.client.resource.i18n.RemoteMessages;
-import org.randompage.bookmarking.frontend.client.view.presenter.LoginViewPresenter;
 
 import java.util.Collection;
 import java.util.List;
