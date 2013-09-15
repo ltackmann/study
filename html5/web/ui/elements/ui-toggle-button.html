@@ -1,0 +1,21 @@
+<polymer-element name="ui-toggle-button" attributes="state">
+  <template>
+    <button on-click="toggle">The toggle is {{state}}</button>
+  </template>
+  <script type="application/dart">
+    import 'package:polymer/polymer.dart';
+  
+    @CustomTag('ui-toggle-button')
+    class UiToggleButton extends PolymerElement with ObservableMixin {
+      @observable String state = 'On';
+      
+      toggle() {
+        if (state == 'On') {
+          state = 'Off';
+        } else {
+          state = 'On';
+        }
+      }
+    }
+  </script>
+</polymer-element>

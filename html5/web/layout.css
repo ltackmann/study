@@ -1,0 +1,33 @@
+body {
+  display: flex;
+  flex-flow: row;
+  margin: 0 auto; 
+  width: 960px;
+}
+
+ui-menu {
+  display: flex;
+  flex: 1;
+  order: 1;  
+}
+
+#container {
+  display: flex;
+  flex: 4;
+  flex-flow: column;
+  order: 2;  
+}
+
+ui-header {
+  display: flex;
+  flex: 1;
+  flex-flow: row;
+  order: 1; 
+}
+
+ui-content {
+  display: flex;
+  flex: 4;
+  order: 2; 
+}
+

@@ -1,0 +1,18 @@
+<polymer-element name="ui-navigation-button" attributes="target">
+  <template>
+    <button on-click="navigateTo"> 
+      <content></content>  
+    </button>
+  </template>
+  <script type="application/dart">
+    import 'package:polymer/polymer.dart';
+    
+    @CustomTag('ui-navigation-button')
+    class UiNavigationButton extends PolymerElement with ObservableMixin {
+      navigateTo() {
+        var event = attributes['target'];
+        print('fire event $event');
+      }
+    }
+  </script>
+</polymer-element>

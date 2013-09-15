@@ -1,6 +1,0 @@
-name: polymer_app
-dependencies:
-  polymer: any
-  route: any
-dev_dependencies:
-  unittest: any

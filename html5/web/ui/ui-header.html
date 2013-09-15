@@ -1,0 +1,34 @@
+<polymer-element name="ui-header">
+  <template>
+    <!-- TODO use extends here -->
+    <header class="ui-header">
+      <!-- TODO set title -->
+      <p class="title">Title</p>
+      <select class="language">
+        <!-- TODO load from external -->
+        <option>English</option>
+        <option>Danish</option>
+      </select>
+    </header>
+    <style>
+      @host {
+        
+      }
+      
+      .title {
+        display: flex;
+        flex 4;
+        order: 2;
+        color: red;
+      }
+      
+      .language {
+        display: flex;
+        flex 1;
+        order: 1;
+      }
+    </style>
+  </template>
+  <script type="application/dart" src="components/ui_header.dart"></script>
+</polymer-element>
+      

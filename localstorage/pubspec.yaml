@@ -1,4 +1,0 @@
-name: localstorage_sandbox
-description: LocalStorage sandbox
-dependencies:
-  browser: any
