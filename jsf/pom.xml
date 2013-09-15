@@ -2,24 +2,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.randompage.bookmarking</groupId>
-        <artifactId>bookmarking-parent</artifactId>
+        <groupId>co.tackmann</groupId>
+        <artifactId>maven-parent</artifactId>
         <version>1.0.0</version>
-        <relativePath>../../builds/pom.xml</relativePath>
+        <relativePath>../maven/pom.xml</relativePath>
     </parent>
-    <artifactId>bookmarking-frontend-jsf</artifactId>
-    <name>${project.artifactId}</name>
+    <artifactId>jsf-demo</artifactId>
     <packaging>war</packaging>
-    <dependencies>
-        <!-- Internal frameworks -->
-        <dependency>
-            <groupId>org.randompage.bookmarking</groupId>
-            <artifactId>bookmarking-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.randompage.bookmarking</groupId>
-            <artifactId>bookmarking-backend-spring</artifactId>
-        </dependency>
+    
+	<dependencies>
         <!-- JSF -->
         <dependency>
             <groupId>com.sun.faces</groupId>
@@ -39,7 +30,7 @@
         </dependency>
 
         <!-- Various frameworks -->
-        <dependency>
+        <!--dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
         </dependency>
@@ -48,10 +39,9 @@
             <artifactId>commons-codec</artifactId>
         </dependency>
         <dependency>
-            <!-- needed for springs JSF EL resolver -->
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
-        </dependency>
+        </dependency-->
 
         <!-- Test frameworks -->
         <dependency>
