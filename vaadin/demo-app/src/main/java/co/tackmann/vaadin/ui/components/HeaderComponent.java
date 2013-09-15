@@ -1,5 +1,6 @@
 package co.tackmann.vaadin.ui.components;
 
+import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.CustomComponent;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
@@ -19,9 +20,14 @@ public class HeaderComponent extends CustomComponent {
 	
 	private void initLayout(HorizontalLayout layout) {
 		titleLabel = new Label();
+		titleLabel.setImmediate(true);
 		layout.addComponent(titleLabel);
 		// TODO center
-		titleLabel.setImmediate(true);
+		
+		final ComboBox languageSelect = new ComboBox("Language");
+		layout.addComponent(languageSelect);
+		// TODO add languages and handle change
+		// TODO move right
 	}
 	
 	public void setTitle(String title) {
