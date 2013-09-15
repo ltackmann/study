@@ -3,16 +3,36 @@
   <template>
     <article>
       <section>
-        <h2>Text field</h2>
+        <h2>Text input</h2>
+        <input type="text"></input>
       </section>
       
       <section>
-        <h2>Text block</h2>
-        <!-- div with input and keep formating with (check wunderlist dart notes) -->
+        <h2>Editable content</h2>
+        <article contenteditable="true">
+          Click this content to edit it    
+        </article>
+        <!-- TODO store content -->
+        <!-- TODO keep line breaks in stored content (check wunderlist dart notes) -->
       </section>
       
       <section>
-        <h2>Password</h2>
+        <h2>Login form</h2>
+        <form name="login" action="index_submit" method="get" accept-charset="utf-8">
+          <ul>
+            <li>
+              <label for="usermail">Email</label>
+              <input type="email" name="usermail" placeholder="yourname@email.com" required>
+            </li>
+            <li>
+              <label for="password">Password</label>
+              <input type="password" name="password" placeholder="password" required>
+            </li>
+            <li>
+              <input type="submit" value="Login">
+            </li>
+          </ul>
+        </form>
       </section>
       
       <section>
@@ -24,6 +44,16 @@
         <ui-toggle-button state='On'></ui-toggle-button>
       </section>
     </article>
+    
+    <style>
+      [contenteditable="true"] { 
+        padding: 10px; outline: 2px dashed #CCC; 
+      }
+      [contenteditable="true"]:hover { 
+        outline: 2px dashed #0090D2; 
+        background: white;
+      }
+    </style>
   </template>
   <script type="application/dart" src="components/ui_input_demo.dart"></script>
 </polymer-element>

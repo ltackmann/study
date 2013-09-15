@@ -32,5 +32,5 @@ class DemoApp {
 
 main() {
   var app = new DemoApp();
-  //app.start();
+  app.start();
 }
