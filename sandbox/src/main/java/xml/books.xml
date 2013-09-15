@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="books.xsl"?>
+<books xmlns="http://www.randompage.org" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
+       xs:schemaLocation="http://www.randompage.org books.xsd">
+    <book>
+        <title>Design Patterns</title>
+        <authors>
+            <author>Erich Gamma</author>
+            <author>Richard Helm</author>
+            <author>Ralph Johnson</author>
+            <author>John M. Vlissides</author>
+        </authors>
+        <pubDate>1994-11-10</pubDate>
+    </book>
+    <book>
+        <title>Refactoring</title>
+        <authors>
+            <author>Martin Fowler</author>
+            <author>Kent Beck</author>
+            <author>John Brant</author>
+            <author>William Opdyke</author>
+            <author>Don Roberts</author>
+        </authors>
+        <pubDate>1999-07-08</pubDate>
+    </book>
+    <book>
+        <title>Patterns of Enterprise Application Architecture</title>
+        <authors>
+            <author>Martin Fowler</author>
+        </authors>
+        <pubDate>2002-11-15</pubDate>
+    </book>
+    <book>
+        <title>Implementation Patterns</title>
+        <authors>
+            <author>Kent Beck</author>
+        </authors>
+        <pubDate>2007-11-02</pubDate>
+    </book>
+</books>
