@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module rename-to='bookmarking'>
+<module rename-to='demoapp'>
     <!-- Inherit the core Web Toolkit stuff. -->
     <inherits name='com.google.gwt.user.User'/>
     <inherits name="com.google.gwt.resources.Resources"/>
     <inherits name="com.google.gwt.i18n.I18N"/>
-    <inherits name="org.randompage.bookmarking.api.Api"/>
+    <inherits name="com.google.gwt.inject.Inject"/>
 
     <!-- inherit default GWT styles -->
     <inherits name="com.google.gwt.user.theme.standard.Standard"/>
@@ -15,9 +15,9 @@
     <stylesheet src="design.css"/>
 
     <!-- App entry point class. -->
-    <entry-point class="org.randompage.bookmarking.frontend.client.BookmarkingEntryPoint"/>
+    <entry-point class="co.tackmann.gwt.client.BookmarkingEntryPoint"/>
 
-    <!-- Specify the paths for translatable code -->
+    <!-- paths for code compiled into JavaScript -->
     <source path="client"/>
     <source path="shared"/>
 

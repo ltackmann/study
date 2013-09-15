@@ -13,11 +13,11 @@ import org.randompage.bookmarking.frontend.client.view.presenter.LoginViewPresen
 import java.util.Collection;
 import java.util.List;
 
-public class LoginView extends Composite implements LoginViewPresenter.Display {
+public class MainView extends Composite implements LoginViewPresenter.Display {
     private static LoginViewUiBinder uiBinder = GWT.create(LoginViewUiBinder.class);
 
     @UiTemplate("loginView.ui.xml")
-    interface LoginViewUiBinder extends UiBinder<HTMLPanel, LoginView> {
+    interface LoginViewUiBinder extends UiBinder<HTMLPanel, MainView> {
     }
 
     private final Messages messages;
@@ -26,7 +26,7 @@ public class LoginView extends Composite implements LoginViewPresenter.Display {
     @UiField
     DeckPanel bannerPanel;
 
-    public LoginView() {
+    public MainView() {
         initWidget(uiBinder.createAndBindUi(this));
         messages = GWT.create(Messages.class);
         remoteMessages = new RemoteMessages();

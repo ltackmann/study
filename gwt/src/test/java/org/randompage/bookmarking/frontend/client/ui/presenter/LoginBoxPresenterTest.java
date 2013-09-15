@@ -14,7 +14,7 @@ import org.junit.Test;
 
 import co.tackmann.gwt.client.event.AccessGrantedEvent;
 import co.tackmann.gwt.client.service.UserServiceAsync;
-import co.tackmann.gwt.client.ui.presenter.LoginBoxPresenter;
+import co.tackmann.gwt.client.ui.presenter.HeaderPresenter;
 import co.tackmann.gwt.shared.UserDTO;
 
 import com.google.gwt.event.shared.HandlerManager;
@@ -23,23 +23,23 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 /**
  * Test presenter used by log on box
  *
- * @see org.randompage.bookmarking.frontend.client.ui.presenter.LoginBoxPresenter
- * @see org.randompage.bookmarking.frontend.client.ui.LoginBox
+ * @see org.randompage.bookmarking.frontend.client.ui.presenter.HeaderPresenter
+ * @see org.randompage.bookmarking.frontend.client.ui.HeaderComponent
  *
  * @author Lars Tackmann
  */
 public class LoginBoxPresenterTest {
     private UserServiceAsync userService;
     private HandlerManager eventBus;
-    private LoginBoxPresenter.Display loginBox;
-    private LoginBoxPresenter presenter;
+    private HeaderPresenter.Display loginBox;
+    private HeaderPresenter presenter;
 
     @Before
     public void prepareMocks() {
         userService = mock(UserServiceAsync.class);
         eventBus = mock(HandlerManager.class);
-        loginBox = mock(LoginBoxPresenter.Display.class);
-        presenter = new LoginBoxPresenter(userService, eventBus, loginBox);
+        loginBox = mock(HeaderPresenter.Display.class);
+        presenter = new HeaderPresenter(userService, eventBus, loginBox);
     }
 
     @Test

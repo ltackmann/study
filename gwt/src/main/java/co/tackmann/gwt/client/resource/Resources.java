@@ -1,4 +1,4 @@
-package org.randompage.bookmarking.frontend.client.resource;
+package co.tackmann.gwt.client.resource;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.resources.client.ClientBundle;

@@ -5,12 +5,12 @@ import co.tackmann.gwt.client.service.UserServiceAsync;
 import co.tackmann.gwt.client.ui.validator.EmailValidator;
 import co.tackmann.gwt.shared.UserDTO;
 
-import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.web.bindery.event.shared.EventBus;
 
-public class LoginBoxPresenter {
-    private final UserServiceAsync userService;
-    private final HandlerManager eventBus;
+public class HeaderPresenter {
+    private final LanguageServiceAsync languageService;
+    private final EventBus eventBus;
     private final Display display;
 
     public interface Display {
@@ -19,13 +19,13 @@ public class LoginBoxPresenter {
         void systemError();
     }
 
-    public LoginBoxPresenter(UserServiceAsync userService, HandlerManager eventBus, Display display) {
+    public HeaderPresenter(UserServiceAsync userService, EventBus eventBus, Display display) {
         this.userService = userService;
         this.eventBus = eventBus;
         this.display = display;
     }
 
-    public void handleLogin(String email, String password) {
+    public void changeLanguage(String language) {
         EmailValidator emailValidator = new EmailValidator();
         if (password == null || !emailValidator.validate(email)) {
             display.loginFailure();

@@ -1,10 +1,9 @@
 package co.tackmann.gwt.client.ui;
 
-
 import co.tackmann.gwt.client.resource.i18n.Messages;
 import co.tackmann.gwt.client.service.UserService;
 import co.tackmann.gwt.client.service.UserServiceAsync;
-import co.tackmann.gwt.client.ui.presenter.LoginBoxPresenter;
+import co.tackmann.gwt.client.ui.presenter.HeaderPresenter;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -20,13 +19,12 @@ import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.PasswordTextBox;
 import com.google.gwt.user.client.ui.TextBox;
 
-public class LoginBox extends Composite implements LoginBoxPresenter.Display {
+public class HeaderComponent extends Composite implements HeaderPresenter.Display {
+    @UiTemplate("headerComponent.ui.xml")
+    interface LoginBoxUiBinder extends UiBinder<HTMLPanel, HeaderComponent> {}
     private static LoginBoxUiBinder uiBinder = GWT.create(LoginBoxUiBinder.class);
-
-    @UiTemplate("loginBox.ui.xml")
-    interface LoginBoxUiBinder extends UiBinder<HTMLPanel, LoginBox> {
-    }
-    private final LoginBoxPresenter presenter;
+    
+    private final HeaderPresenter presenter;
     private final Messages messages;
 
     @UiField
@@ -36,12 +34,12 @@ public class LoginBox extends Composite implements LoginBoxPresenter.Display {
     @UiField
     PasswordTextBox passwordBox;
 
-    public LoginBox() {
+    public HeaderComponent() {
         initWidget(uiBinder.createAndBindUi(this));
         
         messages = GWT.create(Messages.class);
         UserServiceAsync userService = GWT.create(UserService.class);
-        presenter = new LoginBoxPresenter(userService,EventBus.INSTANCE, this);
+        presenter = new HeaderPresenter(userService,EventBus.INSTANCE, this);
     }
 
     /**
@@ -50,7 +48,7 @@ public class LoginBox extends Composite implements LoginBoxPresenter.Display {
      * @param identifier
      */
     @UiConstructor
-    public LoginBox(String identifier) {
+    public HeaderComponent(String identifier) {
         this();
         getElement().setId(identifier);
     }

@@ -1,29 +1,23 @@
 package co.tackmann.gwt.client.ui;
 
+import co.tackmann.gwt.client.resource.i18n.Messages;
+import co.tackmann.gwt.client.service.UserService;
+import co.tackmann.gwt.client.ui.presenter.SignupBoxPresenter;
+import co.tackmann.gwt.shared.UserDTO;
+
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.*;
 import com.google.gwt.user.client.Command;
 import com.google.gwt.user.client.DeferredCommand;
 import com.google.gwt.user.client.ui.*;
-import org.randompage.bookmarking.api.domain.Role;
-import org.randompage.bookmarking.frontend.client.EventBus;
-import org.randompage.bookmarking.frontend.client.resource.Resources;
-import org.randompage.bookmarking.frontend.client.resource.i18n.Messages;
-import org.randompage.bookmarking.frontend.client.service.UserService;
-import org.randompage.bookmarking.frontend.client.service.UserServiceAsync;
-import org.randompage.bookmarking.frontend.client.ui.presenter.SignupBoxPresenter;
-import org.randompage.bookmarking.frontend.shared.UserDTO;
 
-public class SignupBox extends Composite implements SignupBoxPresenter.Display {
-    private static SignupBoxUiBinder uiBinder = GWT.create(SignupBoxUiBinder.class);
+public class ContentComponent extends Composite implements SignupBoxPresenter.Display {
+    @UiTemplate("contentComponent.ui.xml")
+    interface ContentComponentUiBinder extends UiBinder<HTMLPanel, ContentComponent> { }
+    private static ContentComponentUiBinder uiBinder = GWT.create(ContentComponentUiBinder.class);
 
-    @UiTemplate("signupBox.ui.xml")
-    interface SignupBoxUiBinder extends UiBinder<HTMLPanel, SignupBox> {
-    }
-
-    private final SignupBoxPresenter presenter;
-    private final Messages messages;
+    private final ContentPresenter presenter;
 
     @UiField
     Label error;
@@ -36,7 +30,7 @@ public class SignupBox extends Composite implements SignupBoxPresenter.Display {
     @UiField
     PasswordTextBox confirmBox;
 
-    public SignupBox() {
+    public ContentComponent() {
         initWidget(uiBinder.createAndBindUi(this));
 
         messages = GWT.create(Messages.class);
@@ -51,7 +45,7 @@ public class SignupBox extends Composite implements SignupBoxPresenter.Display {
      */
     // TODO check if we can put these in common IdComposite superclass
     @UiConstructor
-    public SignupBox(String identifier) {
+    public ContentComponent(String identifier) {
         this();
         getElement().setId(identifier);
     }

@@ -3,7 +3,7 @@ package co.tackmann.gwt.client;
 import co.tackmann.gwt.client.event.AccessGrantedEvent;
 import co.tackmann.gwt.client.event.AccessGrantedEventHandler;
 import co.tackmann.gwt.client.view.DashboardView;
-import co.tackmann.gwt.client.view.LoginView;
+import co.tackmann.gwt.client.view.MainView;
 import co.tackmann.gwt.client.view.presenter.DashboardViewPresenter;
 import co.tackmann.gwt.client.view.presenter.LoginViewPresenter;
 import co.tackmann.gwt.client.view.presenter.ViewPresenter;
@@ -12,16 +12,16 @@ import co.tackmann.gwt.shared.UserDTO;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
-import com.google.gwt.event.shared.HandlerManager;
+import com.google.web.bindery.event.shared.EventBus;
 import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.HasWidgets;
 
-public class BookmarkingController implements ValueChangeHandler<String> {
+public class AppController implements ValueChangeHandler<String> {
     private HasWidgets container;
-    private final HandlerManager eventBus;
+    private final EventBus eventBus;
     private static UserDTO sessionUser;
 
-    public BookmarkingController(HandlerManager eventBus) {
+    public AppController(EventBus eventBus) {
         this.eventBus = eventBus;
         bind();
     }
@@ -69,7 +69,7 @@ public class BookmarkingController implements ValueChangeHandler<String> {
         if (token != null) {
             GWT.log("handling event for token: " + token);
             if (token.equals("login")) {
-                presenter = new LoginViewPresenter(new LoginView());
+                presenter = new LoginViewPresenter(new MainView());
             } else if (token.equals("dashboard")) {
                 presenter = new DashboardViewPresenter(new DashboardView(), sessionUser);
             }
