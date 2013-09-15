@@ -1,4 +1,4 @@
-package lang.classloading;
+package lang.classloading.utils;
 
 /*
  * Demonstrates order of initialization, static blocks goes first in the order

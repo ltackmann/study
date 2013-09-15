@@ -1,18 +1,20 @@
 package lang.classloading;
 
-import static org.testng.AssertJUnit.*;
+import static org.junit.Assert.*;
 
 import java.lang.reflect.Method;
 
-import org.randompage.java7.classloading.loader.ConfigurableClassLoader;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.junit.Test;
+import org.junit.Before;
+
+import lang.classloading.utils.ConfigurableClassLoader;
+import lang.classloading.utils.Init;
+import lang.classloading.utils.LoadOrder;
 
 // http://www.martinlippert.org/events/WJAX2008-ClassloadingTypeVisibilityOSGi.pdf
 @SuppressWarnings("unused")
-public class ClassLoading {
-
-	@BeforeTest
+public class ClassLoadingTest {
+	@Before
 	public void runBefore() {
 		prepareLoading();
 	}
@@ -67,14 +69,14 @@ public class ClassLoading {
 		ClassLoader myLoader = new ConfigurableClassLoader(parent);
 
 		Object oParent1 = parent.loadClass(
-				"org.randompage.java7.classloading.Init").newInstance();
+				"lang.classloading.utils.Init").newInstance();
 		Object oParent2 = parent.loadClass(
-				"org.randompage.java7.classloading.Init").newInstance();
+				"lang.classloading.utils.Init").newInstance();
 
 		Object oLoader1 = myLoader.loadClass(
-				"org.randompage.java7.classloading.Init").newInstance();
+				"lang.classloading.utils.Init").newInstance();
 		Object oLoader2 = myLoader.loadClass(
-				"org.randompage.java7.classloading.Init").newInstance();
+				"lang.classloading.utils.Init").newInstance();
 
 		// 4 * 3 instance methods + 2 static methods are invoked by the above
 		assertEquals(14, LoadOrder.loadCount());
@@ -101,20 +103,20 @@ public class ClassLoading {
 		ClassLoader myLoader = new ConfigurableClassLoader();
 
 		Object oParent1 = parent.loadClass(
-				"org.randompage.java7.classloading.Init").newInstance();
+				"lang.classloading.utils.Init").newInstance();
 		Object oParent2 = parent.loadClass(
-				"org.randompage.java7.classloading.Init").newInstance();
+				"lang.classloading.utils.Init").newInstance();
 
 		Object oLoader1 = myLoader.loadClass(
-				"org.randompage.java7.classloading.Init").newInstance();
+				"lang.classloading.utils.Init").newInstance();
 		Object oLoader2 = myLoader.loadClass(
-				"org.randompage.java7.classloading.Init").newInstance();
+				"lang.classloading.utils.Init").newInstance();
 
 		// 2 * 3 instance + 2 static's accessed in this class loader
 		assertEquals(8, LoadOrder.loadCount());
 		// but also 2 * 3 instance + 2 static's accessed in the other loader (16 in all)
 		{
-			Class<?> counterClass = myLoader.loadClass("org.randompage.java7.classloading.LoadOrder");
+			Class<?> counterClass = myLoader.loadClass("lang.classloading.utils.LoadOrder");
 	        Method countMethod = counterClass.getDeclaredMethod("loadCount");
 	        assertEquals(8, (int) countMethod.invoke(null));
 		}

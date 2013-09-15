@@ -1,4 +1,4 @@
-package lang.classloading.loader;
+package lang.classloading.utils;
 
 import java.io.*;
 

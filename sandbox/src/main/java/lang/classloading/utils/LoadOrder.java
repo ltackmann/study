@@ -1,4 +1,4 @@
-package org.randompage.java7.classloading;
+package lang.classloading.utils;
 
 import java.util.LinkedList;
 import java.util.List;
