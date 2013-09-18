@@ -1,26 +1,17 @@
 package co.tackmann.gwt.client.view.presenter;
 
-import co.tackmann.gwt.shared.UserDTO;
-
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Widget;
 
-import org.randompage.bookmarking.api.domain.Role;
-
-public class DashboardViewPresenter implements ViewPresenter {
+public class MainViewPresenter implements ViewPresenter {
     private final Display display;
 
     public interface Display {
-        void showAccount(UserDTO user);
-
         Widget asWidget();
     }
 
-    public DashboardViewPresenter(Display display, UserDTO user) {
+    public MainViewPresenter(Display display) {
         this.display = display;
-        if (user.getRole().equals(Role.USER)) {
-            display.showAccount(user);
-        }
     }
 
     @Override

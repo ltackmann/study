@@ -5,7 +5,7 @@ import co.tackmann.gwt.client.event.AccessGrantedEventHandler;
 import co.tackmann.gwt.client.view.DashboardView;
 import co.tackmann.gwt.client.view.MainView;
 import co.tackmann.gwt.client.view.presenter.DashboardViewPresenter;
-import co.tackmann.gwt.client.view.presenter.LoginViewPresenter;
+import co.tackmann.gwt.client.view.presenter.MainViewPresenter;
 import co.tackmann.gwt.client.view.presenter.ViewPresenter;
 import co.tackmann.gwt.shared.UserDTO;
 
@@ -69,9 +69,9 @@ public class AppController implements ValueChangeHandler<String> {
         if (token != null) {
             GWT.log("handling event for token: " + token);
             if (token.equals("login")) {
-                presenter = new LoginViewPresenter(new MainView());
+                presenter = new MainViewPresenter(new MainView());
             } else if (token.equals("dashboard")) {
-                presenter = new DashboardViewPresenter(new DashboardView(), sessionUser);
+                presenter = new MainViewPresenter(new MainView(), sessionUser);
             }
         }
 

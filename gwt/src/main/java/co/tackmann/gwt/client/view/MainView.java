@@ -2,7 +2,7 @@ package co.tackmann.gwt.client.view;
 
 import co.tackmann.gwt.client.resource.i18n.Messages;
 import co.tackmann.gwt.client.resource.i18n.RemoteMessages;
-import co.tackmann.gwt.client.view.presenter.LoginViewPresenter;
+import co.tackmann.gwt.client.view.presenter.MainViewPresenter;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -12,14 +12,12 @@ import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.*;
 
 import java.util.Collection;
-import java.util.List;
 
-public class MainView extends Composite implements LoginViewPresenter.Display {
-    private static LoginViewUiBinder uiBinder = GWT.create(LoginViewUiBinder.class);
+public class MainView extends Composite implements MainViewPresenter.Display {
+    private static MainViewUiBinder uiBinder = GWT.create(MainViewUiBinder.class);
 
-    @UiTemplate("loginView.ui.xml")
-    interface LoginViewUiBinder extends UiBinder<HTMLPanel, MainView> {
-    }
+    @UiTemplate("mainView.ui.xml")
+    interface MainViewUiBinder extends UiBinder<HTMLPanel, MainView> { }
 
     private final Messages messages;
     private final RemoteMessages remoteMessages;
