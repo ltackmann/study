@@ -23,7 +23,7 @@ public class MainView extends Composite implements MainViewPresenter.Display {
     private final RemoteMessages remoteMessages;
 
     @UiField
-    DeckPanel bannerPanel;
+    HeaderComponent headerComponent;
 
     public MainView() {
         initWidget(uiBinder.createAndBindUi(this));
@@ -37,12 +37,13 @@ public class MainView extends Composite implements MainViewPresenter.Display {
         Collection<String> bannerMessages = remoteMessages.bannerMessages();
         
         // add messages to banner
-        for(String bannerMsg : bannerMessages) {
+        /*for(String bannerMsg : bannerMessages) {
             bannerPanel.add(HTMLHelper.asH2(bannerMsg));
         }
-        bannerPanel.showWidget(0);
+         bannerPanel.showWidget(0);
+        */
         // create timer that shifts messages
-        Timer timer = new Timer() {
+        /*Timer timer = new Timer() {
             public void run() {
                 int index = bannerPanel.getVisibleWidget();
                 index++;
@@ -53,8 +54,9 @@ public class MainView extends Composite implements MainViewPresenter.Display {
             }
         };
         timer.scheduleRepeating(10000);
+        */
     }
-
+    
     @Override
     public Widget asWidget() {
         return this;

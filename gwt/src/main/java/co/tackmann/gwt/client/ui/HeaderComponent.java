@@ -1,8 +1,6 @@
 package co.tackmann.gwt.client.ui;
 
 import co.tackmann.gwt.client.resource.i18n.Messages;
-import co.tackmann.gwt.client.service.UserService;
-import co.tackmann.gwt.client.service.UserServiceAsync;
 import co.tackmann.gwt.client.ui.presenter.HeaderPresenter;
 
 import com.google.gwt.core.client.GWT;
@@ -55,7 +53,7 @@ public class HeaderComponent extends Composite implements HeaderPresenter.Displa
 
     @UiHandler("login")
     void login(ClickEvent event) {
-        presenter.handleLogin(emailBox.getText(), passwordBox.getText());
+        //presenter.handleLogin(emailBox.getText(), passwordBox.getText());
     }
 
     @Override

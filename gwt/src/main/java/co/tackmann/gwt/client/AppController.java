@@ -2,24 +2,20 @@ package co.tackmann.gwt.client;
 
 import co.tackmann.gwt.client.event.AccessGrantedEvent;
 import co.tackmann.gwt.client.event.AccessGrantedEventHandler;
-import co.tackmann.gwt.client.view.DashboardView;
 import co.tackmann.gwt.client.view.MainView;
-import co.tackmann.gwt.client.view.presenter.DashboardViewPresenter;
 import co.tackmann.gwt.client.view.presenter.MainViewPresenter;
 import co.tackmann.gwt.client.view.presenter.ViewPresenter;
-import co.tackmann.gwt.shared.UserDTO;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
-import com.google.web.bindery.event.shared.EventBus;
 import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.HasWidgets;
+import com.google.web.bindery.event.shared.EventBus;
 
 public class AppController implements ValueChangeHandler<String> {
     private HasWidgets container;
     private final EventBus eventBus;
-    private static UserDTO sessionUser;
 
     public AppController(EventBus eventBus) {
         this.eventBus = eventBus;
@@ -34,7 +30,6 @@ public class AppController implements ValueChangeHandler<String> {
                 new AccessGrantedEventHandler() {
                     @Override
                     public void onAccess(AccessGrantedEvent event) {
-                        sessionUser = event.getUser();
                         History.newItem("dashboard");
                     }
                 });
@@ -71,7 +66,7 @@ public class AppController implements ValueChangeHandler<String> {
             if (token.equals("login")) {
                 presenter = new MainViewPresenter(new MainView());
             } else if (token.equals("dashboard")) {
-                presenter = new MainViewPresenter(new MainView(), sessionUser);
+                presenter = new MainViewPresenter(new MainView());
             }
         }
 
