@@ -1,18 +1,11 @@
 using System;
+using NUnit.Framework;
 
 namespace Lang
 {
+	[TestFixture]
 	class ConsoleTest 
 	{
-	    public static void Main() 
-	    {
-	        ConsoleTest test = new ConsoleTest();
-	        
-	        //test.ReadLineTest();
-	        //test.ReadKeyTest();
-	        test.ReadTest();
-	    }
-
 	    public void ReadLineTest()
 	    {
 	        Console.Write("type something and press enter: ");
@@ -30,6 +23,7 @@ namespace Lang
 	        Console.WriteLine(keyInfo.KeyChar);
 	    }
 
+		[Test]
 	    public void ReadTest() 
 	    {
 	        Console.Write("\npress any key - ");

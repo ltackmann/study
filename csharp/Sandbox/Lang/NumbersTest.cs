@@ -1,6 +1,6 @@
 using System;
 
-class IntegralTypesTest 
+class NumberTest 
 {
     public static void Main() 
     {
@@ -15,25 +15,8 @@ class IntegralTypesTest
         ulong   unsigned_64bit_int  = 0;    // 0 to 18,446,744,073,709,551,615
    
         // floating point types
-        float   signed_32bit_float      = 0.0; 
-        double  signed_64bit_float;     = 0.0; 
+        float   signed_32bit_float      = 0.0f; 
+        double  signed_64bit_float     = 0.0; 
         decimal signed_128bit_monetary  = 0.0M; 
-
-        foreach
-            // print max 
-            // print min
-
-        // special integral types
-        bool    signed_8bit_boolean_type;      // bool aTruth = true
-        char    unsigned_16bit_unicode_char;   // char c = 'c'
-        
-        // mantisa difference
-
-        // string conversion
-        
-        // precision printing
-        
-        // format printing and instantation (bit, octets, decimal, hexadecimal)
-        
     }
 }

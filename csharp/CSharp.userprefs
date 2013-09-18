@@ -1,11 +1,13 @@
 ﻿<Properties GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Asp/packages.config">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Sandbox/Db/TestDatabase.cs">
     <Files>
-      <File FileName="EntityFramework/CreateDB.cs" Line="12" Column="4" />
+      <File FileName="EntityFramework/CreateDB.cs" Line="1" Column="1" />
       <File FileName="EntityFramework/DAL/UserContext.cs" Line="1" Column="1" />
       <File FileName="EntityFramework/App.config" Line="1" Column="1" />
       <File FileName="Asp/packages.config" Line="1" Column="1" />
+      <File FileName="Database/README.md" Line="1" Column="1" />
+      <File FileName="Sandbox/Db/TestDatabase.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

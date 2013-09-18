@@ -2,17 +2,14 @@ using System;
 using System.Data;
 using Mono.Data;
 using Mono.Data.Sqlite;
+using NUnit.Framework;
 
 namespace Database
 {
+	[TestFixture]
 	public class TestDatabase
 	{
-		public static void Main(string[] args)
-		{
-			var databaseTester = new TestDatabase ();
-			databaseTester.RunTests ();
-		}
-
+		[Test]
 		public void RunTests()
 		{
 			string connectionString = "URI=file:DatabaseTest.db";
