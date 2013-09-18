@@ -41,10 +41,19 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="Mono.Data.Sqlite" />
     <Reference Include="System" />
-    <Reference Include="EntityFramework">
-      <HintPath>..\..\..\..\..\..\Library\Frameworks\Mono.framework\Libraries\mono\4.5\EntityFramework.dll</HintPath>
-    </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.0-rc1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0-rc1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite">
+      <HintPath>..\packages\System.Data.SQLite.1.0.88.0\lib\net45\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq">
+      <HintPath>..\packages\System.Data.SQLite.1.0.88.0\lib\net45\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CreateDB.cs" />

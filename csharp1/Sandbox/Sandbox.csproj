@@ -8,7 +8,7 @@
     <ProjectGuid>{805E2FC7-6FB0-40FB-AA84-EFC0708C73EA}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Lang</RootNamespace>
-    <AssemblyName>Lang</AssemblyName>
+    <AssemblyName>Sandbox</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
