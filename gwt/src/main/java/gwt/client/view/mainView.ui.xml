@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:gwt="urn:import:com.google.gwt.user.client.ui"
+             xmlns:my="urn:import:co.tackmann.gwt.client.ui">
+    <!-- ui:with field="res" type="co.tackmann.gwt.client.resource.Resources"/-->
+    <ui:with field="msg" type="co.tackmann.gwt.client.resource.i18n.Messages"/>
+    <gwt:HTMLPanel>
+        <my:HeaderComponent identifier="headerComponent"/>
+        <div id="content-container">
+            <my:MenuComponent identifier="menuComponent"/>
+         	<my:ContentComponent identifier="contentComponent"/>
+        </div>
+    </gwt:HTMLPanel>
+</ui:UiBinder>
+
+
+      

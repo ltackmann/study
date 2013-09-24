@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:gwt="urn:import:com.google.gwt.user.client.ui">
+    <ui:style src="../resource/css/style.css"/>
+    <ui:with field="msg" type="co.tackmann.gwt.client.resource.i18n.Messages"/>
+    <gwt:HTMLPanel>
+        <gwt:VerticalPanel>
+            <gwt:Label text="{msg.signupTitle}" styleName="{style.caption}"/>
+
+            <gwt:Label text="{msg.signupName}"/>
+            <gwt:TextBox ui:field="nameBox"/>
+            <gwt:Label text="{msg.signupEmail}"/>
+            <gwt:TextBox ui:field="emailBox"/>
+            <gwt:Label text="{msg.signupPassword}"/>
+            <gwt:PasswordTextBox ui:field="passwordBox"/>
+            <gwt:Label text="{msg.signupConfirm}"/>
+            <gwt:PasswordTextBox ui:field="confirmBox"/>
+
+            <gwt:Button text="{msg.signupButton}" styleName="button" ui:field="signup"/>
+            <gwt:Label styleName="{style.error}" ui:field="error"/>
+        </gwt:VerticalPanel>
+    </gwt:HTMLPanel>
+</ui:UiBinder>
