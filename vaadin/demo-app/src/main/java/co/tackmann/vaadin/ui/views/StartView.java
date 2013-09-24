@@ -1,5 +1,7 @@
 package co.tackmann.vaadin.ui.views;
 
+import javax.inject.Inject;
+
 import com.vaadin.navigator.Navigator;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
@@ -10,6 +12,7 @@ import com.vaadin.ui.VerticalLayout;
 public class StartView extends VerticalLayout implements View {
 	private final Navigator navigator;
 	
+	@Inject
 	public StartView(Navigator navigator) {
 		this.navigator = navigator;
 		addComponent(new Label("Loading..."));

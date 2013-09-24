@@ -1,5 +1,7 @@
 package co.tackmann.vaadin.ui.views;
 
+import javax.inject.Inject;
+
 import co.tackmann.vaadin.ui.components.ContentComponent;
 import co.tackmann.vaadin.ui.components.HeaderComponent;
 import co.tackmann.vaadin.ui.components.MenuComponent;
@@ -18,6 +20,7 @@ public class MainView extends VerticalLayout implements View {
 	private final HeaderComponent header;
 	private final MenuComponent menu;
 
+	@Inject
 	public MainView(Navigator navigator, UI ui) {
 		this.content = new ContentComponent();
 		this.header = new HeaderComponent(ui);
