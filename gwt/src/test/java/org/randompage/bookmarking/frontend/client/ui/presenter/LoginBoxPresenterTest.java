@@ -15,7 +15,7 @@ import org.junit.Test;
 import co.tackmann.gwt.client.event.AccessGrantedEvent;
 import co.tackmann.gwt.client.service.UserServiceAsync;
 import co.tackmann.gwt.client.ui.presenter.HeaderPresenter;
-import co.tackmann.gwt.shared.UserDTO;
+import co.tackmann.gwt.shared.LanguageMessage;
 
 import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.user.client.rpc.AsyncCallback;
@@ -106,7 +106,7 @@ public class LoginBoxPresenterTest {
     public void testLoginSuccess() {
         final String email = "john@doe.com";
         final String password = "secret";
-        UserDTO user = mock(UserDTO.class);
+        LanguageMessage user = mock(LanguageMessage.class);
         // stub service to return user 
         doAnswer(returnValue(user)).
                 when(userService).authenticate(eq(email), eq(password), isA(AsyncCallback.class));

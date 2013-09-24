@@ -18,7 +18,7 @@ import co.tackmann.gwt.client.event.AccessGrantedEvent;
 import co.tackmann.gwt.client.resource.i18n.Messages;
 import co.tackmann.gwt.client.service.UserServiceAsync;
 import co.tackmann.gwt.client.ui.presenter.SignupBoxPresenter;
-import co.tackmann.gwt.shared.UserDTO;
+import co.tackmann.gwt.shared.LanguageMessage;
 
 import com.google.gwt.aria.client.Role;
 import com.google.gwt.event.shared.GwtEvent;
@@ -51,7 +51,7 @@ public class SignupBoxPresenterTest {
         // known illegal values
         String[] names = {null, ""};
         for (String name : names) {
-            UserDTO user = mock(UserDTO.class);
+            LanguageMessage user = mock(LanguageMessage.class);
             when(user.getName()).thenReturn(name);
 
             presenter.handleSignup(user, "password", "password");
@@ -67,7 +67,7 @@ public class SignupBoxPresenterTest {
         // known illegal values
         String[] emails = {null, "not-a-valid-email"};
         for (String email : emails) {
-            UserDTO user = new UserDTO("John Doe", Role.USER, email);
+            LanguageMessage user = new LanguageMessage("John Doe", Role.USER, email);
             final String error = "illegal email";
             when(messages.signupErrorInvalidEmail()).thenReturn(error);
 
@@ -84,7 +84,7 @@ public class SignupBoxPresenterTest {
         // known illegal values
         String[] passwords = {null, "short"};
         for (String password : passwords) {
-            UserDTO user = new UserDTO("John Doe", Role.USER, "john@doe.com");
+            LanguageMessage user = new LanguageMessage("John Doe", Role.USER, "john@doe.com");
 
             presenter.handleSignup(user, password, "password");
             verify(signupBox).passwordError();
@@ -96,7 +96,7 @@ public class SignupBoxPresenterTest {
 
     @Test
     public void testSignupFailsWhenPasswordConfirmDoesNotMatch() {
-        UserDTO user = new UserDTO("John Doe", Role.USER, "john@doe.com");
+        LanguageMessage user = new LanguageMessage("John Doe", Role.USER, "john@doe.com");
 
         presenter.handleSignup(user, "password1", "password2");
         verify(signupBox).confirmError();
@@ -105,7 +105,7 @@ public class SignupBoxPresenterTest {
 
     @Test
     public void testSignupFailsWhenBackendFails() {
-        UserDTO user = new UserDTO("John Doe", Role.USER, "john@doe.com");
+        LanguageMessage user = new LanguageMessage("John Doe", Role.USER, "john@doe.com");
         final String password = "password";
         final String confirmPassword = "password";
         Throwable error = new RuntimeException("Backend failure");
@@ -128,7 +128,7 @@ public class SignupBoxPresenterTest {
         when(messages.signupErrorEmailTaken(email)).thenReturn(error);
 
         // mock service to indicate than email is already registered
-        UserDTO user = new UserDTO("John Doe", Role.USER, email);
+        LanguageMessage user = new LanguageMessage("John Doe", Role.USER, email);
         final String password = "password";
         final String confirmPassword = "password";
         doAnswer(returnValue(Boolean.FALSE)).
@@ -147,7 +147,7 @@ public class SignupBoxPresenterTest {
         when(messages.signupErrorEmailTaken(email)).thenReturn(error);
 
         // mock service to indicate than email is already registered
-        UserDTO user = new UserDTO("John Doe", Role.USER, email);
+        LanguageMessage user = new LanguageMessage("John Doe", Role.USER, email);
         final String password = "password";
         final String confirmPassword = "password";
         doAnswer(returnValue(Boolean.TRUE)).

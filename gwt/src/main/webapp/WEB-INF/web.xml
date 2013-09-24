@@ -5,7 +5,9 @@
 		  http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          version="2.5">
 
-    <!-- Start Spring back  -->
+    <!-- TODO move to servlet 3.0 and use spring java config -->
+    
+    <!-- Start Spring  -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath*:/spring.xml</param-value>
