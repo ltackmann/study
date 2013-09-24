@@ -3,7 +3,6 @@ package db;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -36,7 +35,6 @@ public class JdbcTest {
 		
 		try (Statement statement = connection.createStatement()) {
 			statement.execute(sqlCreate);
-			// TODO test command went well
 		}
 	}
 	
@@ -49,7 +47,6 @@ public class JdbcTest {
 		
 		try (Statement statement = connection.createStatement()) {
 			statement.execute(sqlInsert);
-			// TODO test command went well
 		}
 	}
 	
