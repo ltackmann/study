@@ -47,7 +47,8 @@ Messages:
 "Error {0} account does not have access to {1}").
 - Use com.google.gwt.i18n.client.Constants when you messages are constants (i.e. have no parameters)
 
-
+==Panels==
+* HTMLPanel = TODO is it a div ?
 
 
 ====Annotations====
@@ -68,13 +69,7 @@ is assumed to have same name as java property)
 
 - For convince we require the XML UI files to be backed by a implementing class, matching its name in CamelCase
 (for instance, login.ui.xml is backed by LoginUi.java)
-- MVP is used... TODO
-- UiBinder is used to move styling our of the Java views
-- Classes named "View" are actual views (think pages), classes named "Widget" are components used to build views from.
 
 
-===BookmarkController===
-- Controller to wire application view/events/presenters. Only used for this when view has history token
-(# anchor element) else just wire widgets in their constructor (note presenter should always only be
-visible in widgets constructor). Also the SessionContext object may only be used here (to allow easy
-(i.e. no static members) testing of presenters)
+
+
