@@ -10,11 +10,11 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.inject.Inject;
 
-public class MenuComponent  extends Composite implements MenuPresenter.Display {
+public class MenuComponent extends Composite implements MenuPresenter.Display {
 	private MenuPresenter presenter;
 	   
 	@UiTemplate("menuComponent.ui.xml")
-    interface MenuComponentUiBinder extends UiBinder<HTMLPanel, ContentComponent> { }
+    interface MenuComponentUiBinder extends UiBinder<HTMLPanel, MenuComponent> { }
 
     @UiConstructor
     public MenuComponent(String identifier) {
@@ -25,6 +25,5 @@ public class MenuComponent  extends Composite implements MenuPresenter.Display {
     void init(MenuComponentUiBinder binder, MenuPresenter presenter, Messages messages) {
       initWidget(binder.createAndBindUi(this));
       this.presenter = presenter;
-      this.messages = messages;
     }
 }

@@ -30,13 +30,13 @@ public class LanguageServiceImpl extends BaseServlet implements LanguageService 
     	return languageDao.getLanguages();
     }
     
-    @Override
-    public String getDefaultLanguage() {
-    	return "English";
-    }
-
     @Inject
     public void setContentDao(LanguageDao languageDao) {
         this.languageDao = languageDao;
     }
+
+	@Override
+	public String getCurrentLanguage() {
+		return "English";
+	}
 }
