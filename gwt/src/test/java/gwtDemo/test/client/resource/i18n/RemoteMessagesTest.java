@@ -1,17 +1,18 @@
-package gwtDemo.client.resource.i18n;
+package gwtDemo.test.client.resource.i18n;
 
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.when;
+import gwtDemo.client.resource.i18n.RemoteMessages;
 
 import org.junit.Test;
 
 import com.google.gwt.http.client.Request;
 import com.google.gwt.http.client.Response;
 
-import static gwtDemo.testUtils.RequestCallbackTester.returnResponse;
+import static gwtDemo.test.testUtils.RequestCallbackTester.returnResponse;
 
 /**
  * Test JSON message handler

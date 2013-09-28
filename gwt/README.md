@@ -1,0 +1,1 @@
+GWT compile with -strict -war src/main/webapp

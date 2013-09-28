@@ -3,8 +3,8 @@ package gwtDemo.client.view;
 import com.google.inject.Inject;
 
 import gwtDemo.client.view.presenter.MainViewPresenter;
+import gwtDemo.client.ui.HeaderComponent;
 
-import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiTemplate;

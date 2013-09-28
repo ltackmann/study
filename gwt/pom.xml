@@ -57,7 +57,7 @@
 				<artifactId>gwt-maven-plugin</artifactId>
 				<configuration>
 					<runTarget>index.html</runTarget>
-					<module>org.randompage.bookmarking.frontend.Bookmarking</module>
+					<module>gwtDemo.DemoApp</module>
 				</configuration>
 				<executions>
 					<execution>
@@ -68,7 +68,7 @@
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
+			<!--  plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>build-helper-maven-plugin</artifactId>
 				<executions>
@@ -80,12 +80,12 @@
 						</goals>
 						<configuration>
 							<sources>
-								<source>${basedir}/target/generated-sources/gwt</source>
+								<source>${basedir}/war</source>
 							</sources>
 						</configuration>
 					</execution>
 				</executions>
-			</plugin>
+			</plugin-->
 		</plugins>
 	</build>
 </project>

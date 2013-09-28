@@ -36,6 +36,9 @@ accessed by the user.
 
 
 ===GWT===
+* GWT compiler flags
+- strict: show full errors
+
 GWT XSDs are downloaded from:
 * UiBinder.xsd: http://dl.google.com/gwt/dtd/uibinder.xsd
 ---> For UI composition, such as importing templates, CSS, images,...

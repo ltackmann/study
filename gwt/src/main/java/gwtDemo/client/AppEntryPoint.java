@@ -2,6 +2,7 @@ package gwtDemo.client;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.shared.GWT;
+import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.web.bindery.event.shared.EventBus;
 
@@ -15,6 +16,7 @@ public class AppEntryPoint implements EntryPoint {
     	EventBus eventBus = injector.getEventBus();
         // start application
         AppController appController = new AppController(eventBus);
-        appController.invoke(RootPanel.get());
+        RootPanel.get().add(new Label("Hello world"));
+        //appController.invoke(RootPanel.get());
     }
 }

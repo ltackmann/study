@@ -71,7 +71,7 @@ abstract class JSONMessages {
     }
     
     // fetch request builder in own method to ease unit testing
-    protected RequestBuilder getRequestBuilder(String url) {
+    public RequestBuilder getRequestBuilder(String url) {
         return new RequestBuilder(RequestBuilder.GET, url);
     }
     
