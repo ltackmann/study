@@ -5,11 +5,11 @@
     <ui:with field="res" type="gwtDemo.client.resource.Resources"/>
     <ui:with field="msg" type="gwtDemo.client.resource.i18n.Messages"/>
     <gwt:HTMLPanel>
-        <my:HeaderComponent identifier="headerComponent"/>
+        <!--  my:HeaderComponent identifier="headerComponent"/-->
         <div id="content-container">
             <p>Test</p>
-            <my:MenuComponent identifier="menuComponent"/>
-         	<my:ContentComponent identifier="contentComponent"/>
+            <!-- my:MenuComponent identifier="menuComponent"/>
+         	<my:ContentComponent identifier="contentComponent"/-->
         </div>
     </gwt:HTMLPanel>
 </ui:UiBinder>

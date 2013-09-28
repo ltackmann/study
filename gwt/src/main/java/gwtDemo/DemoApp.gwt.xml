@@ -12,7 +12,7 @@
     <!-- custom style sheets (IMPORTANT this must come after the styles inherited
         from GWT as we are overwriting some of them) -->
     <stylesheet src="layout.css"/>
-    <stylesheet src="design.css"/>
+    <stylesheet src="styles.css"/>
 
     <!-- App entry point class. -->
     <entry-point class="gwtDemo.client.AppEntryPoint"/>

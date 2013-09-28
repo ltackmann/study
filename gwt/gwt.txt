@@ -57,7 +57,7 @@ Messages:
 ====Annotations====
 @Shared
 * UI Elements
----> @UiTemplate: TODO describe (Must be visible in class when used on field)
+---> @UiTemplate(name-of-template): needed when your template does not follow the naming standard
 ---> @UiField: TODO describe (Must be visible in class when used on field)
 ---> @UiFactory
 ---> @UiConstructor: Get constructor value from ui template file
