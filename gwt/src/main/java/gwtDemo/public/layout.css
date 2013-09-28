@@ -1,54 +1,24 @@
 body {
-    margin: 30px 150px;
-    padding: 0 200px 0 0px;
-    background: #86C9EF;
-    font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
-    font-size: 12px;
+  display: flex;
+  flex-flow: column;
+  margin: 0 auto; 
+  width: 960px;
+}
+
+#wrapper {
+  display: flex;
+  flex-flow: row;
+}
+
+#menu {
+  display: flex;
+  flex: 1;
+  order: 1;  
 }
 
 #container {
-    float: left;
-    width: 100%;
-    border-right: 200px solid #FBCA54; /* The width and color of the right column */
-    margin-right: -200px;
-    display: inline; /* So IE plays nice */
-    background: #F4F3EE;
-}
-                               
-#center {
-    float: left;
-    width: 100%;
-    margin-right: -100%;
-    color: #3E3E3E;
-    background-image: url("images/bg.png");
-    background-repeat: no-repeat;
-}
-
-#right {
-    float: right;
-    width: 200px;
-    margin-right: -200px;
-    position: relative;
-    color: white;
-}
-
-#header, #footer {
-    background: #172322;
-    margin-right: -200px;
-    clear: both;
-    text-align: center;
-}
-
-#header ul, #footer ul {
-    margin: 0px;
-}
-
-#header li, #footer li {
-     color: white;
-     font-weight: bold;
-}
-
-#header a, #footer a {
-    color: white;
-    padding: 0 20px;
+  display: flex;
+  flex: 4;
+  flex-flow: column;
+  order: 2;  
 }

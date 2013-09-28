@@ -11,6 +11,7 @@ import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.HasWidgets;
+import com.google.gwt.user.client.ui.Label;
 import com.google.web.bindery.event.shared.EventBus;
 
 public class AppController implements ValueChangeHandler<String> {
@@ -43,12 +44,12 @@ public class AppController implements ValueChangeHandler<String> {
      */
     public void invoke(HasWidgets container) {
         this.container = container;
-
+        /*
         if ("".equals(History.getToken())) {
             History.newItem("login");
         } else {
             History.fireCurrentHistoryState();
-        }
+        }*/
     }
 
 
@@ -61,6 +62,7 @@ public class AppController implements ValueChangeHandler<String> {
     public void onValueChange(ValueChangeEvent<String> event) {
         String token = event.getValue();
         ViewPresenter presenter = null;
+        container.add(new Label("In controller"));
 
         if (token != null) {
             GWT.log("handling event for token: " + token);
