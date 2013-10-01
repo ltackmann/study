@@ -12,13 +12,12 @@ namespace Database
 		[Test]
 		public void RunTests()
 		{
-			string connectionString = "URI=file:DatabaseTest.db";
-			var connection = (IDbConnection) new SqliteConnection(connectionString);
+			var connection = (IDbConnection) new SqliteConnection("URI=file:DatabaseTest.db");
 			connection.Open();
 
-			CreateDatabase (connection);
-			InsertData (connection);
-			QueryData (connection);
+			CreateDatabase(connection);
+			InsertData(connection);
+			QueryData(connection);
 
 			connection.Close();
 			connection = null;

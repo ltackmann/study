@@ -5,10 +5,10 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{805E2FC7-6FB0-40FB-AA84-EFC0708C73EA}</ProjectGuid>
+    <ProjectGuid>{F208B648-6BEF-41C5-8E61-BA2E0E3296A7}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Lang</RootNamespace>
-    <AssemblyName>Sandbox</AssemblyName>
+    <RootNamespace>CastleWindsorDemo</RootNamespace>
+    <AssemblyName>CastleWindsorDemo</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -31,24 +31,16 @@
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Compile Include="Lang\ConsoleTest.cs" />
-    <Compile Include="Lang\NumbersTest.cs" />
-    <Compile Include="Db\TestDatabase.cs" />
-    <Compile Include="Db\TestMemoryDatabase.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Lang\" />
-    <Folder Include="Db\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="README.md" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Mono.Data.Sqlite" />
-    <Reference Include="System.Data" />
-    <Reference Include="nunit.framework, Version=2.6.0.12051, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77">
-      <Private>False</Private>
+    <Reference Include="Castle.Core">
+      <HintPath>..\..\CSharp\packages\Castle.Core.3.2.0\lib\net40-client\Castle.Core.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\..\CSharp\packages\Castle.Windsor.3.2.1\lib\net40\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

@@ -10,6 +10,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>NancyDemo</RootNamespace>
     <AssemblyName>NancyDemo</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -52,7 +53,7 @@
   </ProjectExtensions>
   <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="Web.config" />
+    <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="SampleModule.cs" />

@@ -1,14 +1,34 @@
 ﻿<Properties GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Sandbox/Db/TestDatabase.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../csharp/WebAPI/web.config">
     <Files>
-      <File FileName="EntityFramework/CreateDB.cs" Line="1" Column="1" />
-      <File FileName="EntityFramework/DAL/UserContext.cs" Line="1" Column="1" />
-      <File FileName="EntityFramework/App.config" Line="1" Column="1" />
-      <File FileName="Asp/packages.config" Line="1" Column="1" />
-      <File FileName="Database/README.md" Line="1" Column="1" />
-      <File FileName="Sandbox/Db/TestDatabase.cs" Line="1" Column="1" />
+      <File FileName="../csharp/WebAPI/WebApiConfig.cs" Line="8" Column="37" />
+      <File FileName="../csharp/WebAPI/Models/User.cs" Line="5" Column="19" />
+      <File FileName="../csharp/WebAPI/Controllers/UsersController.cs" Line="18" Column="3" />
+      <File FileName="../csharp/WebAPI/web.config" Line="1" Column="1" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="WebAPI" expanded="True" selected="True">
+            <Node name="Controllers" expanded="True" />
+            <Node name="Models" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+      <Pad Id="ConnectionManagerPad">
+        <State selected="True" />
+      </Pad>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
