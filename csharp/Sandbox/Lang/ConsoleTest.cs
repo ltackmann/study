@@ -1,7 +1,7 @@
 using System;
 using NUnit.Framework;
 
-namespace Lang
+namespace Sandbox.Lang
 {
 	[TestFixture]
 	class ConsoleTest 
