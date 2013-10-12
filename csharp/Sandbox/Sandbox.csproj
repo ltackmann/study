@@ -35,6 +35,7 @@
     <Compile Include="Lang\NumbersTest.cs" />
     <Compile Include="Db\SQLiteFileTest.cs" />
     <Compile Include="Db\SQLiteMemoryTest.cs" />
+    <Compile Include="Lang\VarianceTest.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -55,10 +56,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="x64\SQLite.Interop.dll">
+    <Content Include="..\..\csharp\Sandbox\x64\SQLite.Interop.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="x86\SQLite.Interop.dll">
+    <Content Include="..\..\csharp\Sandbox\x86\SQLite.Interop.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
