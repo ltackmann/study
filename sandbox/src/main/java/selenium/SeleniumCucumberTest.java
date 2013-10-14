@@ -1,14 +1,16 @@
 package selenium;
 
-import com.thoughtworks.selenium.*;
-
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.junit.Test;
-import org.openqa.selenium.server.*;
+import org.junit.runner.RunWith;
+import org.openqa.selenium.server.RemoteControlConfiguration;
+import org.openqa.selenium.server.SeleniumServer;
 
-public class SeleniumTest {
-	public static Selenium selenium;
+import cucumber.api.junit.Cucumber;
+
+@RunWith(Cucumber.class)
+@cucumber.api.CucumberOptions(format = { "json:target/report.json" })
+public class SeleniumCucumberTest {
 	public static SeleniumServer seleniumserver;
 
 	@BeforeClass
@@ -19,22 +21,13 @@ public class SeleniumTest {
 		// create and start proxy server
 		seleniumserver = new SeleniumServer(remoteConfiguration);
 		seleniumserver.start();
-
-		// create and start browser.
-		selenium = new DefaultSelenium("localhost", 4465, "*firefox", "http://www.google.com");
-		selenium.start();
 	}
 	
-	@Test
-	public void testDefaultTNG() throws Exception {
-		selenium.open("http://www.google.com/");
-		selenium.windowMaximize();
-	}
-
 	@AfterClass
 	public static void tearDown() throws InterruptedException {
-		// stop browser then server
-		selenium.stop();
+		// stop server
 		seleniumserver.stop();
 	}
 }
+
+

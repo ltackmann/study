@@ -53,6 +53,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- freeze versions -->
+		<cucumber-version>1.1.5</cucumber-version>
 		<gwt-version>2.5.1</gwt-version>
 		<jersey-version>2.3.1</jersey-version>
 		<jetty-version>9.0.5.v20130815</jetty-version>
@@ -284,10 +285,17 @@
 				<version>6.8.7</version>
 				<scope>test</scope>
 			</dependency>
+			<!-- Cucumber -->
 			<dependency>
 				<groupId>info.cukes</groupId>
 				<artifactId>cucumber-junit</artifactId>
-				<version>1.1.5</version>
+				<version>${cucumber-version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>info.cukes</groupId>
+				<artifactId>cucumber-java</artifactId>
+				<version>${cucumber-version}</version>
 				<scope>test</scope>
 			</dependency>
 			<!-- Selenium -->
