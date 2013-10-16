@@ -1,6 +1,6 @@
 package gwtDemo.client.ui;
 
-import gwtDemo.client.resource.i18n.Messages;
+import gwtDemo.client.resource.i18n.ClientMessages;
 import gwtDemo.client.ui.presenter.MenuPresenter;
 
 import com.google.gwt.uibinder.client.UiBinder;
@@ -22,7 +22,7 @@ public class MenuComponent extends Composite implements MenuPresenter.Display {
     }
     
     @Inject 
-    void init(MenuComponentUiBinder binder, MenuPresenter presenter, Messages messages) {
+    void init(MenuComponentUiBinder binder, MenuPresenter presenter, ClientMessages messages) {
       initWidget(binder.createAndBindUi(this));
       this.presenter = presenter;
     }

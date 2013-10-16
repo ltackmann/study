@@ -3,14 +3,10 @@
              xmlns:gwt="urn:import:com.google.gwt.user.client.ui"
              xmlns:my="urn:import:gwtDemo.client.ui">
     <ui:with field="res" type="gwtDemo.client.resource.Resources"/>
-    <ui:with field="msg" type="gwtDemo.client.resource.i18n.Messages"/>
+    <ui:with field="msg" type="gwtDemo.client.resource.i18n.ClientMessages"/>
     <gwt:HTMLPanel>
-        <!--  my:HeaderComponent identifier="headerComponent"/-->
-        <div id="content-container">
-            <p>Test</p>
-            <!-- my:MenuComponent identifier="menuComponent"/>
-         	<my:ContentComponent identifier="contentComponent"/-->
-        </div>
+        <my:HeaderComponent identifier="headerComponent"/>
+        <div id="content-container"></div>
     </gwt:HTMLPanel>
 </ui:UiBinder>
 

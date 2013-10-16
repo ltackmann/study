@@ -6,7 +6,7 @@ import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 
 @RemoteServiceRelativePath("users.rpc")
-public interface LanguageService extends RemoteService {
+public interface UserService extends RemoteService {
 	Set<String> getLanguages();
 
 	String getCurrentLanguage();

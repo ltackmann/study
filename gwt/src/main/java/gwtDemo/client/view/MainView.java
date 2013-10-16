@@ -19,6 +19,8 @@ public class MainView extends Composite implements MainViewPresenter.Display {
     //@UiField(provided = true) 
     //HeaderComponent headerComponent;
     
+    // TODO use gwt query to access content-container and add components by hand
+    
     public MainView() {
     	initWidget(uiBinder.createAndBindUi(this));
     }

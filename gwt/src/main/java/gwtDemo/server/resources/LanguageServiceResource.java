@@ -6,15 +6,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import gwtDemo.server.dao.LanguageDao;
-import gwtDemo.shared.LanguageMessage;
+import gwtDemo.shared.LocalMessage;
 
 import javax.inject.Inject;
 
+/**
+ * TODO unauthenticated users can retrieve, authenticated users can change
+ * 
+ * @author lt
+ */
 @Controller
 @RequestMapping(value = "/messages")
-public class LanguageResource {
-    final Logger logger = LoggerFactory.getLogger(LanguageResource.class);
-
+public class LanguageServiceResource {
+    final Logger logger = LoggerFactory.getLogger(LanguageServiceResource.class);
     private LanguageDao languageDao;
 
     /**
@@ -27,11 +31,14 @@ public class LanguageResource {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public
     @ResponseBody
-    LanguageMessage getMessage(@PathVariable("id") String messageId, @RequestHeader("Accept-Language") String locale) {
+    LocalMessage getLocalMessage(@PathVariable("id") String messageId, @RequestHeader("Accept-Language") String locale) {
         logger.info("getting message with id: {} for locale: {}", messageId, locale);
         return languageDao.getMessage(locale, messageId);
     }
-
+    
+    public String getDefaultLanguage() {
+    	return "English";
+    }
 
     @Inject
     public void setContentDao(LanguageDao languageDao) {

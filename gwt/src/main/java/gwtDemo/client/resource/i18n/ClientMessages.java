@@ -5,7 +5,7 @@ package gwtDemo.client.resource.i18n;
  *
  * @author Lars Tackmann
  */
-public interface Messages extends com.google.gwt.i18n.client.Messages {
+public interface ClientMessages extends com.google.gwt.i18n.client.Messages {
     String loginError();
 
     String systemError();

@@ -1,6 +1,6 @@
 package gwtDemo.server.dao;
 
-import gwtDemo.shared.LanguageMessage;
+import gwtDemo.shared.LocalMessage;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -18,7 +18,7 @@ public class LanguageDaoImpl implements LanguageDao {
 	}
 
 	@Override
-	public LanguageMessage getMessage(String locale, String messageId) {
+	public LocalMessage getMessage(String locale, String messageId) {
 		return null;
 	}
 }

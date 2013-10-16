@@ -1,4 +1,4 @@
-package gwtDemo.test.testUtils;
+package gwtDemo.unitTest.testUtils;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import org.mockito.invocation.InvocationOnMock;

@@ -1,4 +1,4 @@
-package gwtDemo.client.resource.i18n;
+package gwtDemo.client.service;
 
 import com.google.gwt.http.client.Request;
 import com.google.gwt.http.client.RequestBuilder;
@@ -11,34 +11,11 @@ import java.util.Map;
 
 /**
  * Fetch messages stored on server in JSON format.
- * 
- * TODO figure out if there is a more modern way of doing JSON in GWT
  *
  * @author Lars Tackmann
  */
-abstract class JSONMessages {
-    private <T> T getResource(String resourceUrl, final ResponseHandler<T> responseHandler) {
-        final String restService = "/service/v1/";
-
-        try {
-            getRequestBuilder(restService + resourceUrl).sendRequest(null, new RequestCallback() {
-                public void onResponseReceived(Request request, Response response) {
-                    if (response.getStatusCode() == Response.SC_OK) {
-                        responseHandler.setResponse(response.getText());
-                    }
-                }
-
-                public void onError(Request request, Throwable exception) {
-                    throw new UnsupportedOperationException("Not supported yet.");
-                }
-            });
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return responseHandler.handleResponse();
-    }
-
-    protected Map<String, String> getMessages(String groupId) {
+public class LanguageServiceClient {
+	public Map<String, String> getLocalMessages(String groupId) {
         ResponseHandler<Map<String, String>> handler = new ResponseHandler<Map<String, String>>() {
             @Override
             public Map<String, String> handleResponse() {
@@ -60,7 +37,7 @@ abstract class JSONMessages {
         return getResource("messages/groups/" + groupId, handler);
     }
 
-    protected String getMessage(String messageId) {
+    public String getLocalMessage(String messageId) {
         ResponseHandler<String> handler = new ResponseHandler<String>() {
             @Override
             public String handleResponse() {
@@ -68,6 +45,27 @@ abstract class JSONMessages {
             }
         };
         return getResource("messages/" + messageId, handler);
+    }
+	
+    private <T> T getResource(String resourceUrl, final ResponseHandler<T> responseHandler) {
+        final String restService = "/service/v1/";
+
+        try {
+            getRequestBuilder(restService + resourceUrl).sendRequest(null, new RequestCallback() {
+                public void onResponseReceived(Request request, Response response) {
+                    if (response.getStatusCode() == Response.SC_OK) {
+                        responseHandler.setResponse(response.getText());
+                    }
+                }
+
+                public void onError(Request request, Throwable exception) {
+                    throw new UnsupportedOperationException("Not supported yet.");
+                }
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return responseHandler.handleResponse();
     }
     
     // fetch request builder in own method to ease unit testing

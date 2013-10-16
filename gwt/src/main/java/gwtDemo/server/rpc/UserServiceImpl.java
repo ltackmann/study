@@ -1,6 +1,6 @@
 package gwtDemo.server.rpc;
 
-import gwtDemo.client.service.LanguageService;
+import gwtDemo.client.service.UserService;
 import gwtDemo.server.dao.LanguageDao;
 
 import java.util.Set;
@@ -20,8 +20,8 @@ import javax.inject.Inject;
  */
 @Controller
 @RequestMapping("/bookmarking/users.rpc")
-public class LanguageServiceImpl extends BaseServlet implements LanguageService {
-    final Logger logger = LoggerFactory.getLogger(LanguageServiceImpl.class);
+public class UserServiceImpl extends BaseServlet implements UserService {
+    final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 	private static final long serialVersionUID = 1040457405556464059L;
 	private LanguageDao languageDao;
 

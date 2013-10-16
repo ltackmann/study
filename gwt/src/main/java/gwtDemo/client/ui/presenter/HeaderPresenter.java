@@ -1,26 +1,29 @@
 package gwtDemo.client.ui.presenter;
 
 import gwtDemo.client.event.LanguageChangedEvent;
-import gwtDemo.client.service.LanguageServiceAsync;
+import gwtDemo.client.resource.i18n.ClientMessages;
+import gwtDemo.client.service.UserServiceAsync;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.web.bindery.event.shared.EventBus;
 
 public class HeaderPresenter {
-    private final LanguageServiceAsync languageService;
+    private final UserServiceAsync userService;
     private final EventBus eventBus;
     private final Display display;
+    private final ClientMessages messages;
 
-    public HeaderPresenter(LanguageServiceAsync languageService, EventBus eventBus, Display display) {
-        this.languageService = languageService;
+    public HeaderPresenter(UserServiceAsync userService, EventBus eventBus, ClientMessages messages, Display display) {
+        this.userService = userService;
         this.eventBus = eventBus;
+        this.messages = messages;
         this.display = display;
     }
     
     public void changeLanguage(final String language) {
         languageService.getCurrentLanguage(new AsyncCallback<String>() {
             public void onFailure(Throwable caught) {
-                display.systemError();
+                display.showError(messages.systemError());
             }
 
             public void onSuccess(String currentLanguage) {
@@ -32,6 +35,6 @@ public class HeaderPresenter {
     }
     
     public interface Display {
-        void systemError();
+        void showError(String message);
     }
 }

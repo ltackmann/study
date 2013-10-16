@@ -2,10 +2,10 @@ package gwtDemo.server.dao;
 
 import java.util.Set;
 
-import gwtDemo.shared.LanguageMessage;
+import gwtDemo.shared.LocalMessage;
 
 public interface LanguageDao {
-	LanguageMessage getMessage(String locale, String messageId);
+	LocalMessage getMessage(String locale, String messageId);
 
 	Set<String> getLanguages();
 }

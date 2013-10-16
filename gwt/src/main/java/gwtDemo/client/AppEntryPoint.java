@@ -10,8 +10,6 @@ public class AppEntryPoint implements EntryPoint {
 	
     @Override
 	public void onModuleLoad() {
-        // setup resources
-        //Resources.INSTANCE.style().ensureInjected();
     	EventBus eventBus = injector.getEventBus();
         // start application
         AppController appController = new AppController(eventBus);
