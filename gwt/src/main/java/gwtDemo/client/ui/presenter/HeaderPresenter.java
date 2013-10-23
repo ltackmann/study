@@ -1,5 +1,6 @@
 package gwtDemo.client.ui.presenter;
 
+import gwtDemo.client.AppInjector;
 import gwtDemo.client.event.LanguageChangedEvent;
 import gwtDemo.client.resource.i18n.ClientMessages;
 import gwtDemo.client.service.UserServiceAsync;
@@ -13,15 +14,15 @@ public class HeaderPresenter {
     private final Display display;
     private final ClientMessages messages;
 
-    public HeaderPresenter(UserServiceAsync userService, EventBus eventBus, ClientMessages messages, Display display) {
-        this.userService = userService;
-        this.eventBus = eventBus;
-        this.messages = messages;
+    public HeaderPresenter(AppInjector injector, Display display) {
+        this.userService = injector.getUserService();
+        this.eventBus = injector.getEventBus();
+        this.messages = injector.getClientMessages();
         this.display = display;
     }
     
     public void changeLanguage(final String language) {
-        languageService.getCurrentLanguage(new AsyncCallback<String>() {
+        languageServiceClient.getCurrentLanguage(new AsyncCallback<String>() {
             public void onFailure(Throwable caught) {
                 display.showError(messages.systemError());
             }
@@ -32,6 +33,11 @@ public class HeaderPresenter {
                 }
             }
         });
+    }
+    
+    public void handleLogin(String email, String password) {
+    	// TODO validate email
+    	// TODO share validator with backend
     }
     
     public interface Display {

@@ -24,7 +24,7 @@ import static gwtDemo.unitTest.testUtils.RequestCallbackTester.returnResponse;
  *
  * @author Lars Tackmann
  */
-public class LanguageServiceMockTest {
+public class LanguageServiceTest {
     @Test
     public void testMessageGroup() {
         final String json = "" +

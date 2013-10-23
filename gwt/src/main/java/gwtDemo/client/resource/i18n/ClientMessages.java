@@ -1,11 +1,14 @@
 package gwtDemo.client.resource.i18n;
 
+import com.google.gwt.i18n.client.Messages;
+
 /**
- * Provides access to the applications i18n messages
+ * GWT client access to the i18n messages (the server can use a normal 
+ * resource bundle to access the same messages).
  *
  * @author Lars Tackmann
  */
-public interface ClientMessages extends com.google.gwt.i18n.client.Messages {
+public interface ClientMessages extends Messages {
     String loginError();
 
     String systemError();

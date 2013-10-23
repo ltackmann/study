@@ -1,25 +1,16 @@
 package gwtDemo.client.ui;
 
+import gwtDemo.client.AppInjector;
 import gwtDemo.client.ui.presenter.ContentPresenter;
 
-import com.google.gwt.uibinder.client.*;
-import com.google.gwt.user.client.ui.*;
-import com.google.inject.Inject;
+import com.google.gwt.core.shared.GWT;
+import com.google.gwt.user.client.ui.Composite;
 
 public class ContentComponent extends Composite implements ContentPresenter.Display {
-	private ContentPresenter presenter;
+	private final ContentPresenter presenter;
    
-	@UiTemplate("contentComponent.ui.xml")
-    interface ContentComponentUiBinder extends UiBinder<HTMLPanel, ContentComponent> { }
-
-    @UiConstructor
     public ContentComponent(String identifier) {
-        getElement().setId(identifier);
-    }
-    
-    @Inject 
-    void init(UiBinder<HTMLPanel, ContentComponent> binder, ContentPresenter presenter) {
-      initWidget(binder.createAndBindUi(this));
-      this.presenter = presenter;
+        presenter = new ContentPresenter((AppInjector)GWT.create(AppInjector.class), this);
+    	getElement().setId(identifier);
     }
 }

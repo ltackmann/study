@@ -1,4 +1,4 @@
-package gwtDemo.unitTest.client.ui.presenter;
+package gwtDemo.unitTest.client.ui;
 
 import static org.mockito.Matchers.eq;
 import static org.mockito.Matchers.isA;
@@ -23,7 +23,7 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
  *
  * @author Lars Tackmann
  */
-public class HeaderPresenterTest {
+public class HeaderComponentTest {
     private UserServiceAsync userService;
     private EventBus eventBus;
     private HeaderPresenter.Display loginBox;
