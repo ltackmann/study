@@ -1,0 +1,5 @@
+name: http_sandbox
+description: HTTP server sandbox
+dependencies:
+  polymer: any
+  http_server: any

@@ -1,5 +1,4 @@
 import "dart:async";
-import "dart:io";
 import 'package:unittest/unittest.dart';
 
 // TODO http://www.dartlang.org/articles/using-future-based-apis/ (Futures.wait + chains)
@@ -66,7 +65,7 @@ void main() {
       var data = <int>[1,2,3,4,5]; 
       var stream = new Stream<int>.fromIterable(data);  
       
-      var transformer = new StreamTransformer(handleData: (value, sink) {
+      var transformer = new StreamTransformer.fromHandlers(handleData: (value, sink) {
         // transform the value in the stream
         sink.add(value * -1);
       });
@@ -87,11 +86,31 @@ void main() {
       expect(stream.contains(1), completion(isTrue));
       expect(stream.every((v) => v > 0), completion(isTrue));
     });
+    
+    test("send to stream", () {
+      // fill stream
+      var controller = new StreamController<int>();
+      int counter = 0;
+      void tick(Timer timer) {
+        counter++;
+        controller.add(counter); 
+        if (counter >= 10) {
+          timer.cancel();
+          controller.close();    
+        }
+      }
+      new Timer.periodic(const Duration(milliseconds: 100), tick);
+      Stream<int> stream = controller.stream;
+      
+      // consume stream
+      var sum = 0;
+      stream.listen((int value) {
+        sum += value;
+      }).onDone(() {
+        expect(sum, equals(55));
+      }); 
+    });
   });
-  
-  //TODO StreamConsumer<S, T>
-  //TODO StreamSink<T>
-  //TODO Sink
 }
 
 /** Helpers */

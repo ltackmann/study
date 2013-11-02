@@ -22,10 +22,9 @@ main() {
   
   test("call dart from javascript", () {
     var called = 0;
-    var callback = (int i) => called += i;
     
     // register a javascript function called testCallbackOnce that can call Dart once
-    js.context.testCallbackOnce = new js.Callback.once(callback);
+    js.context.testCallbackOnce = (int i) => called += i;
     
     // call the javascript function and test that the callback worked
     js.context.testCallback();
@@ -40,10 +39,9 @@ main() {
     }
     expect(catched, isTrue);
     expect(called, equals(1));
-    
-    // TODO arguments and callback multiple times
   });
   
+  /*
   test("keep objects alive in a long running JS communication ", () {
     var x;
     js.scoped(() {
@@ -62,13 +60,14 @@ main() {
       js.release(x);
     });
   });
+  */
   
   test("listen to event in dart", () {
     var event;
     callback(arg) {
       event = arg;
     }
-    js.context.document.addEventListener("CustomEvent",new js.Callback.many(callback),false);
+    js.context.document.addEventListener("CustomEvent",callback,false);
     js.context.invokeCustomEvent();
     expect(event, isNotNull);
   });

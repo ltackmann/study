@@ -1,8 +1,14 @@
 body {
   display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+#wrapper {
+  display: flex;
   flex-flow: row;
-  margin: 0 auto; 
-  width: 960px;
+  width: 100%;
+  flex: 1;
 }
 
 ui-menu {
@@ -27,7 +33,17 @@ ui-header {
 
 ui-content {
   display: flex;
-  flex: 4;
+  flex: 10;
   order: 2; 
 }
+
+footer {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  min-height: 40rem;
+}
+
+
 

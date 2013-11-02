@@ -4,6 +4,7 @@ main() {
   test("mixin", () {
     var maestro = new Maestro(name:"Mozart",aggressionLevel:"high", instrument:"violin");
     
+    expect(maestro.plays, "Mozart plays violin");
     expect(maestro.name, equals("Mozart"));
     expect(maestro.aggressionLevel, equals("high"));
     expect(maestro.instrument, equals("violin"));
@@ -19,6 +20,10 @@ abstract class Person {
 
 abstract class Musical {
   String instrument;
+  
+  String get plays => "${name} plays ${instrument}";
+  
+  String get name;
 }
 
 abstract class Aggressive {

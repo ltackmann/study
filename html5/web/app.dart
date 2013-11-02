@@ -5,6 +5,8 @@ class DemoApp {
     /*
      * TODO Set up routing whith named events to centralize URL handling, but on the same
      * time make sure that URLs are actually bookmarkable 
+     * 
+     * TODO use dice to inject eventbus into each component
      */
 
     print("in demo app");
@@ -32,5 +34,5 @@ class DemoApp {
 
 main() {
   var app = new DemoApp();
-  app.start();
+  //app.start();
 }

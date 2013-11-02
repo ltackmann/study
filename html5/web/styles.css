@@ -3,21 +3,42 @@
   margin: 0;
   padding: 0;
 }
+html,body{
+  height:100%;
+}
+html {
+  font-size: 1px;
+}
+
+/* TODO:
+  Constants
+    var-backgroundColor: #F8F8F8;
+    background-color: var(backgroundColor);
+*/
 
 /* elements */
 body {
   background-color: #F8F8F8;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
-  font-weight: normal;
-  line-height: 1.2em;
+  color: blue;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 16rem;
+  font-weight: 300;
 }
 
-h1, p {
-  color: #333;
+p {
+  font-size: 17rem;
+  line-height: 21rem;
+  text-transform: uppercase;
 }
 
-/* classes */
+h1,h2,h3,h4 {
+  font-weight: bold;
+  font-size: 17rem;
+  line-height: 21rem;
+  text-transform: uppercase;
+}
+
+/* layout classes */
 .horizontal-list li {
   display: inline;  
   list-style: none;
@@ -27,17 +48,22 @@ h1, p {
   list-style: none;  
 }
 
+/* effect classes */
+.blur {
+  -webkit-filter: blur(4px);  
+}
+
 /* widgets */
 ui-menu {
-  background: yellow;
+  background: rgb(242, 246, 75);
 }
 
 ui-header {
-  background: blue;
+  background: rgb(233, 77, 134);
 }
 
 ui-content {
-   background: pink;
+   background: rgb(255, 255, 255);
 }
 
 

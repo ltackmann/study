@@ -1,0 +1,22 @@
+/* portrait phone */
+@media screen and (max-width:480px) {
+}
+
+/* landscape phone and portrait tablet */
+@media screen and (min-width:480px) and (max-width:960px) {
+}
+
+/* landscape tablet and normal monitor */
+@media screen and (min-width:960px) and (max-width:1440px) {
+  #wrapper {
+    width: 960rem;
+  }
+}
+
+/* bigger monitor */
+@media screen and (min-width:1440px) {
+}
+
+/* big monitor */
+@media screen and (min-width:1920px) {
+}
