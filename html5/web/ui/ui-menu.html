@@ -1,9 +1,11 @@
+<!DOCTYPE html>
 <link rel="import" href="elements/ui-navigation-button.html">
 <link rel="import" href="ui-input-demo.html">
+
 <polymer-element name="ui-menu">
   <template>
-    <aside class="ui-menu">
-      <input type="text">Search</input>
+    <aside>
+      <input type="text" value="Search">
       <nav>
         <ul class="vertical-list">
           <li>
@@ -20,18 +22,6 @@
         </ul>
       </nav>
     </aside>
-    
-    <style>
-      @host {
-        ui-menu {
-         
-        }
-        
-        .active {
-          background-color: blue;
-        }
-      }
-    </style>
   </template>
   <script type="application/dart" src="components/ui_menu.dart"></script>
 </polymer-element>

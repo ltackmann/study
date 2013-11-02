@@ -1,4 +1,4 @@
-<polymer-element name="ui-toggle-button" attributes="state">
+<polymer-element name="ui-toggle-button">
   <template>
     <button on-click="toggle">The toggle is {{state}}</button>
   </template>
@@ -7,7 +7,7 @@
   
     @CustomTag('ui-toggle-button')
     class UiToggleButton extends PolymerElement {
-      @observable String state = 'On';
+      UiToggleButton.created(): super.created();
       
       toggle() {
         if (state == 'On') {
@@ -16,6 +16,8 @@
           state = 'On';
         }
       }
+      
+      @published @observable String state = 'On';
     }
   </script>
 </polymer-element>

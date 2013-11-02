@@ -1,6 +1,7 @@
+<!DOCTYPE html>
 <polymer-element name="ui-header">
   <template>
-    <header class="ui-header">
+    <header>
       <h2 class="title">{{title}}</h2>
       <div class="language"> 
         <p>Language</p>     
@@ -9,25 +10,6 @@
         </select>
        </div>
     </header>
-    
-    <style>
-      @host {
-        
-      }
-      
-      .title {
-        display: flex;
-        flex 4;
-        order: 2;
-        color: red;
-      }
-      
-      .language {
-        display: flex;
-        flex 1;
-        order: 1;
-      }
-    </style>
   </template>
   <script type="application/dart" src="components/ui_header.dart"></script>
 </polymer-element>
