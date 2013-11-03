@@ -4,9 +4,7 @@
   padding: 0;
 }
 html,body{
-  height:100%;
-}
-html {
+  height: 100%;
   font-size: 1px;
 }
 
@@ -53,18 +51,6 @@ h1,h2,h3,h4 {
   -webkit-filter: blur(4px);  
 }
 
-/* widgets */
-ui-menu {
-  background: rgb(242, 246, 75);
-}
-
-ui-header {
-  background: rgb(233, 77, 134);
-}
-
-ui-content {
-   background: rgb(255, 255, 255);
-}
 
 
 

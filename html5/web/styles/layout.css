@@ -1,49 +1,13 @@
 body {
-  display: flex;
-  flex-flow: column;
   align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
-#wrapper {
-  display: flex;
-  flex-flow: row;
-  width: 100%;
-  flex: 1;
-}
 
-ui-menu {
-  display: flex;
-  flex: 1;
-  order: 1;  
-}
 
-#container {
-  display: flex;
-  flex: 4;
-  flex-flow: column;
-  order: 2;  
-}
 
-ui-header {
-  display: flex;
-  flex: 1;
-  flex-flow: row;
-  order: 1; 
-}
 
-ui-content {
-  display: flex;
-  flex: 10;
-  order: 2; 
-}
-
-footer {
-  display: flex;
-  flex-flow: row;
-  justify-content: center;
-  align-items: center;
-  min-height: 40rem;
-}
 
 
 

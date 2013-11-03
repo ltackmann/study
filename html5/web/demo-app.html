@@ -1,28 +1,16 @@
 <!DOCTYPE html>
-<link rel="import" href="ui/ui-header.html">
-<link rel="import" href="ui/ui-content.html">
-<link rel="import" href="ui/ui-menu.html">
+<link rel="import" href="ui/ui-footer.html">
+<link rel="import" href="ui/ui-page.html">
 
 <polymer-element name="demo-app">
   <template>
-    <!-- TODO replace the content of the wrapper with a page concept -->
-    <div id="wrapper">
-      <ui-menu></ui-menu>
-      <div id="container">
-        <ui-header></ui-header>
-        <ui-content></ui-content>
-      </div>  
-    </div>
-    <footer>
-      <a href="http://mir.aculo.us/2013/09/16/how-to-create-a-web-app-that-looks-like-a-ios7-native-app-part-1"> 
-        Style inspired from
-      </a>
-    </footer> 
+    <ui-page></ui-page>
+    <ui-footer></ui-footer>
+    
     <style>
-    @import url('styles/styles.css'); 
-    @import url('styles/layout.css');
-    @import url('styles/responsive.css');
-   
+      @import url('styles/styles.css'); 
+      @import url('styles/layout.css');
+      @import url('styles/responsive.css');
     </style>
   </template>
   <script type="application/dart" src="app/demo_app.dart"></script>

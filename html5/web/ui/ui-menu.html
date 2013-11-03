@@ -4,9 +4,11 @@
 
 <polymer-element name="ui-menu">
   <template>
-    <aside>
-      <input type="text" value="Search">
-      <nav>
+    <aside class="ui-menu">
+      <div class="menu-search">
+        <input  type="text" value="Search">
+      </div>
+      <nav class="menu-navigate">
         <ul class="vertical-list">
           <li>
             <ui-navigation-button target='effects-demo'>
@@ -22,6 +24,24 @@
         </ul>
       </nav>
     </aside>
+    
+    <style>
+      /* layout */      
+      .ui-menu .menu-search {
+        display: flex;
+        flex: 1;
+      }
+      
+      .ui-menu .menu-navigate {
+        display: flex;
+        flex: 4;
+      }
+      
+      /* styling */
+      .ui-menu {
+        background: rgb(242, 246, 75);
+      }
+    </style>
   </template>
   <script type="application/dart" src="components/ui_menu.dart"></script>
 </polymer-element>
