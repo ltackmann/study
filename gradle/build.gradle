@@ -1,0 +1,21 @@
+// full task
+task hello {
+    doLast {
+        println 'Hello world!'
+    }
+}
+
+// dependent task
+task intro(dependsOn: hello) << {
+    println "I'm Gradle"
+}
+
+// dynamic task generation
+4.times { counter ->
+    task "task$counter" << {
+        println "I'm task number $counter"
+    }
+}
+
+// task modification
+task0.dependsOn task2, task3
