@@ -7,8 +7,8 @@
     <ProjectGuid>{67229BAA-2CAA-4AE9-B9DE-2818CA09CCA4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OfficeApp</RootNamespace>
-    <AssemblyName>OfficeApp</AssemblyName>
+    <RootNamespace>OfficeAppDemo</RootNamespace>
+    <AssemblyName>OfficeAppDemo</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetOfficeVersion>15.0</TargetOfficeVersion>
     <FileAlignment>512</FileAlignment>
