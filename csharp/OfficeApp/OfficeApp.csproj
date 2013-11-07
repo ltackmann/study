@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{67229BAA-2CAA-4AE9-B9DE-2818CA09CCA4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OfficeApp</RootNamespace>
+    <AssemblyName>OfficeApp</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetOfficeVersion>15.0</TargetOfficeVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <IncludeAssemblyInPackage>False</IncludeAssemblyInPackage>
+    <AppFeaturePartId>{2be49998-da7e-4bf3-9a2c-394dd41ef006}</AppFeaturePartId>
+    <WspPartId>{82289346-79bf-41de-aa6a-320b587d44b7}</WspPartId>
+    <WorkflowPartId>{6e5a5408-241e-4524-9164-0ca99111f6d4}</WorkflowPartId>
+    <CspkgPartId>{684e410d-69a0-4637-8cc9-609039c289e8}</CspkgPartId>
+    <SqlPackagePartId>{ff2a581f-daab-4778-9c33-2305403e1cbf}</SqlPackagePartId>
+    <ProjectMode>OfficeApp</ProjectMode>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="OfficeAppManifest\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{e532e727-ac9c-410a-b9d8-9db549b11a9e}</SharePointProjectItemId>
+    </None>
+    <Content Include="OfficeAppManifest\OfficeApp.xml">
+      <OpcRelationship>manifest-oemanifest</OpcRelationship>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OfficeAppWeb\OfficeAppWeb.csproj">
+      <Project>{4F6AEB41-83B9-44EA-86AC-150535CDA6DA}</Project>
+      <Name>OfficeAppWeb</Name>
+      <Private>True</Private>
+      <RoleType>Web</RoleType>
+      <OutputItemType>SharePointWebProjectOutput</OutputItemType>
+      <RoleName>OfficeAppWeb</RoleName>
+      <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+</Project>

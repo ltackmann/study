@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nancy", "Nancy\Nancy.csproj", "{E9D553A5-9AE1-42ED-A7AD-00DB2670589D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox", "Sandbox\Sandbox.csproj", "{805E2FC7-6FB0-40FB-AA84-EFC0708C73EA}"
@@ -12,6 +14,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CastleWindsor", "CastleWindsor\CastleWindsor.csproj", "{F208B648-6BEF-41C5-8E61-BA2E0E3296A7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{C588566F-957E-45C0-B73E-8DA752317929}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OfficeApp", "OfficeApp\OfficeApp.csproj", "{67229BAA-2CAA-4AE9-B9DE-2818CA09CCA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OfficeAppWeb", "OfficeAppWeb\OfficeAppWeb.csproj", "{4F6AEB41-83B9-44EA-86AC-150535CDA6DA}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSharp Sandbox", "FSharp Sandbox\FSharp Sandbox.fsproj", "{71FA0791-AF8F-47AF-91AB-9FD5AA268705}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +51,20 @@ Global
 		{C588566F-957E-45C0-B73E-8DA752317929}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C588566F-957E-45C0-B73E-8DA752317929}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C588566F-957E-45C0-B73E-8DA752317929}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67229BAA-2CAA-4AE9-B9DE-2818CA09CCA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67229BAA-2CAA-4AE9-B9DE-2818CA09CCA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67229BAA-2CAA-4AE9-B9DE-2818CA09CCA4}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{67229BAA-2CAA-4AE9-B9DE-2818CA09CCA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67229BAA-2CAA-4AE9-B9DE-2818CA09CCA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67229BAA-2CAA-4AE9-B9DE-2818CA09CCA4}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{4F6AEB41-83B9-44EA-86AC-150535CDA6DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F6AEB41-83B9-44EA-86AC-150535CDA6DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F6AEB41-83B9-44EA-86AC-150535CDA6DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F6AEB41-83B9-44EA-86AC-150535CDA6DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71FA0791-AF8F-47AF-91AB-9FD5AA268705}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71FA0791-AF8F-47AF-91AB-9FD5AA268705}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71FA0791-AF8F-47AF-91AB-9FD5AA268705}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71FA0791-AF8F-47AF-91AB-9FD5AA268705}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
