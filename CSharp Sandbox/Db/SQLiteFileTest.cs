@@ -1,15 +1,15 @@
 using System;
 using System.Data;
 using System.Data.SQLite;
-using NUnit.Framework;
 using System.Data.SqlClient;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Sandbox.Db
 {
-	[TestFixture]
+	[TestClass]
 	public class SQLiteFileTest
 	{
-		[Test]
+		[TestMethod]
 		public void RunTests()
 		{
             var connectionString = "URI=file:DatabaseTest.db";
