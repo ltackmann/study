@@ -2,12 +2,14 @@ package gwtDemo.client;
 
 import gwtDemo.client.framework.AppController;
 import gwtDemo.client.framework.AppInjector;
-import gwtDemo.client.framework.NavigationManagerProvider;
+import gwtDemo.client.framework.api.ClientSession;
+import gwtDemo.client.framework.api.ClientSessionProvider;
 import gwtDemo.client.framework.api.NavigationManager;
+import gwtDemo.client.framework.api.NavigationManagerProvider;
+import gwtDemo.shared.User;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.shared.GWT;
-import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.RootPanel;
 
 public class AppEntryPoint implements EntryPoint {
@@ -15,8 +17,8 @@ public class AppEntryPoint implements EntryPoint {
 	
     @Override
 	public void onModuleLoad() {
-    	HasWidgets container = RootPanel.get();
-    	NavigationManagerProvider.INSTANCE = new NavigationManager(container, injector);
+    	NavigationManagerProvider.INSTANCE = new NavigationManager(RootPanel.get(), injector);
+    	ClientSessionProvider.INSTANCE = new ClientSession(new User());
     	
         // start application
         AppController appController = new AppController(injector);

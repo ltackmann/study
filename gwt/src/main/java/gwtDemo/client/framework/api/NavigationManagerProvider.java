@@ -1,6 +1,4 @@
-package gwtDemo.client.framework;
-
-import gwtDemo.client.framework.api.NavigationManager;
+package gwtDemo.client.framework.api;
 
 import com.google.inject.Provider;
 
