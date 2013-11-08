@@ -1,5 +1,6 @@
-package gwtDemo.client;
+package gwtDemo.client.framework;
 
+import gwtDemo.client.framework.api.NavigationManager;
 import gwtDemo.client.resource.i18n.ClientMessages;
 import gwtDemo.client.service.UserServiceAsync;
 
@@ -12,6 +13,7 @@ public class AppModule extends AbstractGinModule {
 	protected void configure() {
 		bind(ClientMessages.class).in(Singleton.class);
 		bind(EventBus.class).to(SimpleEventBus.class).in(Singleton.class);
+		bind(NavigationManager.class).toProvider(NavigationManagerProvider.class).in(Singleton.class);
 		bind(UserServiceAsync.class).in(Singleton.class);
 	}
 }

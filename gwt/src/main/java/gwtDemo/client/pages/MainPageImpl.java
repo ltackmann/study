@@ -1,18 +1,13 @@
-package gwtDemo.client.view;
-
-import com.google.inject.Inject;
-
-import gwtDemo.client.view.presenter.MainViewPresenter;
-import gwtDemo.client.ui.HeaderComponent;
+package gwtDemo.client.pages;
 
 import com.google.gwt.core.shared.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiTemplate;
 import com.google.gwt.user.client.ui.*;
 
-public class MainView extends Composite implements MainViewPresenter.Display {
+public class MainPageImpl extends Composite implements MainPage {
     @UiTemplate("mainView.ui.xml")
-    interface MainViewUiBinder extends UiBinder<HTMLPanel, MainView> { }
+    interface MainViewUiBinder extends UiBinder<HTMLPanel, MainPageImpl> { }
     private static MainViewUiBinder uiBinder = GWT.create(MainViewUiBinder.class);
     
     //@Inject
@@ -21,7 +16,7 @@ public class MainView extends Composite implements MainViewPresenter.Display {
     
     // TODO use gwt query to access content-container and add components by hand
     
-    public MainView() {
+    public MainPageImpl() {
     	initWidget(uiBinder.createAndBindUi(this));
     }
     

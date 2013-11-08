@@ -1,6 +1,6 @@
 package gwtDemo.client.ui.presenter;
 
-import gwtDemo.client.AppInjector;
+import gwtDemo.client.framework.AppInjector;
 
 import com.google.web.bindery.event.shared.EventBus;
 

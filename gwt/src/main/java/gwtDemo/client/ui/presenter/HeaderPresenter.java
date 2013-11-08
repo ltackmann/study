@@ -1,7 +1,7 @@
 package gwtDemo.client.ui.presenter;
 
-import gwtDemo.client.AppInjector;
-import gwtDemo.client.event.LanguageChangedEvent;
+import gwtDemo.client.event.LanguageChanged;
+import gwtDemo.client.framework.AppInjector;
 import gwtDemo.client.resource.i18n.ClientMessages;
 import gwtDemo.client.service.UserServiceAsync;
 
@@ -29,7 +29,7 @@ public class HeaderPresenter {
 
             public void onSuccess(String currentLanguage) {
                 if (!currentLanguage.equals(language)) {
-                    eventBus.fireEvent(new LanguageChangedEvent(language));
+                    eventBus.fireEvent(new LanguageChanged(language));
                 }
             }
         });
