@@ -14,10 +14,12 @@ import com.google.web.bindery.event.shared.SimpleEventBus;
 
 public class AppModule extends AbstractGinModule {
 	protected void configure() {
+		// infrastructure
 		bind(ClientSession.class).toProvider(ClientSessionProvider.class);
 		bind(ClientMessages.class).in(Singleton.class);
 		bind(EventBus.class).to(SimpleEventBus.class).in(Singleton.class);
 		bind(NavigationManager.class).toProvider(NavigationManagerProvider.class);
+		// services
 		bind(UserServiceAsync.class).in(Singleton.class);
 	}
 }

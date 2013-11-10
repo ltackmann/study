@@ -13,7 +13,7 @@ import com.google.web.bindery.event.shared.EventBus;
  * Handles bidirectional mapping between pages and URLs. Allows you to retrive a page for a URL and to navigate to
  */
 public class NavigationManager {
-	private final Map<String, PageRegistration<?,?>> navigationRegistration = new HashMap<String, PageRegistration<?,?>>();
+	private final Map<String, Class<? extends Page>> urlMapping = new HashMap<String, Class<? extends Page>>();
 	private final Map<Class<? extends Page>, PageRegistration<?,?>> pageRegistration = new HashMap<Class<? extends Page>, PageRegistration<?,?>>();
 	private final Map<Class<? extends Page>, Page> pageCache = new HashMap<Class<? extends Page>, Page>();
 	private final HasWidgets container;
@@ -26,8 +26,8 @@ public class NavigationManager {
 		this.eventBus = injector.getEventBus();
 	}
 	
-	public <PC extends PageController<P>, P extends Page> NavigationManager registerHandler(String segment, PageRegistration<PC, P> handler) {
-		navigationRegistration.put(segment, handler);
+	public <PC extends PageController<P>, P extends Page> NavigationManager registerHandler(String pageUrl, PageRegistration<PC, P> handler) {
+		urlMapping.put(pageUrl, handler.getPageType());
 		pageRegistration.put(handler.getPageType(), handler);
 		return this;
 	}
@@ -37,8 +37,15 @@ public class NavigationManager {
 		PageController<P> controller = getRegistration(pageType).getPageController(page, injector);
 		
 		assertCurrentUserCanViewPage(controller, injector.getClientSession());
+		
 		controller.renderOn(container);
 		eventBus.fireEvent(new PageChanged<P>(pageType));
+	}
+	
+	public void showPageForUrl(String pageUrl) {
+		if(urlMapping.containsKey(pageUrl)) {
+			showPage(urlMapping.get(pageUrl));
+		}
 	}
 	
 	public void onPageChanged(PageChangedHandler handler) {

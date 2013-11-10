@@ -14,3 +14,4 @@ public interface PageRegistration<PC extends PageController<P>, P extends Page> 
 	
 	boolean isSingleton();
 }
+
