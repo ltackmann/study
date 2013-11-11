@@ -2,12 +2,12 @@ package gwtDemo.client.framework.api;
 
 import com.google.gwt.event.shared.GwtEvent;
 
-public class PageChanged<P extends Page> extends GwtEvent<PageChangedHandler> {
+public class PageChanged extends GwtEvent<PageChangedHandler> {
 	public static final Type<PageChangedHandler> TYPE = new Type<PageChangedHandler>();
-	private final Class<P> pageType;
+	private final PageController<?> pageController;
 	
-	public PageChanged(Class<P> pageType) {
-		this.pageType = pageType;
+	public PageChanged(PageController<?> pageController) {
+		this.pageController = pageController;
 	}
 
 	@Override
@@ -20,7 +20,7 @@ public class PageChanged<P extends Page> extends GwtEvent<PageChangedHandler> {
 		handler.onPageChanged(this);
 	}
 
-	public Class<P> getPageType() {
-		return pageType;
+	public PageController<?> getPageController() {
+		return pageController;
 	}
 }

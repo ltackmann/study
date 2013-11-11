@@ -24,5 +24,9 @@ public abstract class PageController<P extends Page> {
         container.add(page.asWidget());
     }
     
+    public P getPage() {
+    	return page;
+    }
+    
 	public abstract boolean isPageAllowedFor(Role role);
 }

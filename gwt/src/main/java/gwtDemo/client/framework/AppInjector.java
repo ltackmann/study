@@ -3,6 +3,7 @@ package gwtDemo.client.framework;
 import gwtDemo.client.framework.api.ClientSession;
 import gwtDemo.client.framework.api.NavigationManager;
 import gwtDemo.client.resource.i18n.ClientMessages;
+import gwtDemo.client.service.LanguageServiceAsync;
 import gwtDemo.client.service.UserServiceAsync;
 
 import com.google.gwt.inject.client.GinModules;
@@ -19,5 +20,7 @@ public interface AppInjector extends Ginjector {
 	
 	NavigationManager getNavigationManager();
 	
-	UserServiceAsync getUserService(); 
+	UserServiceAsync getUserService();
+
+	LanguageServiceAsync getLanguageService(); 
 }

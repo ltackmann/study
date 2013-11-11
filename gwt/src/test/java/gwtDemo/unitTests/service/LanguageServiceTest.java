@@ -1,4 +1,4 @@
-package gwtDemo.unitTest.client.service;
+package gwtDemo.unitTests.service;
 
 import static org.junit.Assert.*;
 import static org.mockito.Matchers.anyString;
@@ -17,7 +17,7 @@ import org.junit.Test;
 import com.google.gwt.http.client.Request;
 import com.google.gwt.http.client.Response;
 
-import static gwtDemo.unitTest.testUtils.RequestCallbackTester.returnResponse;
+import static gwtDemo.unitTests.testUtils.RequestCallbackTester.returnResponse;
 
 /**
  * Test JSON message handler

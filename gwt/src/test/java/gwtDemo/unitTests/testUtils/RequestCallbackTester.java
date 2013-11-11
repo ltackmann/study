@@ -1,4 +1,4 @@
-package gwtDemo.unitTest.testUtils;
+package gwtDemo.unitTests.testUtils;
 
 import com.google.gwt.http.client.Request;
 import com.google.gwt.http.client.RequestCallback;
