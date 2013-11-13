@@ -1,7 +1,7 @@
 part of functional_dart;
 
-class OptionalMonadTest {
-  OptionalMonadTest() {
+class OptionalTest {
+  OptionalTest() {
     test("optional", () {
       var noCar = new Person(new Optional<Car>(null));
       var noInsurance = new Person(new Optional<Car>(new Car(new Optional<Insurance>(null))));

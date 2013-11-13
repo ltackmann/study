@@ -1,6 +1,7 @@
 name: polymer_sandbox
 description: HTML5 Demo in Polymer
 dependencies:
+  http_server: any
   polymer: any
   route: any
 dev_dependencies:
