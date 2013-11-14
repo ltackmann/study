@@ -6,7 +6,7 @@ import gwtDemo.shared.domain.LocalMessageGroup;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
 public interface LanguageServiceAsync {
-	void getLocalMessageGroup(String groupId, AsyncCallback<LocalMessageGroup> localMessageGroup); 
+	void getLocalMessageGroup(String groupId, AsyncCallback<LocalMessageGroup> callback); 
 
-    void getLocalMessage(String messageId,  AsyncCallback<LocalMessage> localMessage);
+    void getLocalMessage(String messageId,  AsyncCallback<LocalMessage> callback);
 }

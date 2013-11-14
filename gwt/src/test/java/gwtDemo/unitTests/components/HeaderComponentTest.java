@@ -1,4 +1,4 @@
-package gwtDemo.unitTests.ui;
+package gwtDemo.unitTests.components;
 
 import static org.mockito.Matchers.eq;
 import static org.mockito.Matchers.isA;

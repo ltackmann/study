@@ -39,7 +39,7 @@ public class NavigationManager {
 		assertCurrentUserCanViewPage(controller, injector.getClientSession());
 		
 		controller.renderOn(container);
-		eventBus.fireEvent(new PageChanged<P>(pageType));
+		eventBus.fireEvent(new PageChanged(controller));
 	}
 	
 	public void showPageForUrl(String pageUrl) {

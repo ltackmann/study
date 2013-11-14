@@ -1,15 +1,18 @@
-package gwtDemo.client.ui.component;
+package gwtDemo.client.components;
 
-import gwtDemo.client.framework.AppInjector;
+import gwtDemo.client.framework.api.Component;
 
-import com.google.gwt.core.shared.GWT;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.VerticalPanel;
 
-public class ContentComponent extends Composite implements ContentPresenter.Display {
-	private final ContentPresenter presenter;
-   
+public class ContentComponent extends Composite implements Component {
     public ContentComponent(String identifier) {
-        presenter = new ContentPresenter((AppInjector)GWT.create(AppInjector.class), this);
-    	getElement().setId(identifier);
+    	VerticalPanel panel = new VerticalPanel();
+    	initWidget(panel);
     }
+
+	@Override
+	public void initComponent() {
+		// TODO Auto-generated method stub
+	}
 }

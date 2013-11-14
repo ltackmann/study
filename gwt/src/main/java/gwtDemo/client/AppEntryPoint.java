@@ -17,6 +17,7 @@ public class AppEntryPoint implements EntryPoint {
 	
     @Override
 	public void onModuleLoad() {
+    	// initialize singleton providers
     	NavigationManagerProvider.INSTANCE = new NavigationManager(RootPanel.get(), injector);
     	ClientSessionProvider.INSTANCE = new ClientSession(new User());
     	

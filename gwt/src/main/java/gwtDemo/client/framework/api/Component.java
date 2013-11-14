@@ -9,4 +9,6 @@ import com.google.gwt.user.client.ui.Widget;
  */
 public interface Component {
 	Widget asWidget();
+	
+	void initComponent();
 }

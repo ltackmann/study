@@ -3,15 +3,13 @@ package gwtDemo.client.service;
 import com.google.gwt.http.client.Request;
 import com.google.gwt.http.client.RequestBuilder;
 import com.google.gwt.http.client.RequestCallback;
+import com.google.gwt.http.client.RequestException;
 import com.google.gwt.http.client.Response;
 import com.google.gwt.json.client.*;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
 import gwtDemo.shared.domain.LocalMessage;
 import gwtDemo.shared.domain.LocalMessageGroup;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Fetch messages stored on server in JSON format.
@@ -20,87 +18,59 @@ import java.util.Map;
  */
 public class LanguageServiceClient implements LanguageServiceAsync {
 	@Override
-	public void getLocalMessageGroup(String groupId,
-			AsyncCallback<LocalMessageGroup> localMessageGroup) {
-		ResponseHandler<Map<String, String>> handler = new ResponseHandler<Map<String, String>>() {
+	public void getLocalMessageGroup(String groupId, AsyncCallback<LocalMessageGroup> callback) {
+		ResponseMapper<LocalMessageGroup> mapper = new ResponseMapper<LocalMessageGroup>() {
 			@Override
-			public Map<String, String> handleResponse() {
-				Map<String, String> messages = new HashMap<String, String>();
-
-				// retrieve message group
-				if (jsonResponse.get("group") != null) {
-					JSONArray msgArray = jsonResponse.get("messages").isArray();
-					for (int i = 0; i < msgArray.size(); i++) {
-						JSONObject message = msgArray.get(i).isObject();
-						final JSONString messageId = message.get("id")
-								.isString();
-
-						messages.put(messageId.stringValue(),
-								getJSONMsg(message));
-					}
-				}
-				return messages;
+			public LocalMessageGroup mapJsonObject(JSONObject jsonObject) {
+				return LocalMessageGroup.fromJsonObject(jsonObject);
 			}
 		};
-		return getResource("messages/groups/" + groupId, handler);
+		executeRequest("messages/groups/" + groupId, callback, mapper);
 	}
 
 	@Override
-	public void getLocalMessage(String messageId,
-			AsyncCallback<LocalMessage> localMessage) {
-		ResponseHandler<String> handler = new ResponseHandler<String>() {
+	public void getLocalMessage(String messageId, AsyncCallback<LocalMessage> callback) {
+		ResponseMapper<LocalMessage> handler = new ResponseMapper<LocalMessage>() {
 			@Override
-			public String handleResponse() {
-				return getJSONMsg(jsonResponse);
+			public LocalMessage mapJsonObject(JSONObject jsonObject) {
+				return LocalMessage.fromJsonObject(jsonObject);
 			}
 		};
-		return getResource("messages/" + messageId, handler);
+		executeRequest("messages/" + messageId, callback, handler);
 	}
 
-	private <T> T getResource(String resourceUrl,
-			final ResponseHandler<T> responseHandler) {
+	private <T> void executeRequest(String resourceUrl, final AsyncCallback<T> callback, final ResponseMapper<T> mapper) {
 		final String restService = "/service/v1/";
 
 		try {
-			getRequestBuilder(restService + resourceUrl).sendRequest(null,
-					new RequestCallback() {
-						public void onResponseReceived(Request request,
-								Response response) {
-							if (response.getStatusCode() == Response.SC_OK) {
-								responseHandler.setResponse(response.getText());
-							}
-						}
+			getRequestBuilder(restService + resourceUrl).sendRequest(null, new RequestCallback() {
+				public void onResponseReceived(Request request, Response response) {
+					if (response.getStatusCode() == Response.SC_OK) {
+						T result = mapper.mapResponse(response.getText());
+						callback.onSuccess(result);
+					}
+				}
 
-						public void onError(Request request, Throwable exception) {
-							throw new UnsupportedOperationException(
-									"Not supported yet.");
-						}
-					});
-		} catch (Exception e) {
+				public void onError(Request request, Throwable exception) {
+					callback.onFailure(exception);
+				}
+			});
+		} catch (RequestException e) {
 			e.printStackTrace();
 		}
-		return responseHandler.handleResponse();
 	}
 
-	// fetch request builder in own method to ease unit testing
-	public RequestBuilder getRequestBuilder(String url) {
+	// create HTTP request in public method so we can override it
+	public <T> RequestBuilder getRequestBuilder(String url) {
 		return new RequestBuilder(RequestBuilder.GET, url);
 	}
 
-	private String getJSONMsg(JSONObject jsonObject) {
-		JSONString jsonString = jsonObject.get("text").isString();
-		return jsonString.stringValue();
-	}
-
-	private abstract class ResponseHandler<T> {
-		JSONObject jsonResponse;
-
-		void setResponse(String responseText) {
-			JSONValue jsonValue = JSONParser.parseStrict(responseText);
-			jsonResponse = jsonValue.isObject();
+	private abstract class ResponseMapper<T> {
+		public T mapResponse(String jsonText) {
+			JSONValue jsonValue = JSONParser.parseStrict(jsonText);
+			return mapJsonObject(jsonValue.isObject());
 		}
 
-		abstract T handleResponse();
+		protected abstract T mapJsonObject(JSONObject jsonObject);
 	}
-
 }

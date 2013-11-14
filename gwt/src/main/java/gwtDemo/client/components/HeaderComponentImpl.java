@@ -1,4 +1,4 @@
-package gwtDemo.client.ui.component;
+package gwtDemo.client.components;
 
 import gwtDemo.client.framework.AppInjector;
 

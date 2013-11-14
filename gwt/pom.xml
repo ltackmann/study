@@ -24,6 +24,10 @@
 			<groupId>com.google.gwt.inject</groupId>
 			<artifactId>gin</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.google.gwt.gwtmockito</groupId>
+			<artifactId>gwtmockito</artifactId>
+		</dependency>
 
 		<!-- Various frameworks -->
 		<dependency>

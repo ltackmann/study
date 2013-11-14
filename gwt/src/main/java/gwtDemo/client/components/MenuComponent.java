@@ -1,15 +1,18 @@
-package gwtDemo.client.ui.component;
+package gwtDemo.client.components;
 
-import gwtDemo.client.framework.AppInjector;
+import gwtDemo.client.framework.api.Component;
 
-import com.google.gwt.core.shared.GWT;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.VerticalPanel;
 
-public class MenuComponent extends Composite implements MenuPresenter.Display {
-	private final MenuPresenter presenter;
-
+public class MenuComponent extends Composite implements Component {
 	public MenuComponent(String identifier) {
-    	presenter = new MenuPresenter((AppInjector)GWT.create(AppInjector.class), this);
-        getElement().setId(identifier);
+		VerticalPanel panel = new VerticalPanel();
+		initWidget(panel);
     }
+
+	@Override
+	public void initComponent() {
+		// TODO Auto-generated method stub
+	}
 }
