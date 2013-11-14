@@ -5,7 +5,6 @@ import gwtDemo.client.event.LanguageChangedHandler;
 import gwtDemo.client.framework.api.NavigationManager;
 import gwtDemo.client.framework.api.SingletonPageRegistration;
 import gwtDemo.client.pages.MainPage;
-import gwtDemo.client.pages.MainPageImpl;
 import gwtDemo.client.pages.MainPageController;
 
 import com.google.gwt.core.client.GWT;
@@ -48,7 +47,7 @@ public class AppController implements ValueChangeHandler<String> {
 
 			@Override
 			public MainPage getPage(AppInjector injector) {
-				return new MainPageImpl();
+				return new MainPage();
 			}
     	});
     }

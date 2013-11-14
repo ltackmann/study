@@ -5,8 +5,8 @@ public class User {
 	private String password;
 	private Role role;
 	
-	public User() {
-		setRole(Role.GUEST);
+	public User(Role role) {
+		setRole(role);
 	}
 	
 	public User(String username, String password, Role role) {

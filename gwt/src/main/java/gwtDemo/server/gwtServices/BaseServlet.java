@@ -1,4 +1,4 @@
-package gwtDemo.server.rpc;
+package gwtDemo.server.gwtServices;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import org.springframework.web.context.ServletContextAware;

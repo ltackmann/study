@@ -1,24 +1,34 @@
 package gwtDemo.client.framework.api;
 
+import com.google.web.bindery.event.shared.EventBus;
+
+import gwtDemo.client.event.LanguageChanged;
 import gwtDemo.shared.domain.User;
 
 public class ClientSession {
-	private final User currentUser;
-	private String currentLanguage;
+	private EventBus eventBus;
+	private User user;
+	private String language;
 	
-	public ClientSession(User sessionUser) {
-		this.currentUser = sessionUser;
+	public ClientSession(User user, EventBus eventBus) {
+		this.user = user;
+		this.eventBus = eventBus;
 	}
 
-	public User getCurrentUser() {
-		return currentUser;
+	public User getUser() {
+		return user;
 	}
 
-	public String getCurrentLanguage() {
-		return currentLanguage;
+	public String getLanguage() {
+		return language;
 	}
 	
-	public void setCurrentLanguage(String language) {
-		this.currentLanguage = language;
+	public void setLanguage(String language) {
+		this.language = language;
+		 eventBus.fireEvent(new LanguageChanged(language));
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 }

@@ -6,6 +6,7 @@ import gwtDemo.client.framework.api.ClientSession;
 import gwtDemo.client.framework.api.ClientSessionProvider;
 import gwtDemo.client.framework.api.NavigationManager;
 import gwtDemo.client.framework.api.NavigationManagerProvider;
+import gwtDemo.shared.domain.Role;
 import gwtDemo.shared.domain.User;
 
 import com.google.gwt.core.client.EntryPoint;
@@ -19,7 +20,7 @@ public class AppEntryPoint implements EntryPoint {
 	public void onModuleLoad() {
     	// initialize singleton providers
     	NavigationManagerProvider.INSTANCE = new NavigationManager(RootPanel.get(), injector);
-    	ClientSessionProvider.INSTANCE = new ClientSession(new User());
+    	ClientSessionProvider.INSTANCE = new ClientSession(new User(Role.GUEST), injector.getEventBus());
     	
         // start application
         AppController appController = new AppController(injector);

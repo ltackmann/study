@@ -16,7 +16,7 @@ import gwtDemo.shared.domain.LocalMessageGroup;
  * 
  * @author Lars Tackmann
  */
-public class LanguageServiceClient implements LanguageServiceAsync {
+public class LanguageService implements LanguageServiceAsync {
 	@Override
 	public void getLocalMessageGroup(String groupId, AsyncCallback<LocalMessageGroup> callback) {
 		ResponseMapper<LocalMessageGroup> mapper = new ResponseMapper<LocalMessageGroup>() {

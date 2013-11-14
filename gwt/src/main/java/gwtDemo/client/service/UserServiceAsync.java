@@ -1,11 +1,9 @@
 package gwtDemo.client.service;
 
-import java.util.Set;
+import gwtDemo.shared.domain.User;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
 public interface UserServiceAsync {
-	void getLanguages(AsyncCallback<Set<String>> callback);
-
-	void getCurrentLanguage(AsyncCallback<String> callback);
+	void login(String email, String password, AsyncCallback<User> callback);
 }

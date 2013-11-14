@@ -7,7 +7,7 @@
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
     <!-- annotation based dependency injection -->
-    <context:component-scan base-package="gwt.server.resources"/>
+    <context:component-scan base-package="gwt.server.restServices"/>
     <mvc:annotation-driven/>
 
     <!-- configure JSON converter -->

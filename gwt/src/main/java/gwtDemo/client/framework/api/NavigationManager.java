@@ -58,7 +58,7 @@ public class NavigationManager {
 	}
 	
 	private <P extends Page> void assertCurrentUserCanViewPage(PageController<P> controller, ClientSession clientSession) {
-		Role userRole = clientSession.getCurrentUser().getRole();
+		Role userRole = clientSession.getUser().getRole();
 		if(!controller.isPageAllowedFor(userRole)) {
 			throw new SecurityException("current user with role " + userRole + " cannot view page " + controller.page);
 		}

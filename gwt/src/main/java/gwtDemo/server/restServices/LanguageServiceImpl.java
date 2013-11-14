@@ -1,11 +1,11 @@
-package gwtDemo.server.resources;
+package gwtDemo.server.restServices;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import gwtDemo.server.dao.LanguageDao;
+import gwtDemo.server.dao.Dao;
 import gwtDemo.shared.domain.LocalMessage;
 
 import javax.inject.Inject;
@@ -17,9 +17,9 @@ import javax.inject.Inject;
  */
 @Controller
 @RequestMapping(value = "/messages")
-public class LanguageServiceResource {
-    final Logger logger = LoggerFactory.getLogger(LanguageServiceResource.class);
-    private LanguageDao languageDao;
+public class LanguageServiceImpl {
+    final Logger logger = LoggerFactory.getLogger(LanguageServiceImpl.class);
+    private Dao dao;
 
     /**
      * Get a single localized message using: GET /messages/{id}
@@ -33,7 +33,7 @@ public class LanguageServiceResource {
     @ResponseBody
     LocalMessage getLocalMessage(@PathVariable("id") String messageId, @RequestHeader("Accept-Language") String locale) {
         logger.info("getting message with id: {} for locale: {}", messageId, locale);
-        return languageDao.getMessage(locale, messageId);
+        return dao.getMessage(locale, messageId);
     }
     
     public String getDefaultLanguage() {
@@ -41,7 +41,7 @@ public class LanguageServiceResource {
     }
 
     @Inject
-    public void setContentDao(LanguageDao languageDao) {
-        this.languageDao = languageDao;
+    public void setDao(Dao dao) {
+        this.dao = dao;
     }
 }
