@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import gwtDemo.server.dao.LanguageDao;
-import gwtDemo.shared.LocalMessage;
+import gwtDemo.shared.domain.LocalMessage;
 
 import javax.inject.Inject;
 

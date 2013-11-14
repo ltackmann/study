@@ -1,4 +1,4 @@
-package gwtDemo.shared;
+package gwtDemo.shared.domain;
 
 import java.util.HashMap;
 import java.util.List;

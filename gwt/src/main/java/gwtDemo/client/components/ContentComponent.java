@@ -1,7 +1,6 @@
-package gwtDemo.client.ui;
+package gwtDemo.client.ui.component;
 
 import gwtDemo.client.framework.AppInjector;
-import gwtDemo.client.ui.presenter.ContentPresenter;
 
 import com.google.gwt.core.shared.GWT;
 import com.google.gwt.user.client.ui.Composite;

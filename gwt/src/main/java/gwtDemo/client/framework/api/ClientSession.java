@@ -1,6 +1,6 @@
 package gwtDemo.client.framework.api;
 
-import gwtDemo.shared.User;
+import gwtDemo.shared.domain.User;
 
 public class ClientSession {
 	private final User currentUser;

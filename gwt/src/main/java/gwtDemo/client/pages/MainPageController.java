@@ -2,7 +2,7 @@ package gwtDemo.client.pages;
 
 import gwtDemo.client.framework.AppInjector;
 import gwtDemo.client.framework.api.PageController;
-import gwtDemo.shared.Role;
+import gwtDemo.shared.domain.Role;
 
 public class MainPageController extends PageController<MainPage> {
     public MainPageController(MainPage page, AppInjector injector) {

@@ -6,7 +6,7 @@ import gwtDemo.client.framework.api.ClientSession;
 import gwtDemo.client.framework.api.ClientSessionProvider;
 import gwtDemo.client.framework.api.NavigationManager;
 import gwtDemo.client.framework.api.NavigationManagerProvider;
-import gwtDemo.shared.User;
+import gwtDemo.shared.domain.User;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.shared.GWT;

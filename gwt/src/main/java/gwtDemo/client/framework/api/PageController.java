@@ -1,7 +1,7 @@
 package gwtDemo.client.framework.api;
 
 import gwtDemo.client.framework.AppInjector;
-import gwtDemo.shared.Role;
+import gwtDemo.shared.domain.Role;
 
 import com.google.gwt.user.client.ui.HasWidgets;
 

@@ -6,17 +6,12 @@ import com.google.gwt.uibinder.client.UiTemplate;
 import com.google.gwt.user.client.ui.*;
 
 public class MainPageImpl extends Composite implements MainPage {
-    @UiTemplate("mainView.ui.xml")
-    interface MainViewUiBinder extends UiBinder<HTMLPanel, MainPageImpl> { }
-    private static MainViewUiBinder uiBinder = GWT.create(MainViewUiBinder.class);
-    
-    //@Inject
-    //@UiField(provided = true) 
     //HeaderComponent headerComponent;
     
     // TODO use gwt query to access content-container and add components by hand
     
     public MainPageImpl() {
+    	HTMLPanel htmlPanel = new HTMLPanel(null);
     	initWidget(uiBinder.createAndBindUi(this));
     }
     

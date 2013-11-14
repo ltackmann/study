@@ -7,8 +7,8 @@ import com.google.gwt.http.client.Response;
 import com.google.gwt.json.client.*;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
-import gwtDemo.shared.LocalMessage;
-import gwtDemo.shared.LocalMessageGroup;
+import gwtDemo.shared.domain.LocalMessage;
+import gwtDemo.shared.domain.LocalMessageGroup;
 
 import java.util.HashMap;
 import java.util.Map;

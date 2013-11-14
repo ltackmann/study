@@ -1,6 +1,6 @@
 package gwtDemo.server.dao;
 
-import gwtDemo.shared.LocalMessage;
+import gwtDemo.shared.domain.LocalMessage;
 
 import java.util.HashSet;
 import java.util.Set;

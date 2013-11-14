@@ -1,7 +1,6 @@
 package gwtDemo.client.ui.component;
 
 import gwtDemo.client.framework.AppInjector;
-import gwtDemo.client.ui.presenter.HeaderPresenter;
 
 import com.google.gwt.core.shared.GWT;
 import com.google.gwt.event.dom.client.ChangeEvent;
@@ -17,15 +16,16 @@ import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.PasswordTextBox;
 import com.google.gwt.user.client.ui.TextBox;
+import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.event.dom.client.ChangeHandler;
 
 public class HeaderComponentImpl extends Composite implements HeaderComponent {
 	private final HeaderPresenter presenter;
     
-    private LoginComponent loginComponent;
-    
     public HeaderComponentImpl(String id) {
     	presenter = new HeaderPresenter(this, (AppInjector) GWT.create(AppInjector.class));
+    	VerticalPanel rootPanel = new VerticalPanel();
+    	initWidget(rootPanel);
     	getElement().setId(id);
         init();
     }
@@ -42,6 +42,8 @@ public class HeaderComponentImpl extends Composite implements HeaderComponent {
 				}
 			}
     	});
+    	
+    	final LoginComponent loginComponent = new LoginComponent();
     }
     
     void login(ClickEvent event) {

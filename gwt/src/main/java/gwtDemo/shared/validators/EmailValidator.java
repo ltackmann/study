@@ -1,8 +1,5 @@
-package gwtDemo.client.ui.validator;
+package gwtDemo.shared.validators;
 
-/**
- * @author Lars Tackmann
- */
 public class EmailValidator implements Validator<String> {
     @Override
     public boolean validate(String email) {

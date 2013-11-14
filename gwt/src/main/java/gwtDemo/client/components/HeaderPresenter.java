@@ -1,10 +1,9 @@
-package gwtDemo.client.ui.presenter;
+package gwtDemo.client.ui.component;
 
 import gwtDemo.client.event.LanguageChanged;
 import gwtDemo.client.framework.AppInjector;
 import gwtDemo.client.framework.api.ClientSession;
 import gwtDemo.client.framework.api.ComponentPresenter;
-import gwtDemo.client.ui.component.HeaderComponent;
 
 import com.google.web.bindery.event.shared.EventBus;
 

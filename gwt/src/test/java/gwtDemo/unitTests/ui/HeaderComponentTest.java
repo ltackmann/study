@@ -7,7 +7,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import gwtDemo.client.service.UserServiceAsync;
-import gwtDemo.client.ui.presenter.HeaderPresenter;
+import gwtDemo.client.ui.component.HeaderPresenter;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -18,7 +18,7 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 /**
  * Test presenter used by log on box
  *
- * @see org.randompage.bookmarking.frontend.client.ui.presenter.HeaderPresenter
+ * @see gwtDemo.client.ui.component.randompage.bookmarking.frontend.client.ui.presenter.HeaderPresenter
  * @see org.randompage.bookmarking.frontend.client.ui.HeaderComponent
  *
  * @author Lars Tackmann

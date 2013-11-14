@@ -1,4 +1,4 @@
-package gwtDemo.shared;
+package gwtDemo.shared.domain;
 
 public class LocalMessage {
 	private String messageKey;

@@ -1,7 +1,7 @@
 package gwtDemo.client.service;
 
-import gwtDemo.shared.LocalMessage;
-import gwtDemo.shared.LocalMessageGroup;
+import gwtDemo.shared.domain.LocalMessage;
+import gwtDemo.shared.domain.LocalMessageGroup;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
 

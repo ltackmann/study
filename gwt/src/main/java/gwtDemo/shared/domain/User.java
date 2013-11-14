@@ -1,4 +1,4 @@
-package gwtDemo.shared;
+package gwtDemo.shared.domain;
 
 public class User {
 	private String username;

@@ -10,7 +10,7 @@ import static org.mockito.Mockito.when;
 import java.util.Map;
 
 import gwtDemo.client.service.LanguageServiceClient;
-import gwtDemo.shared.LocalMessageGroup;
+import gwtDemo.shared.domain.LocalMessageGroup;
 
 import org.junit.Test;
 
