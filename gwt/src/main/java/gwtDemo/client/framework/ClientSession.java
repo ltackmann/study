@@ -1,4 +1,4 @@
-package gwtDemo.client.framework.api;
+package gwtDemo.client.framework;
 
 import com.google.web.bindery.event.shared.EventBus;
 

@@ -1,10 +1,11 @@
 package gwtDemo.client.components;
 
-import gwtDemo.client.framework.api.Component;
+import gwtDemo.client.framework.AppInjector;
+import gwtDemo.client.framework.Component;
 
 public class ContentComponent extends Component {
-    public ContentComponent(String id) {
-    	super(id);
+    public ContentComponent(AppInjector injector) {
+    	super(injector);
     	initComponent();
     }
 

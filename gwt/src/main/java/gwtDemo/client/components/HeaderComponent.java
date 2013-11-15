@@ -1,6 +1,7 @@
 package gwtDemo.client.components;
 
-import gwtDemo.client.framework.api.Component;
+import gwtDemo.client.framework.AppInjector;
+import gwtDemo.client.framework.Component;
 
 import com.google.gwt.event.dom.client.ChangeEvent;
 import com.google.gwt.event.dom.client.ChangeHandler;
@@ -11,12 +12,12 @@ public class HeaderComponent extends Component {
 	private final HeaderPresenter presenter;
 	private TextBox alertBox;
 
-	public HeaderComponent() {
-		this("header");
+	public HeaderComponent(AppInjector injector) {
+		this("header", injector);
 	}
 	
-	public HeaderComponent(String id) {
-		super(id);
+	public HeaderComponent(String id, AppInjector injector) {
+		super(id, injector);
 		presenter = new HeaderPresenter(this, injector);
 		initComponent();
 	}
@@ -36,7 +37,7 @@ public class HeaderComponent extends Component {
 		});
 		add(languageSelector);
 
-		final LoginComponent loginComponent = new LoginComponent(new LoginComponent.LoginHandler() {
+		final LoginComponent loginComponent = new LoginComponent(injector, new LoginComponent.LoginHandler() {
 			@Override
 			public void onLogin(String email, String password) {
 				presenter.handleLogin(email, password);

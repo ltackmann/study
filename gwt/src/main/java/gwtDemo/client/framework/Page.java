@@ -1,10 +1,13 @@
-package gwtDemo.client.framework.api;
+package gwtDemo.client.framework;
 
 import com.google.gwt.user.client.ui.FlowPanel;
 
 /** Pages are GUI constructs that have a URL and possible security restrictions */
 public abstract class Page extends FlowPanel {
-	public Page(String id) {
+	protected final AppInjector injector;
+	
+	public Page(String id, AppInjector injector) {
+		this.injector = injector;
 		getElement().setId(id);
 	}
 	

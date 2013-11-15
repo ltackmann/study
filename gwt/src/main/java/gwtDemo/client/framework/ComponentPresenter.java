@@ -1,6 +1,5 @@
-package gwtDemo.client.framework.api;
+package gwtDemo.client.framework;
 
-import gwtDemo.client.framework.AppInjector;
 
 /**
  * ComponentPresenters are responsible for handling business logic exposed the components

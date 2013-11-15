@@ -1,10 +1,11 @@
 package gwtDemo.client.components;
 
-import gwtDemo.client.framework.api.Component;
+import gwtDemo.client.framework.AppInjector;
+import gwtDemo.client.framework.Component;
 
 public class MenuComponent extends Component {
-	public MenuComponent(String id) {
-		super(id);
+	public MenuComponent(AppInjector injector) {
+		super(injector);
     }
 
 	@Override

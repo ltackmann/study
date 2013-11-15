@@ -1,8 +1,5 @@
-package gwtDemo.client.framework.api;
+package gwtDemo.client.framework;
 
-import gwtDemo.client.framework.AppInjector;
-
-import com.google.gwt.core.shared.GWT;
 import com.google.gwt.user.client.ui.FlowPanel;
 
 /**
@@ -13,13 +10,13 @@ import com.google.gwt.user.client.ui.FlowPanel;
 public abstract class Component extends FlowPanel {
 	protected AppInjector injector;
 	
-	public Component(String id) {
-		this();
+	public Component(String id, AppInjector injector) {
+		this(injector);
 		getElement().setId(id);
 	}
 	
-	public Component() {
-		this.injector = (AppInjector) GWT.create(AppInjector.class);
+	public Component(AppInjector injector) {
+		this.injector = injector;
 	}
 	
 	protected abstract void initComponent();

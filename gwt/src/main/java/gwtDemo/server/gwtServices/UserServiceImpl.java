@@ -21,7 +21,7 @@ public class UserServiceImpl extends BaseServlet implements UserService {
 	private static final long serialVersionUID = 1040457405556464059L;
     
 	@Override
-	public User login(String email, String password) {
+	public User authenticate(String email, String password) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -9,5 +9,5 @@ import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 
 @RemoteServiceRelativePath("users.rpc")
 public interface UserService extends RemoteService {
-	User login(String email, String password);
+	User authenticate(String email, String password);
 }

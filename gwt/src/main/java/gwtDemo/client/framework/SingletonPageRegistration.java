@@ -1,4 +1,5 @@
-package gwtDemo.client.framework.api;
+package gwtDemo.client.framework;
+
 
 public abstract class SingletonPageRegistration<PC extends PageController<P>, P extends Page> implements PageRegistration<PC, P> {
 	protected final Class<P> pageType; 

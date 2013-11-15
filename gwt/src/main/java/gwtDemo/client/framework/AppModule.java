@@ -1,9 +1,5 @@
 package gwtDemo.client.framework;
 
-import gwtDemo.client.framework.api.ClientSession;
-import gwtDemo.client.framework.api.ClientSessionProvider;
-import gwtDemo.client.framework.api.NavigationManager;
-import gwtDemo.client.framework.api.NavigationManagerProvider;
 import gwtDemo.client.resource.i18n.ClientMessages;
 import gwtDemo.client.service.UserServiceAsync;
 

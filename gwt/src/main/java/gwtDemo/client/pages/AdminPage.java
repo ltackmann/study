@@ -1,11 +1,12 @@
 package gwtDemo.client.pages;
 
-import gwtDemo.client.framework.api.Page;
+import gwtDemo.client.framework.AppInjector;
+import gwtDemo.client.framework.Page;
 
 // TODO only admin can view admin-page
 public class AdminPage extends Page {
-	public AdminPage() {
-		super("admin");
+	public AdminPage(AppInjector injector) {
+		super("admin", injector);
 	}
 	
 	@Override

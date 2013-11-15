@@ -1,9 +1,8 @@
 package gwtDemo.client.components;
 
-import gwtDemo.client.event.LanguageChanged;
 import gwtDemo.client.framework.AppInjector;
-import gwtDemo.client.framework.api.ClientSession;
-import gwtDemo.client.framework.api.ComponentPresenter;
+import gwtDemo.client.framework.ClientSession;
+import gwtDemo.client.framework.ComponentPresenter;
 import gwtDemo.shared.domain.User;
 import gwtDemo.shared.validators.EmailValidator;
 import gwtDemo.shared.validators.PasswordValidator;
@@ -26,23 +25,32 @@ public class HeaderPresenter extends ComponentPresenter<HeaderComponent> {
     }
     
     public void handleLogin(String email, String password) {
+    	boolean errors = false;
     	if(!emailValidator.validate(email)) {
-    		component.showError("email is not valid");
+    		component.showError("invalid email");
+    		errors = true;
     	}
     	if(!passwordValidator.validate(password)) {
-    		component.showError("password is not valid");
+    		component.showError("invalid password");
+    		errors = true;
     	}
-    	injector.getUserService().login(email, password, new AsyncCallback<User>() {
-			@Override
-			public void onFailure(Throwable caught) {
-				component.showError("login failed");
-			}
-
-			@Override
-			public void onSuccess(User user) {
-				ClientSession session = injector.getClientSession();
-				session.setUser(user);
-			}
-    	});
+    	if(!errors) { 
+	    	injector.getUserService().authenticate(email, password, new AsyncCallback<User>() {
+				@Override
+				public void onFailure(Throwable caught) {
+					component.showError("backend failed");
+				}
+	
+				@Override
+				public void onSuccess(User user) {
+					if(user != null) {
+						ClientSession session = injector.getClientSession();
+						session.setUser(user);
+					} else {
+						component.showError("invalid credentials");
+					}
+				}
+	    	});
+    	}
     }
 }

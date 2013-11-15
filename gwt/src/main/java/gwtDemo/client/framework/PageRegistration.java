@@ -1,6 +1,5 @@
-package gwtDemo.client.framework.api;
+package gwtDemo.client.framework;
 
-import gwtDemo.client.framework.AppInjector;
 
 /**
  * Registers a page for navigation
