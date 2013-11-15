@@ -1,9 +1,16 @@
 package gwtDemo.shared.domain;
 
-public class User {
+import java.io.Serializable;
+
+@SuppressWarnings("serial")
+public class User implements Serializable {
 	private String username;
 	private String password;
 	private Role role;
+	
+	public User() {
+		// make GWT happy
+	}
 	
 	public User(Role role) {
 		setRole(role);

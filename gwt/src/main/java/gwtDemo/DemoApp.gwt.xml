@@ -18,7 +18,7 @@
     <entry-point class="gwtDemo.client.AppEntryPoint"/>
 
     <!-- paths for code compiled into JavaScript -->
-    <source path="client"/>
+    <source path="client" excludes="**/*Test.java" />
     <source path="shared"/>
 
     <!-- default local configuration -->

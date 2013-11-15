@@ -1,7 +1,7 @@
 package gwtDemo.client.framework;
 
 import gwtDemo.client.resource.i18n.ClientMessages;
-import gwtDemo.client.service.LanguageServiceAsync;
+import gwtDemo.client.service.LanguageService;
 import gwtDemo.client.service.UserServiceAsync;
 
 import com.google.gwt.inject.client.GinModules;
@@ -20,5 +20,5 @@ public interface AppInjector extends Ginjector {
 	
 	UserServiceAsync getUserService();
 
-	LanguageServiceAsync getLanguageService(); 
+	LanguageService getLanguageService(); 
 }
