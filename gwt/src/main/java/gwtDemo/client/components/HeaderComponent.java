@@ -12,12 +12,12 @@ public class HeaderComponent extends Component {
 	private final HeaderPresenter presenter;
 	private TextBox alertBox;
 
-	public HeaderComponent(AppInjector injector) {
-		this("header", injector);
+	public HeaderComponent() {
+		this("header");
 	}
 	
-	public HeaderComponent(String id, AppInjector injector) {
-		super(id, injector);
+	public HeaderComponent(String id) {
+		super(id);
 		presenter = new HeaderPresenter(this, injector);
 		initComponent();
 	}
@@ -37,7 +37,7 @@ public class HeaderComponent extends Component {
 		});
 		add(languageSelector);
 
-		final LoginComponent loginComponent = new LoginComponent(injector, new LoginComponent.LoginHandler() {
+		final LoginComponent loginComponent = new LoginComponent(new LoginComponent.LoginHandler() {
 			@Override
 			public void onLogin(String email, String password) {
 				presenter.handleLogin(email, password);
@@ -45,8 +45,8 @@ public class HeaderComponent extends Component {
 		});
 		add(loginComponent);
 		
-		alertBox = new TextBox();
-		add(alertBox);
+		//alertBox = new TextBox();
+		//add(alertBox);
 	}
 
 	public void showError(String message) {

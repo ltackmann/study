@@ -39,13 +39,13 @@ public class AppController implements ValueChangeHandler<String> {
     private void registerPages() {
     	navigationManager.registerHandler("main", new SingletonPageRegistration<MainPageController, MainPage>(MainPage.class) {
 			@Override
-			public MainPageController getPageController(MainPage page, AppInjector injector) {
+			public MainPageController createPageController(MainPage page, AppInjector injector) {
 				return new MainPageController(page, injector);
 			}
 
 			@Override
-			public MainPage getPage(AppInjector injector) {
-				return new MainPage(injector);
+			public MainPage createPage(AppInjector injector) {
+				return new MainPage();
 			}
     	});
     }

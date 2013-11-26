@@ -5,7 +5,6 @@ import gwtDemo.shared.domain.Role;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.web.bindery.event.shared.EventBus;
 
 /**
@@ -15,12 +14,12 @@ public class NavigationManager {
 	private final Map<String, Class<? extends Page>> urlMapping = new HashMap<String, Class<? extends Page>>();
 	private final Map<Class<? extends Page>, PageRegistration<?,?>> pageRegistration = new HashMap<Class<? extends Page>, PageRegistration<?,?>>();
 	private final Map<Class<? extends Page>, Page> pageCache = new HashMap<Class<? extends Page>, Page>();
-	private final HasWidgets container;
+	private final Frame frame;
 	private final AppInjector injector;
 	private final EventBus eventBus;
 	
-	public NavigationManager(HasWidgets container, AppInjector injector) {
-		this.container = container;
+	public NavigationManager(Frame frame, AppInjector injector) {
+		this.frame = frame;
 		this.injector = injector;
 		this.eventBus = injector.getEventBus();
 	}
@@ -33,11 +32,11 @@ public class NavigationManager {
 	
 	public <P extends Page> void showPage(Class<P> pageType) {
 		P page = getPage(pageType);
-		PageController<P> controller = getRegistration(pageType).getPageController(page, injector);
+		PageController<P> controller = getRegistration(pageType).createPageController(page, injector);
 		
 		assertCurrentUserCanViewPage(controller, injector.getClientSession());
 		
-		controller.renderOn(container);
+		frame.showPage(page);  
 		eventBus.fireEvent(new PageChanged(controller));
 	}
 	
@@ -68,12 +67,12 @@ public class NavigationManager {
 		PageRegistration<PC, P> registration = getRegistration(pageType);
 		if(registration.isSingleton()) {
 			if(!pageCache.containsKey(pageType)) {
-				P page = registration.getPage(injector);
+				P page = registration.createPage(injector);
 				pageCache.put(pageType, page);
 			}
 			return (P) pageCache.get(pageType);
 		} else {
-			return registration.getPage(injector);
+			return registration.createPage(injector);
 		}
 	}
 }

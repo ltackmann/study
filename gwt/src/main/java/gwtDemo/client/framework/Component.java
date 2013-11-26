@@ -1,23 +1,24 @@
 package gwtDemo.client.framework;
 
+import com.google.gwt.core.shared.GWT;
 import com.google.gwt.user.client.ui.FlowPanel;
 
 /**
  * Components are raw GUI constructs without URLs or security restriction. Pages
  * are build from one or more components. Components have Presenters which take
- * care of interacting with the backend. 
+ * care of interacting with the backend.
  */
 public abstract class Component extends FlowPanel {
-	protected AppInjector injector;
-	
-	public Component(String id, AppInjector injector) {
-		this(injector);
+	protected final AppInjector injector = GWT.create(AppInjector.class);
+
+	public Component(String id) {
+		this();
 		getElement().setId(id);
 	}
-	
-	public Component(AppInjector injector) {
-		this.injector = injector;
+
+	public Component() {
+		getElement().setClassName("component");
 	}
-	
+
 	protected abstract void initComponent();
 }

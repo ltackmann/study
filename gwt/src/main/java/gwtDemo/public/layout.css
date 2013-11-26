@@ -1,13 +1,8 @@
-body {
+#frame {
   display: flex;
   flex-flow: column;
   margin: 0 auto; 
   width: 960px;
-}
-
-#wrapper {
-  display: flex;
-  flex-flow: row;
 }
 
 #menu {
@@ -16,9 +11,18 @@ body {
   order: 1;  
 }
 
-#container {
+#wrapper {
+  display: flex;
+  flex-flow: row;
+}
+
+#header {
   display: flex;
   flex: 4;
   flex-flow: column;
   order: 2;  
+}
+
+#page {
+	
 }

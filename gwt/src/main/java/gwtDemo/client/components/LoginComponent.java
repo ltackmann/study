@@ -7,15 +7,13 @@ import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.PasswordTextBox;
 import com.google.gwt.user.client.ui.TextBox;
 
-import gwtDemo.client.framework.AppInjector;
 import gwtDemo.client.framework.Component;
 import gwtDemo.client.resource.i18n.ClientMessages;
 
 public class LoginComponent extends Component {
 	private final LoginHandler loginHandler;
 	
-	public LoginComponent(AppInjector injector, LoginHandler loginHandler) {
-		super(injector);
+	public LoginComponent(LoginHandler loginHandler) {
 		this.loginHandler = loginHandler;
 	}
 	
