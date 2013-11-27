@@ -7,7 +7,6 @@ import java.util.Map;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
-import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.user.client.History;
 import com.google.web.bindery.event.shared.EventBus;
 
@@ -40,7 +39,8 @@ public class NavigationManagerImpl implements NavigationManager {
 	@Override
 	public <P extends Page> void showPage(Class<P> pageType) {
 		if(pageMapping.containsKey(pageType)) {
-			History.newItem(pageMapping.get(pageType));
+			String pageUrl = pageMapping.get(pageType);
+			History.newItem(pageUrl);
 		}
 	}
 	
