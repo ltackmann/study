@@ -1,8 +1,7 @@
-package org.randompage.samples.struts2.demo.test.utils;
+package servlets;
 
-import org.mortbay.jetty.Server;
-
-import org.mortbay.jetty.webapp.WebAppContext;
+import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.webapp.WebAppContext;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
@@ -30,7 +29,7 @@ public abstract class WebTester {
 		webAppContext.setConfigurationClasses(new String[] {
 				"org.mortbay.jetty.webapp.WebInfConfiguration",
 				"org.mortbay.jetty.webapp.WebXmlConfiguration", });
-		server.addHandler(webAppContext);
+		server.setHandler(webAppContext);
 		server.start();
 	}
 

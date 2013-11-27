@@ -1,10 +1,9 @@
-package org.randompage.samples.struts2.demo.test;
+package servlets;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.notNullValue;
 
-import org.randompage.samples.struts2.demo.test.utils.WebTester;
 import org.testng.annotations.Test;
 
 import com.gargoylesoftware.htmlunit.WebClient;
@@ -16,24 +15,12 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
  * @author Lars Tackmann
  */
 public class WebTest extends WebTester {
-	@Test(description = "should assert navigation rules")
-	public void navigationTest() {
-		throw new AssertionError();
-	}
-
-	@Test(description = "should assert that we do not have raw JSP access")
-	public void jspTest() {
-		throw new AssertionError();
-	}
-
-	@Test(description = "should access input action")
+	@Test
 	public void test() throws Exception {
 		WebClient wc = new WebClient();
-		// TODO use relative URL
-		HtmlPage page = (HtmlPage) wc
-				.getPage("http://localhost:8080/guestbook/GuestBook_list.action");
+		HtmlPage page = (HtmlPage) wc.getPage("http://localhost:9009/index.html");
 		assertThat(page, notNullValue());
-		assertThat(page.asXml(), containsString("stuff"));
+		assertThat(page.asXml(), containsString("HTML Test Page"));
 
 		// HtmlForm form = page.getFormByName("f");
 		// HtmlTextInput searchValue = (HtmlTextInput) form.getInputByName("q");

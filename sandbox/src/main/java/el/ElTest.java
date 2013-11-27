@@ -20,8 +20,9 @@ public class ElTest {
 	
 	@Test
 	public void testEl() {
-		Object message = elProcessor.eval("hello += ${user.name}");
-		// eval("Boolean.TRUE")
+		elProcessor.defineBean("user", new User("John Doe"));
+		String message = (String) elProcessor.eval("${user.name}");
+		assertEquals(message, "John Doe");
 	}
 	
 	@Test
@@ -50,13 +51,26 @@ public class ElTest {
 			}
 		});
 		User user =  (User) elProcessor.getValue("'John Doe'", User.class);
-		assertEquals(user.name, "John Doe");
+		assertEquals(user.getName(), "John Doe");
 	}
 }
 
 class User {
-	public String name;
+	private String name;
+	
+	public User() {
+		
+	}
+	
 	public User(String name) {
 		this.name= name;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
 	}
 }
