@@ -7,7 +7,7 @@ import gwtDemo.client.framework.AppInjector;
 import gwtDemo.client.framework.ClientSession;
 import gwtDemo.client.framework.ClientSessionProvider;
 import gwtDemo.client.framework.Frame;
-import gwtDemo.client.framework.NavigationManager;
+import gwtDemo.client.framework.NavigationManagerImpl;
 import gwtDemo.client.framework.NavigationManagerProvider;
 import gwtDemo.shared.domain.Role;
 import gwtDemo.shared.domain.User;
@@ -35,7 +35,7 @@ public class AppEntryPoint implements EntryPoint {
 		Frame frame = new AppFrame(RootPanel.get());
 
 		// initialize singleton providers
-		NavigationManagerProvider.INSTANCE = new NavigationManager(frame, injector);
+		NavigationManagerProvider.INSTANCE = new NavigationManagerImpl(frame, injector);
 		ClientSessionProvider.INSTANCE = new ClientSession(new User(Role.GUEST), injector.getEventBus());
 
 		// start application
