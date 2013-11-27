@@ -10,10 +10,11 @@ import gwtDemo.client.framework.Component;
 public class ButtonComponent extends Component {
 	private final ButtonEventHandler eventHandler;
 	
-    public ButtonComponent(ButtonEventHandler eventHandler) {
+    public ButtonComponent(String text, ButtonEventHandler eventHandler) {
     	super("button");
     	this.eventHandler = eventHandler;
     	initComponent();
+    	setText(text);
     }
     
     @Override
@@ -26,6 +27,10 @@ public class ButtonComponent extends Component {
 				eventHandler.onClick(event, injector);
 			}
     	}, ClickEvent.getType());
+    }
+    
+    public void setText(String text) {
+    	super.getElement().setInnerText(text);
     }
     
 	interface ButtonEventHandler {

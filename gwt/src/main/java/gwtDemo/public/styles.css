@@ -12,4 +12,25 @@ body {
   font-size: 14px;
   font-weight: 300;
   line-height: 1.2em;
+  min-height: 100%;
+}
+
+#ui-header {
+  background-color: blue;
+}
+
+#ui-menu {
+  background-color: orange;  
+}
+
+.ui-page {
+	background-color: red;	
+}
+
+.ui-component {
+	
+}
+
+.ui-button {
+	
 }

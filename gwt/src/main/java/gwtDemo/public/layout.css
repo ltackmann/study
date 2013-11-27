@@ -1,8 +1,9 @@
-#frame {
+#ui-frame {
   display: flex;
   flex-flow: column;
   margin: 0 auto; 
   width: 960px;
+  height: 100%;
 }
 
 #ui-header {
@@ -10,8 +11,6 @@
   flex: 1;
   flex-flow: row;
   order: 1;  
-  
-  background-color: blue;
 }
 
 #ui-container {
@@ -19,14 +18,13 @@
   flex: 4;
   flex-flow: row;
   order: 2;  
+  height: 100%;
 }
 
 #ui-menu {
   display: inline-flex;
   flex: 1;
   order: 1;
-  
-  background-color: orange;  
 }
 
 #ui-page-wrapper {
@@ -37,8 +35,8 @@
 }
 
 .ui-page {
-	width: 100%;
-	background-color: red;	
+	display: flex;
+	flex: 1;
 }
 
 .ui-component {

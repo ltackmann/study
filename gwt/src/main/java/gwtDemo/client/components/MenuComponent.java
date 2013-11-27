@@ -14,8 +14,9 @@ public class MenuComponent extends Component {
 		setId("ui-menu");
 		
 		VerticalListComponent list = new VerticalListComponent();
-		list.add(new LinkButtonComponent(AdminPage.class));
-		list.add(new LinkButtonComponent(MainPage.class));
+		// TODO only add admin after login
+		list.add(new LinkButtonComponent("Admin", AdminPage.class));
+		list.add(new LinkButtonComponent("Main", MainPage.class));
 		
 		add(list);
 	}

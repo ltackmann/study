@@ -10,7 +10,7 @@ public abstract class Frame {
 	
 	public Frame(HasWidgets container) {
 		framePanel = new FlowPanel();
-		framePanel.getElement().setId("frame");
+		framePanel.getElement().setId("ui-frame");
 		container.add(framePanel);
 	}
 	
