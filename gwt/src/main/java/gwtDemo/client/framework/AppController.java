@@ -2,16 +2,15 @@ package gwtDemo.client.framework;
 
 import gwtDemo.client.event.LanguageChanged;
 import gwtDemo.client.event.LanguageChangedHandler;
+import gwtDemo.client.pages.AdminPage;
+import gwtDemo.client.pages.AdminPageController;
 import gwtDemo.client.pages.MainPage;
 import gwtDemo.client.pages.MainPageController;
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.event.logical.shared.ValueChangeEvent;
-import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.user.client.History;
 import com.google.web.bindery.event.shared.EventBus;
 
-public class AppController implements ValueChangeHandler<String> {
+public class AppController {
     private final EventBus eventBus;
     private final NavigationManager navigationManager;
 
@@ -23,7 +22,7 @@ public class AppController implements ValueChangeHandler<String> {
     }
 
     private void registerEventHandlers() {
-        History.addValueChangeHandler(this);
+        History.addValueChangeHandler(navigationManager);
 
         // configure operations to be carried out when events are fired
         eventBus.addHandler(LanguageChanged.TYPE,
@@ -48,6 +47,19 @@ public class AppController implements ValueChangeHandler<String> {
 				return new MainPage();
 			}
     	});
+    	
+    	navigationManager.registerHandler("admin", new SingletonPageRegistration<AdminPageController, AdminPage>(AdminPage.class) {
+			@Override
+			public AdminPageController createPageController(AdminPage page, AppInjector injector) {
+				return new AdminPageController(page, injector);
+			}
+
+			@Override
+			public AdminPage createPage(AppInjector injector) {
+				return new AdminPage();
+			}
+    	});
+    	
     }
 
     /** Start application */
@@ -56,21 +68,6 @@ public class AppController implements ValueChangeHandler<String> {
             History.newItem("main");
         } else {
             History.fireCurrentHistoryState();
-        }
-    }
-
-    /**
-     * dispatch between history events (history anchor tokens) and views
-     * 
-     * @param event
-     */
-    @Override
-    public void onValueChange(ValueChangeEvent<String> event) {
-        String token = event.getValue();
-
-        if (token != null) {
-            GWT.log("trying to lookup page for URL: " + token);
-            navigationManager.showPageForUrl(token);
         }
     }
 }

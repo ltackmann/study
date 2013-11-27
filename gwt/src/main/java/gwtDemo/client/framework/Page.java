@@ -9,7 +9,7 @@ public abstract class Page extends FlowPanel {
 	
 	public Page(String id) {
 		getElement().setId(id);
-		getElement().setClassName("page");
+		getElement().setClassName("ui-page");
 	}
 	
 	public abstract void initPage();

@@ -5,24 +5,46 @@
   width: 960px;
 }
 
-#menu {
+#ui-header {
   display: flex;
   flex: 1;
-  order: 1;  
-}
-
-#wrapper {
-  display: flex;
   flex-flow: row;
+  order: 1;  
+  
+  background-color: blue;
 }
 
-#header {
+#ui-container {
   display: flex;
   flex: 4;
-  flex-flow: column;
+  flex-flow: row;
   order: 2;  
 }
 
-#page {
+#ui-menu {
+  display: inline-flex;
+  flex: 1;
+  order: 1;
+  
+  background-color: orange;  
+}
+
+#ui-page-wrapper {
+  display: inline-flex;
+  flex-flow: row;
+  flex: 4;
+  order: 2;
+}
+
+.ui-page {
+	width: 100%;
+	background-color: red;	
+}
+
+.ui-component {
+	
+}
+
+.ui-button {
 	
 }

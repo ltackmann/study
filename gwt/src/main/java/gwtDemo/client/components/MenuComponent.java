@@ -1,18 +1,22 @@
 package gwtDemo.client.components;
 
-import com.google.gwt.user.client.ui.Label;
-
 import gwtDemo.client.framework.Component;
+import gwtDemo.client.pages.AdminPage;
+import gwtDemo.client.pages.MainPage;
 
 public class MenuComponent extends Component {
 	public MenuComponent() {
-		super("menu");
 		initComponent();
     }
 
 	@Override
 	public void initComponent() {
-		add(new Label("menu"));
-		// TODO Auto-generated method stub
+		setId("ui-menu");
+		
+		VerticalListComponent list = new VerticalListComponent();
+		list.add(new LinkButtonComponent(AdminPage.class));
+		list.add(new LinkButtonComponent(MainPage.class));
+		
+		add(list);
 	}
 }

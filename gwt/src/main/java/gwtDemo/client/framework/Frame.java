@@ -2,16 +2,20 @@ package gwtDemo.client.framework;
 
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.HasWidgets;
+import com.google.gwt.user.client.ui.Panel;
+import com.google.gwt.user.client.ui.Widget;
 
 public abstract class Frame {
-	protected HasWidgets frameWrapper;
+	private final Panel framePanel;
 	
 	public Frame(HasWidgets container) {
-		FlowPanel frameWrapperWidget = new FlowPanel();
-		frameWrapperWidget.getElement().setId("frame");
-		container.add(frameWrapperWidget);
-		
-		frameWrapper = frameWrapperWidget;
+		framePanel = new FlowPanel();
+		framePanel.getElement().setId("frame");
+		container.add(framePanel);
+	}
+	
+	protected void add(Widget widget) {
+		framePanel.add(widget);
 	}
 	
 	protected abstract void initFrame();

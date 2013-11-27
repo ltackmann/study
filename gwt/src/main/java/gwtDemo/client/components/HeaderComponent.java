@@ -1,6 +1,5 @@
 package gwtDemo.client.components;
 
-import gwtDemo.client.framework.AppInjector;
 import gwtDemo.client.framework.Component;
 
 import com.google.gwt.event.dom.client.ChangeEvent;
@@ -13,17 +12,14 @@ public class HeaderComponent extends Component {
 	private TextBox alertBox;
 
 	public HeaderComponent() {
-		this("header");
-	}
-	
-	public HeaderComponent(String id) {
-		super(id);
 		presenter = new HeaderPresenter(this, injector);
 		initComponent();
 	}
-
+	
 	@Override
 	public void initComponent() {
+		setId("ui-header");
+		
 		final ListBox languageSelector = new ListBox();
 		languageSelector.addChangeHandler(new ChangeHandler() {
 			@Override

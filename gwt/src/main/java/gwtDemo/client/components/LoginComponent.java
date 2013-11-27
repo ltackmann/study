@@ -15,10 +15,12 @@ public class LoginComponent extends Component {
 	
 	public LoginComponent(LoginHandler loginHandler) {
 		this.loginHandler = loginHandler;
+		initComponent();
 	}
 	
 	@Override
 	public void initComponent() {
+		setId("ui-login");
 		ClientMessages messages = injector.getClientMessages();
 		
 		add(new Label(messages.loginTitle()));
