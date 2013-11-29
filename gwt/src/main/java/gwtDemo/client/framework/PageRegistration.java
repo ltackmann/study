@@ -1,6 +1,5 @@
 package gwtDemo.client.framework;
 
-
 /**
  * Registers a page for navigation
  */

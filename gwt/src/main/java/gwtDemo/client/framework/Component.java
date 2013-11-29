@@ -10,13 +10,6 @@ import com.google.gwt.user.client.ui.HTMLPanel;
  */
 public abstract class Component extends HTMLPanel {
 	protected final AppInjector injector = GWT.create(AppInjector.class);
-	
-	/**
-	 * Create a component encapsulated in a DIV
-	 */
-	public Component() {
-		this("div");
-	}
 
 	/**
 	 * Create component with the given tag 
@@ -25,16 +18,14 @@ public abstract class Component extends HTMLPanel {
 	 */
 	public Component(String tag) {
 		super(tag, "");
-		setClassName("ui-component");
+		addClassName("ui-component");
 	}
 	
-	public void setClassName(String name) {
-		getElement().setClassName(name);
+	public void addClassName(String name) {
+		getElement().addClassName(name);
 	}
 	
 	public void setId(String id) {
 		getElement().setId(id);
 	}
-	
-	protected abstract void initComponent();
 }

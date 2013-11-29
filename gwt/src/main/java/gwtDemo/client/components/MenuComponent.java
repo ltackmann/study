@@ -6,11 +6,11 @@ import gwtDemo.client.pages.MainPage;
 
 public class MenuComponent extends Component {
 	public MenuComponent() {
+		super("div");
 		initComponent();
     }
 
-	@Override
-	public void initComponent() {
+	private void initComponent() {
 		setId("ui-menu");
 		
 		VerticalListComponent list = new VerticalListComponent();

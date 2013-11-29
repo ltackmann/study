@@ -19,18 +19,46 @@ body {
   background-color: blue;
 }
 
+#ui-login {
+	background-color: pink;
+	height: 20%;
+	left: 40%;
+	top: 20%;
+	width: 20%;
+	border-radius: 10px;
+	padding: 10px;
+}
+
 #ui-menu {
   background-color: orange;  
 }
 
-.ui-page {
-	background-color: red;	
+
+.ui-button {
+	
 }
 
 .ui-component {
 	
 }
 
-.ui-button {
+.ui-horizontal-list .ui-list-item {
+	display: inline;
+}
+
+.ui-list-item {
+	list-style-type: none;
+}
+
+.ui-vertical-list  {
 	
+}
+
+.ui-page {
+	background-color: red;	
+}
+
+.ui-popup {
+	display: inline-block;
+	position: absolute;
 }

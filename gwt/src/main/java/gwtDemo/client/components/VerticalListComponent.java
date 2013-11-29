@@ -1,25 +1,12 @@
 package gwtDemo.client.components;
 
-import gwtDemo.client.framework.Component;
-
-import com.google.gwt.user.client.ui.HTMLPanel;
-import com.google.gwt.user.client.ui.Widget;
-
-public class VerticalListComponent extends Component {
+public class VerticalListComponent extends ListComponent {
 	public VerticalListComponent() {
-		super("ul");
+		super(ListType.UNOREDERED);
 		initComponent();
 	}
 
-	@Override
-	protected void initComponent() {
-		setClassName("ui-vertical-list");
-	}
-	
-	@Override
-	public void add(Widget widget) {
-		HTMLPanel listEntry = new HTMLPanel("li","");
-		listEntry.add(widget);
-		super.add(listEntry);
+	private void initComponent() {
+		addClassName("ui-vertical-list");
 	}
 }

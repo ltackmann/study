@@ -1,25 +1,12 @@
 package gwtDemo.client.components;
 
-import com.google.gwt.user.client.ui.HTMLPanel;
-import com.google.gwt.user.client.ui.Widget;
-
-import gwtDemo.client.framework.Component;
-
-public class HorizontalListComponent extends Component {
+public class HorizontalListComponent extends ListComponent {
 	public HorizontalListComponent() {
-		super("ul");
+		super(ListType.UNOREDERED);
 		initComponent();
 	}
 
-	@Override
-	protected void initComponent() {
-		setClassName("ui-horizontal-list");
-	}
-	
-	@Override
-	public void add(Widget widget) {
-		HTMLPanel listEntry = new HTMLPanel("li","");
-		listEntry.add(widget);
-		super.add(listEntry);
+	private void initComponent() {
+		addClassName("ui-horizontal-list");
 	}
 }

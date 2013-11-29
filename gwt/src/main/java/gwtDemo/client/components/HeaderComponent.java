@@ -5,6 +5,8 @@ import gwtDemo.client.framework.Component;
 import com.google.gwt.event.dom.client.ChangeEvent;
 import com.google.gwt.event.dom.client.ChangeHandler;
 import com.google.gwt.user.client.ui.ListBox;
+import com.google.gwt.user.client.ui.PopupPanel;
+import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TextBox;
 
 public class HeaderComponent extends Component {
@@ -12,12 +14,12 @@ public class HeaderComponent extends Component {
 	private TextBox alertBox;
 
 	public HeaderComponent() {
+		super("div");
 		presenter = new HeaderPresenter(this, injector);
 		initComponent();
 	}
 	
-	@Override
-	public void initComponent() {
+	private void initComponent() {
 		setId("ui-header");
 		
 		final ListBox languageSelector = new ListBox();
@@ -33,13 +35,29 @@ public class HeaderComponent extends Component {
 		});
 		add(languageSelector);
 
-		final LoginComponent loginComponent = new LoginComponent(new LoginComponent.LoginHandler() {
+		final ToggleLinkComponent loginLink = new ToggleLinkComponent("Login", new ToggleLinkComponent.ToggleLinkEventHandler() {
+			LoginComponent loginComponent;
+			
 			@Override
-			public void onLogin(String email, String password) {
-				presenter.handleLogin(email, password);
+			public void onToggle() {
+				loginComponent = new LoginComponent(new LoginComponent.LoginHandler() {
+					@Override
+					public void onLogin(String email, String password) {
+						presenter.handleLogin(email, password);
+					}
+				});
+				RootPanel.get().add(loginComponent);
+			}
+
+			@Override
+			public void onUnToggle() {
+				if(loginComponent != null) {
+					loginComponent.removeFromParent();
+					loginComponent = null;
+				}
 			}
 		});
-		add(loginComponent);
+		add(loginLink);
 		
 		//alertBox = new TextBox();
 		//add(alertBox);
