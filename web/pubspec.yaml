@@ -1,11 +1,11 @@
 name: polymer_sandbox
-description: HTML5 Demo in Polymer
+description: Polymer web demo
 dependencies:
   http_server: any
   polymer: any
   route: any
 dev_dependencies:
   unittest: any
-transformers:
-  polymer:
-    entry_points: web/index.html
+#transformers:
+#  polymer:
+#    entry_points: web/index.html
