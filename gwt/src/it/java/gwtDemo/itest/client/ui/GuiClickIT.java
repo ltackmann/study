@@ -1,4 +1,4 @@
-package gwtDemo.integrationTest.client.ui;
+package gwtDemo.itest.client.ui;
 
 public class GuiClickIT {
 
