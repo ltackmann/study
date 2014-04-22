@@ -1,4 +1,4 @@
-package gwtDemo.client.test;
+package gwtDemo.test.client;
 
 import gwtDemo.shared.domain.LocalMessageGroup;
 

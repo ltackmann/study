@@ -1,4 +1,4 @@
-package gwtDemo.integrationTest.testUtils;
+package gwtDemo.itest.utils;
 
 import org.mortbay.jetty.Server;
 import org.mortbay.jetty.webapp.WebAppContext;

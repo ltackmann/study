@@ -1,4 +1,4 @@
-package gwtDemo.unitTests.components;
+package gwtDemo.test.components;
 
 import static org.mockito.Mockito.*;
 import static org.hamcrest.MatcherAssert.*;
@@ -22,7 +22,7 @@ import com.google.gwt.core.shared.GWT;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwtmockito.GwtMockitoTestRunner;
 
-import static gwtDemo.unitTests.testUtils.AsyncCallbackTester.*;
+import static gwtDemo.test.utils.AsyncCallbackTester.*;
 
 @SuppressWarnings("unchecked")
 @RunWith(GwtMockitoTestRunner.class)
