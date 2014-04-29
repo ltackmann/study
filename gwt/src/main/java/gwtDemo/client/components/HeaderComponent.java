@@ -1,5 +1,6 @@
 package gwtDemo.client.components;
 
+import gwtDemo.client.elements.UiToggleLink;
 import gwtDemo.client.framework.Component;
 
 import com.google.gwt.event.dom.client.ChangeEvent;
@@ -35,7 +36,7 @@ public class HeaderComponent extends Component {
 		});
 		add(languageSelector);
 
-		final ToggleLinkComponent loginLink = new ToggleLinkComponent("Login", new ToggleLinkComponent.ToggleLinkEventHandler() {
+		final UiToggleLink loginLink = new UiToggleLink("Login", new UiToggleLink.ToggleLinkEventHandler() {
 			LoginComponent loginComponent;
 			
 			@Override

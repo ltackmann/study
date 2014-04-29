@@ -14,7 +14,7 @@ public class MainPage extends Page {
     
 	@Override
 	public void initPage() {
-		add(new Label("main page"));
+		add(new Label("a main page"));
 	}
 }
 

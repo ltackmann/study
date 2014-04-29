@@ -5,7 +5,7 @@ import com.google.web.bindery.event.shared.EventBus;
 import gwtDemo.client.event.LanguageChanged;
 import gwtDemo.shared.domain.User;
 
-public class ClientSession {
+public class ClientSession extends AbstractGwtLogic {
 	private EventBus eventBus;
 	private User user;
 	private String language;

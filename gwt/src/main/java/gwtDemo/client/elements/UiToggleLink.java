@@ -1,23 +1,23 @@
-package gwtDemo.client.components;
+package gwtDemo.client.elements;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.Event;
 
-import gwtDemo.client.framework.Component;
+import gwtDemo.client.framework.UiElement;
 
-public class ToggleLinkComponent extends Component {
+public class UiToggleLink extends UiElement {
 	private final ToggleLinkEventHandler eventHandler;
 	private boolean active;
 	
-    public ToggleLinkComponent(String text, ToggleLinkEventHandler toggleLinkEventHandler) {
+    public UiToggleLink(String text, ToggleLinkEventHandler toggleLinkEventHandler) {
     	super("a");
     	this.eventHandler = toggleLinkEventHandler;
-    	initComponent();
+    	initElement();
     	setText(text);
     }
     
-	private void initComponent() {
+	private void initElement() {
     	active = false;
     	addClassName("ui-toggle-link");
     	sinkEvents(Event.ONCLICK);
@@ -34,11 +34,7 @@ public class ToggleLinkComponent extends Component {
 			}
     	}, ClickEvent.getType());
     }
-    
-    public void setText(String text) {
-    	super.getElement().setInnerText(text);
-    }
-    
+
 	interface ToggleLinkEventHandler {
 		void onToggle();
 		

@@ -1,9 +1,8 @@
 package gwtDemo.client;
 
-import gwtDemo.client.frames.AppFrame;
+import gwtDemo.client.app.DemoAppFrame;
 import gwtDemo.client.framework.AppController;
-import gwtDemo.client.framework.AppExceptionHandler;
-import gwtDemo.client.framework.AppInjector;
+import gwtDemo.client.framework.GwtExceptionHandler;
 import gwtDemo.client.framework.ClientSession;
 import gwtDemo.client.framework.ClientSessionProvider;
 import gwtDemo.client.framework.Frame;
@@ -21,7 +20,7 @@ import com.google.gwt.user.client.ui.RootPanel;
 public class AppEntryPoint implements EntryPoint {
 	@Override
 	public void onModuleLoad() {
-	    GWT.setUncaughtExceptionHandler(new AppExceptionHandler());
+	    GWT.setUncaughtExceptionHandler(new GwtExceptionHandler());
 	    Scheduler.get().scheduleDeferred(new ScheduledCommand() {
 	        @Override
 	        public void execute() {
@@ -32,7 +31,7 @@ public class AppEntryPoint implements EntryPoint {
 	
 	private void startApplication() {
 		AppInjector injector = GWT.create(AppInjector.class);
-		Frame frame = new AppFrame(RootPanel.get());
+		Frame frame = new DemoAppFrame(RootPanel.get());
 
 		// initialize singleton providers
 		NavigationManagerProvider.INSTANCE = new NavigationManagerImpl(frame, injector);

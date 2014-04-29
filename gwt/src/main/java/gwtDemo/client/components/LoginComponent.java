@@ -7,32 +7,39 @@ import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.PasswordTextBox;
 import com.google.gwt.user.client.ui.TextBox;
 
+import gwtDemo.client.elements.UiButton;
+import gwtDemo.client.elements.UiInput;
+import gwtDemo.client.elements.UiInput.InputType;
+import gwtDemo.client.elements.UiLabel;
+import gwtDemo.client.elements.UiPopupBox;
+import gwtDemo.client.framework.Component;
 import gwtDemo.client.resource.i18n.ClientMessages;
 
-public class LoginComponent extends PopupComponent {
+public class LoginComponent extends Component {
 	private final LoginHandler loginHandler;
 	
 	public LoginComponent(LoginHandler loginHandler) {
-		super();
 		this.loginHandler = loginHandler;
 		initComponent();
 	}
 	
-	private void initComponent() {
+	@Override
+	public void initComponent() {
 		setId("ui-login");
 		ClientMessages messages = injector.getClientMessages();
+		UiPopupBox container = new UiPopupBox();
 		
-		add(new Label(messages.loginTitle()));
+		container.add(new UiLabel(messages.loginTitle()));
 		
-		add(new Label(messages.loginEmail()));
-		final TextBox emailBox = new TextBox();
+		container.add(new UiLabel(messages.loginEmail()));
+		final UiInput emailBox = new UiInput(InputType.EMAIL);
 		add(emailBox);
 		
-		add(new Label(messages.loginPassword()));
-		final PasswordTextBox passwordBox = new PasswordTextBox();
+		add(new UiLabel(messages.loginPassword()));
+		final UiInput passwordBox = new UiInput(InputType.PASSWORD);
 		add(passwordBox);
 		
-		Button loginButton = new Button(messages.loginButton());
+		UiButton loginButton = new UiButton(messages.loginButton());
 		loginButton.addClickHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
