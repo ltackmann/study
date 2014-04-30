@@ -7,7 +7,7 @@ import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Panel;
 
-public abstract class Node {
+public abstract class Node extends AbstractGwtLogic {
 	// package private so only accessible inside the framework
 	final Panel wrapped;
 	
@@ -17,6 +17,11 @@ public abstract class Node {
 	
 	public Node(Panel panel) {
 		this.wrapped = panel;
+	}
+	
+	public Node add(Node node) {
+		wrapped.add(node.wrapped);
+		return this;
 	}
 	
 	public void addClassName(String name) {

@@ -1,5 +1,7 @@
 package gwtDemo.client.framework;
 
+import com.google.web.bindery.event.shared.EventBus;
+
 public interface GwtFactory {
 	/**
 	 * Register type in the factory 
@@ -16,6 +18,11 @@ public interface GwtFactory {
      * @return
      */
     <T extends GwtLogic> T get(Class<T> clazz);
+    
+    /**
+     * Easy access to GWT EventBus
+     */
+    EventBus getEventBus();
 	
 	// hack needed to allow unit tests to mock the version of GwtFactory returned by current
     static class Get {

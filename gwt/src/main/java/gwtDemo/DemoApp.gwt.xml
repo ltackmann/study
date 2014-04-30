@@ -15,7 +15,7 @@
     <stylesheet src="styles.css"/>
 
     <!-- App entry point class. -->
-    <entry-point class="gwtDemo.client.AppEntryPoint"/>
+    <entry-point class="gwtDemo.client.app.app.DemoAppEntryPoint"/>
 
     <!-- paths for code compiled into JavaScript -->
     <source path="client" excludes="**/*Test.java" />

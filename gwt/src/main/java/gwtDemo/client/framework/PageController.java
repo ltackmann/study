@@ -9,13 +9,11 @@ import com.google.gwt.user.client.ui.HasWidgets;
  * PageControllers are responsible for handling business logic exposed the pages
  * and enforcing page security
  */
-public abstract class PageController<P extends Page> {
+public abstract class PageController<P extends Page> extends AbstractGwtLogic {
 	protected final P page;
-	protected final AppInjector injector;
 	
-	public PageController(P page, AppInjector injector) {
+	public PageController(P page) {
 		this.page = page;
-		this.injector = injector;
 	}
 	
     public void renderOn(HasWidgets container) {

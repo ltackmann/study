@@ -16,7 +16,7 @@ public class HeaderComponent extends Component {
 
 	public HeaderComponent() {
 		super("div");
-		presenter = new HeaderPresenter(this, injector);
+		presenter = new HeaderPresenter(this);
 		initComponent();
 	}
 	

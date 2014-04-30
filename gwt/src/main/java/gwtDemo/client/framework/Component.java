@@ -1,15 +1,11 @@
 package gwtDemo.client.framework;
 
-import com.google.gwt.core.shared.GWT;
-
 /**
  * Components are raw GUI constructs without URLs or security restriction. Pages
  * are build from one or more components. Components have Presenters which take
  * care of interacting with the backend.
  */
 public abstract class Component extends Node {
-	protected final AppInjector injector = GWT.create(AppInjector.class);
-
 	/**
 	 * Create component with the given tag 
 	 * 

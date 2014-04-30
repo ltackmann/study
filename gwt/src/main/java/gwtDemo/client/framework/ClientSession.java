@@ -1,18 +1,14 @@
 package gwtDemo.client.framework;
 
-import com.google.web.bindery.event.shared.EventBus;
-
 import gwtDemo.client.event.LanguageChanged;
 import gwtDemo.shared.domain.User;
 
 public class ClientSession extends AbstractGwtLogic {
-	private EventBus eventBus;
-	private User user;
 	private String language;
+	private User user;
 	
-	public ClientSession(User user, EventBus eventBus) {
+	public ClientSession(User user) {
 		this.user = user;
-		this.eventBus = eventBus;
 	}
 
 	public User getUser() {
@@ -25,7 +21,7 @@ public class ClientSession extends AbstractGwtLogic {
 	
 	public void setLanguage(String language) {
 		this.language = language;
-		 eventBus.fireEvent(new LanguageChanged(language));
+		getEventBus().fireEvent(new LanguageChanged(language));
 	}
 
 	public void setUser(User user) {

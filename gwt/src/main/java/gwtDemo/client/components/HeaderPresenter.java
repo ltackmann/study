@@ -13,7 +13,7 @@ public class HeaderPresenter extends ComponentPresenter<HeaderComponent> {
 	private final EmailValidator emailValidator = new EmailValidator();
 	private final PasswordValidator passwordValidator = new PasswordValidator();
 	
-    public HeaderPresenter(HeaderComponent component, AppInjector injector) {
+    public HeaderPresenter(HeaderComponent component) {
     	super(component, injector);
     }
     

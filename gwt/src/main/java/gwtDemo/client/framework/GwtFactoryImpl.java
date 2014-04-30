@@ -3,11 +3,16 @@ package gwtDemo.client.framework;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.google.web.bindery.event.shared.EventBus;
+import com.google.web.bindery.event.shared.SimpleEventBus;
+
 public class GwtFactoryImpl implements GwtFactory {
 	private Map<Class<? extends GwtLogic>, GwtCreator<?>> map = new HashMap<Class<? extends GwtLogic>, GwtCreator<?>>();
+	private final EventBus eventBus;
 
 	GwtFactoryImpl() {
 		// package private so it can only be created inside framework
+		this.eventBus = new SimpleEventBus();
 	}
 
 	@Override
@@ -32,6 +37,11 @@ public class GwtFactoryImpl implements GwtFactory {
 					+ clazz.getName());
 		}
 		return instance;
+	}
+	
+	@Override
+	public EventBus getEventBus() {
+		return eventBus;
 	}
 
 	@SuppressWarnings("unchecked")

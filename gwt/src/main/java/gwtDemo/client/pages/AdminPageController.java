@@ -1,12 +1,11 @@
 package gwtDemo.client.pages;
 
-import gwtDemo.client.framework.AppInjector;
 import gwtDemo.client.framework.PageController;
 import gwtDemo.shared.domain.Role;
 
 public class AdminPageController extends PageController<AdminPage> {
-    public AdminPageController(AdminPage page, AppInjector injector) {
-    	super(page, injector);
+    public AdminPageController(AdminPage page) {
+    	super(page);
     }
 
 	@Override
