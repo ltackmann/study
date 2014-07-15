@@ -23,9 +23,8 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
+				<groupId>org.jvnet.jax-ws-commons</groupId>
 				<artifactId>jaxws-maven-plugin</artifactId>
-				<version>1.12</version>
 				<executions>
 					<execution>
 						<goals>
@@ -51,5 +50,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>

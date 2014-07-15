@@ -24,12 +24,12 @@
 			<artifactId>jsr250-api</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.randompage.samples.ws</groupId>
+			<groupId>co.tackmann</groupId>
 			<artifactId>ws-api</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.randompage.samples.ws</groupId>
+			<groupId>co.tackmann</groupId>
 			<artifactId>ws-backend</artifactId>
 			<version>${project.version}</version>
 		</dependency>
