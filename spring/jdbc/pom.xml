@@ -2,14 +2,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>org.randompage.samples.ws</groupId>
-		<artifactId>ws-project</artifactId>
-		<version>1.0-SNAPSHOT</version>
-		<relativePath>../project/pom.xml</relativePath>
+		<groupId>co.tackmann</groupId>
+		<artifactId>maven-parent</artifactId>
+		<version>1.0.0</version>
+		<relativePath>../maven/pom.xml</relativePath>
 	</parent>
-	<artifactId>ws-backend</artifactId>
-	<packaging>jar</packaging>
-	<name>ws-backend</name>
+	<artifactId>spring-jdbc</artifactId>
 
 	<dependencies>
 		<dependency>

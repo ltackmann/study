@@ -6,7 +6,7 @@ public abstract class AppFrame extends AbstractGwtLogic {
 	public void attachFrameTo(HasWidgets container) {
 		Node frame = buildFrame();
 		frame.setId("ui-frame");
-		container.add(frame.wrapped); 
+		container.add(frame.asWidget()); 
 	}
 	
 	protected abstract Node buildFrame();

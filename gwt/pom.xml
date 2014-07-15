@@ -7,9 +7,8 @@
 		<version>1.0.0</version>
 		<relativePath>../maven/pom.xml</relativePath>
 	</parent>
-	<artifactId>gwt-demo</artifactId>
+	<artifactId>gwt</artifactId>
 	<packaging>war</packaging>
-
 	<dependencies>
 		<!-- GWT -->
 		<dependency>
@@ -48,7 +47,7 @@
 		</dependency>
 
 		<!-- test -->
-		<!-- dependency> <groupId>org.mockito</groupId> <artifactId>mockito-all</artifactId> 
+		<!-- dependency> <groupId>org.mockito</groupId> <artifactId>mockito-all</artifactId>
 			</dependency -->
 		<dependency>
 			<groupId>org.hamcrest</groupId>
@@ -81,4 +80,3 @@
 		</plugins>
 	</build>
 </project>
-

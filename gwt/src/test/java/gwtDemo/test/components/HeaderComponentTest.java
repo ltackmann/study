@@ -9,7 +9,6 @@ import java.util.List;
 
 import gwtDemo.client.components.HeaderComponent;
 import gwtDemo.client.components.HeaderPresenter;
-import gwtDemo.client.framework.AppInjector;
 import gwtDemo.client.framework.ClientSession;
 import gwtDemo.client.service.UserServiceAsync;
 import gwtDemo.shared.domain.User;

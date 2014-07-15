@@ -10,10 +10,5 @@ public abstract class Page extends Node implements GwtLogic {
 		addClassName("ui-page");
 	}
 	
-	// package private so only accessible inside the framework
-	Widget asWidget() {
-		return wrapped;
-	}
-	
 	public abstract void initPage();
 }

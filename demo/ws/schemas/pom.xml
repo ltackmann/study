@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>co.tackmann</groupId>
+        <artifactId>maven-parent</artifactId>
+        <version>1.0.0</version>
+        <relativePath>../../maven/pom.xml</relativePath>
+    </parent>
+    <artifactId>demo-ws-schemas</artifactId>
+    <name>${project.artifactId}</name>
+    <build>
+        <!-- package schema files in JAR -->
+        <resources>
+            <resource>
+                <directory>src/schemas</directory>
+            </resource>
+        </resources>
+        <!-- -->
+        <plugins>
+            <!-- -->
+            <plugin>
+                <groupId>org.jvnet.jaxb2.maven2</groupId>
+                <artifactId>maven-jaxb2-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <forceRegenerate>true</forceRegenerate>
+                            <schemaDirectory>src/schemas</schemaDirectory>
+                            <extension>true</extension>
+                            <schemaIncludes>
+                                <schemaInclude>bookmarking/v1/users/Users.xsd</schemaInclude>
+                                <!-- customize adapter output -->
+                                <schemaInclude>adapter.xsd</schemaInclude>
+                            </schemaIncludes>
+                            <bindingIncludes>
+                                <bindingInclude>xsd-bindings.xml</bindingInclude>
+                            </bindingIncludes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

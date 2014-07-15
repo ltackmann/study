@@ -7,9 +7,9 @@
         <version>1.0.0</version>
         <relativePath>../maven/pom.xml</relativePath>
     </parent>
-    <artifactId>jsf-demo</artifactId>
+    <artifactId>jsf</artifactId>
     <packaging>war</packaging>
-    
+
 	<dependencies>
         <!-- JSF -->
         <dependency>

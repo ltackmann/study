@@ -8,7 +8,7 @@
 		<version>1.0.0</version>
 		<relativePath>../maven/pom.xml</relativePath>
 	</parent>
-	<artifactId>jaxrs-demo</artifactId>
+	<artifactId>jax-rs</artifactId>
 	<packaging>war</packaging>
 
 	<dependencies>

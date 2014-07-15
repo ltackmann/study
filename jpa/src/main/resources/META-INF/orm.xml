@@ -21,9 +21,9 @@
 	<named-query name="Supplier.findByName">
 		<query>select s from Supplier s where s.name like ?1</query>
 	</named-query>
-	<named-query name="Supplier.updateContactLike">
+	<!-- named-query name="Supplier.updateContactLike">
 		<query>update Supplier s set s.contactPerson = ?1 where s.contactPerson like ?2</query>
-	</named-query>
+	</named-query-->
 
 	<!-- TODO stored procedure named-stored-procedure-query name="User.findByUsername"
 		procedure-name="get_user" result-class="org.randompage.samples.jpa.domain.User">

@@ -1,9 +1,12 @@
 package gwtDemo.client.framework;
 
 import com.google.gwt.dom.client.Element;
+import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.ui.HTMLPanel;
+import com.google.gwt.user.client.ui.IsWidget;
+import com.google.gwt.user.client.ui.Widget;
 
-public class Node extends AbstractGwtLogicAware {
+public class Node extends AbstractGwtLogicAware implements IsWidget {
 	// package private so only accessible inside the framework
 	final Element wrapped;
 	
@@ -22,6 +25,11 @@ public class Node extends AbstractGwtLogicAware {
 	
 	public void addClassName(String name) {
 		wrapped.addClassName(name);
+	}
+	
+	@Override
+	public Widget asWidget() {
+		return HTMLPanel.wrap(wrapped);
 	}
 	
 	/**
@@ -59,7 +67,7 @@ public class Node extends AbstractGwtLogicAware {
     /**
      * Remove node from DOM
      */
-    public void remove() {
+    public void removeFromParent() {
     	wrapped.removeFromParent();
     }
     
