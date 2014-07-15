@@ -9,7 +9,7 @@ import com.google.gwt.user.client.ui.HasWidgets;
  * PageControllers are responsible for handling business logic exposed the pages
  * and enforcing page security
  */
-public abstract class PageController<P extends Page> extends AbstractGwtLogic {
+public abstract class PageController<P extends Page> extends AbstractGwtLogic{
 	protected final P page;
 	
 	public PageController(P page) {

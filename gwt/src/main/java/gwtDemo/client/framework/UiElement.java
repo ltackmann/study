@@ -10,7 +10,7 @@ public class UiElement extends Node {
 	}
 	
 	public UiElement add(UiElement element) {
-		wrapped.add(element.wrapped);
+		wrapped.appendChild(element.wrapped);
 		return this;
 	}
 }

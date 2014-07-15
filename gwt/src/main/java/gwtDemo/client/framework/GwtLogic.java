@@ -1,9 +1,8 @@
 package gwtDemo.client.framework;
 
-import com.google.web.bindery.event.shared.EventBus;
+/** 
+ * Classes that implements GWT logic must be registered using the GwtFactory
+ */
+public interface GwtLogic extends GwtLogicAware {
 
-public interface GwtLogic {
-	<T extends GwtLogic> T get(Class<T> type);
-	
-	EventBus getEventBus();
 }

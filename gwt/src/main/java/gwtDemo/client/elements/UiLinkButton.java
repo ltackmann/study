@@ -1,6 +1,6 @@
 package gwtDemo.client.elements;
 
-import gwtDemo.client.framework.AppInjector;
+import gwtDemo.client.framework.NavigationManager;
 import gwtDemo.client.framework.Page;
 
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -8,10 +8,11 @@ import com.google.gwt.event.dom.client.ClickEvent;
 /** Button that navigates to a page when clicked */
 public class UiLinkButton extends UiButton {
 	public UiLinkButton(String text, final Class<? extends Page> pageType) {
-		super(text, new ButtonEventHandler() {
+		super(text);
+		setEventHandler(new ButtonEventHandler() {
 			@Override
-			public void onClick(ClickEvent event, AppInjector injector) {
-				injector.getNavigationManager().showPage(pageType);
+			public void onClick(ClickEvent event) {
+				get(NavigationManager.class).showPage(pageType);
 			}
 		});
     }

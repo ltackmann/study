@@ -1,5 +1,6 @@
 package gwtDemo.client.components;
 
+import gwtDemo.client.elements.UiSelect;
 import gwtDemo.client.elements.UiToggleLink;
 import gwtDemo.client.framework.Component;
 
@@ -23,7 +24,7 @@ public class HeaderComponent extends Component {
 	private void initComponent() {
 		setId("ui-header");
 		
-		final ListBox languageSelector = new ListBox();
+		final UiSelect languageSelector = new UiSelect();
 		languageSelector.addChangeHandler(new ChangeHandler() {
 			@Override
 			public void onChange(ChangeEvent event) {
@@ -47,7 +48,7 @@ public class HeaderComponent extends Component {
 						presenter.handleLogin(email, password);
 					}
 				});
-				RootPanel.get().add(loginComponent);
+				//RootPanel.get().add(loginComponent);
 			}
 
 			@Override

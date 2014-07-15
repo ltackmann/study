@@ -3,14 +3,14 @@ package gwtDemo.client.framework;
 import com.google.web.bindery.event.shared.EventBus;
 
 /**
- * Base class for GwtLogic classes, classes that extends this must be registered
+ * Util class for providing access to GwtLogic classes
  */
-public class AbstractGwtLogic implements GwtLogic {
+public class AbstractGwtLogicAware implements GwtLogicAware {
 	@Override
 	public <T extends GwtLogic> T get(Class<T> type) {
 		return GwtFactory.Get.INSTANCE.get(type);
 	}
-	
+
 	@Override
 	public EventBus getEventBus() {
 		return GwtFactory.Get.INSTANCE.getEventBus();

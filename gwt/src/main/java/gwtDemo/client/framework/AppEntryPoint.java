@@ -5,7 +5,7 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.core.client.Scheduler.ScheduledCommand;
 
-public abstract class AppEntryPoint extends AbstractGwtLogic implements EntryPoint {
+public abstract class AppEntryPoint extends AbstractGwtLogicAware implements EntryPoint {
 	@Override
 	public void onModuleLoad() {
 		final AppFrame frame = get(AppFrame.class);

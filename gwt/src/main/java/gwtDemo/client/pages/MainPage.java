@@ -1,7 +1,5 @@
 package gwtDemo.client.pages;
 
-import com.google.gwt.user.client.ui.Label;
-
 import gwtDemo.client.framework.Page;
 
 public class MainPage extends Page {
@@ -14,7 +12,7 @@ public class MainPage extends Page {
     
 	@Override
 	public void initPage() {
-		add(new Label("a main page"));
+		//add(new Label("a main page"));
 	}
 }
 

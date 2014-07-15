@@ -1,7 +1,5 @@
 package gwtDemo.client.pages;
 
-import com.google.gwt.user.client.ui.Label;
-
 import gwtDemo.client.framework.Page;
 
 public class InputDemoPage extends Page {
@@ -12,6 +10,6 @@ public class InputDemoPage extends Page {
 
 	@Override
 	public void initPage() {
-		add(new Label("input demo"));
+		//add(new Label("input demo"));
 	}
 }

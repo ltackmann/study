@@ -5,7 +5,7 @@ package gwtDemo.client.framework;
  * are build from one or more components. Components have Presenters which take
  * care of interacting with the backend.
  */
-public abstract class Component extends Node {
+public abstract class Component extends Node implements GwtLogic {
 	/**
 	 * Create component with the given tag 
 	 * 
@@ -17,7 +17,7 @@ public abstract class Component extends Node {
 	}
 	
 	public Component add(UiElement element) {
-		wrapped.add(element.wrapped);
+		wrapped.appendChild(element.wrapped);
 		return this;
 	}
 }

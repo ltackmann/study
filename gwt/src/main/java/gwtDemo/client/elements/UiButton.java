@@ -4,20 +4,24 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.Event;
 
-import gwtDemo.client.framework.AppInjector;
-import gwtDemo.client.framework.Component;
-import gwtDemo.client.framework.GwtLogic;
-import gwtDemo.client.framework.Node;
 import gwtDemo.client.framework.UiElement;
 
 public class UiButton extends UiElement {
-	private final ButtonEventHandler eventHandler;
+	private ButtonEventHandler eventHandler;
 	
     public UiButton(String text, ButtonEventHandler eventHandler) {
-    	super("button");
+    	this(text);
     	this.eventHandler = eventHandler;
+    }
+    
+    public UiButton(String text) {
+    	super("button");
     	initElement();
     	setText(text);
+    }
+    
+    public void setEventHandler(ButtonEventHandler eventHandler) {
+    	this.eventHandler = eventHandler;
     }
     
 	private void initElement() {
@@ -26,12 +30,12 @@ public class UiButton extends UiElement {
     	addHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
-				eventHandler.onClick(event, injector);
+				eventHandler.onClick(event);
 			}
     	}, ClickEvent.getType());
     }
     
-	interface ButtonEventHandler {
-    	void onClick(ClickEvent event, final GwtLogic logic);
+	public interface ButtonEventHandler {
+    	void onClick(ClickEvent event);
     }
 }

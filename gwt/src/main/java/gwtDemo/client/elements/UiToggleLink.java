@@ -35,7 +35,7 @@ public class UiToggleLink extends UiElement {
     	}, ClickEvent.getType());
     }
 
-	interface ToggleLinkEventHandler {
+	public interface ToggleLinkEventHandler {
 		void onToggle();
 		
 		void onUnToggle();

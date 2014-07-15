@@ -1,8 +1,5 @@
 package gwtDemo.client.pages;
 
-import com.google.gwt.user.client.ui.Label;
-
-import gwtDemo.client.framework.GwtLogic;
 import gwtDemo.client.framework.Page;
 
 // TODO add admin page to menu when user is logged in - remove when logged out
@@ -15,6 +12,6 @@ public class AdminPage extends Page {
 	
 	@Override
 	public void initPage() {
-		addComponent(new Label("admin page"));
+		//addComponent(new Label("admin page"));
 	}
 }

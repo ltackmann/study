@@ -1,63 +1,82 @@
 package gwtDemo.client.framework;
 
 import com.google.gwt.dom.client.Element;
-import com.google.gwt.event.shared.EventHandler;
-import com.google.gwt.event.shared.GwtEvent;
-import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.ui.HTMLPanel;
-import com.google.gwt.user.client.ui.Panel;
 
-public abstract class Node extends AbstractGwtLogic {
+public class Node extends AbstractGwtLogicAware {
 	// package private so only accessible inside the framework
-	final Panel wrapped;
+	final Element wrapped;
 	
 	public Node(String tag) {
-		this(new HTMLPanel(tag, ""));
+		this(new HTMLPanel(tag, "").getElement());
 	}
 	
-	public Node(Panel panel) {
-		this.wrapped = panel;
+	public Node(Element element) {
+		this.wrapped = element;
 	}
 	
 	public Node add(Node node) {
-		wrapped.add(node.wrapped);
+		wrapped.appendChild(node.wrapped);
 		return this;
 	}
 	
 	public void addClassName(String name) {
-		getElement().addClassName(name);
+		wrapped.addClassName(name);
 	}
 	
+	/**
+	 * Clear child elements from the current node
+	 */
 	public void clear() {
-		wrapped.clear();
+		wrapped.setInnerHTML(null);
 	}
-    
+	
+	/**
+	 * Retrieve the value of the named attribute from the current node.
+	 */
+	public String getAttribute(String name) {
+		return getAttribute(name);
+	}
+	
+	public String getId() {
+		return wrapped.getId();
+	}
+	
+	public Node getParent() {
+		return new Node(wrapped.getParentElement());
+	}
+	
+	public NodeStream<Event> onChange() {
+		// TODO http://stackoverflow.com/questions/16542266/handler-on-dom-elements-in-gwt
+		return null;
+	}
+	
     public Node query(String query) {
     	// TODO wrap GQuery
     	return null;
     }
     
-	public void setId(String id) {
-		getElement().setId(id);
-	}
-	
-    public void setText(String text) {
-    	getElement().setInnerText(text);
+    /**
+     * Remove node from DOM
+     */
+    public void remove() {
+    	wrapped.removeFromParent();
     }
     
+    /**
+     * Set 
+     * @param name
+     * @param value
+     */
     public void setAttribute(String name, String value) {
-    	getElement().setAttribute(name, value);
+    	wrapped.setAttribute(name, value);
     }
     
-    public void sinkEvents(int eventBitsToAdd) {
-    	wrapped.sinkEvents(eventBitsToAdd);
-    }
+	public void setId(String id) {
+		wrapped.setId(id);
+	}
     
-    public <H extends EventHandler> HandlerRegistration addHandler(H handler, GwtEvent.Type<H> type) {
-		return wrapped.addHandler(handler, type);	
-	}
-	
-	private Element getElement() {
-		return wrapped.getElement();
-	}
+    public void setText(String text) {
+    	wrapped.setInnerText(text);
+    }
 }
