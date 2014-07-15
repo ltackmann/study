@@ -1,0 +1,9 @@
+syntax: glob
+
+*.aux
+*.ent
+*.log
+*.pdf
+*.toc
+*.swp
+.DS_Store

@@ -1,0 +1,895 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     32409,        886]
+NotebookOptionsPosition[     28440,        765]
+NotebookOutlinePosition[     28798,        781]
+CellTagsIndexPosition[     28755,        778]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Algorithm Notes", "Title",
+ CellGroupingRules->{"TitleGrouping", Inherited},
+ CellChangeTimes->{{3.476636074737557*^9, 3.4766360968347063`*^9}}],
+
+Cell["Lars Tackman, Copenhagen 2010", "Text",
+ CellGroupingRules->"NormalGrouping",
+ CellChangeTimes->{{3.4766361000240192`*^9, 3.476636130456169*^9}, {
+  3.4766362303493757`*^9, 3.476636231149826*^9}}],
+
+Cell["Based on books :", "Text",
+ CellGroupingRules->"NormalGrouping",
+ CellChangeTimes->{{3.4766373749943743`*^9, 3.476637380440423*^9}, {
+  3.4766374816119957`*^9, 3.476637519842347*^9}}],
+
+Cell[TextData[StyleBox["Algorithms : A Functional Programming Approach",
+ FontWeight->"Bold"]], "Item",
+ CellChangeTimes->{3.476637517560622*^9}],
+
+Cell[TextData[{
+ "Currently algorithms are specified in ",
+ StyleBox["Haskell",
+  FontWeight->"Bold"]
+}], "Text",
+ CellGroupingRules->"NormalGrouping",
+ CellChangeTimes->{{3.47663753870677*^9, 3.476637549669119*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Data Structures", "Section",
+ CellGroupingRules->{"SectionGrouping", Inherited},
+ CellChangeTimes->{{3.476636233213297*^9, 3.476636239241777*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Lists", "Subsection",
+ CellGroupingRules->{"SectionGrouping", Inherited},
+ CellChangeTimes->{{3.476636240615323*^9, 3.4766362413501263`*^9}}],
+
+Cell["Sequence of similar items", "Text",
+ CellGroupingRules->"NormalGrouping"],
+
+Cell["Sorting", "Subsubsection",
+ CellGroupingRules->{"SectionGrouping", Inherited},
+ CellChangeTimes->{{3.476637248707662*^9, 3.476637250881885*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Inserting", "Subsubsection",
+ CellGroupingRules->{"SectionGrouping", Inherited},
+ CellChangeTimes->{{3.4766372526002617`*^9, 3.476637253985015*^9}}],
+
+Cell[TextData[{
+ "Insertion in a ordered list",
+ "\n",
+ Cell[BoxData[
+  RowBox[{"\t", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"insert", " ", 
+      RowBox[{"x", "[", "]"}]}], "=", 
+     RowBox[{"[", "x", "]"}]}], "\n", "\t", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"insert", " ", "x", " ", 
+       RowBox[{"(", 
+        RowBox[{"y", ":", "ys"}], ")"}]}], "|", 
+      RowBox[{"(", 
+       RowBox[{"x", ">", "y"}], ")"}]}], "=", 
+     RowBox[{"y", ":", 
+      RowBox[{"(", 
+       RowBox[{"insert", " ", "x", " ", "ys"}], ")"}]}]}], "\n", 
+    "                                           ", 
+    RowBox[{
+     RowBox[{"|", "otherwise"}], "=", 
+     RowBox[{"x", ":", 
+      RowBox[{"y", ":", "ys"}]}]}], "\n"}]}]], "Input",
+  CellChangeTimes->{{3.4766373039151583`*^9, 3.476637330766822*^9}, 
+    3.47663780274889*^9}]
+}], "Text",
+ CellGroupingRules->"NormalGrouping",
+ CellChangeTimes->{
+  3.4766373039151583`*^9, {3.476644173823018*^9, 3.476644186649434*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Arrays", "Subsection",
+ CellGroupingRules->{"SectionGrouping", Inherited},
+ CellChangeTimes->{{3.476636243608819*^9, 3.476636244476995*^9}, {
+  3.476636410503944*^9, 3.4766364142837057`*^9}}],
+
+Cell["\<\
+Arrays are collections of elements and they have the following properties :\
+\>", "Text",
+ CellGroupingRules->"NormalGrouping",
+ CellChangeTimes->{{3.476636432180519*^9, 3.476636438954598*^9}}],
+
+Cell["A value can be accessed and updated in constant time", "Item",
+ CellGroupingRules->"NormalGrouping",
+ CellChangeTimes->{{3.476636432180519*^9, 3.476636450801702*^9}}],
+
+Cell["The update operation does not need extra space", "Item",
+ CellGroupingRules->"NormalGrouping",
+ CellChangeTimes->{{3.476636432180519*^9, 3.476636471863752*^9}}],
+
+Cell["\<\
+Arrays aare preallocated in continous memory
+\
+\>", "Item",
+ CellGroupingRules->"NormalGrouping",
+ CellChangeTimes->{{3.476636432180519*^9, 3.4766364755355577`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Trees", "Subsection",
+ CellGroupingRules->{"SectionGrouping", Inherited},
+ CellChangeTimes->{{3.476636246670065*^9, 3.476636247953822*^9}}],
+
+Cell["\<\
+Tree' s consist of nodes, which may have one or more children (or \
+descendants) and all nodes (except the root) has one predecessor (its \
+parent). A node without a sucessor is called a leaf (or tip).Some further \
+tree terminology is
+listed below :\
+\>", "Text",
+ CellGroupingRules->"NormalGrouping",
+ CellChangeTimes->{{3.476637601073724*^9, 3.476637610095195*^9}, {
+   3.4766377137721357`*^9, 3.476637717535619*^9}, 3.476637956080763*^9}],
+
+Cell["\<\
+The depth (or hight) of a tree is its longes path from its root (the binary \
+tree below has depth 3)\
+\>", "Item",
+ CellGroupingRules->"NormalGrouping",
+ CellChangeTimes->{{3.476637601073724*^9, 3.476637610095195*^9}, {
+  3.4766377137721357`*^9, 3.47663774170183*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Binary Tree", "Subsubsection",
+ CellGroupingRules->{"SectionGrouping", Inherited},
+ CellChangeTimes->{{3.476637601073724*^9, 3.476637610095195*^9}, 
+   3.4766377137721357`*^9, {3.4766377451738033`*^9, 3.476637765358027*^9}}],
+
+Cell["\<\
+Tree where each node has at most two sucessors. A binary tree with n nodes \
+has the following properties :\
+\>", "Text",
+ CellGroupingRules->"NormalGrouping",
+ CellChangeTimes->{{3.476637601073724*^9, 3.476637610095195*^9}, 
+   3.4766377137721357`*^9, {3.4766377451738033`*^9, 3.476637768790567*^9}, {
+   3.4766378273581944`*^9, 3.4766378322439213`*^9}, 3.476637896075295*^9}],
+
+Cell["Minimum depth = log (n + 1)", "Item",
+ CellGroupingRules->"NormalGrouping",
+ CellChangeTimes->{{3.476637601073724*^9, 3.476637610095195*^9}, 
+   3.4766377137721357`*^9, {3.4766377451738033`*^9, 3.476637768790567*^9}, {
+   3.4766378273581944`*^9, 3.476637875005198*^9}}],
+
+Cell["Maximum depth = n (a chain of nodes)", "Item",
+ CellChangeTimes->{{3.476637884628439*^9, 3.476637886852531*^9}}],
+
+Cell["\<\
+A full binary tree is (a tree in which every node other than the leaves has \
+two children) is illustrated below\
+\>", "Text",
+ CellGroupingRules->"NormalGrouping",
+ CellChangeTimes->{{3.476637601073724*^9, 3.476637610095195*^9}, 
+   3.4766377137721357`*^9, {3.4766377451738033`*^9, 3.476637768790567*^9}, {
+   3.4766378273581944`*^9, 3.476637883100337*^9}, {3.476638053319408*^9, 
+   3.4766380596719646`*^9}, {3.476638101597643*^9, 3.476638142392869*^9}, {
+   3.476639824909362*^9, 3.476639834640924*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TreeForm", "[", 
+  RowBox[{
+   RowBox[{"Nest", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"#", ",", "#"}], "}"}], "&"}], ",", "x", ",", "3"}], "]"}], 
+   ",", 
+   RowBox[{"VertexRenderingFunction", "\[Rule]", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"EdgeForm", "[", "Black", "]"}], ",", "White", ",", 
+        RowBox[{"Disk", "[", 
+         RowBox[{"#1", ",", "0.1"}], "]"}]}], "}"}], "&"}], ")"}]}], ",", 
+   RowBox[{"PlotStyle", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"Black", ",", 
+      RowBox[{"Thickness", "[", "0.005", "]"}]}], "}"}]}]}], " ", 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.476638376798543*^9, 3.4766383810518093`*^9}, {
+  3.476638428417445*^9, 3.476638428519348*^9}, {3.476638535387568*^9, 
+  3.4766385357917957`*^9}, {3.476638572073601*^9, 3.4766386211788263`*^9}, {
+  3.4766388527161303`*^9, 3.476638854250602*^9}, {3.476639023280953*^9, 
+  3.476639023767667*^9}, {3.476639083832828*^9, 3.476639094193267*^9}, {
+  3.4766392369518137`*^9, 3.476639291500291*^9}, {3.476639538436802*^9, 
+  3.476639541174656*^9}, {3.476639632293276*^9, 3.476639698855351*^9}, {
+  3.4766397304081383`*^9, 3.476639771779234*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  GraphicsBox[
+   TagBox[
+    GraphicsGroupBox[{
+      GraphicsComplexBox[{{2.4748737341529163`, 2.1213203435596424`}, {
+       1.0606601717798212`, 1.414213562373095}, {0.35355339059327373`, 
+       0.7071067811865475}, {0., 0.}, {0.7071067811865475, 0.}, {
+       1.7677669529663687`, 0.7071067811865475}, {1.414213562373095, 0.}, {
+       2.1213203435596424`, 0.}, {3.8890872965260113`, 1.414213562373095}, {
+       3.181980515339464, 0.7071067811865475}, {2.82842712474619, 0.}, {
+       3.5355339059327373`, 0.}, {4.596194077712559, 0.7071067811865475}, {
+       4.242640687119285, 0.}, {4.949747468305833, 0.}}, 
+       {GrayLevel[0], Thickness[0.005], 
+        LineBox[{{1, 2}, {1, 9}, {2, 3}, {2, 6}, {3, 4}, {3, 5}, {6, 7}, {6, 
+         8}, {9, 10}, {9, 13}, {10, 11}, {10, 12}, {13, 14}, {13, 15}}]}], 
+      {GrayLevel[0], Thickness[0.005], 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{2.4748737341529163`, 2.1213203435596424`}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{1.0606601717798212`, 1.414213562373095}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{0.35355339059327373`, 0.7071067811865475}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], DiskBox[{0., 0.}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{0.7071067811865475, 0.}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{1.7677669529663687`, 0.7071067811865475}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{1.414213562373095, 0.}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{2.1213203435596424`, 0.}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{3.8890872965260113`, 1.414213562373095}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{3.181980515339464, 0.7071067811865475}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{2.82842712474619, 0.}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{3.5355339059327373`, 0.}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{4.596194077712559, 0.7071067811865475}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{4.242640687119285, 0.}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{4.949747468305833, 0.}, 0.1]}}},
+     ContentSelectable->True],
+    Annotation[#, 
+     VertexCoordinateRules -> {{2.4748737341529163`, 2.1213203435596424`}, {
+      1.0606601717798212`, 1.414213562373095}, {0.35355339059327373`, 
+      0.7071067811865475}, {0., 0.}, {0.7071067811865475, 0.}, {
+      1.7677669529663687`, 0.7071067811865475}, {1.414213562373095, 0.}, {
+      2.1213203435596424`, 0.}, {3.8890872965260113`, 1.414213562373095}, {
+      3.181980515339464, 0.7071067811865475}, {2.82842712474619, 0.}, {
+      3.5355339059327373`, 0.}, {4.596194077712559, 0.7071067811865475}, {
+      4.242640687119285, 0.}, {4.949747468305833, 0.}}]& ],
+   AspectRatio->NCache[2^Rational[-1, 2], 0.7071067811865475],
+   FrameTicks->Automatic,
+   ImageSize->{Automatic, 193.99275580220885`},
+   PlotRange->All,
+   PlotRangePadding->Scaled[0.1]], TraditionalForm]], "Output",
+ CellChangeTimes->{3.476639786258239*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "Notice how each level contains the double number of nodes compared to the \
+level above. Binary search is a divide-and-conquor algorithm, and the drawing \
+shows how we will need (at most) ",
+ StyleBox["4",
+  FontWeight->"Bold"],
+ " comparisons to find the record we are searching for in this ",
+ StyleBox["15",
+  FontWeight->"Bold"],
+ " item dataset. Adding another level"
+}], "Text",
+ CellGroupingRules->"NormalGrouping",
+ CellChangeTimes->{{3.4766401445832787`*^9, 3.476640170920805*^9}, {
+  3.476640211914526*^9, 3.476640277652191*^9}, {3.4766404602547894`*^9, 
+  3.4766404604617662`*^9}, {3.476640690470808*^9, 3.476640692219849*^9}, {
+  3.476643403887661*^9, 3.476643422354808*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TreeForm", "[", 
+  RowBox[{
+   RowBox[{"Nest", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"#", ",", " ", "#"}], "}"}], " ", "&"}], ",", " ", "x", ",", 
+     " ", "4"}], "]"}], ",", " ", 
+   RowBox[{"VertexRenderingFunction", " ", "\[Rule]", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"EdgeForm", "[", "Black", "]"}], ",", " ", "White", ",", " ", 
+        
+        RowBox[{"Disk", "[", 
+         RowBox[{"#1", ",", " ", "0.1"}], "]"}]}], "}"}], " ", "&"}], ")"}]}],
+    ",", " ", 
+   RowBox[{"PlotStyle", " ", "\[Rule]", " ", 
+    RowBox[{"{", 
+     RowBox[{"Black", ",", " ", 
+      RowBox[{"Thickness", "[", "0.005", "]"}]}], "}"}]}]}], " ", 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.476640290631418*^9, 3.476640290861109*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  GraphicsBox[
+   TagBox[GraphicsGroupBox[{GraphicsComplexBox[CompressedData["
+1:eJxTTMoPSmViYGCQB2IQ/Vrf/CJPkKCDrPEE1+WVTA47de7FFGkxOKzxiXhR
+te23/Wow/doeIv8JSl+ylwPTj+wZ0IAsmvgT+y9ighLf4eph5sDkV0PtgfHd
+3Zb9d03ndICpa7B00rtzgsUBVT+TA6r57HA+XzDXxfWsfHD1EPO54fIQ/wnA
++ZWe/4sf9EnB/bvJZvaisg+icPv9zF7udFwojGa/EFw/xH0icL6Ys2/3ansJ
+uHqI+8Th8hD/ScL5DmHJrl668nD77vpvjBG9J4Pmfmk0/8nB+UHruKbb71OA
+q4f4TwEuD4lfRTgfALxPla0=
+       "], 
+       {GrayLevel[0], Thickness[0.005], 
+        LineBox[{{1, 2}, {1, 17}, {2, 3}, {2, 10}, {3, 4}, {3, 7}, {4, 5}, {4,
+          6}, {7, 8}, {7, 9}, {10, 11}, {10, 14}, {11, 12}, {11, 13}, {14, 
+         15}, {14, 16}, {17, 18}, {17, 25}, {18, 19}, {18, 22}, {19, 20}, {19,
+          21}, {22, 23}, {22, 24}, {25, 26}, {25, 29}, {26, 27}, {26, 28}, {
+         29, 30}, {29, 31}}]}], 
+      {GrayLevel[0], Thickness[0.005], 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{4.330127018922194, 2.3094010767585034`}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{2.0207259421636903`, 1.7320508075688776`}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{0.8660254037844387, 1.1547005383792517`}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{0.2886751345948129, 0.577350269189626}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], DiskBox[{0., 0.}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{0.5773502691896258, 0.}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{1.4433756729740645`, 0.577350269189626}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{1.1547005383792517`, 0.}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{1.7320508075688774`, 0.}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{3.1754264805429417`, 1.1547005383792517`}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{2.598076211353316, 0.577350269189626}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{2.3094010767585034`, 0.}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{2.886751345948129, 0.}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{3.7527767497325675`, 0.577350269189626}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{3.464101615137755, 0.}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{4.041451884327381, 0.}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{6.639528095680697, 1.7320508075688776`}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{5.484827557301445, 1.1547005383792517`}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{4.907477288111819, 0.577350269189626}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{4.618802153517007, 0.}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{5.196152422706632, 0.}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{6.062177826491071, 0.577350269189626}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{5.773502691896258, 0.}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{6.3508529610858835`, 0.}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{7.794228634059948, 1.1547005383792517`}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{7.216878364870323, 0.577350269189626}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{6.92820323027551, 0.}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{7.505553499465135, 0.}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{8.371578903249574, 0.577350269189626}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{8.082903768654761, 0.}, 0.1]}, 
+       {GrayLevel[1], EdgeForm[GrayLevel[0]], 
+        DiskBox[{8.660254037844387, 0.}, 0.1]}}},
+     ContentSelectable->True],
+    Annotation[#, VertexCoordinateRules -> CompressedData["
+1:eJxTTMoPSmViYGCQB2IQ/Vrf/CJPkKCDrPEE1+WVTA47de7FFGkxOKzxiXhR
+te23/Wow/doeIv8JSl+ylwPTj+wZ0IAsmvgT+y9ighLf4eph5sDkV0PtgfHd
+3Zb9d03ndICpa7B00rtzgsUBVT+TA6r57HA+XzDXxfWsfHD1EPO54fIQ/wnA
++ZWe/4sf9EnB/bvJZvaisg+icPv9zF7udFwojGa/EFw/xH0icL6Ys2/3ansJ
+uHqI+8Th8hD/ScL5DmHJrl668nD77vpvjBG9J4Pmfmk0/8nB+UHruKbb71OA
+q4f4TwEuD4lfRTgfALxPla0=
+      "]]& ],
+   AspectRatio->NCache[Rational[1, 4] 5^Rational[1, 2], 0.5590169943749475],
+   FrameTicks->Automatic,
+   PlotRange->All,
+   PlotRangePadding->Scaled[0.1]], TraditionalForm]], "Output",
+ CellChangeTimes->{3.4766402935866547`*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "we will need ",
+ StyleBox["5",
+  FontWeight->"Bold"],
+ " comparisons to find what we are search for, as the tree has only grown one \
+level deeper when we doubled the amount of data. "
+}], "Text",
+ CellGroupingRules->"NormalGrouping",
+ CellChangeTimes->{{3.4766401445832787`*^9, 3.476640170920805*^9}, {
+  3.476640211914526*^9, 3.476640321678679*^9}, {3.476640580684395*^9, 
+  3.4766406339689503`*^9}, {3.476640667946557*^9, 3.476640673109761*^9}, {
+  3.476640704500782*^9, 3.476640736410604*^9}, {3.4766434251169367`*^9, 
+  3.476643469543833*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "1 node: ",
+ StyleBox["log",
+  FontWeight->"Bold"],
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["", "2"], TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontWeight->"Bold"],
+ StyleBox["(1+1) = 1",
+  FontWeight->"Bold"],
+ " comparisons."
+}], "Item",
+ CellChangeTimes->{{3.4766434924867153`*^9, 3.47664354843332*^9}, {
+  3.47664360482199*^9, 3.476643631357115*^9}, {3.4766436778112173`*^9, 
+  3.4766436933531513`*^9}}],
+
+Cell[TextData[{
+ "3 nodes: ",
+ StyleBox["log",
+  FontWeight->"Bold"],
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["", "2"], TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontWeight->"Bold"],
+ StyleBox["(3 + 1) = 2",
+  FontWeight->"Bold"],
+ " comparisons."
+}], "Item",
+ CellChangeTimes->{{3.4766435294674883`*^9, 3.476643556459756*^9}, {
+  3.476643638084951*^9, 3.476643639020671*^9}, {3.476643681599848*^9, 
+  3.476643697350753*^9}}],
+
+Cell[TextData[{
+ "7 nodes: ",
+ StyleBox["log",
+  FontWeight->"Bold"],
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["", "2"], TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontWeight->"Bold"],
+ StyleBox["(7+1) = 3",
+  FontWeight->"Bold"],
+ " comparisons."
+}], "Item",
+ CellChangeTimes->{{3.476643565737358*^9, 3.476643597071205*^9}, {
+  3.476643643523898*^9, 3.476643644596367*^9}, {3.476643685231763*^9, 
+  3.4766437008543577`*^9}}]
+}, Open  ]],
+
+Cell[TextData[{
+ "As a results, the complexity of the binary search algorithm is ",
+ StyleBox["O(log n)",
+  FontWeight->"Bold"],
+ " (logarithmic order). \n\nProgramatically we can represent a binary tree \
+like:"
+}], "Text",
+ CellGroupingRules->"NormalGrouping",
+ CellChangeTimes->{{3.4766401445832787`*^9, 3.476640170920805*^9}, {
+  3.476640211914526*^9, 3.476640321678679*^9}, {3.476640580684395*^9, 
+  3.4766406339689503`*^9}, {3.476640667946557*^9, 3.476640673109761*^9}, {
+  3.476640704500782*^9, 3.476640736410604*^9}, {3.4766434251169367`*^9, 
+  3.476643469543833*^9}, {3.476643579287624*^9, 3.476643579751257*^9}, {
+  3.476643835852763*^9, 3.476643874631073*^9}}],
+
+Cell["\<\
+
+5
+      | -----
+  |   | 8 6
+------
+  | |   | 3 1 4\
+\>", "Text",
+ CellGroupingRules->"NormalGrouping",
+ CellChangeTimes->{{3.4766401445832787`*^9, 3.476640170920805*^9}, {
+  3.476640211914526*^9, 3.476640321678679*^9}, {3.476640580684395*^9, 
+  3.4766406339689503`*^9}, {3.476640667946557*^9, 3.476640673109761*^9}, {
+  3.476640704500782*^9, 3.476640736410604*^9}, {3.4766434251169367`*^9, 
+  3.476643469543833*^9}, {3.476643579287624*^9, 3.476643579751257*^9}, {
+  3.476643835852763*^9, 3.476643882016747*^9}}],
+
+Cell[TextData[{
+ "as\n\t",
+ StyleBox["data BinTree a = Empty | NodeBT a (BinTree a) (BinTree a) deriving \
+Show\n\t aTree = NodeBT 5 (NodeBT 8 (NodeBT 3 Empty Empty) (NodeBT 1 Empty \
+Empty)) \n\t\t\t(NodeBT 6 Empty (NodeBT 4 Empty Empty))\[LineSeparator]",
+  FontFamily->"Courier",
+  FontWeight->"Bold"],
+ "\nand converted in to a list (traversed) in the following ways :"
+}], "Text",
+ CellGroupingRules->"NormalGrouping",
+ CellChangeTimes->{{3.4766401445832787`*^9, 3.476640170920805*^9}, {
+   3.476640211914526*^9, 3.476640321678679*^9}, {3.476640580684395*^9, 
+   3.4766406339689503`*^9}, {3.476640667946557*^9, 3.476640673109761*^9}, {
+   3.476640704500782*^9, 3.476640736410604*^9}, {3.4766434251169367`*^9, 
+   3.476643469543833*^9}, {3.476643579287624*^9, 3.476643579751257*^9}, {
+   3.476643835852763*^9, 3.476643886123082*^9}, {3.476643949259025*^9, 
+   3.476643953089645*^9}, {3.476644002294807*^9, 3.47664401456083*^9}, {
+   3.476644377460677*^9, 3.476644396607236*^9}, 3.476644431708459*^9, {
+   3.476644479337578*^9, 3.476644493550275*^9}}],
+
+Cell[TextData[{
+ "Preorder = a node is visited before its left and right subtrees are \
+visited.i.e : [5, 8, 3, 1, 6, 4]\n\t",
+ StyleBox["preorder Empty = []\n\t preorder (NodeBT a lf rt) = [a]++ preorder \
+lf++ preorder rt",
+  FontFamily->"Courier",
+  FontWeight->"Bold",
+  FontColor->GrayLevel[0]]
+}], "Item",
+ CellGroupingRules->"NormalGrouping",
+ CellChangeTimes->{{3.4766401445832787`*^9, 3.476640170920805*^9}, {
+  3.476640211914526*^9, 3.476640321678679*^9}, {3.476640580684395*^9, 
+  3.4766406339689503`*^9}, {3.476640667946557*^9, 3.476640673109761*^9}, {
+  3.476640704500782*^9, 3.476640736410604*^9}, {3.4766434251169367`*^9, 
+  3.476643469543833*^9}, {3.476643579287624*^9, 3.476643579751257*^9}, {
+  3.476643835852763*^9, 3.476643886123082*^9}, {3.476643949259025*^9, 
+  3.476643953089645*^9}, {3.476644002294807*^9, 3.476644040208502*^9}, {
+  3.476644130938384*^9, 3.4766441348577633`*^9}, {3.476644219345561*^9, 
+  3.47664422255407*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Inorder = a node is visited after its left subtree and before its right \
+subtrees are visited.i.e : [3, 8, 1, 5, 6, 4]\n",
+ StyleBox[" \tinorder Empty            = []\n \tinorder (NodeBT a lf rt) = \
+inorder lf ++ [a] ++ inorder rt ",
+  FontFamily->"Courier",
+  FontWeight->"Bold"]
+}], "Item",
+ CellChangeTimes->{{3.476644048767584*^9, 3.4766440571607113`*^9}, {
+  3.476644143273652*^9, 3.476644146638424*^9}, {3.476644237835861*^9, 
+  3.476644246336093*^9}, {3.47664432915904*^9, 3.4766443523692513`*^9}}],
+
+Cell[TextData[{
+ "Postorder =  a node is visited after its left and right subtrees are \
+visited. i.e: [3, 1, 8, 4, 6, 5]\[LineSeparator]\t",
+ StyleBox["postorder Empty            = []\[LineSeparator] \t postorder \
+(NodeBT a lf rt) = postorder lf ++ postorder rt ++ [a]",
+  FontFamily->"Courier",
+  FontWeight->"Bold"]
+}], "Item",
+ CellChangeTimes->{{3.476644089443912*^9, 3.4766441132095947`*^9}, {
+  3.476644155922316*^9, 3.4766441576310263`*^9}, {3.476644282965248*^9, 
+  3.476644311147563*^9}}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Concrete Mathematics", "Section",
+ CellGroupingRules->{"SectionGrouping", Inherited},
+ CellChangeTimes->{{3.476640909719215*^9, 3.4766409140211678`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Logarithms", "Subsection",
+ CellGroupingRules->{"SectionGrouping", Inherited},
+ CellChangeTimes->{{3.476640927787919*^9, 3.476640929853682*^9}}],
+
+Cell[TextData[{
+ "The logarithm of a number to a given base is the power to which the base \
+must be raised in order to produce the number. For example, the logarithm of ",
+ StyleBox["1000",
+  FontWeight->"Bold"],
+ " to base ",
+ StyleBox["10",
+  FontWeight->"Bold"],
+ " is ",
+ StyleBox["3",
+  FontWeight->"Bold"],
+ ", because ",
+ StyleBox["3",
+  FontWeight->"Bold"],
+ " is the power to which ten must be raised to produce: ",
+ StyleBox["10",
+  FontWeight->"Bold"],
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["", "3"], TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontWeight->"Bold"],
+ StyleBox[" = 1000",
+  FontWeight->"Bold"],
+ ", so ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["log", "10"], "("}], TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontWeight->"Bold"],
+ StyleBox["1000) = 3",
+  FontWeight->"Bold"],
+ ".\n\nThe logarithm of ",
+ StyleBox["x",
+  FontWeight->"Bold"],
+ " to the base ",
+ StyleBox["b",
+  FontWeight->"Bold"],
+ " is written ",
+ StyleBox["log",
+  FontWeight->"Bold"],
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["", "b"], TraditionalForm]],
+  FormatType->"TraditionalForm",
+  FontWeight->"Bold"],
+ StyleBox[" (x)",
+  FontWeight->"Bold"],
+ " or, if the base is implicit, as ",
+ StyleBox["log(x)",
+  FontWeight->"Bold"],
+ ". The bases used most often are ",
+ StyleBox["10",
+  FontWeight->"Bold"],
+ " for the ",
+ StyleBox["common logarithm",
+  FontSlant->"Italic"],
+ ", ",
+ StyleBox["e",
+  FontWeight->"Bold"],
+ " for the ",
+ StyleBox["natural logarithm",
+  FontSlant->"Italic"],
+ ", and ",
+ StyleBox["2",
+  FontWeight->"Bold"],
+ " for the ",
+ StyleBox["binary logarithm",
+  FontSlant->"Italic"],
+ ".\n\nA major property of logarithms is that they map multiplication to \
+addition, as a result of the identity"
+}], "Text",
+ CellGroupingRules->"NormalGrouping",
+ CellChangeTimes->{{3.47664095157218*^9, 3.476640972520331*^9}, {
+  3.47664192105732*^9, 3.476641932283304*^9}, {3.4766427131082487`*^9, 
+  3.4766427571006937`*^9}, {3.476642804737294*^9, 3.476642822765196*^9}, {
+  3.476642877413289*^9, 3.476642915310115*^9}, {3.476642954806387*^9, 
+  3.476642957563897*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   SuperscriptBox["b", "x"], " ", "*", " ", 
+   SuperscriptBox["b", "y"]}], " ", "\[Equal]", 
+  SuperscriptBox["b", 
+   RowBox[{"x", "+", "y"}]]}]], "Input",
+ CellChangeTimes->{{3.4766419544947643`*^9, 3.476642018150922*^9}, {
+  3.4766420546925783`*^9, 3.476642090228353*^9}, {3.476642527973363*^9, 
+  3.476642544563159*^9}}],
+
+Cell["which by taking logarithms become", "Text",
+ CellGroupingRules->"NormalGrouping",
+ CellChangeTimes->{{3.47664095157218*^9, 3.476640972520331*^9}, {
+  3.47664192105732*^9, 3.476641949163147*^9}, {3.4766420923219337`*^9, 
+  3.4766421125040693`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   SubscriptBox["log", "b"], 
+   RowBox[{"(", 
+    RowBox[{
+     SuperscriptBox["b", "x"], " ", "*", " ", 
+     SuperscriptBox["b", "y"]}], ")"}]}], " ", "\[Equal]", 
+  RowBox[{
+   SubscriptBox["log", "b"], 
+   RowBox[{"(", 
+    SuperscriptBox["b", 
+     RowBox[{"x", "+", "y"}]], ")"}]}], "\[Equal]", " ", 
+  RowBox[{"x", " ", "+", " ", "y"}], " ", "\[Equal]", 
+  RowBox[{
+   RowBox[{
+    SubscriptBox["log", "b"], 
+    RowBox[{"(", 
+     SuperscriptBox["b", "x"], ")"}]}], "+", 
+   RowBox[{
+    SubscriptBox["log", "b"], 
+    RowBox[{"(", 
+     SuperscriptBox["b", "y"], ")"}], "  "}]}]}]], "Input",
+ CellChangeTimes->{{3.476642108817552*^9, 3.476642252863587*^9}, {
+  3.476642340988029*^9, 3.476642418431593*^9}, {3.476642592555784*^9, 
+  3.4766426511548243`*^9}}],
+
+Cell["and so we have", "Text",
+ CellGroupingRules->"NormalGrouping",
+ CellChangeTimes->{{3.476642435369467*^9, 3.476642439793663*^9}, 
+   3.4766425030082493`*^9, {3.4766427055358067`*^9, 3.4766427067167053`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"log", 
+   RowBox[{"(", 
+    RowBox[{"x", "*", "y"}], ")"}]}], " ", "=", " ", 
+  RowBox[{
+   RowBox[{"log", 
+    RowBox[{"(", "x", ")"}]}], " ", "+", " ", 
+   RowBox[{"log", 
+    RowBox[{"(", "y", ")"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.476642466354383*^9, 3.476642487984613*^9}}],
+
+Cell["\<\
+That is, the logarithm of the product of two numbers is the sum of the \
+logarithms of those numbers.\
+\>", "Text",
+ CellGroupingRules->"NormalGrouping"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{924, 675},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+Magnification->1.25,
+FrontEndVersion->"7.0 for Mac OS X x86 (32-bit) (January 30, 2009)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 150, 2, 95, "Title",
+ CellGroupingRules->{"TitleGrouping", Inherited}],
+Cell[720, 26, 202, 3, 32, "Text",
+ CellGroupingRules->"NormalGrouping"],
+Cell[925, 31, 189, 3, 32, "Text",
+ CellGroupingRules->"NormalGrouping"],
+Cell[1117, 36, 145, 2, 25, "Item"],
+Cell[1265, 40, 216, 6, 32, "Text",
+ CellGroupingRules->"NormalGrouping"],
+Cell[CellGroupData[{
+Cell[1506, 50, 152, 2, 83, "Section",
+ CellGroupingRules->{"SectionGrouping", Inherited}],
+Cell[CellGroupData[{
+Cell[1683, 56, 147, 2, 42, "Subsection",
+ CellGroupingRules->{"SectionGrouping", Inherited}],
+Cell[1833, 60, 79, 1, 32, "Text",
+ CellGroupingRules->"NormalGrouping"],
+Cell[1915, 63, 150, 2, 30, "Subsubsection",
+ CellGroupingRules->{"SectionGrouping", Inherited}],
+Cell[CellGroupData[{
+Cell[2090, 69, 154, 2, 21, "Subsubsection",
+ CellGroupingRules->{"SectionGrouping", Inherited}],
+Cell[2247, 73, 960, 30, 107, "Text",
+ CellGroupingRules->"NormalGrouping"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3256, 109, 197, 3, 42, "Subsection",
+ CellGroupingRules->{"SectionGrouping", Inherited}],
+Cell[3456, 114, 203, 4, 32, "Text",
+ CellGroupingRules->"NormalGrouping"],
+Cell[3662, 120, 172, 2, 25, "Item",
+ CellGroupingRules->"NormalGrouping"],
+Cell[3837, 124, 166, 2, 25, "Item",
+ CellGroupingRules->"NormalGrouping"],
+Cell[4006, 128, 175, 5, 42, "Item",
+ CellGroupingRules->"NormalGrouping"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4218, 138, 145, 2, 42, "Subsection",
+ CellGroupingRules->{"SectionGrouping", Inherited}],
+Cell[4366, 142, 452, 9, 70, "Text",
+ CellGroupingRules->"NormalGrouping"],
+Cell[4821, 153, 279, 6, 25, "Item",
+ CellGroupingRules->"NormalGrouping"],
+Cell[CellGroupData[{
+Cell[5125, 163, 230, 3, 30, "Subsubsection",
+ CellGroupingRules->{"SectionGrouping", Inherited}],
+Cell[5358, 168, 387, 7, 32, "Text",
+ CellGroupingRules->"NormalGrouping"],
+Cell[5748, 177, 275, 4, 25, "Item",
+ CellGroupingRules->"NormalGrouping"],
+Cell[6026, 183, 118, 1, 25, "Item"],
+Cell[6147, 186, 516, 9, 32, "Text",
+ CellGroupingRules->"NormalGrouping"],
+Cell[CellGroupData[{
+Cell[6688, 199, 1227, 29, 72, "Input"],
+Cell[7918, 230, 3303, 61, 274, "Output"]
+}, Open  ]],
+Cell[11236, 294, 706, 15, 70, "Text",
+ CellGroupingRules->"NormalGrouping"],
+Cell[CellGroupData[{
+Cell[11967, 313, 824, 24, 72, "Input"],
+Cell[12794, 339, 4748, 92, 284, "Output"]
+}, Open  ]],
+Cell[17557, 434, 566, 12, 51, "Text",
+ CellGroupingRules->"NormalGrouping"],
+Cell[CellGroupData[{
+Cell[18148, 450, 438, 15, 25, "Item"],
+Cell[18589, 467, 439, 15, 25, "Item"],
+Cell[19031, 484, 437, 15, 25, "Item"]
+}, Open  ]],
+Cell[19483, 502, 671, 13, 70, "Text",
+ CellGroupingRules->"NormalGrouping"],
+Cell[20157, 517, 522, 14, 126, "Text",
+ CellGroupingRules->"NormalGrouping"],
+Cell[20682, 533, 1054, 18, 127, "Text",
+ CellGroupingRules->"NormalGrouping"],
+Cell[21739, 553, 952, 18, 58, "Item",
+ CellGroupingRules->"NormalGrouping"],
+Cell[CellGroupData[{
+Cell[22716, 575, 525, 10, 58, "Item"],
+Cell[23244, 587, 499, 10, 58, "Item"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[23816, 605, 159, 2, 83, "Section",
+ CellGroupingRules->{"SectionGrouping", Inherited}],
+Cell[CellGroupData[{
+Cell[24000, 611, 150, 2, 42, "Subsection",
+ CellGroupingRules->{"SectionGrouping", Inherited}],
+Cell[24153, 615, 2120, 78, 171, "Text",
+ CellGroupingRules->"NormalGrouping"],
+Cell[26276, 695, 360, 9, 36, "Input"],
+Cell[26639, 706, 253, 4, 32, "Text",
+ CellGroupingRules->"NormalGrouping"],
+Cell[26895, 712, 802, 25, 40, "Input"],
+Cell[27700, 739, 212, 3, 32, "Text",
+ CellGroupingRules->"NormalGrouping"],
+Cell[27915, 744, 319, 10, 33, "Input"],
+Cell[28237, 756, 163, 4, 32, "Text",
+ CellGroupingRules->"NormalGrouping"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

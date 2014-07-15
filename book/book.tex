@@ -1,0 +1,89 @@
+\documentclass[ebook,9pt,twoside,final]{memoir}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{a4wide, graphicx}
+\usepackage{listings,endnotes}
+\usepackage{hyperref} 
+%% to make colored boxes
+\usepackage{framed,wrapfig,xcolor}
+
+
+%% SETUP
+\lstset{language=C,basicstyle=\footnotesize\ttfamily} % format verbatime using the c programming syntax
+\newcommand{\myindent}{\hspace{0.45cm}}  % home made indent function
+\maxtocdepth{section} % only add parts, chapters and sections to toc
+\renewcommand{\cftdotsep}{\cftnodots} % remove dots in toc
+%\renewcommand{\cftchapterfont}{\mdseries} % toc chapter font 
+\chapterstyle{bianchi} % chapter styling
+%\addtokomafont{section}{\large} % section font size
+%\KOMAoptions{bibliography=totoc,index=totoc} % add bibliography and index to TOC
+
+%% CAPSULE SETUP
+\colorlet{shadecolor}{gray!25} 
+\renewcommand\FrameCommand{\fboxrule=.4pt,% 
+  \fboxsep=2pt\fcolorbox{black}{shadecolor}} 
+
+%% THEOREM SETUP
+\swapnumbers % swap theorem numbering
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defi}[thm]{Definition}
+\newtheorem{exc}{}[chapter]
+\newcommand{\ans}[1]{\vspace{0.2cm}\textbf{\ref{#1}}} 
+
+
+%% BEGIN DOCUMENT
+\begin{document}
+
+%% TITLEPAGE
+\begin{titlingpage}
+\rule[5pt]{155mm}{0.3mm}
+\vspace{3cm}
+\begin{center}
+	\Huge \textsc{Opus Mathematica\\}
+	\vspace{2cm}
+	\large \textsc{A Complete Guide to the World \\ of Mathematics\\}
+	\vspace{10cm}
+	\textsc{- Lars Tackmann -\\} \textsc{www.randompage.org}
+\end{center}
+\end{titlingpage}
+
+%% DEDICATION
+\thispagestyle{empty}
+\begin{flushright}
+This series of books are dedicated to memory of \\ 
+Bertrand Russell and Baruch Spinoza whose \\
+books taught me the beauty of mathematics \\ 
+and made me a lover of philosophy 
+\end{flushright}
+
+%% PREFACE
+\frontmatter 
+\tableofcontents*
+\input{preface}
+
+%% MAIN BOOK
+\mainmatter 
+\input{chapters/chap1}
+\input{chapters/chap2}
+\input{chapters/chap3}
+\input{chapters/chap4}
+\input{chapters/chap5}
+\input{chapters/chap6}
+\input{chapters/chap7}
+\input{chapters/chap8}
+
+%% APPENDIX
+\appendix
+\input{chapters/answers}
+%\input{chapters/glossary}
+
+\backmatter
+\begin{theindex}
+\item Binomial Coefficient, \pageref{binom_2}
+\end{theindex}
+
+\end{document}
