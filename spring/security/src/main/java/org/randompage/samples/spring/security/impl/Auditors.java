@@ -7,12 +7,10 @@ import org.randompage.security.ArgumentAuditor;
 import org.randompage.security.ResultAuditor;
 
 public class Auditors {
-	public static class AccountAuditor implements ResultAuditor,
-			ArgumentAuditor {
+	public static class AccountAuditor implements ResultAuditor, ArgumentAuditor {
 		private String principal;
 
 		@Override
-		@SuppressWarnings("unchecked")
 		public void checkResult(Object object) throws SecurityException {
 			if (object instanceof List) {
 				List list = (List) object;
@@ -43,6 +41,5 @@ public class Auditors {
 			for (Object object : args)
 				checkAccount(object);
 		}
-
 	}
 }

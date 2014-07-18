@@ -4,17 +4,18 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.Authentication;
-import org.springframework.security.AuthenticationManager;
-import org.springframework.security.GrantedAuthority;
-import org.springframework.security.GrantedAuthorityImpl;
-import org.springframework.security.context.SecurityContext;
-import org.springframework.security.context.SecurityContextHolder;
-import org.springframework.security.context.SecurityContextImpl;
-import org.springframework.security.providers.ProviderManager;
-import org.springframework.security.providers.TestingAuthenticationProvider;
-import org.springframework.security.providers.TestingAuthenticationToken;
-import org.springframework.security.providers.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.context.SecurityContextImpl;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.ProviderManager;
+import org.springframework.security.authentication.TestingAuthenticationProvider;
+import org.springframework.security.authentication.TestingAuthenticationToken;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -40,20 +41,18 @@ public class AuthUtils {
 		SecurityContextHolder.setContext(secureContext);
 	}
 
-	@SuppressWarnings("unchecked")
 	public void loginAs(String... roles) {
 		final String username = "dummy";
 		final String password = "secret";
 		// grant roles to token
 		List<GrantedAuthority> grants = new LinkedList<GrantedAuthority>();
 		for (String role : roles)
-			grants.add(new GrantedAuthorityImpl(role));
-		Authentication token = new TestingAuthenticationToken(username,
-				password, grants.toArray(new GrantedAuthority[0]));
+			grants.add(new SimpleGrantedAuthority(role));
+		Authentication token = new TestingAuthenticationToken(username, password, grants);
 		// enable testing authentication provider
-		List<Object> list = providerManager.getProviders();
+		List<AuthenticationProvider> list = providerManager.getProviders();
 		if (list == null)
-			list = new LinkedList<Object>();
+			list = new LinkedList<AuthenticationProvider>();
 		list.add(new TestingAuthenticationProvider());
 		providerManager.setProviders(list);
 		// store token with our grants

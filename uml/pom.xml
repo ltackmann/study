@@ -1,11 +1,31 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>co.tackmann</groupId>
-    <artifactId>maven-parent</artifactId>
-    <version>1.0.0</version>
-    <relativePath>../maven/pom.xml</relativePath>
-  </parent>
-  <artifactId>uml</artifactId>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>co.tackmann</groupId>
+		<artifactId>maven-parent</artifactId>
+		<version>1.0.0</version>
+		<relativePath>../maven/pom.xml</relativePath>
+	</parent>
+	<artifactId>uml</artifactId>
+
+	<repositories>
+		<repository>
+			<id>central</id>
+			<name>Schantz</name>
+			<url>http://artifactory.schantz.com:8081/artifactory/schantz</url>
+			<layout>default</layout>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.schantz.core</groupId>
+			<artifactId>Foundation</artifactId>
+			<version>3.0.3-20140718.124400-404</version>
+		</dependency>
+	</dependencies>
 </project>
