@@ -27,5 +27,10 @@
 			<artifactId>Foundation</artifactId>
 			<version>3.0.3-20140718.124400-404</version>
 		</dependency>
+		<dependency>
+			<groupId>jaxen</groupId>
+			<artifactId>jaxen</artifactId>
+			<version>1.1.1</version>
+		</dependency>
 	</dependencies>
 </project>

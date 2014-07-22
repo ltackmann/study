@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
+  version="1.0">
+	<entity class="com.schantz.foundation.sql.RequestedSql"/>
+	<entity class="com.schantz.foundation.batch.BatchJobActivityRequest"/>
+	<entity class="com.schantz.foundation.batch.BatchJobInstance"/>
+	<entity class="com.schantz.foundation.batch.BatchJobSpec"/>
+	<entity class="com.schantz.foundation.batch.errorhandling.BatchJobErrorTicket"/>
+	<entity class="com.schantz.foundation.batch.BatchJobSpecVersion"/>
+	<entity class="com.schantz.foundation.batch.BatchJobSchedulerTime"/>
+	<entity class="com.schantz.foundation.batch.BatchJobFileDir"/>
+	<entity class="com.schantz.foundation.batch.BatchJobData"/>
+	<entity class="com.schantz.foundation.batch.BatchJobEIOperation"/>
+	<entity class="com.schantz.foundation.batch.ActiveBatchJob"/>
+	<entity class="com.schantz.foundation.batch.BatchJobSchedule"/>
+	<entity class="com.schantz.foundation.batch.BatchJobIncident"/>
+	<entity class="com.schantz.foundation.batch.ExclusiveMode"/>
+</entity-mappings>
