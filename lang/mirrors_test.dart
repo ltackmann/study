@@ -88,13 +88,18 @@ main() {
       
       mirrorSystem.libraries.forEach((k,v)=> print(k));
       var libUri = mirrorSystem.libraries.keys.firstWhere((uri) => uri.toString().contains("mirrors_test_classes"));
-      var lib = mirrorSystem.libraries[libUri];
-      expect(lib, isNotNull);
+      LibraryMirror libMirror = mirrorSystem.libraries[libUri];
+      expect(libMirror, isNotNull);
       
-      expect(lib.classes.length, equals(2));
-      expect(lib.classes[new Symbol("MyClass")], isNotNull);
-      expect(lib.functions.length, equals(1));
-      expect(lib.functions[new Symbol("myFunction")], isNotNull);
+      // classes
+      var classDeclaration = libMirror.declarations[new Symbol("MyClass")];
+      expect(classDeclaration, isNotNull);
+      expect(classDeclaration, new isInstanceOf<ClassMirror>());
+      
+      // method and functions 
+      var functionDeclaration = libMirror.declarations[new Symbol("myFunction")];
+      expect(functionDeclaration, isNotNull);
+      expect(functionDeclaration, new isInstanceOf<MethodMirror>());
     });
   });
 }

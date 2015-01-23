@@ -1,4 +1,4 @@
-import 'package:js/js.dart' as js;
+import 'dart:js' as js;
 import 'package:unittest/unittest.dart';
 
 main() {
