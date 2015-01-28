@@ -27,7 +27,7 @@ main() {
       var im = reflect(obj);
       
       int passed = 0;
-      im.type.methods.values.forEach((MethodMirror method) {
+      im.type.declarations.values.where((DeclarationMirror decl) => decl is MethodMirror).forEach((method) {
         // TODO invoke methods http://phylotic.blogspot.dk/2012/08/working-with-mirrors-in-dart-brief.html
         if(MirrorSystem.getName(method.simpleName) == "_privateMethod") {
           _assertMethod(method, isPrivate:true, isStatic:false, returnType:"String", argTypes:[]); 
@@ -56,14 +56,13 @@ main() {
     test("emit instance from prototype", () {
       var im = reflect(new MyClass());
       var cm = im.type;
-      cm.newInstanceAsync(new Symbol(''),[]).then(expectAsync1((InstanceMirror newIm) {
-        var instance = newIm.reflectee;
-        expect(instance.publicField, equals("public field"));
-      })); 
-      // TODO emit instance from type (the above example uses an instance to emit another instance)
+      var newIm = cm.newInstance(new Symbol(''),[]);
+      var instance = newIm.reflectee;
+      expect(instance.publicField, equals("public field"));
     });
     
     test("emit instance from class", () {
+      // TODO emit instance from type (the above example uses an instance to emit another instance)
     });
   });
   

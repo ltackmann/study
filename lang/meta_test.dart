@@ -26,21 +26,29 @@ void main() {
     assertMetadata(classMirror.metadata, "class");
     
     // constructor
-    expect(classMirror.constructors.length, equals(1));
-    classMirror.constructors.forEach((s,m) {
+    expect(constructors(classMirror).length, equals(1));
+    constructors(classMirror).forEach((m) {
       assertMetadata(m.metadata, "constructor");
     });
     
     // field
-    expect(classMirror.members.length, equals(1));
-    classMirror.members.forEach((s,m) {
+    expect(fields(classMirror).length, equals(1));
+    fields(classMirror).forEach((m) {
       assertMetadata(m.metadata, "field");
     });
   });
 }
 
-bool assertMetadata(List<InstanceMirror> metadata, String expected) {
+assertMetadata(Iterable<InstanceMirror> metadata, String expected) {
   expect(metadata.length, equals(1));
   expect(metadata.first.reflectee is Message, isTrue);
   expect(metadata.first.reflectee.msg, equals(expected));
+}
+
+List<DeclarationMirror> constructors(ClassMirror classMirror) {
+  return classMirror.declarations.values.where((DeclarationMirror decl) => decl is MethodMirror && (decl).isConstructor).toList();
+}
+
+List<DeclarationMirror> fields(ClassMirror classMirror) {
+  return classMirror.declarations.values.where((DeclarationMirror decl) => decl is VariableMirror).toList(); 
 }

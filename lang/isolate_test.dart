@@ -1,15 +1,14 @@
-import "dart:async";
 import "dart:isolate";
 import 'package:unittest/unittest.dart';
 
+/// Examples of using isolates (i.e. actors) for concurrent programming
 main() {
-  // TODO check https://www.dartlang.org/docs/dart-up-and-running/contents/ch03.html#ch03-dartisolate---concurrency-with-isolates
   group("isolate", () {
     test("send/recieve", () {
       var receiever = new ReceivePort();
       var remote = Isolate.spawn(echo, receiever.sendPort);
       
-      remote.then(expectAsync1((Isolate isolate) {
+      remote.then(expectAsync((Isolate isolate) {
         receiever.listen((response) {
           var msg = response[0] as String;
           var communicator = response[1] as SendPort;

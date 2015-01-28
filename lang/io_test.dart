@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:unittest/unittest.dart';
 
+/// Examples of Dart IO libraries
 main() {
   group("system", () {
     test("env", () {
@@ -27,7 +28,7 @@ main() {
     test("read file async", () {
       var file = new File('pubspec.lock'); 
       var future = file.readAsString(); // returns immediately  
-      future.then(expectAsync1((String content) {
+      future.then(expectAsync((String content) {
         expect(content, isNot(isEmpty));
       }));
     });
@@ -55,7 +56,7 @@ main() {
     });
     
     test("call shell and parse output", () {
-      Process.start('ls', ['/']).then(expectAsync1((Process process) {
+      Process.start('ls', ['/']).then(expectAsync((Process process) {
         process.stdout.listen((List<int> data) {
           var result = new String.fromCharCodes(data);
           expect(result, isNot(isEmpty));
@@ -65,14 +66,13 @@ main() {
   });
   
   group("http test -", () {
-    solo_test("get", () {
+    test("get", () {
       var completer = new Completer<String>();
       var httpClient = new HttpClient();
-      var connection = httpClient.get("google.com", 80, "");
-      connection.then(expectAsync1((HttpClientRequest request) {
+      httpClient.get("google.com", 80, "").then(expectAsync((HttpClientRequest request) {
         // fire request.
         return request.close();
-      })).then(expectAsync1((HttpClientResponse response) {
+      })).then(expectAsync((HttpClientResponse response) {
         if(response.statusCode == 200) {
           response.listen((List<int> bodyData) {
             var body = new String.fromCharCodes(bodyData);

@@ -2,17 +2,17 @@ part of functional_dart;
 
 class MonadsTest {
   MonadsTest() {
-    test("optional", () {
+    test("optional monad", () {
       var noCar = new Person(new Optional<Car>(null));
-      var noInsurance = new Person(new Optional<Car>(new Car(new Optional<Insurance>(null))));
+      var carNoInsurance = new Person(new Optional<Car>(new Car(new Optional<Insurance>(null))));
       var carWithInsurance = new Person(new Optional<Car>(new Car(new Optional<Insurance>(new Insurance("full")))));
     
       expect(getCarInsuranceName(new Optional<Person>(noCar)), equals("Unknown"));
-      expect(getCarInsuranceName(new Optional<Person>(noInsurance)), equals("Unknown"));
+      expect(getCarInsuranceName(new Optional<Person>(carNoInsurance)), equals("Unknown"));
       expect(getCarInsuranceName(new Optional<Person>(carWithInsurance)), equals("full"));
     });
     
-    test("validation", () {
+    test("validation monad", () {
       var toYoung = new Person.withAge(-1);
       var toOld = new Person.withAge(140);
       var justRight = new Person.withAge(42);
@@ -38,18 +38,24 @@ class MonadsTest {
 // test classes
 class Person {
   Person(this.car);
+  
   Person.withAge(this.age);
+  
   Optional<Car> car;
+  
   String fullname;
+  
   int age;
 }
 
 class Car {
   Car(this.insurance);
+  
   Optional<Insurance> insurance;
 }
 
 class Insurance {
   Insurance(this.name);
+  
   String name;
 }

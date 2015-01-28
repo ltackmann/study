@@ -1,5 +1,6 @@
 import "package:unittest/unittest.dart";
 
+/// Examples of various ways to define Dart functions
 main() {
   group("function parameters -", () {
     test("optional named", () {

@@ -1,4 +1,0 @@
-name: dart_algorithms
-description: Various calgorithms implemented in Dart
-dependencies:
-  unittest: any

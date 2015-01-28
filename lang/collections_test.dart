@@ -1,7 +1,8 @@
 import "package:unittest/unittest.dart";
 
+/// Examples of various usage of Dart collections
 main() {
-  group("collections -", () {
+  group("collection methods -", () {
     test("add", () {
       var list = [2];
       expect(list..add(3), orderedEquals([2,3]), reason:"must add to the end of collection");

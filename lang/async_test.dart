@@ -1,8 +1,7 @@
 import "dart:async";
 import 'package:unittest/unittest.dart';
 
-// TODO http://www.dartlang.org/articles/using-future-based-apis/ (Futures.wait + chains)
-/// Test http://api.dartlang.org/docs/releases/latest/dart_async.html
+/// Examples of async programming in Dart [see][http://api.dartlang.org/docs/releases/latest/dart_async.html]
 void main() {
   group("future -", () {
     test("return value immediatly", () {
@@ -21,7 +20,7 @@ void main() {
     test("run command after completion", () {
       var hasRun = false;
       var compute = new Compute();
-      compute.sumIt([1, 2, 3]).then(expectAsync1((int sum) {
+      compute.sumIt([1, 2, 3]).then(expectAsync((int sum) {
         expect(sum, equals(6));
         hasRun = true;
       })).whenComplete(() {
