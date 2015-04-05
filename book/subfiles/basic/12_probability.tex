@@ -1,0 +1,152 @@
+\chapter{Basic probability}
+% TODO missing probability concepts
+% http://sahilmohnani.wordpress.com/2013/06/03/the-multinomial-and-poisson-distributions/
+% - http://sahilmohnani.wordpress.com/2013/06/03/the-chi-square-distribution/
+% - Stem-and-leaf plot example http://www.purplemath.com/modules/stemleaf.htm
+% - Statistical vs non statistical questions (average vs deterministic)
+% - probability models (should probabilities sum to 1)
+% Normal distribution https://www.mathsisfun.com/data/standard-normal-distribution.html and https://statistics.laerd.com/statistical-guides/normal-distribution-calculations.php
+% - area under the curve
+% - http://www.countbayesie.com/blog/2015/3/17/interrogating-probability-distributions
+
+Probability is the foundation for statistics one of the most useful branches of mathematics. The ability to calculate probabilities transformed statistics from the mere collection data to the use of data to draw inferences and make informed decisions. Today politicians try to predict the voters opinion through opionen polling. Marketing departments in big corporations study their prospective customers to figure out how best to target new products and sales campaings to each segment and in modern medicine, statistical methods are used to compare the benefits of various drugs and treatments with their risks.
+
+\myindent In spite of the obvious usefulness probability and statistics are rather new branches of matematics. Some of the earlist studies of probability comes from gambling. The sixteenth century polymath \index{Gerolamo Cardano} demonstrated the efficacy of defining odds on games as the ratio of favorable to unfavorable outcome. Later these ideas was picked up and expanded upon by \index{Pierre de Fermat} and \index{Blaise Pascal}. In recent years the study of probability and statistics has gained pace as computers allows us to perform studies on and make inference from large samples.
+
+\myindent In 1494 \index{Luca Pacioli} first put into print the challange that Pascal and Fermat would solve two centuries later and with it usher in the area of probability. The challange is known as the problem of the unfinished game. Suppose two players $\{A, B\}$ bets on who will win the best of five tosses of a fair coin, but then have to stop before either player has won. How do they divide the pot?. If each has won the same number of throws then clearly the pot is split evenly. But what if they stop after three tosses, with player $A$ ahead $2$ to $1$?. Pacioli, the man who first wrote about the problem, suggested that the solution is to divide the pot according to the current state of play, namely, $2$ to $1$. But this reasoning is incorrect as was demonsgrated in $1539$ by Gerolamo Cardano who noted that splitting the pot depended not on how many rounds each player had already won (as Pacioli thought) but on how many each player must still win in order to win the contest. To see this consider that since $A$ is ahead $2\text{-to-}1$, the first three rounds must have yielded two heads and one tail. The remaining two throws can yield $\{H,H\}$, $\{H,T\}$, $\{T,H\}$, $\{T,T\}$. In the first scenario $\{H,H\}$, the final score is four heads and one tail, so player $A$ wins; in the second and the third ($\{H,T\}$ and $\{T,H\}$), the final outcome is three heads and two tails, so again player $A$ wins. Only in the fourth scenario with $\{T,T\}$ is the final outcome two heads and three tails, so player $B$ wins. This means that player $A$ wins in three of the four possible ways the game could have ended and thus the pot should be divided $3/4$ for $A$ and $1/4$ for for $B$. 
+
+\section{Events}
+\epigraph{"I can as easily throw one, three or five as two, four or six. The wagers there are laid in accordance with this equality if the die is honest."}{\textup{Gerolamo Cardano}, Liber de ludo aleae (Book of Games of Chance)}
+
+In the quote above Gerolamo Cardano states that with a fair die the probability of getting $\{1,3,5\}$ is the same as getting $\{2,4,6\}$. He thus formulated one of the earlist known examples of what we now call the probability of an event as a fraction: the number of events that meets a constraint (such as a die being even or odd) divided by the total number of possible outcomes (such as the six different faces of a die). 
+\[
+P(event) = \frac{\text{Number of events that meet constraint}}{\text{Number of equally likely events}}
+\]
+For example a toss of a fair coin have two possible outcomes $\{H,T\}$ so the probability of heads is $P(H) = \frac{1}{2}$. Semilarly a toss of a fair die has $6$ possible outcomes $\{1, 2, 3, 4, 5, 6\}$ so the probability of the die showing six is $P(6) = \frac{1}{6}$, the probability of getting one or six is $P(1 \text{ or } 6) = \frac{2}{6}$ and probability of even number as $P(even) = \frac{3}{6}$
+
+\myindent Cardano also observed that the probability of getting a certain outcome on two successive throws is the square of the probability of getting it on a single throw. For example, the probability of getting a $6$ twice is $1/6 \times 1/6 = 1/36$. Similarly, the probability of getting three even numbers is $1/2 \times 1/2 \times 1/2 = 1/8$ (this assumes that is the events are \index{independent events}independent events, i.e. that the first throw does not influence the second). That is the probability of two independendt events $A$ and $B$ occuring is
+\[
+P(A \text{ and } B) = P(A) \times P(B)
+\]
+Such events are known as a \index{compound event}compound events. With compound events the likelihood of a series of independent events occurring is the multiplication of the likelihood of each individual event. So, if the probability of you finishing this chapter is $9$ out of $10$, and the probability of you finishing the next one is $9/10$, the total probability of you finishing both chapters isn't $9/10$: it's $9/10 \times 9/10 = 81/100$. Note if you remove the restriction on the order in which the events occures then there are more possibilities. For example, the probability of rolling a $6$ followed by an even number is $1/6 \times 1/2 = 1/12$ but without the restriction of order it becomes $5/36$. The easist way to see this is to count all the possible outomes of throwing two dies $6 \times 6 = 36$ and then count the favorable  outcomes (the die is even or six) $\{2,6\}$, $\{6,2\}$, $\{4,6\}$, $\{6,4\}$, and $\{6,6\}$. As there are five such outcomes so we arrive at $5/36$. Cardano also considered examples where we are interested in any of two possible events, such as the odds of getting a $1$ or an even number are $1/6 + 1/2 = 2/3$. That is the probability of either of twi independendt events $A$ and $B$ occuring is
+\[
+P(A \text{ or } B) = P(A) + P(B)
+\]
+
+\myindent Cardano’s also calculated the probability of throwing a $1$ or a $2$ with a pair of dice. The probability of throwing a $1$ or a $2$ with a single die is $1/3$, so the naive answer would be that with two dice the probability is $2/3$. Cardano notes this was incorrect as the probability of not rolling $1$ or $2$ with a single die is $4/6 = 2/3$, so the probability of not rolling it with two dice is $2/3 \times 2/3 = 4/9$. Hence the probability of rolling a $1$ or a $2$ must be $1 - 4/9 = 5/9$. This last scenario is a example of \index{complementary events}. Complementary events are events that when add together to equal a whole. For example, if the probability of it raining today were $2/5$, the probability of it not raining would be $1 - 2/5 = 3/5$. From Cardano's early results it was made clear that probabilities functioned very differently if events where indepdendnet or depdendet
+
+\begin{description}
+\item [Independent events] are events not affected by any other events. For example a coin toss is a independt event with $\{H,T\}$ each having $50\%$ chance.
+\item [Dependent events] are events that are affected by previous events. For example if we have $2$ blue and $3$ red marbles in a bag, then the chance of getting a blue marble is $2/5$. But after taking one marble out the chances change. If we got a red marble then chance of picking a blue is $2/4$, but if we got a blue then the chance of another is $1/4$. Thhus the probability of drawing two blue marbles is $2/5 \times 1/4 = 2/20 = 1/10$.
+% TODO https://www.mathsisfun.com/data/probability-events-conditional.html
+\end{description} 
+
+Understanding these distictions lets you use the correct values for calculating probability. For example if you take a card from a deck it has $1/52$ chance of bejng the ace of spades. If you flip $50$ of the of the remaining $51$ cards and none are the ace of spades then the remaining card now has $51/52$ chances to be the ace of spades, that is significanly more likely than our initial draw.
+
+\section{Conditional probabilities}
+A conditional probability is the probability of an event given that another event has occurred. For example, the probability that any given person has a cough on any given day may be only $5\%$. But if we assume the person has a cold, then they are much more likely to be coughing. The most famous problem of conditional probabilities is likely the \index{Monty Hall problem}Monty Hall problem. At the last round of a game show, you’re faced with three curtains. Behind one there is a car but behind the two others there is a goat. You’re asked by the presenter to make a first choice. He then reveals one of the curtains you haven’t chosen which contains a goat. The presenter then offers you a chance to change your mind and switch curtain. Should you switch your choice or stick to the origiginal one. To most peoples surprise the correct answer is that you should switch your choice after being given this additional information. To see this consider the following table of posible actions
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{door 1} & \textbf{door 2} & \textbf{door 3} \\ \hline
+stay            & switch          & switch          \\ \hline
+switch          & stay            & switch          \\ \hline
+switch          & switch          & stay            \\ \hline
+\end{tabular}
+\end{table}
+that is if the car is behind dore one and you chose door one you should stay, if you chose door two or three you shoukd switch, equally for door two and three. From this table its easy to count that you should swich $6$ out of $9$ times which is therefor the best strategy.
+
+% TODO formal math for montey hall.
+
+\section{Random variable}
+\subsection{Expected return}
+% TODO http://en.m.wikipedia.org/wiki/Expected_return
+Expected gain is generally regarded as the correct objective measure (in most cases) of the value of a particular wager to the person who makes it. To compute it, you multiply the probability of each outcome by the amount that will be won (or lost, which you count as a negative gain) and add all the results together. For example, casinos offer even odds for betting on red or black at roulette. Suppose you bet $100$ on red. The roulette wheel has 36 slots, numbered from 1 to 36, half of them colored red, half black, and two zeros, colored green. The probability of red coming up is therefore 18/38, that is, 9/19. So your expectation (to the nearest cent) is: (9/19 × 100) + (10/19 × -100) = -100/19 = -5.26 This means that if you play repeatedly, betting 100 on red each time, then on average, you will lose 5.26 on each game. To put it another way, you can expect your losses to average 5.26 a game.
+
+\section{Probability space}
+A probability spaces is a way to models processes consisting of states that occur randomly. For example in a deck of 52 cards the sample space is a 52-element set, as each card is a possible outcome. Since there can be many outcomes (even infinitely many), outcomes elements are grouped into sets which are called "events. For our deck of cards, possible events may include
+\begin{description}
+\item [- The 5 of Hearts] (1 element),
+\item [- A King] (4 elements),
+\item [- A Face card] (12 elements),
+\item [- A card] (52 elements).
+\end{description}
+More formally an event, is any subset of the sample space we like to consider in our model, including the empty set (an impossible event, with probability zero) and the sample space itself (a certain event, with probability one).
+
+\noindent To sum up a probability space consists of three parts
+\begin{itemize}
+\item The sample space $\Omega$ which is a set of all possible outcomes.
+\item The $\sigma$-algebra $\mathcal{F}$ which is a collection of the events we would like to consider.
+\item The probability measure $P$ which is a function returning an event's probability $P: F \rightarrow [0,1]$.
+\end{itemize}
+
+For example if the experiment consists of just one flip of a perfect coin, then the outcomes are either heads or tails: $\Omega = {H, T}$. The $\sigma$-algebra $\mathcal{F} = 2^{\Omega}$ contains $2^2 = 4$ events, namely:
+\begin{itemize}
+\item $\{H\}$ – "heads"
+\item $\{T\}$ – "tails",
+\item $\{\}$ – "neither heads nor tails"
+\item $\{H,T\}$ – "either heads or tails"
+\end{itemize}
+So, $\mathcal{F} = \{\{\}, \{H\}, \{T\}, \{H,T\}\}$. Since there is a fifty percent chance of tossing heads, and fifty percent for tails the probability measure in this example is $P(\{\}) = 0, P(\{H\}) = 0.5, P(\{T\}) = 0.5, P(\{H,T\}) = 1$.
+
+\subsection{Random variable}
+A random variable (or stochastic variable) is a variable whose value is subject to variations due to chance. A random variable's possible values might represent the possible outcomes of a yet-to-be-performed experiment
+
+The mathematical function describing the possible values of a random variable and their associated probabilities is known as a probability distribution. Random variables can be discrete, that is, taking any of a specified finite list of values; or continuous, taking any numerical value in an interval.
+
+\section{Propability distributions}
+%\subsection{Poison distribution}
+\subsection{Binomial distribution}
+%\subsection{Negative binomial distribution}
+%\subsection{Compound distributions}
+\subsection{Normal distribution}
+%\subsection{Gamma distribution}
+%\subsection{Lognormal distribution}
+%\subsection{Pareto distribution}
+%\subsection{Chi-squared distribution}
+
+\section{Exercises}
+
+% TODO missing exercises
+% - create excercise with tree people flipping coins and getting best out five but having to stop after two rounds (question of the three players who play in two throws. When the first has one [point] and the others none, your first solution is the true one and the division of the wager should be 17, 5, and 5. The reason for this is self-evident and it always takes the same principle, the combinations making it clear that the first has 17 chances while each of the others has but five.)
+% - Exercise when throwing two dice is it better to bet on the total die showing 9 or 10
+% - excercise what is the probability of rolling a 6 with one die when you throw four times. (The probability is 51.77 percent.)
+% - excercise what is the probability of getting a double 6 in twenty-five throws (is 50.55 percent)
+
+\begin{ExerciseList}
+
+\Exercise If you role a fair six sided die and a fair four sided die what is the probability that neither will shown one
+\Answer $P(\text{six sided not not one}) \cdot P(\text{four sided not not one}) = 5/6 * 3/4 = 5/8$
+
+\Exercise You are given two dice to roll. One is black with six sides; the other is white with four sides. For a given roll, what is the probability the black die is even and the white die is $2$
+\Answer $P(\text{even black die}) \cdot P(\text{white die is 2}) = 3/6 * 1/4 = 3/24$
+
+\Exercise You are going to randomly select a marble from a bag of marbles that contains $3$ blue marbles, $4$ green marbles, and $5$ red marbles. What is $P(\text{blue marble})$
+\Answer $P(blue marble) = \frac{\text{number of blue marbles}}{\text{total number of marbles}} = 3/12 = 0.25$
+
+\Exercise A store offers sells four types of cloth: shirts, pants, socks and hats and offers each in three colors orange", purple and blue. If you randomly pick the piece of clothing and the color, what is the probability that you'll end up with an orange hat
+\Answer $1/3 \cdot 1/4 = 1/12$
+
+\Exercise If you flip a fair coin $1200$ times. What is the best prediction for the number of times that the coin will land heads up?
+\Answer $1/2 \cdot 1200 = 600$
+
+\Exercise If you toss a fair die $180$ times what is the best prediction of the number of times you will get more than $4$
+\Answer $2/6 \cdot 180 = 60$
+
+\Exercise You've decided to flip $3$ coins, how many possible outcomes are there.
+\Answer There are two possible outcomes for the first flip, two for the second and two for the thrid, thus $2 \cdot 2 \cdot 2 = 8$ possible outomes.
+
+\Exercise If a pirate and a navy boat fires at each other simultanously and the navy boat has $3/5$ probability of a hit and the pirate $1/3$. What is then the probability that the navy hits and the pirate misses ?
+\Answer Our scenario has probability $P(\text{navy hits}) * P(\text{pirate misses})$ which is $3/5 \cdot (1 - 1/3) = 3/5 \cdot 2/3 = 6/15 = 2/5$.
+
+\Exercise In a class of $7$, there are $3$ students who have red hair. If the teacher randomly chooses $2$ students, what is the probability that neither of them have red hair.
+\Answer there is a $4/7$ chance that the first student is not a red hair and $3/6$ chance that the second student is not so $4/7 * 3/6 = 12/42 = (2*2*3)/(2*3*7) = 2/7$.
+
+\Exercise Three dice are thrown simultaneously. Find the probability that:
+\Question All show distinct faces
+\Question Two of them show the same face
+\Answer TODO % http://math.stackexchange.com/a/470067
+
+\end{ExerciseList}
+

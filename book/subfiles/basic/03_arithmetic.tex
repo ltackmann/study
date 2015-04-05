@@ -1,87 +1,129 @@
 \chapter{Arithmetic}\label{arit}
 % TODO arithmetic missing concepts
 % - Ratio (3 to 1 = 3:1 means that for each time there is 3 of one type there is 1 of another).
-% -- if a and b are in ratio 5:6 means for each time there is 5 of a there is 6 of b. 
+% -- if a and b are in ratio 5:6 means for each time there is 5 of a there is 6 of b.
 % -- if asked how many of type a there are if there are 12 of b we can calculate as (5/6) * 2 = 10/12
-% - restructure (introduce numbers earlier, and move rounding and scientific notation)
 % - inequalities http://www.mathsisfun.com/algebra/inequality.html
 % - absolute value
-% - evaluate: 
-% -: -1 - (-z) - 5 - (-3) where z=-2 (answer = - 5)
-% -: x- (-y) where x=-2 and y=5 (answer 3)
-% -: 3 - (-6) + (-h) + (-4) (answer 12)
 
-\section{Numbers}
-\begin{table}[H]
-\centering
-\begin{tabular}{|l|l|l|l|}
-\hline
-\textbf{Number} & \textbf{Name}   & \textbf{Power} & \textbf{Decimal} \\ \hline
-1/10000         & Ten thousandths & $10^{-4}$      & 0.0001           \\ \hline
-1/1000          & Thousandths     & $10^{-3}$      & 0.001            \\ \hline
-1/100           & Hundredths      & $10^{-2}$      & 0.01             \\ \hline
-1/10            & Tenth           & $10^{-1}$      & 0.1              \\ \hline
-1               & Ones            & $10^0$         &                  \\ \hline
-10              & Tens            & $10^1$         &                  \\ \hline
-100             & Hundreds        & $10^2$         &                  \\ \hline
-1000            & Thousands       & $10^3$         &                  \\ \hline
-10000           & Ten thousands   & $10^4$         &                  \\ \hline
-\end{tabular}
-\end{table}
+Numbers are inherited in nature, a farmer may own six animals, a day can be split into $24$ equal parts, each of our hands has five fingers and so on. Thus even without any formal knowledge of arithmetic, the oldest and most elementary branch of mathematics, humans has an inherited understanding of numbers. Arithmetic consist of the study of numbers, especially the properties of the operations between them — addition, subtraction, multiplication and division.
 
-\noindent Using this table we can write decimal numbers as sums of integers and fractions, for example
+\myindent The earliest formal concepts of numbers dates back to the Babylonians, Egyptians and later Greek civilizations. Here tax collectors used tablets to record tax payments of citizens. When counting the tax payments its easy to imagine that various ways of shorthand representation was invented. If a citizen payed five animals a tax collector may have written \rom{1}\rom{1}\rom{1}\rom{1}\rom{1}. Each \rom{1} representing one animal. If later additional five animals where collected he may have written \rom{10} instead of \rom{1}\rom{1}\rom{1}\rom{1}\rom{1}\rom{1}\rom{1}\rom{1}\rom{1}\rom{1} as its easer to read and deal with. From these early tabulation shorthands rose the first numerical systems where it was agreed upon to let specific symbols represent a quantity. By the far the most successful of these was the, still familiar, roman symbols \rom{1}, \rom{2}, \rom{3}, \rom{4}, \rom{5}, \rom{6}, \rom{7}, \rom{8}, \rom{9} and \rom{10}. Once the numbers was established various properties of them was researched, for example the greeks discovered the primes, which bool \rom{7} of Euclid's elements deals extensively with. The concept of rational (fractional) numbers was also quickly arrived at as a useful device for division, such as dividing the land belonging to a village evenly among its inhabitants for harvesting. Egyptians used the word "nfr" to denote zero balance in accounting and later during the $7th$ century AD, negative numbers were used in India to represent debts.
+
+\myindent The use of numbers in trading and science quickly outgrew the capabilities of the early numerical systems. The romans for example had no concept of number position, that is the use of the same symbol for the different orders of magnitude (for example, the "ones place", "tens place", "hundreds place"). This lack of position required them to either come up with new symbols for ever greater numbers (for example \rom{100} for $100$ and \rom{1000} for $1000$) thus greatly increasing the complexity of the system. Or to simply keep count using the symbols they already had (for example writing $11111$ as \rom{11111}). These shortcomings eventually led to efforts of creating a new better numeral system and around $400 AD$ a new system began surfacing in India. This new system used the position of ten numbers $0-9$ to denote any possible integral value.
+
+\section{Hindu numeral system}
+The Hindu numeral system was invented between the $1st$ and $4th$ centuries by Hindu mathematicians. The system was adopted, by Persian and Arab mathematicians in the 9th century and from the $14th$ century on, Roman numerals began to be replaced in most contexts by it; however, this process was gradual, and the use of Roman numerals in some minor applications continues to this day.
+
+The main advantage of the Hindu numeral system is it use of position to denote order of magnitude thus requiring far fewer different symbols to represents numbers as well as greatly simplifying operations such as adding and subtracting those numbers. Thus the number $2506$ is represented as
 \[
-5678.12 = 5 \cdot 1000 + 6 \cdot 100 + 7 \cdot 10 + 8 \cdot 1 + 1 \cdot
-\frac{1}{10} + 2 \cdot \frac{1}{100}
+2506 = 2 \times 1000 + 5 \times 100 + 0 \times 10 + 6 \times 1.
 \]
-the class of numbers that can be written in this way is called Algebraic numbers
+Using the exponentiation notation
+\[
+x^n = \underbrace{x \times \dots \times x}_n
+\]
+and noting that $10^0 = 1$ (see section \ref{arit:exp} for formal proof of this) we can rewrite the above as
+\[
+2506 = 2 \times 10^3 + 5 \times 10^2 + 0 \times 10^1 + 6 \times 10^0.
+\]
+further taking advantage that $x^{-n} = \frac{1}{x^n}$ we see that $0.1 = \frac{1}{10} = 1 \times 10^{-1}$ and $0.02 = \frac{2}{100} = 2 \times 10^{-2}$ using this knowledge we
 
-We also see that when a decimal is multiplied by 10, every figure moves one place to the left ($1.25 * 10 = 12.5$) and when you divide by 10, every figure moves one place to the right ($1.25 * 1/10 = 0.125$).
+numbers as sums of integers and fractions, for example
+\[
+5678.12 = 5 \times 10^3 + 6 \times 10^2 + 7 \times 10^1 + 8 \times 10^0 + 1 \times
+10^{-1} + 2 \times 10^{-2}
+\]
+Generally we represent a number with $n$ integer digits $a_0 \cdots a_n$ and $m$ decimal digits $b_0 \cdots b_m$ as
+% TODO as 
+\[
+a_0 \cdots a_n.b_0 \cdots b_m = a0 = a^0 \times 10^n + \cdots + a^n \times 10^0 . b^0 \times 10^{-1} + \cdots + b^m \times 10^{-m}
+\]
+the class of numbers that can be written in this way is called {Algebraic numbers}\index{Algebraic numbers}. From the above formula we also see the well known fact that when a decimal number is multiplied by $10$, every figure moves one place to the left
+\begin{align*}
+1.25 \times 10 =& (1 \times 10^0 + 2 \times 10^{-1} + 5 \times 10^{-2}) \times 10 \\
+               =& 1 \times 10^1 + 2 \times 10^0 + 5 \times 10^{-1}                \\
+               =& 12.5                                                            \\
+\end{align*}
+and when you divide by $10$, every figure moves one place to the right i.e
+\begin{align*}
+\frac{1.25}{10} =& 1.25 \times 10^{-1}                                                  \\
+                =& (1 \times 10^0 + 2 \times 10^{-1} + 5 \times 10^{-2}) \times 10^{-1} \\
+                =& 1 \times 10^{-1} + 2 \times 10^{-2} + 5 \times 10^{-3}               \\
+                =& 0.125                                                                \\
+\end{align*}
+
+\subsection{General Numeral systems}
+As time passed positional numbers systems was generalized such that the digits ($0-9$ in the decimal system) could be changed to accomedate different purposes. For example electric current can be in only two states on (power is flowing) or off (no power). Thus in cumputers its convinient to represent numbers using only two digits $0$ and $1$. To represent higher numbers multiple wires in either on or off states can be used for example if we have $4$ wires and all are on we can represent
+\[
+  1 \times 2^0 + 1 \times 2^1 + 1 \times 2^2 + 1 \times 2^3 = 1 + 2 + 4 + 8 = 15
+\]
+If all wires are off we have
+\[
+  0 \times 2^0 + 0 \times 2^1 + 0 \times 2^2 + 0 \times 2^3 = 0 + 0 + 0 + 0 = 0
+\]
+Thus with a four digit number in a binary number system we can represent the integers $0-15$ or $2^4$ different values. 
+
+\myindent In the generalized positional number system we use the \index{base} (or \index{radix}) to represent the different symbols available to each digit within that system. For example, the decimal system has a radix of $10$, that is any diget in a number can have values $0-9$. In contrary computers work using electronic circuits and thus digets are represented with radix $2$. Other commonly used number systems are hexadecimal wich uses radix $16$ with digets represented with the numbers $0-9$ and letters $A-F$. Generally we have
+
+\subsection{Decimal representation}
+\[
+(a_{n}a_{n-1} \cdots a_{1}a_{0} . c_{1}c_{2} \cdots c_{m-1}c_{m}) = 
+    \sum_{k=0}^{n}a_{k}b^{k} + \sum_{k=1}^{m}c_{k}b^{-k}
+\]
+The numbers $b^{k}$ and $b_{k}$ are the weights of the corresponding digits. The position $k$ is the logarithm of the corresponding weight $w$, that is $k = \log_{b} w = \log_{b} b^k$ 
+
+For example to write $1/3$ in base $16$ we get 
+% TODO http://en.wikipedia.org/wiki/Hexadecimal#Conversion
+
+\subsection{Conversion between systems}
+% - Number bases (convert 1/2 from base 10 base 6)
 
 \subsection{Scientific notation}
 Scientific notation is a way of writing numbers that are too big or too small to be conveniently written in decimal form. In scientific notation all numbers are written in the form
 \[
-a \cdot 10^b
+a \times 10^b
 \]
-where the exponent $b$ is chosen so its absolute value is at least one but less than ten ($1 ≤ |a| < 10$). Thus $350$ is written as $3.5×10^2$. The following table are examples of scientific notation:
-\begin{table}[H]
+where the exponent $b$ is chosen so its absolute value is at least one but less than ten ($1 \leq |a| < 10$). Thus $350$ is written as $3.5×10^2$. The following table are examples of scientific notation:
+\begin{figure}[H]
+\centering
 \begin{tabular}{|l|l|l|l|}
 \hline
 \textbf{Decimal notation}   & \textbf{Scientific notation} \\ \hline
-2                           & $2 \cdot 10^0$               \\ \hline
-300                         & $3 \cdot 10^2$               \\ \hline
-4,321.768                   & $4,321768 \cdot 10^3$        \\ \hline
-−53,000                     & $−5,3 \cdot 10^4$            \\ \hline
-6,720.000.000	              & $6,72 \cdot 10^9$            \\ \hline
-0.2	                       & $2 \cdot 10^{−1}$            \\ \hline
-0,000.000.007.51	           & $7,51 \cdot 10^{−9}$         \\ \hline
+2                           & $2 \times 10^0$              \\ \hline
+300                         & $3 \times 10^2$              \\ \hline
+4,321.768                   & $4,321768 \times 10^3$       \\ \hline
+−53,000                     & $−5,3 \times 10^4$           \\ \hline
+6,720.000.000	           & $6,72 \times 10^9$           \\ \hline
+0.2	                        & $2 \times 10^{−1}$           \\ \hline
+0,000.000.007.51	           & $7,51 \times 10^{−9}$        \\ \hline
 \end{tabular}
-\end{table}
+\end{figure}
 This form allows easy comparison of numbers, as the exponent b gives the number's order of magnitude. For example, the order of magnitude of $1500$ is $3$, since $1500$ may be written as $1.5 × 10^3$.
 
 \subsection{Rounding}
 Rounding a number means replacing it by another that is approximately equal but has a shorter or simpler representation. The procedure is as follows. \textbf{Pick the number to round to as the last digit to keep. Leave it the same if the next digit is less than 5 or increase it by 1 if the next digit is 5 or more. Finally turn all following digets into zeros}. The following examples demonstrate the rounding procedure:
 
 \begin{description}
-\item [Round to the nearest hundred] 838.274 is 800 as $3 < 5$
-\item [Round to the nearest ten] 838.274 is 840 as $8 > 5$
-\item [Round to the nearest one] 838.274 is 838 as $2 < 5$
-\item [Round to the nearest tenth] 838.274 is 838.3 as $7 > 5$
-\item [Round to the nearest hundredth] 838.274 is 838.27 as $4 < 5$
+\item [Round to the nearest hundred] $838.274$ is $800$ as $3 < 5$
+\item [Round to the nearest ten] $838.274$ is $840$ as $8 > 5$
+\item [Round to the nearest one] $838.274$ is $838$ as $2 < 5$
+\item [Round to the nearest tenth] $838.274$ is $838.3$ as $7 > 5$
+\item [Round to the nearest hundredth] $838.274$ is $838.27$ as $4 < 5$
 \end{description}
 
-Besides the standard rounding mentioned above two other methods called floor and ceiling which maps a real number to the largest previous or the smallest following integer, respectively. More precisely,
-$floor(x) = \lfloor x \rfloor$ is the largest integer not greater than $x$ and $ceiling(x) =  \lceil x \rceil$ is the smallest integer not less than $x$.
-\begin{table}[H]
+Besides the standard rounding mentioned above two other methods called floor and ceiling which maps a real number to the largest previous or the smallest following integer, respectively. More precisely, $floor(x) = \lfloor x \rfloor$ is the largest integer not greater than $x$ and $ceiling(x) =  \lceil x \rceil$ is the smallest integer not less than $x$.
+\begin{figure}[H]
+\centering
 \begin{tabular}{|l|l|l|l|}
 \hline
 \textbf{Value}  & \textbf{Floor} & \textbf{Ceiling} & \textbf{Fractional part} \\ \hline
-2.4	          & 2	             & 3	              & 0.4                      \\ \hline
-2.9	          & 2	             & 3	              & 0.9                      \\ \hline
--2.7	          & -3	           & -2	              & 0.3                      \\ \hline
--2	             & -2	           & -2	              & 0                        \\ \hline
+2.4	            & 2	            & 3	              & 0.4                      \\ \hline
+2.9	            & 2	            & 3	              & 0.9                      \\ \hline
+-2.7	            & -3	            & -2	              & 0.3                      \\ \hline
+-2	            & -2	            & -2	              & 0                        \\ \hline
 \end{tabular}
-\end{table}
+\end{figure}
 
 \subsection{Significant figures}
 The significant figures of a number are those digits that carry meaning contributing to its precision. The procedure for identifying significant figures is as follows
@@ -95,7 +137,7 @@ The significant figures of a number are those digits that carry meaning contribu
 \section{Addition}
 % TODO missing addition concepts
 % - describe adding decimals
-Addition represents the operation of adding objects to a collection. For example, $2+3$ can be though of as if you have $2$ apples and someone give you $3$ more, then you have $5$ apples in total. Assuming $b$ is positive then on a number line $a+b$ represents starting on number $a$ and moving $b$ places to the right. Semilar if $b$ is negative then $a+b$ represents starting on number $a$ and moving $b$ places to the left. Unlike subtraction the addition operations is both commutative (that is $a + b = b + a$) and associativ (that is $a + (b + c) = (a + b) + c$)
+Addition represents the operation of adding objects to a collection. For example, $2+3$ can be though of as if you have $2$ apples and someone give you $3$ more, then you have $5$ apples in total. Assuming $b$ is positive then on a number line $a+b$ represents starting on number $a$ and moving $b$ places to the right. Similar if $b$ is negative then $a+b$ represents starting on number $a$ and moving $b$ places to the left. Unlike subtraction the addition operations is both commutative (that is $a + b = b + a$) and associative (that is $a + (b + c) = (a + b) + c$)
 
 \begin{description}
 \item [Adding integers] We add integers by adding the ones, tens,hundreds etc. in each number individually, starting from the right. If the result of addition is above $10$ then we subtract $10$ from the result and add one (known as a carry) to the next group to be added. For example
@@ -103,7 +145,7 @@ Addition represents the operation of adding objects to a collection. For example
 \centering
 \opadd{143}{89}
 \end{figure}
-That is we add $3+9=12$ as the result is above $10$ we subtract $10$ from it and add one tenth to the tenths place. In the tenth place we now add $1+3+8=12$ which again is above $10$, so we subtract $10$ from it and add $1$ to the hundredts place (ten tens being one hundred) and so finally we add $1+1$ in the hundreds place.
+That is we add $3+9=12$ as the result is above $10$ we subtract $10$ from it and add one tenth to the tenths place. In the tenth place we now add $1+3+8=12$ which again is above $10$, so we subtract $10$ from it and add $1$ to the hundreds place (ten tens being one hundred) and so finally we add $1+1$ in the hundreds place.
 
 To understand why this procedure works consider that the number $143 = 100 + 40 + 3$ and $89 = 80 + 9$ so we can do
 \[
@@ -126,23 +168,14 @@ from the rightmost decimal.
 \end{description}
 
 \section{Subtraction}
-Subtraction represents the operation of removing objects from a
-collection. For example, $5-2$ can be though of as if you have $5$ apples
-and take $2$ away, then you have $3$ apples left. Assuming $b$ is
-positive then on a number line $a-b$ represents starting on number $a$
-and moving $b$ places to the left. Semilar if $b$ is negative then $a-b$
-represents starting on number $a$ and moving $b$ places to the right.
+Subtraction represents the operation of removing objects from a collection. For example, $5-2$ can be though of as if you have $5$ apples and take $2$ away, then you have $3$ apples left. Assuming $b$ is positive then on a number line $a-b$ represents starting on number $a$ and moving $b$ places to the left. Similar if $b$ is negative then $a-b$ represents starting on number $a$ and moving $b$ places to the right.
 
-Subtraction is not commutative, that is $a - b \neq b - a$ instead we can
-reverse the subtraction order by $a - b = -(b - a) = -b + a$. Further
-subtraction is not associative so $a  - (b - c) \neq (a - b) - c$ instead
-it holds $a - b - c = a - (b + c)$ and $a - b - c - d = a - (b + c + d)$
-and so on.
+Subtraction is not commutative, that is $a - b \neq b - a$ instead we can reverse the subtraction order by $a - b = -(b - a) = -b + a$. Further subtraction is not associative so $a  - (b - c) \neq (a - b) - c$ instead it holds $a - b - c = a - (b + c)$ and $a - b - c - d = a - (b + c + d)$ and so on.
 \begin{description}
 \item [Subtracting integers] We subtract numbers by subtracting each
 ones, tens, hundreds etc. individually, starting from the right, if the
 subtraction yields a result less than zero then we borrow ten from the
-number to the left by decreasing its value by one: 
+number to the left by decreasing its value by one:
 \begin{figure}[H]
 \centering
 \opsub{133}{89}
@@ -152,9 +185,7 @@ number to the left by decreasing its value by one:
 \end{description}
 
 \section{Multiplication}
-Multiplication of two whole numbers is equivalent to the addition of one
-of them with itself as many times as the value of the other one; for
-example, $3 \cdot 4$ can be calculated by adding $4$ to itself $3$ times:
+Multiplication of two whole numbers is equivalent to the addition of one of them with itself as many times as the value of the other one; for example, $3 \cdot 4$ can be calculated by adding $4$ to itself $3$ times:
 \[
 3 \cdot 4 = 4 + 4 + 4 = 12
 \]
@@ -162,20 +193,11 @@ it can also be calculated by adding $4$ copies of $3$ together:
 \[
 3 \cdot 4 = 3 + 3 + 3 + 3 = 12
 \]
-Formally we say that multiplication is both commutative (i.e. the order
-in which two numbers are multiplied does not matter
-$a \cdot b = b \cdot a$) and associativ
-$a \cdot (b \cdot c) = (a \cdot b) \cdot c$. Multiplication has other
-important properties:
+Formally we say that multiplication is both commutative (i.e. the order in which two numbers are multiplied does not matter $a \cdot b = b \cdot a$) and associative $a \cdot (b \cdot c) = (a \cdot b) \cdot c$. Multiplication has other important properties:
 \begin{description}
-\item [Distributive property] Holds with respect to multiplication over
-addition. This identity is of prime importance in simplifying algebraic
-expressions: $x\cdot(y + z) = x\cdot y + x\cdot z$
-\item [Identity element] The multiplicative identity is 1; anything
-multiplied by one is itself. This is known as the identity property:
-$x\cdot 1 = x$
-\item [Zero element] Any number multiplied by zero is zero. This is known
-as the zero property of multiplication: $x\cdot  0 = 0$
+\item [Distributive property] Holds with respect to multiplication over addition. This identity is of prime importance in simplifying algebraic expressions: $x\cdot(y + z) = x\cdot y + x\cdot z$
+\item [Identity element] The multiplicative identity is $1$; anything multiplied by one is itself. This is known as the identity property: $x\cdot 1 = x$
+\item [Zero element] Any number multiplied by zero is zero. This is known as the zero property of multiplication: $x\cdot  0 = 0$
 \end{description}
 
 % TODO missing multiplication areas
@@ -183,24 +205,15 @@ as the zero property of multiplication: $x\cdot  0 = 0$
 % - explain meaning of multiplying negative numbers
 % - explain techniques for muktiplication
 \begin{description}
-\item [Multiplying integers] We multiply integers by multiplying the ones, 
-tens, hundreds etc. in each number individually, starting from the right. 
-If the result of multiplication is above $10$ we subtract $10$ from the 
-result and add one (known as a carry) to the next group to be multiplied. 
-For example
+\item [Multiplying integers] We multiply integers by multiplying the ones, tens, hundreds etc. in each number individually, starting from the right. If the result of multiplication is above $10$ we subtract $10$ from the result and add one (known as a carry) to the next group to be multiplied. For example
 \begin{figure}[H]
 \centering
 \opmul[displayintermediary=None]{142}{3}
 \end{figure}
 
-That is we first multiply $3 \cdot 2 = 6$ in the ones place, then in the 
-tenth place we multiply $3 \cdot 4 = 12$ which is above $10$, so we subtract 
-$10$ from it and add $1$ to the hundredts place and so finally we multiply 
-$3 \cdot 1 = 3$ and add the carry of $1$ to it in order to get $4$ in the 
-hundreds place.
+That is we first multiply $3 \cdot 2 = 6$ in the ones place, then in the tenth place we multiply $3 \cdot 4 = 12$ which is above $10$, so we subtract $10$ from it and add $1$ to the hundreds place and so finally we multiply $3 \cdot 1 = 3$ and add the carry of $1$ to it in order to get $4$ in the hundreds place.
 
-To understand why this procedure works consider that the number
-$142 = 100 + 40 + 2$ so really we have
+To understand why this procedure works consider that the number $142 = 100 + 40 + 2$ so really we have
 \[
 \begin{align}
 143 \cdot 3 &= (100 + 40 + 2) \cdot 3  \\
@@ -213,8 +226,7 @@ $142 = 100 + 40 + 2$ so really we have
 \end{align}
 \]
 
-\item [Multiplying decimals] To multiply decimals convert them into integers,
-multiply them and then convert the result back to a decimal i.e.
+\item [Multiplying decimals] To multiply decimals convert them into integers, multiply them and then convert the result back to a decimal i.e.
 \begin{itemize}
 \item $8 * 0.8 = 8 * \frac{8}{10} = \frac{64}{10} = 6.4$
 \item $2.91 * 3.2 = \frac{291}{100} * \frac{32}{10} = \frac{291 * 32}{1000} =
@@ -223,11 +235,7 @@ multiply them and then convert the result back to a decimal i.e.
 \end{description}
 
 \section{Fractions}
-In the fraction $3/4$, the numerator $3$ (also known as the dividend)
-tells us that the fraction represents $3$ equal parts, and the
-denominator $4$ (also known as the divisor) tells us that $4$ parts make
-up a whole. The fraction $5/4$ equally tells us that $4/4$ makes up a
-whole and we have an extra $1/4$ part left.
+In the fraction $3/4$, the numerator $3$ (also known as the dividend) tells us that the fraction represents $3$ equal parts, and the denominator $4$ (also known as the divisor) tells us that $4$ parts make up a whole. The fraction $5/4$ equally tells us that $4/4$ makes up a whole and we have an extra $1/4$ part left.
 % TODO define remainder and quotient
 \begin{description}
 % TODO explain why these works
@@ -256,24 +264,12 @@ decimal point disapears e.g. $0.024 = 0.024/1 = 0.24/10 = 2.4/100 = 24/1000$
 \end{description}
 
 \subsection{Mixed numbers}
-Impropper fractions such as $5/4$, where the numerator is larger than the
-denominator, are commonly represented as a combination of a whole number
-and a proper fraction called a mixed number e.g. $5/4 = 1\frac{1}{4}$.
+Improper fractions such as $5/4$, where the numerator is larger than the denominator, are commonly represented as a combination of a whole number and a proper fraction called a mixed number e.g. $5/4 = 1\frac{1}{4}$.
 \begin{description}
-\item [Converting fractions to mixed numbers] Convert the numerator to a sum
-where the first part can be divided by the denominator and the last part has
-a lower value than the denominator e.g. $\frac{64}{5} = \frac{60 + 4}{5} =
-\frac{60}{5} + \frac{4}{5} = 12 \frac{4}{5}$
-\item [Converting mixed numbers to fractions] Multiply the leading integer
-with the denominator and add it to the numerator e.g. $12 \frac{2}{3} =
-\frac{3 * 12 + 2}{3} = \frac{38}{3}$
-\item [Adding and subtracting mixed numbers] A mixed number $a \frac{b}{c}$
-is a short hand for $a + \frac{b}{c}$ so to add or subtract mixed numbers
-perform the operation step wise on the integer and fractional part of the
-numbers e.g. $6\frac{6}{12} - 3\frac{3}{5} =
-6 + \frac{6}{12} - 3 - \frac{3}{5} = 2\frac{9}{10}$.
-\item [Multiplying mixed numbers] Convert the mixed number to a fraction and
-multiply these e.g. $1\frac{1}{4} * 4 = \frac{20}{4} = 5$
+\item [Converting fractions to mixed numbers] Convert the numerator to a sum where the first part can be divided by the denominator and the last part has a lower value than the denominator e.g. $\frac{64}{5} = \frac{60 + 4}{5} = \frac{60}{5} + \frac{4}{5} = 12 \frac{4}{5}$
+\item [Converting mixed numbers to fractions] Multiply the leading integer with the denominator and add it to the numerator e.g. $12 \frac{2}{3} = \frac{3 * 12 + 2}{3} = \frac{38}{3}$
+\item [Adding and subtracting mixed numbers] A mixed number $a \frac{b}{c}$ is a short hand for $a + \frac{b}{c}$ so to add or subtract mixed numbers perform the operation step wise on the integer and fractional part of the numbers e.g. $6\frac{6}{12} - 3\frac{3}{5} = 6 + \frac{6}{12} - 3 - \frac{3}{5} = 2\frac{9}{10}$.
+\item [Multiplying mixed numbers] Convert the mixed number to a fraction and multiply these e.g. $1\frac{1}{4} * 4 = \frac{20}{4} = 5$
 \end{description}
 
 
@@ -285,9 +281,7 @@ multiply these e.g. $1\frac{1}{4} * 4 = \frac{20}{4} = 5$
 % - explain why division algo works
 % - division commutativity and associative
 \begin{description}
-\item [Dividing improper fractions] Division is really counting the number of
-repeated subtractions of the divisor into the dividend e.g. $3024/42 = 72$ as
-shown below
+\item [Dividing improper fractions] Division is really counting the number of repeated subtractions of the divisor into the dividend e.g. $3024/42 = 72$ as shown below
 \newline
 \[
 \begin{array}{*{6}{>{\hfill}m{7mm}}}
@@ -323,9 +317,7 @@ shown below
                      4\\\cline{5-6}
 \end{array}
 \]
-\item [Dividing propper fractions] As propper fractions always represent
-values parts less than 1 whole we know the result must be a decimal begning
-with 0.
+\item [Dividing proper fractions] As proper fractions always represent values parts less than 1 whole we know the result must be a decimal beginning with 0.
 \[
 \begin{array}{*{7}{>{\hfill}m{7mm}}}
  &
@@ -386,9 +378,7 @@ with 0.
                          9\\
 \end{array}
 \]
-\item [Dividing decimals] To divide decimals first convert the denominator into
-a integer then divide the resulting fraction as shown above e.g.
-$3.3534/0.81 = 335.34/81$
+\item [Dividing decimals] To divide decimals first convert the denominator into a integer then divide the resulting fraction as shown above e.g. $3.3534/0.81 = 335.34/81$
 \[
 \begin{array}{*{7}{>{\hfill}m{7mm}}}
  &
@@ -459,20 +449,13 @@ divisible by $4$.
 \end{description}
 
 \subsection{Remainder}
-The remainder from the division $a/b$ is represented mathematically as
-$a \textrm{mod} b$, for example $9/2 = 4$ and $9 mod 2 = 1$. In general
-to the find the result of $a \textrm{mod} b$ we follow these steps:
+The remainder from the division $a/b$ is represented mathematically as $a \textrm{mod} b$, for example $9/2 = 4$ and $9 mod 2 = 1$. In general to the find the result of $a \textrm{mod} b$ we follow these steps:
 \begin{enumerate}
 \item Construct a clock with size $b$
-\item Start at 0 and move around the clock $a$ steps (If the number is
-positive we step clockwise, if it's negative we step counter-clockwise).
+\item Start at 0 and move around the clock $a$ steps (If the number is positive we step clockwise, if it's negative we step counter-clockwise).
 \item Wherever we land is our solution.
 \end{enumerate}
-For example $7 mod 2 = 1$ since we can make a clock with numbers $0,1$ then
-start at $0$ and go through $7$ numbers in a clockwise sequence
-$1,0,1,0,1,0,1$. Semilar $-5 mod 3 = 1$ since we make a clock with numbers
-$0,1,2$ then start at $0$ and go through $5$ numbers in counter-clockwise
-sequence  $2,1,0,2,1$
+For example $7 mod 2 = 1$ since we can make a clock with numbers $0,1$ then start at $0$ and go through $7$ numbers in a clockwise sequence $1,0,1,0,1,0,1$. Similar $-5 mod 3 = 1$ since we make a clock with numbers $0,1,2$ then start at $0$ and go through $5$ numbers in counter-clockwise sequence  $2,1,0,2,1$
 
 \section{Percents}
 % TODO percents missing concepts
@@ -482,11 +465,11 @@ sequence  $2,1,0,2,1$
 
 
 \section{Exponents and roots}\label{arit:exp}
-If we multiply 3 by itself 4 times we get 
+If we multiply 3 by itself 4 times we get
 \[
 3 \cdot 3 \cdot 3 \cdot 3 = 81
 \]
-A more concise way of writing this is to say 
+A more concise way of writing this is to say
 \[
 3^4 = 81
 \]
@@ -495,35 +478,17 @@ where 3 is the base and the superscript 4 is called the power or exponent.
 % TODO compare list of rules with that from math picture taken
 
 \begin{description}
-\item [Squares $b^2$] means $b \cdot b$ and is read \emph{b squared} because
-$b^2$ is the area of a sqaure whoose side has lenght $b$.
-\item [Cubes $b^3$] means $b \cdot b \cdot b$ and is read \emph{b cube}
-because $b^3$ is the volume of a cube whoose side has lenght $b$.
-\item [Powes of $10$] If the power is positive the result isone followed by 
-as manyzeros as the number in the exponent $10^7 = 10000000$. If the exponent 
-is negative we have as many zeroes as the exponent followed by one with the 
-first zero being before the comma the rest after $10^+7 = 0.0000001$
+\item [Squares $b^2$] means $b \cdot b$ and is read \emph{b squared} because $b^2$ is the area of a square whose side has length $b$.
+\item [Cubes $b^3$] means $b \cdot b \cdot b$ and is read \emph{b cube} because $b^3$ is the volume of a cube whose side has length $b$.
+\item [Powers of $10$] If the power is positive the result is one followed by as many zeros as the number in the exponent $10^7 = 10000000$. If the exponent is negative we have as many zeroes as the exponent followed by one with the first zero being before the comma the rest after $10^+7 = 0.0000001$
 \item [Negative powers] $a^{-n} = \frac{1}{a^n}$
-\item [Products of powers] $a^n \cdot a^m = a^{n+m}$ this can be seen as
-$5^3 \cdot 5^2 = (5 \cdot 5 \cdot 5) \cdot (5 \cdot 5)= 5^5$
-\item [Products of unlike powers] $a^n \cdot b^n = (a \cdot b)^n$ this can be
-seen as $(2 \cdot 2 \cdot 2) \cdot (3 \cdot 3 \cdot 3) =
-(2 \cdot 3) \cdot (2 \cdot 3) \cdot (2 \cdot 3) = (2 \cdot 3)^3$
-\item [Fractions of powers] $\frac{a^n}{a^m} = a^{n-m}$ this can be seen as
-$\frac{5^3}{5^2} = \frac{5 \cdot 5 \cdot 5}{5 \cdot 5} = 5^1$
+\item [Products of powers] $a^n \cdot a^m = a^{n+m}$ this can be seen as $5^3 \cdot 5^2 = (5 \cdot 5 \cdot 5) \cdot (5 \cdot 5)= 5^5$
+\item [Products of unlike powers] $a^n \cdot b^n = (a \cdot b)^n$ this can be seen as $(2 \cdot 2 \cdot 2) \cdot (3 \cdot 3 \cdot 3) = (2 \cdot 3) \cdot (2 \cdot 3) \cdot (2 \cdot 3) = (2 \cdot 3)^3$
+\item [Fractions of powers] $\frac{a^n}{a^m} = a^{n-m}$ this can be seen as $\frac{5^3}{5^2} = \frac{5 \cdot 5 \cdot 5}{5 \cdot 5} = 5^1$
 \item [Powers of fractions] $\left(\frac{a}{b}\right)^n = \frac{a^n}{b^n}$ this can be seen as $\left(\frac{2}{3}\right)^3 = \frac{2}{3} \cdot \frac{2}{3} \cdot \frac{2}{3} = \frac{2^3}{3^3}$
-\item [Powers of powers] $(a^m)^n = a^{(m \cdot n)}$ this can be seen as
-$(5^2)^3 = 5^2 \cdot 5^2 \cdot 5^2 = 5^{6}$
-\item [Fractional powers] $a^{\frac{x}{y}} = (a^{\frac{1}{y}})^x$. This can be
-related to roots since $\sqrt{a} \cdot \sqrt{a} = a$ can be satiesfied as
-$a^{x} \cdot a^{x} = a^{x+x} = a^{1}$ only when $x = 1/2$. That is
-$\sqrt{a} = a^{1/2}$. Generally we have $\sqrt[n]{a} = a^{1/n}$.
-\item [Simplifying radicals] Radicals such as $\sqrt{32}$ are simplified by
-rewriting them to lower terms using the above rules e.g.
-$3\sqrt{8} - 6\sqrt{32} = 3\sqrt{4}\sqrt{2} - 6\sqrt{16}\sqrt{2} =
-6\sqrt{2} - 24\sqrt{2} = -18\sqrt{2}$. Often it can be constructive to rewrite
-radicals using their prime factorization e.g. $\sqrt[3]{81} =
-\sqrt[3]{9 \cdot 9} = \sqrt[3]{3 \cdot 3 \cdot 3 \cdot 3} = 3\sqrt[3]{3}$
+\item [Powers of powers] $(a^m)^n = a^{(m \cdot n)}$ this can be seen as $(5^2)^3 = 5^2 \cdot 5^2 \cdot 5^2 = 5^{6}$
+\item [Fractional powers] $a^{\frac{x}{y}} = (a^{\frac{1}{y}})^x$. This can be related to roots since $\sqrt{a} \cdot \sqrt{a} = a$ can be satisfied as $a^{x} \cdot a^{x} = a^{x+x} = a^{1}$ only when $x = 1/2$. That is $\sqrt{a} = a^{1/2}$. Generally we have $\sqrt[n]{a} = a^{1/n}$.
+\item [Simplifying radicals] Radicals such as $\sqrt{32}$ are simplified by rewriting them to lower terms using the above rules e.g. $3\sqrt{8} - 6\sqrt{32} = 3\sqrt{4}\sqrt{2} - 6\sqrt{16}\sqrt{2} = 6\sqrt{2} - 24\sqrt{2} = -18\sqrt{2}$. Often it can be constructive to rewrite radicals using their prime factorization e.g. $\sqrt[3]{81} = \sqrt[3]{9 \cdot 9} = \sqrt[3]{3 \cdot 3 \cdot 3 \cdot 3} = 3\sqrt[3]{3}$
 \end{description}
 
 \subsection{Estimating roots}
@@ -533,10 +498,7 @@ radicals using their prime factorization e.g. $\sqrt[3]{81} =
 % - http://xlinux.nist.gov/dads/HTML/squareRoot.html
 % - http://mathforum.org/library/drmath/view/52610.html
 % - http://www.embedded.com/electronics-blogs/programmer-s-toolbox/4219659/Integer-Square-Roots
-\item [Cube roots] find the prime factors and see if any come three times.
-For example $\sqrt[3]{3430}$ is divisble by $10$ and there for have $5$ and
-$2$ as prime facors, $343 = 7^3$ so we have $\sqrt[3]{3430} =
-\sqrt[3]{2 \cdot 5 \cdot 7 \cdot 7 \cdot 7} = 7 \cdot \sqrt[3]{10}$
+\item [Cube roots] find the prime factors and see if any come three times. For example $\sqrt[3]{3430}$ is divisible by $10$ and there for have $5$ and $2$ as prime factors, $343 = 7^3$ so we have $\sqrt[3]{3430} = \sqrt[3]{2 \cdot 5 \cdot 7 \cdot 7 \cdot 7} = 7 \cdot \sqrt[3]{10}$
 \end{description}
 
 \section{Order of operators}\label{arit:order}
@@ -583,20 +545,11 @@ When multiple operations exists on the same level you do the one that it closest
 \item\myindent $\frac{\frac{-7}{2}}{\frac{4}{9}} = \frac{-7}{-2} \cdot \frac{9}{4} = \frac{63}{8}$
 \end{enumerate}
 
-\Exercise If it takes 36 minutes for $5$ people to paint $9$ walls. How 
-many minutes does it take $10$ people to paint $7$ walls?
-\Answer $36/9$ is the time it takes for $5$ people to paint one wall,
-therefor $5 * 36/9$ is the time it takes for one person to paint one wall.
-Thus it will take $7 * ((5 * 36)/9) = 140$ for one person to paint $7$
-walls and therefor $140/10 = 14$ minutes for $10$ people
+\Exercise If it takes 36 minutes for $5$ people to paint $9$ walls. How many minutes does it take $10$ people to paint $7$ walls?
+\Answer $36/9$ is the time it takes for $5$ people to paint one wall, therefor $5 * 36/9$ is the time it takes for one person to paint one wall. Thus it will take $7 * ((5 * 36)/9) = 140$ for one person to paint $7$ walls and therefor $140/10 = 14$ minutes for $10$ people
 
-\Exercise Philip is going on a 4000-kilometer road trip with three friends. 
-The car consumes $6$ liters of gas per $100$ kilometers, and gas costs 
-$1.50$ per liter. If Philip and his friends want to split the cost of gas 
-evenly, how much should they each pay?.
-\Answer The car will spend $4000/100 * 6 = 240$ liters of gas at a price of
-$240 * 1.5 = 360$, as there are four people in the car the cost per person
-becomes $360/4 = 90$.
+\Exercise Philip is going on a 4000-kilometer road trip with three friends. The car consumes $6$ liters of gas per $100$ kilometers, and gas costs $1.50$ per liter. If Philip and his friends want to split the cost of gas evenly, how much should they each pay?.
+\Answer The car will spend $4000/100 * 6 = 240$ liters of gas at a price of $240 * 1.5 = 360$, as there are four people in the car the cost per person becomes $360/4 = 90$.
 
 % TODO add to Solvr arithmetic tests
 \Exercise What is the value of
@@ -604,14 +557,14 @@ becomes $360/4 = 90$.
 \Question $6 -1 \cdot 0 + 2/2$
 \Question $-2 + (-3) + 4 - (-3) - 5$
 \Question $3 + (-4) - 8 - (-1) - 1$
-\Answer Using the PEMDAS meme (parentheses, exponents, multiplication, 
-division, addition, subtraction) listed in \ref{arit:order} we get: 
+\Answer Using the PEMDAS meme (parentheses, exponents, multiplication,
+division, addition, subtraction) listed in \ref{arit:order} we get:
 \begin{enumerate}
- \item\myindent $7 + 7/7 + 7 cdot 7 - 7 = 7 + (7/7) + (7 \cdot 7) - 7 = 50$. 
+ \item\myindent $7 + 7/7 + 7 cdot 7 - 7 = 7 + (7/7) + (7 \cdot 7) - 7 = 50$.
  \item\myindent $6 - 1 \cdot 0 + 2/2 = 6 + -1 \cdot 0 + 2/2 = 6 + 0 + 2/2 = 7$
  \item\myindent $-2 + (-3) + 4 - (-3) - 5 = -2 - 3 + 4 + 3 - 5 = -5 + 7 - 5 = -3$
  \item\myindent $3 + (-4) - 8 - (-1) - 1 = 3 - 4 - 8 + 1 - 1 = -1 - 8 $
-\end{enumerate} 
+\end{enumerate}
 
 \Exercise Reduce the following
 \Question Rewrite $\frac{4^6}{4^{-4}}$ in the form $4^n$
@@ -627,6 +580,3 @@ division, addition, subtraction) listed in \ref{arit:order} we get:
                 \sqrt{11} + \sqrt{4 \cdot 11} + \sqrt{9 \cdot 11} = 6\sqrt{11}$
 \end{enumerate}
 \end{ExerciseList}
-
-
-​​

@@ -1,16 +1,10 @@
-\documentclass[11pt,twoside]{book}
+\documentclass[11pt,twoside,openright]{memoir}
 
 %% IMPORTS
 \usepackage{amsmath,amssymb,amsfonts,amsthm}               % math symbols
-\usepackage[toc,page]{appendix}                            % appendixes
-\usepackage{booktabs}
-\usepackage{endnotes}                                      % end notes
-\usepackage{epigraph}                                      % quotes
 \usepackage[answerdelayed,lastexercise]{exercise}          % exercises
 \usepackage{float}
 \usepackage{listings}                                      % source code
-\usepackage[makeindex]{imakeidx}                           % index
-\usepackage[section,numberedsection=autolabel]{glossaries} % glossary
 \usepackage{pgfplots}                                      % plotting
 \usepackage{tkz-euclide}                                   % tikz drawings
 \usepackage{ulem}
@@ -46,37 +40,53 @@
 % redefine commands
 \renewcommand{\deg}{\ensuremath{^{\circ}}\xspace}
 % - custom commands
+\newcommand{\rom}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
 \newcommand{\rad}{\deg}
 \newcommand\showdiv[1]{\overline{\smash{)}#1}}
 \newcommand\ph[1]{\textcolor{white}{#1}}
 \newcommand{\myindent}{\hspace{0.45cm}}
-\newcommand{\glsentry}[2]{\longnewglossaryentry{#1}{name={#1}}{#2}}
-\newcommand{\glsentryref}[2]{\newglossaryentry{#1}{name={#1},description={},see=[see]{#2}}}
+% memoir class setup
+\makepagenote
+\renewcommand*{\notedivision}{\section{\notesname}} % page notes in same chapter
+\renewcommand*{\pagenotesubhead}[3]{} % #1-chapname, #2-chapnum, #3-chaptitle removed
+\renewcommand*{\pagenotesubheadstarred}[3]{} % chapname, chaptitle removed
 
 % index
-\makeindex[intoc]
+\makeindex
+%\input{subfiles/glossary}
 
-% glossary terms
-\makeglossaries
-\input{subfiles/glossary}
+% configure title page
+\makeatletter
+\def\maketitle{%
+  \null
+  \thispagestyle{empty}%
+  \vfill
+  \begin{center}\leavevmode
+    \normalfont
+    {\LARGE\raggedleft \@author\par}%
+    \hrulefill\par
+    {\huge\raggedright \@title\par}%
+    \vskip 1cm
+    {\Large\raggedright Volume 1\par}%
+    \vskip 0.5cm
+    {\Large\raggedright Fundemental Mathematics \par}%
+    \vskip 0.5cm
+    {\Large\raggedright First Edition \par}%
+  \end{center}%
+  \vfill
+  \null
+  \cleardoublepage
+  }
+\makeatother
+\author{Lars Tackmann}
+\title{Concepts of Mathematics}
 
 % begin document
 \begin{document}
 
 % title page
-\begin{titlepage}
-\pagenumbering{roman}
-\thispagestyle{empty}
-\begin{center}
-   {\huge \bf Mathematical documentation}
-\end{center}
-\begin{center}
-    {\bf Version 0.1}
-\end{center}
-\end{titlepage}
-
-% register all glossary terms
-\glsaddall
+\let\cleardoublepage\clearpage
+\maketitle
 
 % table of contents
 \tableofcontents
@@ -85,7 +95,8 @@
 % book layout
 \include{subfiles/introduction}
 
-\part{Basic Mathematics}
+\mainmatter
+%\part{Fundemental Mathematics}
 \include{subfiles/basic/01_foundations}
 \include{subfiles/basic/02_classical_geometry}
 \include{subfiles/basic/03_arithmetic}
@@ -97,7 +108,8 @@
 \include{subfiles/basic/09_calculus}
 \include{subfiles/basic/10_linear_algebra}
 \include{subfiles/basic/11_set_theory}
-\include{subfiles/basic/12_probability_and_statistics}
+\include{subfiles/basic/12_probability}
+\include{subfiles/basic/13_statistics}
 
 %\part{Advanced Mathematics}
 %\include{subfiles/advanced/01_real_analysis}
@@ -119,19 +131,15 @@
 % brownian motion
 %\include{subfiles/physics/02_relativity}
 
-% index
-\printindex
-
 % appendices
-\begin{appendices}
-% exercises
+\appendix
 \chapter{Solutions to the exercises}
 Each exercise is numbered in accordance with the chapter where it is to be found, thus exercise two in chapter one is referred to as $1.2$.
 \shipoutAnswer
-% glossary
-\chapter{Glossary}
-\printglossaries
-\end{appendices}
+
+% index
+\backmatter
+\printindex
 
 \end{document}
 
