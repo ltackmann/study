@@ -1,0 +1,46 @@
+\documentclass[11pt,twoside,openright]{memoir}
+\usepackage{my-template}
+
+% configure title page
+\title{Fundamental Mathematics}
+\volume{1}
+
+% begin document
+\begin{document}
+
+% title page
+\let\cleardoublepage\clearpage
+\maketitle
+
+% table of contents
+\tableofcontents
+\pagenumbering{arabic}
+
+% book layout
+\include{fundamental/00_introduction}
+\mainmatter
+\include{fundamental/01_foundations}
+\include{fundamental/02_classical_geometry}
+\include{fundamental/03_arithmetic}
+\include{fundamental/04_algebra}
+\include{fundamental/05_elementary_number_theory}
+\include{fundamental/06_combinatorics}
+\include{fundamental/07_trigonometry}
+\include{fundamental/08_analytical_geometry}
+\include{fundamental/09_calculus}
+\include{fundamental/10_linear_algebra}
+\include{fundamental/11_set_theory}
+\include{fundamental/12_probability}
+\include{fundamental/13_statistics}
+
+% appendices
+\appendix
+\chapter{Solutions to the exercises}
+Each exercise is numbered in accordance with the chapter where it is to be found, thus exercise two in chapter one is referred to as $1.2$.
+\shipoutAnswer
+
+% index
+\backmatter
+\printindex
+
+\end{document}

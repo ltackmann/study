@@ -1,0 +1,56 @@
+\chapter{Finance theory}
+% TODO Missing finance concepts
+%* simple imterest
+% - present value under simple interst
+% - interst paid at different time periods
+%* compund interst
+% - future value of compund intersts
+% - calculation of the interst rate
+% - present value under compund interst
+%* interst rate
+% - nominal and effective interst rate and converting between them
+%* Annuities
+% - future and present value
+% - periodic payment and future value of annuity
+
+\section{The time value of money}
+We all know that money deposited into a savings account will earn interest.
+Because of this ability we prefer to receive money today rather than the same 
+amount in the future (since if we recived it today it could earn interest and therefor be worth more than the same amount recived in the future). This simple 
+fact about money is the corner stone of all mthemtical finance theory and is 
+known as the "time value of money". For example, assuming a $5\%$ interest rate, 
+$100$ invested today will be worth $105$ in one year ($100$ multiplied by $1.05$).
+Conversely, $100$ received one year from now is only worth $95.24$ today ($100$ 
+divided by $1.05$).
+
+\subsection{Interests}
+When money is lent, borrowed or invested interest ($I$) is paid. The interest
+paid is determined by three factors
+
+\begin{enumerate}
+    \item Amount borrowed (known as the principle or capital ammont)
+    \item Length of time for which money is borrowed
+    \item The rate at which interest is charged
+\end{enumerate}
+
+Interest is calculated by dividing the total time into periods (days, weeks,
+months, quarters, half- years, years etc). For each period the money earns
+interest. At the end of these periods the money is worth the original (P)
+amount plus interest (I). This new amount will be referred to as the Future
+Value (FV). The number of periods will be referred to as (N).
+
+Interest can be simple by letting the principal stay the same after each
+interest peiod
+\[
+    SimpleInterest(P,j,t) = P*(1+j*t)
+\]
+or it can be compund by adding the accrued interest to the principal e.g.
+\[
+    CompundInterest(P,j,m,t) = P*(1 + j/m)^(t*m)
+\]
+
+The present value, is a future amount of money that has been discounted to
+reflect its current value, as if it existed today.
+\[
+    PresentValue(S,j,m,t) = S/((1 + j/m)^(t*m))
+\]

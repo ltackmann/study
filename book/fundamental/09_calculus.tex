@@ -1,0 +1,86 @@
+\chapter{Calculus}
+% TODO missing calculus concepts
+% http://www.science4all.org/le-nguyen-hoang/infinite-series/
+% - Area under curve
+% - Fundamental theorem of calculus
+% - Newton rapson method for square roots http://www.sosmath.com/calculus/diff/der07/der07.html
+% - Proof and explain taylor series
+% - Proof Finite geometric series https://www.khanacademy.org/math/precalculus/seq_induction/geometric-sequence-series/v/geometric-series-introduction
+% - Numerical integration http://rosettacode.org/wiki/Numerical_integration#ActionScript
+% - LaplaceTransform http://reference.wolfram.com/language/ref/LaplaceTransform.html
+% - story of e (proof the limit of the series)
+% - relationship between pi, e and i
+% - include info on e from "the story of e"
+% - include info on i from  "the story of i"
+% Gamma function and Stirling's approximation
+% TODO eulers identity
+% general binomial theorem (the binomial theorem for fractional and negative powers).
+
+If I'm driving at a constant velocity, say 60 km per hour, the distance I travel is changing in a constant manner, ie every hour I cover 60 km. We can say the rate of change of the distance I travel with respect to time is constant. However, if my car is moving with constant acceleration, its velocity is changing in a constant manner, but the distance I travel is not changing constantly - because I'm accelerating. We can say the rate of change of the distance I travel, with respect to time, is not constant.
+
+\section{Differential calculus}
+
+\subsection{The derivative}
+
+\section{Integral calculus}
+For example, say we have a function that tells us the acceleration of an object after a certain time. If we can integrate that function we obtain a new function that tells us the velocity of the object after a certain time. If we integrated the second function, we'd get a third function that tells us the distance covered after a certain time. But we can also do that sequence of calculations in reverse, by starting with the function that tells us distance covered after a certain time. We can differentiate that function to find the object's velocity and differentiate again to find its acceleration.
+
+% TODO explain why distance, velocity and accelaration is so inter linked (explain physical formulas)
+
+\section{Series}
+
+% artimetic series http://www.mathsisfun.com/algebra/sequences-sums-arithmetic.html
+
+\section{Logarithm}
+A logarithm (log or logs for short) goes in the opposite direction to a power by asking the question: what power produced this number? So, if 2x = 32, we are asking, ‘what is the logarithm of 32 to base 2?’ We know the answer: it's 5, because 25 = 32, so we say the logarithm of 32 to base 2 is 5. In general terms, if , then we say the logarithm of a to base x equals p, or For example, 104 = 10,000, so we say the logarithm of 10,000 to base 10 equals 4, or We can take logarithms of any positive number, not just whole ones. So, as 103.4321 = 2704.581 we say the logarithm of 2704.581 to base 10 equals 3.4321, or Logarithms to base 10 are called common logarithms. Older readers may remember, many years ago - after the dinosaurs, but before calculators and computers were widely available - doing numerical calculations laboriously by hand using tables of common logarithms and anti-logarithms. The properties of logarithms are based on the aforementioned rules for working with powers. Assuming that a > 0 and b > 0 we can say: logx(ab) = logxa + logxb, eg log10(1000 × 100) = log10(100,000) = 5 = log10(1000) + log10(100) = 3 + 2. logx(1/a) = -logxa, eg log3(1/27) = -log327 = -3. logx(a/b) = logxa - logxb, eg log2(128/8) = log2(16) = 4 = log2(128) - log2(8) = 7 - 3. logx(ay) = ylogxa, eg log5(253) = log515,625 = 6 = 3 × log525 = 3 × 2. 1.8.3
+
+% TODO algorithms for calculating logarithms (Taylor series) http://en.wikipedia.org/wiki/Logarithm#Power_series
+
+\subsection{Natural logarithm}
+% TODO plot y = ln{x}
+Say we invest £1.00 in an exceedingly generous bank that pays 100\% interest per annum. If the bank calculated and credited the interest at the end of one year, our investment would then be worth 1 + 1 = £2.00. But what if the bank credits the interest more frequently than once a year? If interest is calculated and added every six months, at the end of that period the balance would equal and at the end of one year the total amount would be . Calculated three times a year, the final balance would be . In general, if interest is calculated n times a year, the balance x after one year is
+% TODO use correct symbols as used in compound intersts 
+% TODO add as compound ingerest in index
+\[
+f(k) = \left(1 + \frac{1}{k}\right)^k
+\]
+if we plug in some values we observe
+\[
+\begin{align*}
+  f(2)  =& \left(1 + \frac{1}{2}\right)^2 = 2.25 \\
+  f(5)  =& \left(1 + \frac{1}{5}\right)^5 = 2.248832 \\
+  f(10) =& \left(1 + \frac{1}{10}\right)^{10} = 2.59374...
+\end{align*}
+\]
+
+% TODO place in table
+n 1 2 2 2.25 3 2.37037 4 2.44141 5 2.48832 10 2.59374 100 2.70481 1000 2.71692 100,000 2.71827 1,000,000 2.71828 10,000,000 2.71828
+
+We can see that as n increases, the value of the function appears to settle down to a number approximately equal to 2.71828. It can be shown that as n becomes infinitely large, it does indeed equal the constant e. The mathematically succinct way of saying this introduces the important idea of a limit and we say where means the limit of what follows (ie ) as n approaches infinity (symbol ). In other words, e approaches the value of as n approaches infinity.
+
+\begin{equation}
+e = \lim_{k\to\infty}\left(1 + \frac{1}{k}\right)^k
+\end{equation}
+
+\section{The exponential function}
+% TODO plot y=e^x
+The exponential function f(x) = ex, often written as exp x (see Figure 1.7) arises whenever a quantity grows or decays at a rate proportional to its size: radioactive decay, population growth and continuous interest, for example. The exponential function is defined, using the concept of a limit, as
+
+\subsection{Taylor series}
+\begin{equation}
+cos(\theta) = \sum_{n=0}^{\infty} \frac{(-1)^n \cdot \theta^{2n}}{2n!}
+\end{equation}
+
+\subsection{Geometric Series}
+\begin{equation}
+a + ar + ar^2 + ar^3 + \cdots + ar^{n-1} = \sum_{k=0}^{n-1}ar^k = a \frac{1-r^n}{1-r}
+\end{equation}
+
+
+\section{Integration}
+
+\subsection{Laplace Transform}
+
+\section{Numerical integration}
+
+\subsection{Trapez}

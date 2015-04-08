@@ -1,0 +1,53 @@
+\chapter{Abstract algebra}
+% TODO missing abstract algebra
+% - go through first math chapter of "Symbolic C++" (commutative group, distributive, ..)
+% - explain why these defenitions are needed
+
+\section{Groups}
+
+
+\section{Rings and Fields}
+A ring os a ordered triple $(R, +, \cdot)$ consisting of a set R with two
+binary operations $+$ (addition) and $\cdot$ (multiplication), satiesfying the
+folloiwn conditions
+
+\begin{enumerate}
+\item the pair $(R, +)$ is a commutative group
+\item multiplication is associative
+\item it admits an identity (or unit) element, denoted by $I$
+\item multiplication is distributive on both sides over addition, i.e.
+\[
+x \cdot (y + z) = x \cdot y + x \cdot z
+\textnormal{ and }
+(x+y) \cdot z = x \cdot z + y \cdot z
+\textnormal{ for all } x,y,z \in R
+\]
+\end{enumerate}
+
+\noindent A subring of $R$ is a subset $S$ of $R$ satiesfying:
+\begin{enumerate}
+\item $S$ is a subgroup of the additive group $R$
+\item $x \in $ and $y \in S$ together imply $x \cdot y \in S$
+\item $I \in S$
+\end{enumerate}
+Thus a subring is a ring
+
+If an element $a \in R$ posses an inverse element with respect to
+multiplication, i.e. if there exists a (unique) $a^{-1} \in R$ such that
+\[
+a \cdot a^{-1} = a^{-1} \cdot a = I
+\]
+then we say that a is an \textit{invertible element} of R.
+
+The set of invertible elements of a ring $R$ is denoted by $R^*$. If every
+non-zero element of $R$ is invertible, rhen $R$ is sait to be a
+\textit{division ring}. A commutative division ring is called a\textit{field}.
+$S$ is a \textit{subfield} of $F$ is $S$ is a subring of $F$ and
+$x \in S, x \neq 0$ together imply $x^-1 \in S$.
+
+Examples of rings are $\mathbb{Z}, +, \cdot$ and $\mathbb{Q}, +, \cdot$. Where
+$\mathbb{Z}$ is subring of $\mathbb{Q}$. The only invertible elements of
+$\mathbb{Z}$ is $1$ and $-1$ whereas all non-zero elements of $\mathbb{Q}$ are
+invertible.
+
+\subsection{Polynomial ring}

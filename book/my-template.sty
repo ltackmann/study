@@ -1,0 +1,85 @@
+\ProvidesPackage{BookTemplate}
+
+%% IMPORTS
+\usepackage{amsmath,amssymb,amsfonts,amsthm}               % math symbols
+\usepackage[answerdelayed,lastexercise]{exercise}          % exercises
+\usepackage{float}
+\usepackage{listings}                                      % source code
+\usepackage{pgfplots}                                      % plotting
+\usepackage{tkz-euclide}                                   % tikz drawings
+\usepackage{ulem}
+\usepackage{xcolor}                                        % custom colors
+\usepackage{xlop}                                          % arithmetic
+% must be loaded last as it clashes with other packages
+\usepackage{hyperref}                                      % http links
+
+%% SETUP
+% - PGF plots
+\usepgfplotslibrary{statistics}
+% - colors
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+\restylefloat{table}
+\usetkzobj{all}
+% - ams theorem Styles
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+% - ams definition Styles
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{example}{Example}[section]
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+% redefine commands
+\renewcommand{\deg}{\ensuremath{^{\circ}}\xspace}
+% - custom commands
+\newcommand{\rom}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
+\newcommand{\rad}{\deg}
+\newcommand\showdiv[1]{\overline{\smash{)}#1}}
+\newcommand\ph[1]{\textcolor{white}{#1}}
+\newcommand{\myindent}{\hspace{0.45cm}}
+% memoir class setup
+\makepagenote
+\renewcommand*{\notedivision}{\section{\notesname}} % page notes in same chapter
+\renewcommand*{\pagenotesubhead}[3]{} % #1-chapname, #2-chapnum, #3-chaptitle removed
+\renewcommand*{\pagenotesubheadstarred}[3]{} % chapter name/title removed from page notes
+% define subtitle variable
+\newcommand*{\volume}[1]{\gdef\@volume{#1}}
+\newcommand*{\@volume}{}%
+
+% index
+\makeindex
+
+% title page
+\makeatletter
+\def\maketitle{%
+  \null
+  \thispagestyle{empty}%
+  \vfill
+  \begin{center}\leavevmode
+    \normalfont
+    {\LARGE\raggedleft Lars Tackmann\par}%
+    \hrulefill\par
+    {\huge\raggedright Concepts of Mathematics\par}%
+    \vskip 1cm
+    {\Large\raggedright Volume \@volume\par}%
+    \vskip 0.5cm
+    {\Large\raggedright \@title\par}%
+    \vskip 0.5cm
+    {\Large\raggedright First Edition \par}%
+  \end{center}%
+  \vfill
+  \null
+  \cleardoublepage
+  }
+\makeatother
+
+% Notes
+% - remember orientation as english is read left (venstre) to right (Højre)

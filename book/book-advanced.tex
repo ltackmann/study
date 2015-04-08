@@ -1,0 +1,41 @@
+\documentclass[11pt,twoside,openright]{memoir}
+\usepackage{my-template}
+
+% configure title page
+\title{Advanced Mathematics}
+\volume{2}
+
+% begin document
+\begin{document}
+
+% title page
+\let\cleardoublepage\clearpage
+\maketitle
+
+% table of contents
+\tableofcontents
+\pagenumbering{arabic}
+
+% book layout
+\include{advanced/00_introduction}
+\mainmatter
+\include{advanced/01_real_analysis}
+\include{advanced/02_abstract_algebra}
+\include{advanced/03_topology}
+\include{advanced/04_measure_theory}
+\include{advanced/05_advanced_statistics}
+\include{advanced/06_non_euclidean_geometry}
+\include{advanced/07_differential_geometry}
+\include{advanced/08_game_theory}
+
+% appendices
+\appendix
+\chapter{Solutions to the exercises}
+Each exercise is numbered in accordance with the chapter where it is to be found, thus exercise two in chapter one is referred to as $1.2$.
+\shipoutAnswer
+
+% index
+\backmatter
+\printindex
+
+\end{document}

@@ -1,0 +1,466 @@
+\chapter{Basic algebra}\label{alg}
+% TODO algebra missing concepts
+% - solving equations (do same things at both sides)
+% - Systems of equations
+%  - substitution -b - a and a + b = -1
+% - dependent and independent variables
+% - equivalent forms of expressions
+% - adding and subtracting polynomials
+% - linear binomials (what does linear mean in this context)
+% - linear equations
+% - mononomial
+% - add function examples from think like a mathematician
+% - have five of each exercise type
+% - Linear equations and inequalities
+% - Graphing lines and slope
+% - System of equations
+% - Expressions and equations with exponens
+% - Quadratics and polynomials
+% - Equations and geometry
+% - long multiplicafion for polynomials
+%
+%      x + 4}
+%      x + 3
+%-----------
+%     3x +12
+% x^2+4x
+%-----------
+% x^2+7x +12
+%
+% axes (left-right) and (up-down)
+% ordered pairs
+% Term, product, factor, coefficient 
+% Fx.  (a+b+c+d)(e+f+g+h) has two factors each consisting of four terms
+
+% the study of numbers and its extensions to algebra arose out of the very practical problems of keeping track of property, trading, taxation, and the like,
+% - solve quadratics by factoring 
+% - - (x^2 + 12x + 36 = (x+6)(x+6) so x=-6
+% - - (4x^2 + 36x + 72) = (2x+6)(2x+12) = 4x^2 + 24x + 12x + 72 (72 = 8*9 = 2*4 * 3*3 = 6*12)
+% - - (2x+6 = 0 x=-3) og (2x + 12 = 0 x=-6)
+%
+% - The speed of sound in an iron rod is 16,850 ft/sec, and the speed in air is 1100 ft/sec. If a sound originating at one end of the rod is heard one second sooner through the rod than through the air, how long is the rod?
+% - 4.  The population of town A is 10,000 and is increasing by 600 each year. The population of town B is 20,000 and is increasing by 400 each year. After how many years will the two towns have the same population?
+% 2.  Find the roots of each of the equations in Exercise 1 by forming a new equation whose roots are “larger” than those of the original equation by one- half the coefficient of x
+% 
+% move proof of general second degree equation from "math for non-math" (If we divide this equation by a, we obtain x 2 + ( b / a ) x + ( c / a ) = 0. This equation is now of the same form as (28) , where p = b / a and q = c / a .)
+%
+% Ars Magna , the first major book on algebra in modern times. After refusing to divulge the method, Tartaglia finally acquiesced, but asked Cardan to keep it secret. However, Cardan wished his book to be as important as possible and so published the method, though acknowledging that it was Tartaglia’s. From this book, which appeared in 1545, the mathematical world learned how to solve third- degree equations. In this same book Cardan also published a method of solving fourth- degree equations discovered by one of his own pupils, Lodovico Ferrari
+%
+% - a young Norwegian mathematician, Niels Henrik Abel (1802–1829), showed at the age of 22 that fifth- degree equations could not be solved by the processes of algebra. Another youth, Évariste Galois (1811–1832), who failed twice to pass the entrance examinations for the École Polytechnique and spent just one year at the École Normale, demonstrated that all general equations of degree higher than the fourth cannot be solved by means of the operations of algebra.
+
+Algebraic expressions are expressions that involves unknown variables, for example
+\begin{align*}
+8x - 6               &   \\
+7x^2 + 4x - 10       &  \\
+\frac{x-1}{x^2 + 12} &
+\end{align*}
+are all expressions that contain the unknown variable "$x$". If we substitute $x$ with a value we can simplify it further, for example if we replace $x$ with $2$ in each of the above expressions we get
+\begin{align*}
+8 \cdot 2 - 6 = 10                \\
+7 \cdot 2^2 + 4 \cdot 2 - 10 = 26 \\
+\frac{2-1}{2^2 + 12} = \frac{1}{16}
+\end{align*}
+
+\section{Linear equations}
+Algebraic expressions may look abstract but can in fact be used to represent everyday phenomenon. For example consider the statement the "price of apples went up by 0.75 per pund so now 3 punds of apples cost 5.88". If we let $p$ denote the apple price prior to the increase then we can write the expression
+\begin{equation}\label{alg:ex1}
+5.88 = 3(p + 0.75)
+\end{equation}
+which represents that the price of one pund of apples $p$ went up by $0.75$ ($p + 0.75$) and that $3$ punds of apples at the new price ($3(p + 0.75)$) now costs $5.88$. Equation \ref{alg:ex1} is called a \index{linear equation} or first-degree equation because the unknown $p$ appears in the first degree only ($p^1 = p$).
+
+Algebraic expressions can look different but actually be equivalent. If you plug the same value into equivalent expressions they will each give you the same value. For example these expressions
+\begin{align*}
+2(4x+2y) &   \\
+4(2x+y)  &  \\
+8x+4y         &
+\end{align*}
+yields the same value when you plug in $2$ for the unknown variable $x$ and $3$ for $y$.
+\begin{align*}
+2(4 \cdot 2 + 2 \cdot 3)  &= 28\\
+4(2 \cdot 2 + 3)          &= 28\\
+8 \cdot 2 + 4 \cdot 3     &= 28
+\end{align*}
+However replacing unknown variables with actual variable values is tedious and only serves to show that two algebraic expressions will yield the same value for a specific variable value. It does not prove that the expressions will always yield equivalent results for all possible values. To prove that two algebraic expressions are equivalent we must first learn how to manipulate algebraic expressions into a form that will allow us to assertion that the expressions are in fact identical.
+
+\subsection{Manipulating lienar equations}
+Algebraic manipulation concerns the procedures we are allowed to perform on algebraic expressions. Generally we are allowed to perform all the arithmetical operations we learned in chapter \ref{arit} as long as we perform them on both sides on the equal sign in the expression. Formally the following algebraic manipulation procedures are allowed:
+\begin{description}
+\item [Addition] Adding on both sides is usually done to remove negative terms, for example if we add $1$ on both sides of $x - 1 = 0$ we get $x = 1$.
+\item [Subtraction] Subtracting on both sides is usually done to remove positive terms, for example if we subtract $b$ on both sides of $x + b = b + 2$ we get $x = 2$.
+\item [Multiplication] Multiplying on both sides is usually done to remove fractional terms, for example if we multiply with $4$ on both sides of $\frac{y}{4} = \frac{3}{4}$ we get $y = 3$.
+\item [Division] Dividing on both sides is usually done to remove multiplication terms, for example if we divide with $5$ on both sides of $5z = 20$ we get $z = 4$.
+\item [Replace with equals] Replacing with equal expressions is usually done to rewrite part of the expressions into a form that is easier to manipulate. For example in $x - \frac{x}{2} = 1$ we wish to put $x$ and $\frac{x}{2}$ on a common denominator. As $\frac{2x}{2} = x$ we can replace the first $x$ with this
+\begin{align*}
+x - \frac{x}{2}            =& 1 &                                     \\
+\frac{2x}{2} - \frac{x}{2} =& 1 & \textrm{repalce $x = \frac{2x}{2}$} \\
+\frac{2x - x}{2}           =& 1 & \textrm{use common denominator}     \\
+\frac{x}{2}                =& 1 & \textrm{simplify numerator}         \\
+x                          =& 2 & \textrm{multiply with $2$}
+\end{align*}
+\item [Distributive rule] $m(a + b) = ma + mb$ is called the distributive rule since we "distributed" $m$ to $a$ and $b$.
+\end{description}
+
+When performing algebraic manipulation we are of cause allowed to make use of all the above procedures in order to simplify a expression. For example consider expression \ref{alg:ex1} above that we used to represent the price of apples after a price hike:
+\begin{align*}
+3(p + 0.75)           =& 5.88                  &                          \\
+\frac{3(p + 0.75)}{3} =& \frac{5.88}{3}        & \textrm{divide with $3$} \\
+p + 0.75              =& \frac{5.88}{3}        & \textrm{cancel $3$ out}  \\
+p                     =& \frac{5.88}{3} - 0.75 & \textrm{subtract $0.75$} \\
+p                     =& 1.21                  & \textrm{calculate value}
+\end{align*}
+So we now know that the price of one pund of apples prior to the price increase is $1.21$. Mastering algebraic manipulation is the foundation of all modern mathematics so we will show another example to get a feel for it. Consider the expression $2(x + 1) = \frac{1}{5}x + 3$
+\begin{align*}
+2(x + 1)                     =& \frac{1}{5}x + 3 &                                       \\
+2x + 2                       =& \frac{1}{5}x + 3 & \textrm{use distributive rule}        \\
+2x                           =& \frac{1}{5}x + 1 & \textrm{subtract $2$}                 \\
+2x - \frac{1}{5}x            =& 1                & \textrm{subtract $\frac{1}{5}x$}      \\
+\frac{10x}{5} - \frac{1}{5}x =& 1                & \textrm{replace $2x = \frac{10x}{5}$} \\
+\frac{10x - x}{5}            =& 1                & \textrm{use common denominator}       \\
+\frac{9x}{5}                 =& 1                & \textrm{simplify numerator}           \\
+9x                           =& 5                & \textrm{multiply with $5$}            \\
+x                            =& \frac{5}{9}      & \textrm{divide with $9$}              \\
+\end{align*}
+before continuing with other chapters in this book be sure to familiarize yourself with algebraic manipulation by going through the exercises in
+\ref{alg:exercises}.
+
+\section{Linear inequalities}
+Just as we are allowed to have have expressions with unknown variables we can have unknown variables in inequalities. For example the inequality $x < 5$ states that $x$ is a value below $5$. Inequalities may be compound such as $1 \leq y \leq 4$ which states that $y$ is any value between (and including) $1$ and $4$. However not all equalities are as easy to analyse as the ones above. Consider $-0.5z \leq 7.5$ here we may be tempted to divide both sides with $-0.5$ in order to isolate $z$, however it turns out that special rules governs algebraic manipulation of inequalities. To see why this is true observe what happens when we multiply a inequality with a negative number
+\begin{align*}
+1  <& 2  &                             \\
+-1 <& -2 & \textrm{multiply with $-1$}
+\end{align*}
+clearly the last expressions is false as $-1 \nless -2$. In fact it turns out that when multiplying or dividing inequalities with negative numbers we must flip the inequality ($-1 > -2$). Observing this rule we can now manipulate $-0.5z \leq 7.5$ into a more manageable form
+\begin{align*}
+-2 \cdot -0.5z \geq& -2 \cdot 7.5 & \textrm{multiply with $-2$ and flip sign} \\
+z              \geq& -15          & \textrm{simplify}
+\end{align*}
+
+\subsection{Manipulating linear inequalities}
+As shown above the rules for manipulating linear inequalities are sometimes different than when manipulating linear equations. However it turns out that some operations are actually safe to perform. To see this consider that when we add $1$ to both sides of $1 < 2$ we get $2 < 3$ which is clearly still true. Formally the rules governing inequalities can be split between those that does not require changing the inequality sign and those who do.
+\begin{description}
+% preserves
+\item [Operations that preserves the inequality sign]:
+\begin{description}
+\item [Addition] Adding on both sides of a inequality is usually done to remove negative terms, for example if we add $1$ on both sides of $x - 1 < 0$ we get $x < 1$.
+\item [Subtraction] Subtracting on both sides of a inequality is usually done to remove positive terms, for example if we subtract $b$ on both sides of $x + b > b + 2$ we get $x > 2$.
+\item [Multiplication with a positive number] Multiplying a inequality with a positive number is usually done to remove fractional terms, for example if we multiply with $4$ on both sides of
+$\frac{y}{4} \leq \frac{3}{4}$ we get $y \leq 3$.
+\item [Division with a positive number] Dividing a inequality with a positive number is usually done to remove multiplication terms, for example if we divide with $5$ on both sides of $5z \geq 20$ we get $z \geq 4$.
+\end{description}
+% changes
+\item [Operations that requires flipping the inequality sign]:
+\begin{description}
+\item [Multiplication with a negative number] Multiplying a inequality with a negative number requires flipping the inequality for example if we multiply with $-4$ on both sides of $-\frac{y}{4} \leq \frac{3}{4}$ we get $y \geq -3$.
+\item [Division with a negative number]
+Dividing a inequality with a negative number requires flipping the inequality for example if we divide with $-5$ on both sides of $-5z \geq 20$ we get $z \leq -4$.
+\item [Swapping left and right hand sides] When we swap the left and right hand sides, we must also change the direction of the inequality, for example $2y+7 < 12$ becomes $12 > 2y+7$.
+\end{description}
+\end{description}
+as with linear equations we may combine the above rules to solve complicated inequalities like $3x -3 > 6x + 3$
+\begin{align*}
+3x - 3 >& 6x + 3       &                                               \\
+3x     >& 6x + 6       & \textrm{add $3$}                              \\
+-3x    >& 6            & \textrm{subtract $6x$}                        \\
+x      <& -\frac{6}{3} & \textrm{divide with $-3$ and flip inequality} \\
+x      <& -2           & \textrm{simplify fraction}
+\end{align*}
+So we now kno
+
+\section{Functions}
+As menitoned earlier when we replace a variable $x$ in expressions such as $x+2$ we get a value, for example using $x=2$ gives us $2+2=4$ and using $x=3$ results in $3+2=5$. To formalize the concept of replacing a variable $x$ in a expression and computing a value we introduce the concept of a function. In the above example we may write 
+\begin{equation}\label{alg:function}
+f(x) = x + 2
+\end{equation}
+That is $f(x)$ (read "f of x") is a function of one variable $x$ when we provide a actual value for $x$ such as $f(1) $we replace all occurences of $x$ in $x+2$ with the provided value $1$ and computes the functions value. A couple of examples serves to clarify this concept
+\begin{align*}
+f(1) =& 1 + 3 = 4 \\
+f(2) =& 2 + 3 = 5 \\
+f(3) =& 3 + 3 = 6
+\end{align*}
+the actual name of the function $f$ does not matter, we only use it to refer to the function body $x+2$ without having to write $x+2$ all the time. We might as well call it $g(x) = x + 2$ in which case we just write $g(2) = 5$.
+
+In \ref{alg:function} above the value of $f$ only depends on $x$, we say $f$ is a function of one variable. Alternatively, if $f$ is a function of several variables, we can write $f(a, b)$ meaning $f$ is a function of the two variables $a$, $b$. For now however we shall restrict ourselfs to functions of one variable. 
+
+It's common to write $y = f(x)$ that is to say the function $f$ returns a value $y$ when we plug a value into $x$. Assigning $y = f(x)$ gives a relation between $y$ and $x$ and $y$ is then known as a dependent variable and $x$ is an independent variable. Generally the "dependent variable" represents the output of a function. The "independent variables" represent the inputs to the function.
+
+\subsection{Function graphs}
+If we enumerate the $x$ and $y$ values of \ref{alg:function} into ordered pairs of $(x, y)$ above we get 
+\begin{table}[H]
+\centering
+\begin{tabular}{|r|r|r|r|}
+\hline
+\textbf{x} & \textbf{y = f(x)} & \textbf{(x,y)} \\ \hline
+$-2$       & $-2 + 2 =  0$     & $(-2,  0)$     \\ \hline
+$-1$       & $-1 + 2 =  1$     & $(-1,  1)$     \\ \hline
+$0$        & $ 0 + 2 =  2$     & $( 0,  2)$     \\ \hline
+$1$        & $ 1 + 2 =  3$     & $( 1,  3)$     \\ \hline
+$2$        & $ 2 + 2 =  4$     & $( 2,  4)$     \\ \hline
+\end{tabular}
+\end{table}
+
+Carteseian coodinates (sample Xes and plot out a line)
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=0.75]
+    % coordinate system 
+    \tkzInit[xmax=5,ymax=5,xmin=-5,ymin=-5]
+    \tkzGrid
+    \tkzAxeXY
+    % coordinates 
+    \coordinate [label={below left:$a$}]   (A) at (-1, 4);
+    \fill (A)  circle[radius=2pt];
+    \coordinate [label={below left:$b$}]   (B) at (2, -2);
+    \fill (B)  circle[radius=2pt];
+    % lines
+    \draw[thick] (A) -- (B); 
+\end{tikzpicture}
+\end{figure}
+
+% quadrants
+% First (x > 0 and y > 0)
+% Second (x < 0 and y > 0)
+% Third (x < 0 and y < 0)
+% Fourth (x > 0 and y < 0)
+
+\section{Monomials and binominals}
+A \index{monomial}, also called \index{power product}, is a product of powers of variables with nonnegative integer exponents. Examples include
+\[
+-5, 3, 21x, -2x^2, 3a^2b^3
+\]
+here $-5$ and $3$ are monomial of $x^0$ for any variable $x$
+
+% factor binominals (7x - 1, 9x + 18, ....)
+
+% Quadratics
+
+
+\subsection{Factoring and multiplying binominals}
+When we multiply two binomials such as $(x+4)$ and $(x+2)$ 
+
+
+
+With factoring one usually starts with an expression such as $x^2 + 6 x + 8$ and seeks to transform it into a product of two binominals of the form $(x + a)(x + b)$. The original expression is said to be of second degree because it contains $x^2$ but no higher power of $x$. The factors are first-degree expressions because each contains $x$ but  no higher power of $x$. The problem is to find the correct values of $a$ and $b$ so that the product $(x + a)(x + b)$ will equal the original
+expression. We know that
+\begin{equation}\label{alg:binom_factor}
+x^2 + (a + b)x + ab = (x + a)(x + b)
+\end{equation}
+Hence to factor the second-degree expression, we should look for two numbers $a$ and $b$ whose sum is the coefficient of $x$ and whose product is the constant. Thus to factor $x^2 + 6 x + 8$, we look for two numbers whose sum is $6$ and whose product is $8$. By mere trial of the possible factors of $8$ we see that $a = 4$ and $b = 2$ will meet the requirement; that is: $x^2 + 6 x + 8 = (x + 4)(x + 2)$.
+
+% (h \cdot x + a)(g \cdot x + b) = (h \cdot x)(g \cdot x) + (h \cdot x)b + a(g \cdot x) + (a \cdot b)
+% (−3x+1)^2 = x^2 + (-3 + 1)x + (-3 * 1) = x^2 - 2x - 3
+
+\subsection{Quadratic equations}
+
+\section{Polynomials}
+
+\subsection{Polynominal multiplication}
+
+\subsection{Polynominal division}
+
+\section{Exercises}\label{alg:exercises}
+% Solvr for x and y using elimination. x + 3y = 22, -x + 2y = 8
+%If a+b=2 and x+y+z=−4, what is −10x−10y−10b−10a−10z?
+
+%If 6a+3b=−2 and x+8y+z=−9, what is 9z+72y+60a+9x+30b?
+
+%Find a simple sum expressing the difference between the sum of the squares and the square of the sums. i.e.:
+%\[
+%(a + b + \cdots)^2 - (a^2 + b^2 + \cdots) = ?
+%\]
+%Then use it to find the difference between the sum of the squares of the first one hundred natural numbers and the
+%square of the sum (\textbf{note} you should be able to do this without a calculator).
+% Multiply the following (a) (3 + 4)(9 - 2), (b) (x - 3)(5 + x2), (c) (z + 10)(z - 10)
+% Solve the following 2(x + 7z) + 3z = \frac{4(x+8)}{2} (ans z=32/34)
+\begin{ExerciseList}
+
+\Exercise Evaluate the expression values of
+\Question $-1 - (-z) - 5 - (-3)$ where $z = -2$.
+\Question $x - (-y)$ where $x = -2$ and $y = 5$.
+\Question $3 - (-6) + (-h) + (-4)$ where $h = -7$
+\Answer First we simply each expression and then replace the variables with its value in  order to calculate the expression value
+\begin{enumerate}
+\item \myindent $-1 - (-z) - 5 - (-3) = -1 + z - 5 + 3 = -1 - 2 - 5 + 3 = -5$
+\item \myindent $x - (-y) = x + y = -2 + 5 = 3$
+\item \myindent $3 - (-6) + (-h) + (-4) = 3 + 6 - h - 4 = 5 - h = 5 - (-7) = 12$
+\end{enumerate}
+
+\Exercise Use the distributive property to expand these expressions
+\Question $-(6 - \frac{z}{4})$
+\Question $-(\frac{1}{2}r + 4)$
+\Question $-5(3n + \frac{1}{2})$
+\Answer Noting that $-(x + y) = -1 \cdot (x+y) = -x - y$ we see
+\begin{enumerate}
+\item \myindent $-(6 - \frac{z}{4})   = -6 + \frac{z}{4}$
+\item \myindent $-(\frac{1}{2}r + 4)  = -\frac{1}{2}r - 4$
+\item \myindent $-5(3n + \frac{1}{2}) = -15n - \frac{5}{2}$
+\end{enumerate}
+
+\Exercise Use the distributive property to collect these expressions so no fractions are within the parentheses
+\Question $\frac{3}{5}z - \frac{6}{5}$
+\Question $\frac{3}{2} + \frac{7}{8}c$
+\Answer We get
+\begin{enumerate}
+\item \myindent $\frac{3}{5}z - \frac{6}{5} = \frac{3}{5}(z + 2)$
+\item \myindent $\frac{3}{2} + \frac{7}{8}c = \frac{1}{8}(12 + 7c)$
+\end{enumerate}
+
+\Exercise Determine if the following expressions are equivalent
+\Question $9x+6 = 3x+2$
+\Question $\frac{5}{2}x - 3 = x+5$
+\Question $\frac{\frac{2}{b} + \frac{2}{a}}{\frac{2}{ab}} = a+b$
+\Question $\frac{\frac{a}{b} + 1}{\frac{b}{a} - 1} = \frac{a(a+b)}{b(b-a)}$
+\Answer We determine equivalent expressions by subtracting them from each other in order to see if the result becomes zero
+\begin{enumerate}
+\item \myindent Not equal: $9x + 6 - (3x+2) = 6x - 4$
+\item \myindent Not equal: $\frac{5}{2}x - 3 - (x + 5) = \frac{3/2}x - 7$
+\item \myindent Equal:
+\[
+\frac{\frac{2}{b} + \frac{2}{a}}{\frac{2}{ab}} - (a + b) =
+\left(\frac{2a + 2b}{ab}\right)\left(\frac{ab}{2}\right) - (a + b) = 0
+\]
+\item \myindent Equal:
+\begin{align*}
+\frac{\frac{a}{b}+1}{\frac{b}{a}-1} - \frac{a(a+b)}{b(b-a)} =
+\frac{\frac{a}{b} + \frac{b}{b}}{\frac{b}{a} - \frac{a}{a}} - \frac{a(a+b)}{b(b-a)} &= \\
+\left(\frac{a + b}{b}\right)\left(\frac{a}{b-a}\right) - \frac{a(a+b)}{b(b-a)} = 0
+\end{align*}
+\end{enumerate}
+
+\Exercise Expand the expression and combine the like terms:
+\Question $6+5(−7n+2)$
+\Question $−(−15+2a)+4(8a−6)$
+\Question $6(−2+10k)+6(5k−3)$
+\Question $1/5 - 2z + z + 2/3$
+\Question $7n - (4n - 3)$
+\Answer The expressions simplifies to
+\begin{enumerate}
+\item \myindent $6+5(-7n+2) = -35n + 16$
+\item \myindent $-(-15+2a)+4(8a-6) = 30a - 9$
+\item \myindent $6(-2+10k)+6(5k-3) = 90k - 30$
+\item \myindent $1/5 - 2z + z + 2/3 = 13/15 - z$
+\item \myindent $7n - (4n - 3) = 3n + 3$
+\end{enumerate}
+
+\Exercise Simplify the following rational expressions by removing their fractions
+\Question $\frac{35n^3}{10n^4}$
+\Question $\frac{44a^3}{55a^3}$
+\Question $\frac{28y^5}{7y^3}$
+\Answer Using the exponent rules from \ref{arit:exp} we get
+\begin{enumerate}
+\item \myindent $\frac{35n^3}{10n^4} = 3.5n^{-1}$
+\item \myindent $\frac{44a^3}{55a^3} = \frac{4}{5}$
+\item \myindent $\frac{28y^5}{7y^3} = 4y^3$
+\end{enumerate}
+
+\Exercise Write and solve equations to represent the following statements
+\Question One half of the quantity represented by $6$ less than a number $n$ is equal to $17$. Write an equation to represent this statement and find the value of $n$.
+\Question The sum of $3$ consecutive odd numbers is $69$. What is the first number in this sequence?
+\Question $130\%$ of the sum of $7$ and a number $n$ is equal to $91$. Write an equation to represent this statement and find the value of the number.
+\Question The radiator of a car contains $10$ gallons of liquid $20$ percent of which is alcohol. We want to draw off liquid and replace it with alcohol so the resulting mixture contains $50$ percent alcohol. How many gallons of liquid should he draw off?
+\Answer We formulate the expressions in terms of their unknown and solve for it.
+\begin{enumerate}
+\item \myindent The equation is $17=\frac{n-6}{2}$ and $n = 2 \cdot 17 + 6 = 40$.
+\item \myindent We have $n + (n+2) + (n+4) = 69$ and $n = \frac{63}{3} = 21$.
+\item \myindent The equation is $\frac{13}{10}(7 + n) = 91$ and $n = 63$
+\item \myindent Let $x$ be the amount to be drawn off. Then $10 - x$ is the gallons remaining of which $\frac{1}{5}$ is alcohol that is $1/5(10 - x)$ is alcohol. After the $x$ gallons are replaced with alcohol, the amount of alcohol in the tank will be $\frac{1}{5}(10 - x) + x$. As we want this to be $5$ gallons ($50$ percent alcohol of $10$ gallons) we end up with
+\[
+\frac{1}{5}(10 - x) + x = 5
+\]
+Which reduces to
+\[
+3 \cdot \frac{5}{4} = \frac{15}{4} = \frac{12}{4} + \frac{3}{4} = 3\frac{3}{4}
+\]
+\end{enumerate}
+
+\Exercise Solve the following linear equations
+\Question $\frac{12}{x-12} = \frac{6}{5}$
+\Question $\frac{3}{5} = \frac{18}{a + 11}$
+\Question $\frac{5}{6} = \frac{k-7}{18}$
+\Question $\frac{3}{8} = \frac{15}{t-1}$
+\Question $\frac{y-8}{25} = \frac{7}{5}$
+\Answer The solutioms are
+\begin{enumerate}
+\item\myindent $x = \frac{12 \cdot 5}{6} + 12 = 22$.
+\item\myindent $a = \frac{18 \cdot 5}{3} - 11 = 19$.
+\item\myindent $k = \frac{5 \cdot 18}{6} + 7 = 22$.
+\item\myindent $t = \frac{15 \cdot 8}{3} + 1 = 41$.
+\item\myindent $y = \frac{7 \cdot 25}{5} + 8 = 43$.
+\end{enumerate}
+
+\Exercise Solve these linear inequalities for $x$:
+\Question $-12x < 1$
+\Question $-18x > -10$
+\Question $−16x \geq 13$
+\Question $12b - 15 > 21$
+\Question $14 - 3x < -1$
+\Answer $x$ is
+\begin{enumerate}
+\item\myindent $x > -\frac{1}{12}$.
+\item\myindent $x < \frac{5}{9}$.
+\item\myindent $x \leq -\frac{13}{16}$.
+\item\myindent $b>3$.
+\item\myindent $x>5$.
+\end{enumerate}
+
+\Exercise Simplify and solve these linear inequalities for $x$:
+\Question $9 - 4d\geq -3$
+\Question $9x - 3 < 7x + 4$
+\Question $2x + 8 \geq 4x + 5$
+\Question $9x + 1 \geq 4x + 2$
+\Question $3x + 9 \geq 9x + 10$
+\Answer $x$ is
+\begin{enumerate}
+\item\myindent $d \leq 3$.
+\item\myindent $x < \frac{7}{2}$.
+\item\myindent $x \leq \frac{3}{2}$.
+\item\myindent $x \geq \frac{1}{5}$
+\item\myindent $x \leq -\frac{1}{6}$
+\end{enumerate}
+
+\Exercise Name the quadrants of these coordinates
+\Question $(1,1)$
+\Question $(-1,1)$
+\Question $(-1,-1)$
+\Question $(1,-1)$
+\Question $(0,0)$ 
+\Answer The quadrants are
+\begin{enumerate}
+\item\myindent First quadrant
+\item\myindent Second quadrant
+\item\myindent Third quadrant
+\item\myindent Fourth quadrant
+\item\myindent The origin has no quadrant.
+\end{enumerate}
+
+\Exercise Multiply these binomials
+\Question $(x-3)^2$ 
+\Question $(x-3)(x+10)$ 
+\Question $(x+8)^2$ 
+\Question $(x+1)(x-4)$ 
+\Question $(x+9)^2$ 
+\Answer Using \ref{alg:binom_factor} we get the following quadratics 
+\begin{enumerate}
+\item\myindent $(x-3)^2 = x^2 + (-3 + -3)x + (-3 \cdot -3) = x^2 - 6x + 9$
+\item\myindent $(x-3)(x+10) = x^2 + (-3 + 10)x + (-3 \cdot 10) = x^2 + 7x - 30$
+\item\myindent $(x+8)^2 = x^2 + (8+8)x + (8\cdot8) = x^2 + 16x + 64$
+\item\myindent $(x+1)(x-4) = x^2 + (1 + -4)x + (1 \cdot -4) = x^2 - 3x - 4$
+\item\myindent $(x+9)^2 = x^2 + (9+9)x + (9\cdot9) = x^2 + 18x + 81$
+\end{enumerate}
+
+\Exercise Factor the following expressions. 
+\Question $x^2 + 9x + 20$
+\Question $x^2 + 5x + 6$
+\Question $x^2 - 5x + 6$
+\Question $x^2 - 9$
+\Question $x^2 + 7x - 18$
+\Answer Using \ref{alg:binom_factor} we get the following factors 
+\begin{enumerate}
+\item\myindent $x^2 + 9x + 20 = x^2 + (4 + 5)x + (4\cdot5) = (x+4)(x+5)$.
+\item\myindent $x^2 + 5x + 6 = x^2 + (3 + 2)x + (2\cdot3) = (x+2)(x+3)$.
+\item\myindent $x^2 - 5x + 6 = x^2 + (-3 + -2)x + (-2\cdot-3) = (x-2)(x-3)$.
+\item\myindent $x^2 - 9 = x^2  + (-3 + 3)x + (-3\cdot3) = (x-3)(x+3)$.
+\item\myindent $x^2 + 7x - 18 = x^2 + (-2 + 9)x + (-2\cdot9) = (x+9)(x-2)$.
+\end{enumerate}
+
+\end{ExerciseList}
