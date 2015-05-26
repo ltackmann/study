@@ -58,5 +58,4 @@ class Failure<L,A> extends Validation<L,A> {
   
   final L left;
 }
-
 Failure failure(dynamic v, dynamic l) => new Failure._internal(v, l);

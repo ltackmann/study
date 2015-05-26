@@ -1,5 +1,5 @@
 name: js_sandbox
 description: JS Sandbox
 dependencies:
-  unittest: any
+  test: any
   browser: any

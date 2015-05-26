@@ -1,5 +1,5 @@
 name: db_sandbox
 description: DB Sandbox
 dependencies:
-  postgresql: any
-  sqljocky: any
+  postgresql: ">=0.3.0+2 <0.4.0"
+  sqljocky: ">=0.11.0 <0.12.0"
