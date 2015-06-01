@@ -9,3 +9,9 @@ software/*
 target
 project/target
 project/project
+book/.texpadtmp
+*.pdf
+*.aux
+*.ent
+*.idx
+*.log

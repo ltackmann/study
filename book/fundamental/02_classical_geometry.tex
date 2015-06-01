@@ -5,12 +5,12 @@
 % - http://math.furman.edu/~jpoole/euclidselements/eubk3/props.htm
 % Lines (goes on idefinetky in bith directiins)
 % - Paraell lines
-% - rays (has one end point and continjes forever in one direcyion))
-% - segments (has start and end)
 % - perpendicular
+% - concav
+% - convex
 % Postulates
 % Circle
-% - circumference of a circle 2 \cdot \pi \cdot r = \pi \cdor d
+% - circumference of a circle 2 \cdot \pi \cdot r = \pi \cdot d
 % - area of a circle \pi \cdot r^2 
 % perimeter, area, volume (relation to meassure)
 % proof thales intercept theorem
@@ -62,15 +62,13 @@
 % Figure decomposition (fx calculatijf the are of a trapez by viewing it as a sqare and some triangles)
 % -  slices : A horizontal slice through a three-dimensional solid produces a two-dimensional shape.
 
-Geometry arrose as practical methods in the ancient world in order to measure land, survey fields, compute the quantity of corn in containers, and to construct temples and pyramids. The theorems of Thales and Pythagoras, which are the oldest theorems of humanity and fundamental tools for geometry.
-
-Later these methods practiced by builders and tradesmen where taken over by Euclid who replaced the geometry of nails, ropes and walls used by the temple builders with mathematical points, lines, rectangles etc., objects of pure reasoning, which require a list of definitions, \index{axiom}s and \index{postulate}. This is the origin of nearly all mathematical procedures used ever since.
+Geometry arrose out of practical needs to measure land, construct temples and meassure the corn in containers used for trade. The theorems of Thales and Pythagoras, usefull for meassuring land and buildings, are among the oldest known mathematical theorems and are fundamental tools for geometry. Later the methods practiced by builders and tradesmen where taken over by Euclid. In Euclidean geometry we don't use stones and nails but instead deal with objects of pure reason such as mathematical points, lines, rectangles etc. Such idealised objects lead to new theorems and required well thought out definitions, axioms\index{axiom} and postulates\index{postulates}. Thereby founding the main tools used in all mathematical procedures used ever since.
 
 \section{Classical plane geometry}
-The most beautiful and useful discoveries in classical geometry concerns the relations between lengths (Thales’ intercept theorem), angles (the central angle theorem of Euclid) areas (the Pythagorean theorem).
+The most beautiful and useful discoveries in classical geometry concerns the relations between lengths (Thales’ intercept theorem), angles (the central angle theorem of Euclid) and area (the Pythagorean theorem).
 
 \subsection{Thales theorem}
-Thales is the man to tell us how to measure the height of a tree without having to climb it. In figure \ref{geo:thales} below we let side $B'C'$ be the height of the tree and $AB'$ be its shadow. We erect a vertical stick $BC$ in such a manner that $AB$ is the shadow of the stick. We then measure the distance $AB$, say $4$ metres, the distance $AB'$, say $8$ metres, and the stick $BC$, say $5$ metres. By parallel displacements of the triangle $ABC$ we see that, since $AB′$ measures twice $AB$, the height $B'C'$ will measure twice $BC$, hence $B'C' = 2 \cdot 5 = 10$.
+Thales theorem is perhaps best known for its ability to tell us how to measure the height of a tree without having to climb it. In figure \ref{geo:thales} below we let side $B'C'$ be the height of the tree and $AB'$ be its shadow. We erect a vertical stick $BC$ in such a manner that $AB$ is the shadow of the stick. We then measure the distance $AB$, say $4$ metres, the distance $AB'$, say $8$ metres, and the stick $BC$, say $5$ metres. By parallel displacements of the triangle $ABC$ we see that, since $AB′$ measures twice $AB$, the height $B'C'$ will measure twice $BC$, hence $B'C' = 2 \cdot 5 = 10$.
 \begin{figure}[H]
 \label{geo:thales}
 \centering
@@ -116,7 +114,7 @@ Thales is the man to tell us how to measure the height of a tree without having 
 \]
 
 \end{theorem}
-As these proportions are also preserved when the triangle is displaced and rotated we get the following result. \textit{If corresponding angles of two triangles are equal, then corresponding sides are proportional}. Triangles having these properties are called similar (see \index{similarity}).
+As these proportions are also preserved when the triangle is displaced and rotated we get the following result. \textit{If corresponding angles of two triangles are equal, then corresponding sides are proportional}. Triangles having these properties are called similar (see figure below \ref{geo:similar-triangles}).
 \begin{figure}[H]
 \label{geo:similar-triangles}
 \centering
@@ -149,25 +147,96 @@ As these proportions are also preserved when the triangle is displaced and rotat
     % large triangle
     \draw [dashed] (B) -- (B') -- (C') -- (C);
 \end{tikzpicture}
-\caption{Similar triangles}
+\caption{Similar triangles $\Delta ABC$ and $\Delta AB'C'$}
 \end{figure}
 
-\subsection{Points, Lines and Planes}
+An important point is that the above description of Thales intercept theorem does not consitute a proof but is mearly a statement. For regerious mahtmetical proofs we will turn the master of classical geometry, Euclid.
 
-\subsection{Angles}
+\section{Euclidean Geometry}
+Euclid is righly refered to as the "Father of Geometry". He was active in Alexandria (then part of Greece, today part of Egypt) during the reign of Ptolemy I ($323-283$ BC). His collection of books, known as the Elements is one of the most influential works in the history of mathematics. 
 
-\subsubsection{Radians}
-% TODO draw radian drawing
-Degrees are often used when introducting geometry. However for more advanced  work we often meassure angles in radians. Radians equals the ratio between the length of an angle arc and its radius. As the circumference of a circle equals $2\pi r$ thus an angle of $360 deg$ equals $\frac{2\pi r}{r} = 2\pi$ radians. Radians allow us to use real numbers in the trigonometric functions, rather than degrees, which are an arbitrary angular measurement between $0-360$. The use of real numbers for meassuring angels allow is essential in more advanced mathematics, calculus for example.
+\subsection{Euclid's definitions}
+% http://aleph0.clarku.edu/~djoyce/elements/bookI/bookI.html
+The Elements begins with definitions of the basic concepts: point, line, angle, circle, triangle, quadrilateral. All of which to this day contrinous to be tought to millions of school children around the world. Below is a refresher of the most important once,with commentary on their defnitions.
 
-\section{Area and perimeter}
-The area of a parallelogram is $a \cdot h$, where h is the altitude of the parallelogram (Eucl. I.35). There are two ways to see this: (a) We cut off the triangle on the left and add it on the right to obtain a rectangle (Euclid’s proof, see the second figure in Fig. 1.11); (b) We cut the parallelogram parallel to AB into a large number of very slim rectangles. The area of a triangle is half the area of the parallelogram.
-
-\subsection{Triangles}
-Figure 1.2 shows a right-angled triangle (ie a triangle with one angle of 90°) with another angle denoted by the Greek letter theta θ. The sides of the a right-angled triangle are called the adjacent side (next to θ), the opposite side (opposite to θ) and the hypotenuse (opposite the right-angle).
-
-\subsection{Circle}
+\begin{description}
+\item [Definition 1: Point] "A point\index{point} is that which has no part" says that a point serves only as a marker of location and has no width, length, or breadth.
 \begin{figure}[H]
+\centering
+\begin{tikzpicture}
+    \coordinate [label={below left:$A$}] (A) at (0, 0);
+    \coordinate [label={below right:$B$}] (B) at (2, 1);
+    \fill (A) circle[radius=2pt];
+    \fill (B) circle[radius=2pt];
+\end{tikzpicture}
+\caption{Two points $A$ and $B$}
+\end{figure}
+
+\item [Definition 2-4: Lines] Definition $2$ says "A line is breadthless length". That is a line will have one dimension, length, but it won’t have breadth. Today we use the term curve for arbitrary lines that may or may not be stright. When we speak of lines they are typically streight and continous indefinitely in either direction (Euclid defines a streight line in his fourth definition as "A straight line is a line which lies evenly with the points on itself"). Finally we call lines that starts in a point and goes on indefinitely in one direction a ray\index{ray} and a line drawn between two points in known as a segment\index{segment}.
+\begin{figure}[H]
+\begin{subfigure}[b]{0.2\textwidth}
+    \begin{tikzpicture}
+        \tkzDefPoint(0,0){A};
+        \tkzDefPoint(2,1){B};
+        \tkzDrawPoints(A,B)\tkzLabelPoints(A,B)
+        \draw (A) to[out=-20,in=-70] (B);
+    \end{tikzpicture}
+    \caption{Curve}
+\end{subfigure}
+%
+\begin{subfigure}[b]{0.3\textwidth}
+    \begin{tikzpicture}
+        \tkzDefPoint(0,0){A};
+        \tkzDefPoint(2,1){B};
+        \tkzDrawPoints(A,B)\tkzLabelPoints(A,B)
+        \tkzDrawLine[add= 0.25 and 0.25](A,B);
+    \end{tikzpicture}
+    \caption{Line}
+\end{subfigure}
+%
+\begin{subfigure}[b]{0.25\textwidth}
+    \begin{tikzpicture}
+        \tkzDefPoint(0,0){A};
+        \tkzDefPoint(2,1){B};
+        \tkzDrawPoints(A,B)\tkzLabelPoints(A,B)
+        \tkzDrawLine[add= 0 and 0.25](A,B);
+    \end{tikzpicture}
+    \caption{Ray}
+\end{subfigure}
+%
+\begin{subfigure}[b]{0.2\textwidth}
+    \begin{tikzpicture}
+        \tkzDefPoint(0,0){A};
+        \tkzDefPoint(2,1){B};
+        \tkzDrawPoints(A,B)\tkzLabelPoints(A,B)
+        \tkzDrawLine[add= 0 and 0](A,B);
+    \end{tikzpicture}
+    \caption{Segment}
+\end{subfigure}
+\end{figure}
+
+\item [Definition 2-4: Angles]
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+  \draw
+    (3,-1) coordinate (a) node[right] {a}
+    -- (0,0) coordinate (b) node[left] {b}
+    -- (2,2) coordinate (c) node[above right] {c}
+    pic["$\alpha$", draw=orange, <->, angle eccentricity=1.2, angle radius=1cm]
+    {angle=a--b--c};
+\end{tikzpicture}
+\end{figure}
+% http://tex.stackexchange.com/questions/134615/mark-angles-with-arrows-using-tkz-euclide
+% http://aleph0.clarku.edu/~djoyce/elements/bookI/defI8.html
+% http://aleph0.clarku.edu/~djoyce/elements/bookI/defI9.html
+% http://aleph0.clarku.edu/~djoyce/elements/bookI/defI10.html
+% http://aleph0.clarku.edu/~djoyce/elements/bookI/defI11.html
+
+
+\item [Circle]
+\begin{figure}[H]
+\centering
 \begin{tikzpicture}[scale=1.5]
     \tkzDefPoint(0,0){O}
     \tkzDefPoint(1,1){B}
@@ -180,17 +249,36 @@ Figure 1.2 shows a right-angled triangle (ie a triangle with one angle of 90°) 
     \tkzLabelPoints[right](B)
 \end{tikzpicture}
 \end{figure}
-\noindent The area of a circle is
-\begin{equation}
-A = \pi \cdot r^2
-\end{equation}
-the perimeter (circumference) is
-\begin{equation}
-C = 2\pi \cdot r
-\end{equation}
 
-\section{Euclid Elements}
-He begins with some definitions of the basic concepts: point, line, circle, triangle, quadrilateral. Euclid then states ten axioms (also called postulates)on which all subsequent reasoning is based. We shall note these merely to see that they do indeed describe apparently unquestionable properties of geometric figures. The first five posgulates are:
+\item [Triangle]
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+  \draw
+    (3,-1) coordinate (a) node[right] {a}
+    -- (0,0) coordinate (b) node[left] {b}
+    -- (2,2) coordinate (c) node[above right] {c}
+    pic["$\alpha$", draw=orange, <->, angle eccentricity=1.2, angle radius=1cm]
+    {angle=a--b--c};
+\end{tikzpicture}
+\end{figure}
+
+\item [Quadrilateral]
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+  \draw
+    (3,-1) coordinate (a) node[right] {a}
+    -- (0,0) coordinate (b) node[left] {b}
+    -- (2,2) coordinate (c) node[above right] {c}
+    pic["$\alpha$", draw=orange, <->, angle eccentricity=1.2, angle radius=1cm]
+    {angle=a--b--c};
+\end{tikzpicture}
+\end{figure}
+\end{description}
+
+\subsection{Euclid's Postulates}
+Euclid then states ten axioms (also called postulates) on which all subsequent reasoning is based. The first five posgulates are:
 \begin{enumerate}
     \item Two points determine a unique straight line
     \item A straight line extends indefinitely far in either direction
@@ -219,13 +307,37 @@ Adding four right-angled triangles with sides a and b, we arrive at and get the 
 % TODO proof - An exterior angle of a triangle is greater than either remote interior angle of the triangle.
 
 
+
+\section{Area and perimeter}
+The area of a parallelogram is $a \cdot h$, where h is the altitude of the parallelogram (Eucl. I.35). There are two ways to see this: (a) We cut off the triangle on the left and add it on the right to obtain a rectangle (Euclid’s proof, see the second figure in Fig. 1.11); (b) We cut the parallelogram parallel to AB into a large number of very slim rectangles. The area of a triangle is half the area of the parallelogram.
+
+\subsection{Triangles}
+Figure 1.2 shows a right-angled triangle (ie a triangle with one angle of 90°) with another angle denoted by the Greek letter theta θ. The sides of the a right-angled triangle are called the adjacent side (next to θ), the opposite side (opposite to θ) and the hypotenuse (opposite the right-angle).
+
+\subsection{Circle}
+
+\noindent The area of a circle is
+\begin{equation}
+A = \pi \cdot r^2
+\end{equation}
+the perimeter (circumference) is
+\begin{equation}
+C = 2\pi \cdot r
+\end{equation}
+
 \section{Classical solid geometry}
 \subsection{Cube}
 \subsection{Cone}
 \subsection{Sphere}
 
 \section{Trigonometry}
-% TODO Pythagorean trigonometric identity
+% TODO Missing Trigonometry 
+% - Pythagorean trigonometric identity
+% - Unit circle
+
+\subsection{Radians}
+% TODO draw radian drawing
+Degrees are often used when introducting geometry. However for more advanced  work we often meassure angles in radians. Radians equals the ratio between the length of an angle arc and its radius. As the circumference of a circle equals $2\pi r$ thus an angle of $360 deg$ equals $\frac{2\pi r}{r} = 2\pi$ radians. Radians allow us to use real numbers in the trigonometric functions, rather than degrees, which are an arbitrary angular measurement between $0-360$. The use of real numbers for meassuring angels allow is essential in more advanced mathematics, calculus for example.
 
 \section{Exercises}
 \begin{ExerciseList}

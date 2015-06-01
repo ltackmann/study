@@ -8,6 +8,21 @@
 % - mean and median absolute diviation http://en.wikipedia.org/wiki/Median_absolute_deviation
 % - (Why Square?) http://www.mathsisfun.com/data/standard-deviation.html#WhySquare
 % http://jeremykun.com/2015/04/06/markov-chain-monte-carlo-without-all-the-bullshit/
+% http://www.real-statistics.com/descriptive-statistics/measures-variability/
+% http://en.wikipedia.org/wiki/Absolute_deviation
+% http://en.wikipedia.org/wiki/Median_absolute_deviation
+% http://www.mathsisfun.com/data/mean-deviation.html
+% http://www.r-tutor.com/elementary-statistics/numerical-measures/variance
+% inter quartile range http://en.wikipedia.org/wiki/Interquartile_range
+% http://itfeature.com/tag/quartile-deviation
+% http://math.arizona.edu/~ghystad/chapter2.pdf
+% 
+% - Time series http://en.wikipedia.org/wiki/Time_series (relation to Fast Fourier transform)
+
+% Geometric mean http://www.investopedia.com/ask/answers/042815/what-geometric-mean-statistics.asp
+
+% P values 
+% Bayes factors
 
 John Graunt as unusual and earned him a revered place in the history books is an eighty-five-page pamphlet published in 1662 and titled Natural and Political Observations Made Upon the Bills of Mortality.
 
@@ -20,6 +35,25 @@ Graunt often displayed considerable ingenuity in teasing important facts from li
 A figure of particular interest to the government was the number of men in London of fighting age (defined to be between sixteen and fifty-six). To determine this number, Graunt calculated age-related mortality rates. This marked the introduction of what rapidly became a hugely important concept: the life-expectancy table, the basis for the life insurance industry.
 
 Graunt’s life-expectancy table leaves much to be desired in both accuracy and method. But it was the first attempt in human history at generating such data. Within a short time of the publication of his Observations, life-expectancy tables were used widely in medical statistics, demography, and actuarial science, as well as providing the foundation for a rapidly expanding (and still thriving) business of selling life annuities.
+
+Graunt was well aware that the data he had, while extensive, still represented only a sample of the population of London. Moreover, the figures were for a specific period. Yet this did not prevent the Englishman from making generalizations that went beyond the data itself. How much can we rely on the conclusions obtained from the study of a sample? Specifically, if a probability is computed on the basis of a sample, how reliable can we take that probability to be? Will a larger sample ensure a more reliable result, and if so, how large does the sample have to be?
+
+\section{The law of large numbers}
+You know there are 5,000 marbles in all, but you don’t know how many there are of each color. You draw one marble from the jar at random, and it is red. You put it back, shake up the jar, and then draw again. This time, you draw a blue marble. You repeat the process—drawing, returning, shaking, drawing—50 times and find that 31 times you draw a red marble and 19 times a blue marble. This leads you to suspect that there are around 3,000 red marbles and 2,000 blue ones, so that the a posteriori probability of drawing a red marble at random is 3/5. How confident can you be in this conclusion? Bernoulli proved that by taking a sufficiently large sample, you can increase your confidence in the computed probability to whatever degree you wish. More precisely, by increasing the sample size, you can increase to any level your confidence that the probability computed for the sample is within any stipulated amount of the true probability. This is the law of large numbers.
+
+Bernoulli’s theoretical result shows that by taking a sufficiently large sample, probabilities can be computed from a sample so that to any degree of certainty (other than absolute certainty), the computed probability is within any desired degree of accuracy of the true probability.
+
+% TODO subjective and objective probability.38
+A priori probability, which applies at the gaming table, depends on the symmetry of the game—a die is equally likely to land with any one of its six faces up. It is an objective fact associated with the game and does not depend on the observer. The a posteriori probability that Bernoulli introduced was something radically different: a measure of an observer’s knowledge of the truth of a proposition—a numerical “degree of certainty.” If two people compute the a posteriori probability of (their knowledge of) the same event, they may come up with different answers.
+
+\subsection{Expectation and utility}
+Suppose I challenge you to a game of repeated coin tosses. If you throw a head on the first toss, I pay you $2$ and the game is over. If you throw a tail on the first throw and a head on the second, I pay you $4$ and the game is over. If you throw two tails and then a head, I pay you $8$ and the game is over. We continue in this fashion until you throw a head. Each time you throw a tail and the game continues, I double the amount you will win when you eventually throw a head. Now imagine that a friend comes along and offers to pay you $10$ to take your place in the game. Would you accept or decline? What if your friend offered you $50$ Or $100$ In other words, how much do you judge the game to be worth to you?
+
+By taking account of both the probabilities and the payoffs, expectation was supposed to measure the value of a particular risk or wager, from an individual’s perspective. The greater the expectation, the more attractive the risk.
+
+Utility is intended to measure the significance of a particular outcome to a specific individual. As such, it is very much a personal thing. It depends on the value someone puts on a particular event. Your utility and mine might differ.
+
+For example, suppose you and I each have a net worth of $10,000$. I offer you a single toss of a coin. Heads, I give you $5,000$ tails, you give me $5,000$. The winner comes out with $15,000$ the loser with $5,000$. Since the payoffs are equal and the probability of each of us winning is 1/2, we each have an expectation of zero. In other words, according to expectation theory, it makes no difference to either of us whether we play or not. But most of us would not play, because we would view the risk of losing unacceptable. The 0.5 probability of losing $5,000$ (half our wealth) far outweighs the 0.5 probability of winning $5,000$ (an increase of 50 percent).
 
 \section{Data visualization}
 When studying data in order to make better decisions we often start by looking for patterns of behavior. The simplest form of pattern is the number of times a specific data value occurs also known as its frequency. For example when schools create learning plans for classes they analyze frequency of the class grades. Armed with this knowledge special measures can be taken, such as splitting the class into multiple groups to be thought separately.
@@ -165,16 +199,8 @@ For example the data set $\{0, 1.5, 2.5, 3, 4, 4, 4, 7, 7.5\}$ has the median $4
   \end{axis}
 \end{tikzpicture}
 
-\subsection{Distributions}
-% TODO http://en.wikipedia.org/wiki/Statistical_dispersion
-% TODO draw examples of the different dsitributions (symetrical/asymetrical, skewed (skewed to the right = right tailed, skewed to the left = left tailex ), http://stattrek.com/statistics/charts/data-patterns.aspx clusters, gaps, peeks, outliers
-% - peek: value where most observations occur
-% - gap: a range of values where no observations occur
-% - cluster: a group of observatiins sepearetd from other observatiins by gaps
-% - outlier: observations seperated by gaps from the main distribution
-
-\subsection{Deviation and variance}
-deviation is a measure of difference between the observed value of a variable and some other value, often that variable's mean
+\section{Deviation and variance}
+deviation is a measure of difference between the observed value of a variable and some other value, often that variable's mean. The mean deviation is a measure of dispersion, A measure of by how much the values in the data set are likely to differ from their mean. The absolute value is used to avoid deviations with opposite signs cancelling each other out.
 
 % TODO describe usage of and when to use
 % - check with The deviations on one side of the mean should equal the deviations on the other side.
@@ -197,7 +223,40 @@ Work out the Mean (the simple average of the numbers)
 Then for each number: subtract the Mean and square the result (the squared difference).
 Then work out the average of those squared differences.
 
-% TODO standard deviation
+The variance of a data set measures the mathematical dispersion of the data relative to the mean. However, though this value is theoretically correct, it is difficult to apply in a real-world sense because the values used to calculate it were squared. The standard deviation, as the square root of the variance gives a value that is in the same units as the original values, which makes it much easier to work with and easier to interpret in conjunction with the concept of the normal curve.
+
+\subsection{standard deviation}
+standard deviation is a somewhat arbitrary notion that gives a numerical answer to the question “How much do the individual data points differ from the mean?”
+
+\section{Distributions}
+% TODO http://en.wikipedia.org/wiki/Statistical_dispersion
+% TODO draw examples of the different dsitributions (symetrical/asymetrical, skewed (skewed to the right = right tailed, skewed to the left = left tailex ), http://stattrek.com/statistics/charts/data-patterns.aspx clusters, gaps, peeks, outliers
+% - peek: value where most observations occur
+% - gap: a range of values where no observations occur
+% - cluster: a group of observatiins sepearetd from other observatiins by gaps
+% - outlier: observations seperated by gaps from the main distribution
+
+\subsection{Normal distribution}
+% TODO history and explanation http://www.r-tutor.com/elementary-statistics/probability-distributions/normal-distribution
+% https://www.mathsisfun.com/data/standard-normal-distribution.html
+
+Jakob Bernoulli had shown how to determine the number of observations needed to ensure that the probability determined by the sample was within a specified amount of the true probability. This was of theoretical interest, but of little practical use. For one thing, it required that you know the true probability in advance. A Potentially much more useful was the opposite problem: Given a specified number of observations, can you calculate the probability that they will fall within a specified bound of the true value?
+
+de Moivre obtained a complete solution, which he published in 1733 in the second edition of his book The Doctrine of Chances. Using methods of calculus as well as probability theory, de Moivre showed how a collection of random observations would distribute themselves around their average value. These days, this distribution is known as the normal distribution.
+
+% TODO plot normal distribution
+
+The bell curve shows that most observations are clustered in the center, around the mean value. Going out from the middle, the curve slopes down symmetrically, with an equal number of observations on both sides of the mean.
+
+In particular, using the bell curve, it would be possible to assign (approximate) numerical probabilities to events, much as they could be assigned to outcomes of a roll of dice or a spin of the roulette wheel. The closer a particular datum was to the mean, as measured on the bell curve, the greater the probability that it was correct. 
+
+As a result of Gauss’s contribution, the bell curve is sometimes called the Gaussian distribution.
+ 
+% TODO add to index
+
+For a normal distribution, approximately 68 percent of the observations fall within one standard deviation of the mean and 95 percent fall within two standard deviations of the mean.
+
+% TODO proove thes_ values
 
 \section{Regression}
 Regression is the main statistical technique used to quantify the relationship between two or more variables. A regression analysis would show a positive relationship between height and weight, for example. The measure of the accuracy of a regression is called R-squared. A perfect relationship, with no error, would have an R-squared of $1.00$ or $100$. Strong relationships, like height and weight, would have an R-squared of around $70$ percent. A meaningless relationship, like hair color and weight, would have an R-squared of zero.

@@ -29,11 +29,11 @@
 %
 % axes (left-right) and (up-down)
 % ordered pairs
-% Term, product, factor, coefficient 
+% Term, product, factor, coefficient
 % Fx.  (a+b+c+d)(e+f+g+h) has two factors each consisting of four terms
 
 % the study of numbers and its extensions to algebra arose out of the very practical problems of keeping track of property, trading, taxation, and the like,
-% - solve quadratics by factoring 
+% - solve quadratics by factoring
 % - - (x^2 + 12x + 36 = (x+6)(x+6) so x=-6
 % - - (4x^2 + 36x + 72) = (2x+6)(2x+12) = 4x^2 + 24x + 12x + 72 (72 = 8*9 = 2*4 * 3*3 = 6*12)
 % - - (2x+6 = 0 x=-3) og (2x + 12 = 0 x=-6)
@@ -41,7 +41,7 @@
 % - The speed of sound in an iron rod is 16,850 ft/sec, and the speed in air is 1100 ft/sec. If a sound originating at one end of the rod is heard one second sooner through the rod than through the air, how long is the rod?
 % - 4.  The population of town A is 10,000 and is increasing by 600 each year. The population of town B is 20,000 and is increasing by 400 each year. After how many years will the two towns have the same population?
 % 2.  Find the roots of each of the equations in Exercise 1 by forming a new equation whose roots are “larger” than those of the original equation by one- half the coefficient of x
-% 
+%
 % move proof of general second degree equation from "math for non-math" (If we divide this equation by a, we obtain x 2 + ( b / a ) x + ( c / a ) = 0. This equation is now of the same form as (28) , where p = b / a and q = c / a .)
 %
 % Ars Magna , the first major book on algebra in modern times. After refusing to divulge the method, Tartaglia finally acquiesced, but asked Cardan to keep it secret. However, Cardan wished his book to be as important as possible and so published the method, though acknowledging that it was Tartaglia’s. From this book, which appeared in 1545, the mathematical world learned how to solve third- degree equations. In this same book Cardan also published a method of solving fourth- degree equations discovered by one of his own pupils, Lodovico Ferrari
@@ -82,7 +82,7 @@ yields the same value when you plug in $2$ for the unknown variable $x$ and $3$ 
 \end{align*}
 However replacing unknown variables with actual variable values is tedious and only serves to show that two algebraic expressions will yield the same value for a specific variable value. It does not prove that the expressions will always yield equivalent results for all possible values. To prove that two algebraic expressions are equivalent we must first learn how to manipulate algebraic expressions into a form that will allow us to assertion that the expressions are in fact identical.
 
-\subsection{Manipulating lienar equations}
+\subsection{Manipulating linear equations}
 Algebraic manipulation concerns the procedures we are allowed to perform on algebraic expressions. Generally we are allowed to perform all the arithmetical operations we learned in chapter \ref{arit} as long as we perform them on both sides on the equal sign in the expression. Formally the following algebraic manipulation procedures are allowed:
 \begin{description}
 \item [Addition] Adding on both sides is usually done to remove negative terms, for example if we add $1$ on both sides of $x - 1 = 0$ we get $x = 1$.
@@ -167,7 +167,7 @@ x      <& -2           & \textrm{simplify fraction}
 So we now kno
 
 \section{Functions}
-As menitoned earlier when we replace a variable $x$ in expressions such as $x+2$ we get a value, for example using $x=2$ gives us $2+2=4$ and using $x=3$ results in $3+2=5$. To formalize the concept of replacing a variable $x$ in a expression and computing a value we introduce the concept of a function. In the above example we may write 
+As menitoned earlier when we replace a variable $x$ in expressions such as $x+2$ we get a value, for example using $x=2$ gives us $2+2=4$ and using $x=3$ results in $3+2=5$. To formalize the concept of replacing a variable $x$ in a expression and computing a value we introduce the concept of a function. In the above example we may write
 \begin{equation}\label{alg:function}
 f(x) = x + 2
 \end{equation}
@@ -179,12 +179,12 @@ f(3) =& 3 + 3 = 6
 \end{align*}
 the actual name of the function $f$ does not matter, we only use it to refer to the function body $x+2$ without having to write $x+2$ all the time. We might as well call it $g(x) = x + 2$ in which case we just write $g(2) = 5$.
 
-In \ref{alg:function} above the value of $f$ only depends on $x$, we say $f$ is a function of one variable. Alternatively, if $f$ is a function of several variables, we can write $f(a, b)$ meaning $f$ is a function of the two variables $a$, $b$. For now however we shall restrict ourselfs to functions of one variable. 
+In \ref{alg:function} above the value of $f$ only depends on $x$, we say $f$ is a function of one variable. Alternatively, if $f$ is a function of several variables, we can write $f(a, b)$ meaning $f$ is a function of the two variables $a$, $b$. For now however we shall restrict ourselfs to functions of one variable.
 
 It's common to write $y = f(x)$ that is to say the function $f$ returns a value $y$ when we plug a value into $x$. Assigning $y = f(x)$ gives a relation between $y$ and $x$ and $y$ is then known as a dependent variable and $x$ is an independent variable. Generally the "dependent variable" represents the output of a function. The "independent variables" represent the inputs to the function.
 
 \subsection{Function graphs}
-If we enumerate the $x$ and $y$ values of \ref{alg:function} into ordered pairs of $(x, y)$ above we get 
+If we enumerate the $x$ and $y$ values of \ref{alg:function} into ordered pairs of $(x, y)$ above we get
 \begin{table}[H]
 \centering
 \begin{tabular}{|r|r|r|r|}
@@ -203,17 +203,17 @@ Carteseian coodinates (sample Xes and plot out a line)
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}[scale=0.75]
-    % coordinate system 
+    % coordinate system
     \tkzInit[xmax=5,ymax=5,xmin=-5,ymin=-5]
     \tkzGrid
     \tkzAxeXY
-    % coordinates 
+    % coordinates
     \coordinate [label={below left:$a$}]   (A) at (-1, 4);
     \fill (A)  circle[radius=2pt];
     \coordinate [label={below left:$b$}]   (B) at (2, -2);
     \fill (B)  circle[radius=2pt];
     % lines
-    \draw[thick] (A) -- (B); 
+    \draw[thick] (A) -- (B);
 \end{tikzpicture}
 \end{figure}
 
@@ -236,7 +236,7 @@ here $-5$ and $3$ are monomial of $x^0$ for any variable $x$
 
 
 \subsection{Factoring and multiplying binominals}
-When we multiply two binomials such as $(x+4)$ and $(x+2)$ 
+When we multiply two binomials such as $(x+4)$ and $(x+2)$
 
 
 
@@ -423,7 +423,7 @@ Which reduces to
 \Question $(-1,1)$
 \Question $(-1,-1)$
 \Question $(1,-1)$
-\Question $(0,0)$ 
+\Question $(0,0)$
 \Answer The quadrants are
 \begin{enumerate}
 \item\myindent First quadrant
@@ -434,12 +434,12 @@ Which reduces to
 \end{enumerate}
 
 \Exercise Multiply these binomials
-\Question $(x-3)^2$ 
-\Question $(x-3)(x+10)$ 
-\Question $(x+8)^2$ 
-\Question $(x+1)(x-4)$ 
-\Question $(x+9)^2$ 
-\Answer Using \ref{alg:binom_factor} we get the following quadratics 
+\Question $(x-3)^2$
+\Question $(x-3)(x+10)$
+\Question $(x+8)^2$
+\Question $(x+1)(x-4)$
+\Question $(x+9)^2$
+\Answer Using \ref{alg:binom_factor} we get the following quadratics
 \begin{enumerate}
 \item\myindent $(x-3)^2 = x^2 + (-3 + -3)x + (-3 \cdot -3) = x^2 - 6x + 9$
 \item\myindent $(x-3)(x+10) = x^2 + (-3 + 10)x + (-3 \cdot 10) = x^2 + 7x - 30$
@@ -448,13 +448,13 @@ Which reduces to
 \item\myindent $(x+9)^2 = x^2 + (9+9)x + (9\cdot9) = x^2 + 18x + 81$
 \end{enumerate}
 
-\Exercise Factor the following expressions. 
+\Exercise Factor the following expressions.
 \Question $x^2 + 9x + 20$
 \Question $x^2 + 5x + 6$
 \Question $x^2 - 5x + 6$
 \Question $x^2 - 9$
 \Question $x^2 + 7x - 18$
-\Answer Using \ref{alg:binom_factor} we get the following factors 
+\Answer Using \ref{alg:binom_factor} we get the following factors
 \begin{enumerate}
 \item\myindent $x^2 + 9x + 20 = x^2 + (4 + 5)x + (4\cdot5) = (x+4)(x+5)$.
 \item\myindent $x^2 + 5x + 6 = x^2 + (3 + 2)x + (2\cdot3) = (x+2)(x+3)$.

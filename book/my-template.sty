@@ -6,6 +6,7 @@
 \usepackage{float}
 \usepackage{listings}                                      % source code
 \usepackage{pgfplots}                                      % plotting
+\usepackage{subcaption}                                    % subfigures
 \usepackage{tkz-euclide}                                   % tikz drawings
 \usepackage{ulem}
 \usepackage{xcolor}                                        % custom colors
@@ -25,7 +26,9 @@
     urlcolor=black
 }
 \restylefloat{table}
+% - TIKZ 
 \usetkzobj{all}
+\usetikzlibrary{quotes,angles}
 % - ams theorem Styles
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
