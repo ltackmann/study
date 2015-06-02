@@ -1,6 +1,6 @@
 library functional_dart;
 
-import "package:unittest/unittest.dart";
+import "package:test/test.dart";
 
 part 'monads.dart';
 part 'monads_test.dart';

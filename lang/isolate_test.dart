@@ -1,5 +1,5 @@
 import "dart:isolate";
-import 'package:unittest/unittest.dart';
+import 'package:test/test.dart';
 
 /// Examples of using isolates (i.e. actors) for concurrent programming
 main() {

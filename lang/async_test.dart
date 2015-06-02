@@ -1,5 +1,5 @@
 import "dart:async";
-import 'package:unittest/unittest.dart';
+import 'package:test/test.dart';
 
 /// Examples of async programming in Dart [see][http://api.dartlang.org/docs/releases/latest/dart_async.html]
 void main() {

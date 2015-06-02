@@ -1,6 +1,6 @@
 import 'dart:collection';
 
-import 'package:unittest/unittest.dart';
+import 'package:test/test.dart';
 
 /** Dart implementation of the [99 scala problems](http://aperiodic.net/phil/scala/s-99/) */
 main() {

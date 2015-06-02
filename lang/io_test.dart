@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-import 'package:unittest/unittest.dart';
+import 'package:test/test.dart';
 
 /// Examples of Dart IO libraries
 main() {

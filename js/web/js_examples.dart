@@ -1,5 +1,5 @@
 import 'dart:js' as js;
-import 'package:unittest/unittest.dart';
+import 'package:test/test.dart';
 
 main() {
   test("call javascript from Dart", () {
@@ -31,17 +31,15 @@ main() {
     expect(called, equals(1));
   });
   
-  skip_test("listen to event in dart", () {
+  test("listen to event in dart", () {
     var event = null;
     myCallback(arg) {
       event = arg;
+      print("custom event recieved");
     }
-    //"CustomEvent",callback,false
-    final htmlDocument = js.context['document'];
-    htmlDocument.toString();
-    //htmlDocument.callMethod('addEventListener', []);
-    //js.context.callMethod("invokeCustomEvent", []);
-    //expect(event, isNotNull);
+    js.context.callMethod('addEventListener', ["CustomEvent",myCallback,false]);
+    js.context.callMethod("invokeCustomEvent", []);
+    expect(event, isNotNull);
   });
 }
 

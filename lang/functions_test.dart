@@ -1,4 +1,4 @@
-import "package:unittest/unittest.dart";
+import 'package:test/test.dart';
 
 /// Examples of various ways to define Dart functions
 main() {

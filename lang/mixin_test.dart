@@ -1,4 +1,4 @@
-import 'package:unittest/unittest.dart';
+import 'package:test/test.dart';
 
 main() {
   test("mixin", () {
@@ -8,9 +8,9 @@ main() {
     expect(maestro.name, equals("Mozart"));
     expect(maestro.aggressionLevel, equals("high"));
     expect(maestro.instrument, equals("violin"));
-    expect(maestro, new isInstanceOf<Aggressive>("Aggressive"));
-    expect(maestro, new isInstanceOf<Musical>("Musical"));
-    expect(maestro, new isInstanceOf<Person>("Person"));
+    expect(maestro, new isInstanceOf<Aggressive>());
+    expect(maestro, new isInstanceOf<Musical>());
+    expect(maestro, new isInstanceOf<Person>());
   });
 }
 

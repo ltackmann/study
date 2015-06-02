@@ -1,7 +1,7 @@
 library test.metadata_test;
 
 import 'dart:mirrors';
-import 'package:unittest/unittest.dart';
+import 'package:test/test.dart';
 
 class Message {
   const Message(this.msg);

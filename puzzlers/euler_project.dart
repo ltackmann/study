@@ -1,4 +1,4 @@
-import 'package:unittest/unittest.dart';
+import 'package:test/test.dart';
 
 /** Dart solutions to [project euler](http://projecteuler.net) */
 main() {

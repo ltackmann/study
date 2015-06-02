@@ -1,8 +1,10 @@
-import 'package:unittest/unittest.dart';
+import 'package:test/test.dart';
+
 
 main() {
   group("sorting algorithms -", () {
     test("selection sort", () {
+      // TODO explain algorithms
       List<Comparable> selectionSort(List<Comparable> list) {
         final length = list.length;
         for(int i=0; i<length-1; i++) {
@@ -21,6 +23,7 @@ main() {
     });
     
     test("insertion sort", () {
+      // TODO explain algorithms
       List<Comparable> insertionSort(List<Comparable> list) {
         final length = list.length;
         for(int i=1; i<length; i++) {
@@ -113,7 +116,7 @@ main() {
       assertSort(quickSort);
     });
     
-    solo_test("count sort", () {
+    test("count sort", () {
       
     });
     

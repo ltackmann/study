@@ -1,5 +1,5 @@
 import "dart:mirrors";
-import "package:unittest/unittest.dart";
+import 'package:test/test.dart';
 
 import "mirrors_test_classes.dart";
 
