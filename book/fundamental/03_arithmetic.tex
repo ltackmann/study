@@ -6,7 +6,19 @@
 % - inequalities http://www.mathsisfun.com/algebra/inequality.html
 % - absolute value
 % http://www.theguardian.com/science/alexs-adventures-in-numberland/2015/may/21/how-to-solve-the-maths-puzzle-for-vietnamese-eight-year-olds-that-stumped-parents-and-teachers
-% - rates 
+% - rates
+
+\glsentry{cube}{the cube of a number is the number multiplied by itself
+twice, eg 3 cubed = $3^3 = 3 × 3 × 3 = 27$.}
+
+\glsentry{integer}{Positive and negative whole numbers such as -34, -5,
+0, 1, 17, 1021}
+
+\glsentry{product}{The result of multiplying together two or more numbers
+or things, eg the product of 4 and 5 is 20.}
+
+\glsentry{quotient}{The result of dividing one number by another. The
+quotient of 14 and 7 is 2 as 14/7 = 2.}
 
 Numbers are inherited in nature, a farmer may own six animals, a day can be split into $24$ equal parts, each of our hands has five fingers and so on. Thus even without any formal knowledge of arithmetic, the oldest and most elementary branch of mathematics, humans has an inherited understanding of numbers. Arithmetic consist of the study of numbers, especially the properties of the operations between them — addition, subtraction, multiplication and division.
 
@@ -15,29 +27,57 @@ Numbers are inherited in nature, a farmer may own six animals, a day can be spli
 \myindent The use of numbers in trading and science quickly outgrew the capabilities of the early numerical systems. The romans for example had no concept of number position, that is the use of the same symbol for the different orders of magnitude (for example, the "ones place", "tens place", "hundreds place"). This lack of position required them to either come up with new symbols for ever greater numbers (for example \rom{100} for $100$ and \rom{1000} for $1000$) thus greatly increasing the complexity of the system. Or to simply keep count using the symbols they already had (for example writing $11111$ as \rom{11111}). These shortcomings eventually led to efforts of creating a new better numeral system and around $400 AD$ a new system began surfacing in India. This new system used the position of ten numbers $0-9$ to denote any possible integral value.
 
 \section{Hindu numeral system}
-The Hindu numeral system was invented between the $1st$ and $4th$ centuries by Hindu mathematicians. The system was adopted, by Persian and Arab mathematicians in the 9th century and from the $14th$ century on, Roman numerals began to be replaced in most contexts by it; however, this process was gradual, and the use of Roman numerals in some minor applications continues to this day.
+The Hindu numeral system was invented between the $1st$ and $4th$ centuries by Hindu mathematicians. The system was adopted, by Persian and Arab mathematicians in the $9th$ century and from the $14th$ century on, Roman numerals began to be replaced by it; however, this process was gradual, and the use of Roman numerals continues to this day.
 
-The main advantage of the Hindu numeral system is it use of position to denote order of magnitude thus requiring far fewer different symbols to represents numbers as well as greatly simplifying operations such as adding and subtracting those numbers. Thus the number $2506$ is represented as
+The main advantage of the Hindu numeral system is it use of position to denote order of magnitude thus requiring far fewer different symbols to represents numbers as well as greatly simplifying operations such as adding and subtracting those numbers. For example the number $2506$ is represented as
 \[
 2506 = 2 \times 1000 + 5 \times 100 + 0 \times 10 + 6 \times 1.
 \]
+% TODO explain addition and subtraction in this system
+
+\section{Exponenets and logarithms}
 Using the exponentiation notation
 \[
 x^n = \underbrace{x \times \dots \times x}_n
 \]
-and noting that $10^0 = 1$ (see section \ref{arit:exp} for formal proof of this) we can rewrite the above as
+and noting that
+
+Michael Stifel (1487-1567), in his book Arithmetica integra (1544) observed that $x^2 \times x^3 = (x \times x) \times (x \times x \times x) = x \times x \times x \times x \times x = x^5$, a result that could have been obtained by adding the exponents $2$ and $3$ so that $x^2 \times x^3 = x^{2+3}$ or more generally
+\[
+x^m \times x^n = x^{m+n}
+\]
+Similarly, dividing exponents $\frac{x^3}{x^2} = \frac{x \times x \times x}{x \times x} = x = x^1 = x^{3-2}$ which again can be genralized as
+\[
+\frac{x^m}{x^n} = x^{m-n}
+\]
+A problem arises, however, if the exponent of the denominator is greater than that of the numerator, as in q3/q5; our rule would give us q3-5 = q-2, an expression that we have not defined. To get around this difficulty, we simply define q-n to be 1/qn, so that q3-5 = q-2 = 1/q2, in agreement with the result obtained by dividing q3 by q5 directly.8 (Note that in order to be consistent with the rule qm/qn = qm-n when m = n, we must also define q0 = 1.)
+
+Negative and fractional exponents had been suggested by some mathematicians as early as the fourteenth century, but their widespread use in mathematics is due to the English mathematician John Wallis (1616-1703) and even more so to Newton, who suggested the modem notations a-n and am/n in 1676.
+
+% TODO negative exponents
+
+log (ab) = log a + log b
+log (a/b) = log a - log b
+log a^n = n log a,
+
+im xxx was searching for a way to simplify computation of large numbers. his idea was that semilar to $x^n \times x^m = x^{n+m}$
+
+
+ as it was generally agreed that multiplication, devision 
+
+\section{Decimal numbers}
+
+using exponents we can rewrite $2506$ as
 \[
 2506 = 2 \times 10^3 + 5 \times 10^2 + 0 \times 10^1 + 6 \times 10^0.
 \]
-further taking advantage that $x^{-n} = \frac{1}{x^n}$ we see that $0.1 = \frac{1}{10} = 1 \times 10^{-1}$ and $0.02 = \frac{2}{100} = 2 \times 10^{-2}$ using this knowledge we
-
-numbers as sums of integers and fractions, for example
+further taking advantage that $x^{-n} = \frac{1}{x^n}$ we see that $0.1 = \frac{1}{10} = 1 \times 10^{-1}$ and $0.02 = \frac{2}{100} = 2 \times 10^{-2}$ using this knowledge we can write decimal numbers as sums of integers and fractions, for example
 \[
 5678.12 = 5 \times 10^3 + 6 \times 10^2 + 7 \times 10^1 + 8 \times 10^0 + 1 \times
 10^{-1} + 2 \times 10^{-2}
 \]
 Generally we represent a number with $n$ integer digits $a_0 \cdots a_n$ and $m$ decimal digits $b_0 \cdots b_m$ as
-% TODO as 
+% TODO as
 \[
 a_0 \cdots a_n.b_0 \cdots b_m = a0 = a^0 \times 10^n + \cdots + a^n \times 10^0 . b^0 \times 10^{-1} + \cdots + b^m \times 10^{-m}
 \]
@@ -66,20 +106,20 @@ If all wires are off we have
 \[
   0 \times 2^0 + 0 \times 2^1 + 0 \times 2^2 + 0 \times 2^3 = 0 + 0 + 0 + 0 = 0
 \]
-Thus with a four digit number in a binary number system we can represent the integers $0-15$ or $2^4$ different values. 
+Thus with a four digit number in a binary number system we can represent the integers $0-15$ or $2^4$ different values.
 
 \myindent In the generalized positional number system we use the \index{base} (or \index{radix}) to represent the different symbols available to each digit within that system. For example, the decimal system has a radix of $10$, that is any diget in a number can have values $0-9$. In contrary computers work using electronic circuits and thus digets are represented with radix $2$. Other commonly used number systems are hexadecimal wich uses radix $16$ with digets represented with the numbers $0-9$ and letters $A-F$. Generally we have
 
 \subsection{Decimal representation}
 \[
-(a_{n}a_{n-1} \cdots a_{1}a_{0} . c_{1}c_{2} \cdots c_{m-1}c_{m}) = 
+(a_{n}a_{n-1} \cdots a_{1}a_{0} . c_{1}c_{2} \cdots c_{m-1}c_{m}) =
     \sum_{k=0}^{n}a_{k}b^{k} + \sum_{k=1}^{m}c_{k}b^{-k}
 \]
-The numbers $b^{k}$ and $b_{k}$ are the weights of the corresponding digits. The position $k$ is the logarithm of the corresponding weight $w$, that is $k = \log_{b} w = \log_{b} b^k$ 
+The numbers $b^{k}$ and $b_{k}$ are the weights of the corresponding digits. The position $k$ is the logarithm of the corresponding weight $w$, that is $k = \log_{b} w = \log_{b} b^k$
 
 % TODO repeating decimals 0.77777 = 7/9
 
-For example to write $1/3$ in base $16$ we get 
+For example to write $1/3$ in base $16$ we get
 % TODO http://en.wikipedia.org/wiki/Hexadecimal#Conversion
 
 \subsection{Conversion between systems}

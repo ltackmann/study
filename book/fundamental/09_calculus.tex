@@ -15,6 +15,10 @@
 % TODO eulers identity
 % general binomial theorem (the binomial theorem for fractional and negative powers).
 
+\section{Logarithms}
+His line of thought was this: If we could write any positive number as a power of some given, fixed number (later to be called a base), then multiplication and division of numbers would be equivalent to addition and subtraction of their exponents. Furthermore, raising a number to the nth power (that is, multiplying it by itself n times) would be equivalent to adding the exponent n times to itself—that is, to multiplying it by n—and finding the nth root of a number would be equivalent to n repeated subtractions—that is, to division by n. In short, each arithmetic operation would be reduced to the one below it in the hierarchy of operations, thereby greatly reducing the drudgery of numerical computations. Let us illustrate how this idea works by choosing as our base the number 2. Table 1.1 shows the successive powers of 2, beginning with n = -3 and ending with n = 12. Suppose we wish to multiply 32 by 128. We look in the table for the exponents corresponding to 32 and 128 and find them to be 5 and 7, respectively. Adding these exponents gives us 12. We now reverse the process, looking for the number whose corresponding exponent is 12; this number is 4,096, the desired answer. As a second example, supppose we want to find 45. We find the exponent corresponding to 4, namely 2, and this time multiply it by 5 to get 10. We then look for the number whose exponent is 10 and find it to be 1,024. And, indeed, 45 = (22)5 = 210 = 1,024.
+
+
 If I'm driving at a constant velocity, say 60 km per hour, the distance I travel is changing in a constant manner, ie every hour I cover 60 km. We can say the rate of change of the distance I travel with respect to time is constant. However, if my car is moving with constant acceleration, its velocity is changing in a constant manner, but the distance I travel is not changing constantly - because I'm accelerating. We can say the rate of change of the distance I travel, with respect to time, is not constant.
 
 \section{Differential calculus}
@@ -72,6 +76,7 @@ A logarithm (log or logs for short) goes in the opposite direction to a power by
 
 \subsection{Natural logarithm}
 % TODO plot y = ln{x} and add as compound ingerest in index (use correct symbols as used in compound intersts)
+% the area under the hyperbola y = 1/x —led independently to the same number, leaving the exact origin of e shrouded in mystery.
 Say we invest 1 in a bank that pays 100\% interest per year. If the bank calculated and credited the interest at the end of one year, our investment would then be worth $1 + 1 = 2$. But if the bank credits the interest more frequently than once a year say every six months, at the end of that period the balance would equal $(1 + 1/2)$ since we would get half of the yearly interest payed each six months. At the end of one year the total amount would be $(1 + 1/2)(1 + 1/2) = (1 + 1/2)^2$ as the interest (compund or basic). Calculated three times a year after four moths we would have $(1 + 1/3)$ after eight $(1 + 1/3)^2$ and the final balance would be $(1 + 1/3)^3$. In general, if interest is calculated n times a year, the balance after one year is
 \[
 f(k) = \left(1 + \frac{1}{k}\right)^k

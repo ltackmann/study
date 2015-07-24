@@ -1,14 +1,23 @@
-\chapter{Combinatorics}
+\chapter{Combinatorics}\label{combi}
 % TODO missing combinatorics
 % - explain why For example, the number of ways to deal a hand of five cards from a deck of 52 is C(52, 5) = 52! / 5! 47! = 2,598,960.
-% - Ramsey theory http://en.m.wikipedia.org/wiki/Ramsey_theory 
+% - Ramsey theory http://en.m.wikipedia.org/wiki/Ramsey_theory
 % - Ramsey theorem http://en.m.wikipedia.org/wiki/Ramsey%27s_theorem
 % - Van der Waerden's theorem http://en.m.wikipedia.org/wiki/Van_der_Waerden%27s_theorem
 % - https://medium.com/@arankhanna/the-proof-of-wagner-s-conjecture-and-why-it-matters-ff5c7c9b9425
+% design theory
+% - http://www.wired.com/2015/06/answer-150-year-old-math-conundrum-brings-mystery/
+% fano plane (perhaps move to geometry)
+
+# TODO A tree diagram consists of branches corresponding to the outcomes of two or more probability experiments that are done in sequence.
+# A coin is tossed and a die is rolled. Draw a tree diagram and find the total number of outcomes. They are H1, H2, H3, H4, H5, H6, T1, T2, T3, T4, T5, T6.
+% TODO draw two tree diagrams
+# Three coins are tossed. Draw a tree diagram and find the sample space. the sample space is HHH, HHT, HTH, HTT, THH, THT, TTH, TTT.
+% TODO table based methods, for example table of outcomes for two dies or deck of card (introduce ordeered pair)
 
 Combinatorics is one of the most fascinating and frustrating branches of mathematics. Many excellent mathematics students find it impossibly difficult while some find it as easy as breathing. Classically, combinatorics deals with finite sets of objects and the various ways their subsets and their elements can be counted and ordered.
 
-One of the first formal attempts of combinatorial thinking seems to have come around $960$, when \index{Bishop Wibold of Cambrai} correctly enumerated the $56$ outcomes that can arise when three dice are thrown simultaneously: $\{1, 1, 1; 1, 1, 2; 1, 1, 3, ...\}$ and so on. A thirteenth-century Latin poem, \index{DeVetula}, listed the $216 (= 6 \cdot 6 \cdot 6)$ outcomes that may result when three dice are thrown in succession. 
+One of the first formal attempts of combinatorial thinking seems to have come around $960$, when \index{Bishop Wibold of Cambrai} correctly enumerated the $56$ outcomes that can arise when three dice are thrown simultaneously: $\{1, 1, 1; 1, 1, 2; 1, 1, 3, ...\}$ and so on. A thirteenth-century Latin poem, \index{DeVetula}, listed the $216 (= 6 \cdot 6 \cdot 6)$ outcomes that may result when three dice are thrown in succession.
 
 If the results $56$ and $216$ seams somewhat unclear, don't dispair this chapter will teach you how to arrive at these results safely on your own.
 
@@ -204,7 +213,7 @@ the relationship between such polynomials and combinatorics stems from the so ca
 \Question A girl has $3$ hats, $2$ dresses, and $2$ pairs of shoes. How many different costumes does she have?
 \Question A deck of $52$ cards contains $4$ different aces and $4$ different kings. How many different pairs of cards, each pair consisting of one ace and one king, can be formed from the aces and kings?
 \Question In how many different ways can $7$ people sit in $3$ chairs ?
-\Question There are $7$ people in a room. If everyone shakes everyone else's hand exactly once, how many handshakes occur? 
+\Question There are $7$ people in a room. If everyone shakes everyone else's hand exactly once, how many handshakes occur?
 \Answer Using the rules of counting we find
 \begin{enumerate}
 \item \myindent Each of the four plants can be placed in four different pots yielding $4 \cdot 4 = 16$ possible arrangements
@@ -215,4 +224,3 @@ the relationship between such polynomials and combinatorics stems from the so ca
 \end{enumerate}
 
 \end{ExerciseList}
-

@@ -12,15 +12,26 @@
 %* Annuities
 % - future and present value
 % - periodic payment and future value of annuity
+% Bonds
+% http://www.investopedia.com/exam-guide/cfa-level-1/
+
+% stock option
+The idea of a stock option is that you purchase an option to buy stock at an agreed price prior to some fixed later date. If the value of the stock rises above the agreed price before the option runs out, you buy the stock at the agreed (lower) price. If you want, you can sell the stock immediately and realize your profit. If the stock does not rise above the agreed price, you don’t have to buy it, but you lose the money you used to purchase the option. What makes stock options attractive is that the purchaser knows in advance what the maximum loss is: the cost of the option. The potential profit is theoretically limitless: The question is, What is a fair price to charge for an option on a particular stock?
+
+Black-Scholes formula. (It was discovered by Scholes and Black and developed by Merton.) This formula tells investors what value to put on a financial derivative, such as a stock option. By turning what had previously been a guessing game into a mathematical science. the Black-Scholes formula does not eliminate uncertainty; it merely helps us to judge the risks.
+
+The formula takes four input variables—duration of the option, prices, interest rates, and market volatility—and produces a price that should be charged for the option. 
+
+% TODO add functions to Solvr
 
 \section{The time value of money}
 We all know that money deposited into a savings account will earn interest.
-Because of this ability we prefer to receive money today rather than the same 
-amount in the future (since if we recived it today it could earn interest and therefor be worth more than the same amount recived in the future). This simple 
-fact about money is the corner stone of all mthemtical finance theory and is 
-known as the "time value of money". For example, assuming a $5\%$ interest rate, 
+Because of this ability we prefer to receive money today rather than the same
+amount in the future (since if we recived it today it could earn interest and therefor be worth more than the same amount recived in the future). This simple
+fact about money is the corner stone of all mthemtical finance theory and is
+known as the "time value of money". For example, assuming a $5\%$ interest rate,
 $100$ invested today will be worth $105$ in one year ($100$ multiplied by $1.05$).
-Conversely, $100$ received one year from now is only worth $95.24$ today ($100$ 
+Conversely, $100$ received one year from now is only worth $95.24$ today ($100$
 divided by $1.05$).
 
 \subsection{Interests}
