@@ -1,4 +1,5 @@
 # https://en.wikibooks.org/wiki/X86_Assembly/Interfacing_with_C_stdlib_and_own_libraries
+# http://nickdesaulniers.github.io/blog/2014/04/18/lets-write-some-x86-64/
 # program source
 .text
 # named section _main
