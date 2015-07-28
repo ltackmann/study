@@ -5,7 +5,7 @@
 _main:
   # align stack pointer
   subq $8, %rsp
-  # prepare data for put chat
+  # prepare data for put char
   movq $72, %rdi  # h
   call _putchar
   movq $101, %rdi # e

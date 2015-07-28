@@ -1,3 +1,4 @@
+# https://en.wikibooks.org/wiki/X86_Assembly/Interfacing_with_C_stdlib_and_own_libraries
 # program source
 .text
 # named section _main
