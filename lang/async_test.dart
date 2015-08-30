@@ -33,6 +33,35 @@ void main() {
   });
   
   group("stream -", () {
+    test("synchronous generator", () {
+      // produces values on demand—consumers pull the values from the generator. 
+      Iterable naturalsTo(n) sync* { 
+        int k = 0; 
+        // returns iterator immediatly, the body of the function will first start executing when one calls listen
+        while (k <= n) yield k++; 
+      }
+      var numbers = naturalsTo(10);
+      int total = 0;
+      for(int number in numbers) {
+       total += number;  
+      }
+      expect(total, equals(55));
+    });
+    
+    test("asynchronous generator", () async {
+      // produces values at its own pace, and pushes them out where consumers can find them.
+      Stream asynchronousNaturalsTo(n) async* { 
+        int k = 0; 
+        while (k <= n) yield k++; 
+      }
+      var numberStream = asynchronousNaturalsTo(10);
+      int total = 0;
+      await for (int number in numberStream) {
+        total += number;  
+      }
+      expect(total, equals(55));
+    });
+   
     test("construct and consume unicast stream (single-subscriber) stream", () {
       var data = <int>[1,2,3,4,5]; 
       var stream = new Stream<int>.fromIterable(data);  
