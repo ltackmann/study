@@ -1,7 +1,17 @@
-polymer/Contacts
-out
+# dart
+*\.packages
+build
+.buildlog
+.pub/
 pubspec.lock
 packages
-.buildlog
-.pub
-build
+
+# idea
+*.iml
+*.ipr
+*.iws
+.idea/
+*.dart.js
+*.js_
+*.js.deps
+*.js.map
