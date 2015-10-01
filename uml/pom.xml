@@ -7,25 +7,50 @@
 		<version>1.0.0</version>
 		<relativePath>../maven/pom.xml</relativePath>
 	</parent>
+	<!-- do not depend on parent as we get special dependencies from artifactory 
+		<version>1.0.0</version> <groupId>co.tackmann</groupId -->
 	<artifactId>uml</artifactId>
 
-	<repositories>
+	<distributionManagement>
 		<repository>
-			<id>central</id>
+			<id>schantz.central</id>
 			<name>Schantz</name>
 			<url>http://artifactory.schantz.com:8081/artifactory/schantz</url>
-			<layout>default</layout>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
 		</repository>
-	</repositories>
+	</distributionManagement>
 
 	<dependencies>
 		<dependency>
 			<groupId>com.schantz.core</groupId>
 			<artifactId>Foundation</artifactId>
-			<version>3.0.3-20140718.124400-404</version>
+			<version>3.0.14.81</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.hibernate.javax.persistence</groupId>
+					<artifactId>hibernate-jpa-2.0-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!--  dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>3.2.5.RELEASE</version>
+		</dependency-->
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>4.3.5.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate.common</groupId>
+			<artifactId>hibernate-commons-annotations</artifactId>
+			<version>4.0.4.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.1-api</artifactId>
+			<version>1.0.0.Final</version>
 		</dependency>
 		<dependency>
 			<groupId>jaxen</groupId>

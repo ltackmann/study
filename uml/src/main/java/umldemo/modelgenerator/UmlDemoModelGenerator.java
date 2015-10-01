@@ -1,4 +1,4 @@
-package umlDemo;
+package umldemo.modelgenerator;
 
 import java.io.File;
 
@@ -7,14 +7,19 @@ import com.schantz.foundation.generator.metamodel.*;
 import com.schantz.foundation.generator.repositories.*;
 
 public class UmlDemoModelGenerator extends ModelGeneratorInterface {
+
+	public UmlDemoModelGenerator() {
+		// Initialize stereotypes
+		SdMetaStereotype.init();
+	}
+	
 	@Override
 	public void execute() {
-		JavaBeanGenerator.ormPackage = "umlDemo";
 		SdMetaModel metaModel =
 			new UmlDemoModelTransformation(new File(getModelPath()+"/umldemo.mdxml"))
 				.execute();
 
-		new ModelGenerator(new FileModelRepository())
+		new OrmModelGenerator(new FileModelRepository())
   		.setMetaModel(metaModel)
   		.setOrmFilename("UmlDemoModelOrm.xml")
   		.setEnumInitializerClassName("umlDemo.EnumInitializer")

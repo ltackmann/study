@@ -1,4 +1,4 @@
-package umlDemo;
+package umldemo.modelgenerator;
 
 import java.io.File;
 
