@@ -1,9 +1,12 @@
 \chapter{Numerical analysis}
 % TODO missing numerical concepts
 % - Compare with Archimedes calculations of PI
+% - MCMC (Markov chain Monte Carlo) https://en.wikipedia.org/wiki/Metropolis–Hastings_algorithm
 % - Babylonian method http://en.wikipedia.org/wiki/Methods_of_computing_square_roots#Babylonian_method
 % - Runge–Kutta for ordinary differential eqautions http://en.wikipedia.org/wiki/Runge–Kutta_methods
 % - Newton rapson method for square roots http://www.sosmath.com/calculus/diff/der07/der07.html
+% - Bisection method https://en.wikipedia.org/wiki/Bisection_method
+% - Fast inverse square root https://en.wikipedia.org/wiki/Fast_inverse_square_root
 % - Finite difference methods (check "Finite difference methods in Finance" book on OneFrive)
 % - Trapez integration
 Already the Babylonians knew how to approximate square roots, their method was based on simple process of continuously improving guesses. For example to find $\sqrt{10}$ we may guess $3$ then square it to get $9$, as this is less than 10 we know $3 < \sqrt{10}$ next we may guess $4$ which squares $16$ as this is above $10$ we know now $3 < \sqrt{10} < 4$. For our next guess we may take the mean of the boundaries $3$ and $4$ resulting in $(1/2 \times (3+4))^2 = (7/2)^2 = 49/4$ as $49/4 > 10$ we now know that $3 < \sqrt{10} 7/2$. Applying the last step again we find $(1/2 \times (3 + 7/2))^2 = (13/4)^2 = 169/16$ which again is above $10$ so now we know $3 < \sqrt{10} 13/4$ and so on.
