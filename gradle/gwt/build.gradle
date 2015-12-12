@@ -1,0 +1,5 @@
+apply plugin: 'java'
+
+// project2
+// - depends on project1
+// - make test dependent on test output from project1
