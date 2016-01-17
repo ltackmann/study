@@ -15,3 +15,6 @@ packages
 *.js_
 *.js.deps
 *.js.map
+
+# atom
+.atom/
