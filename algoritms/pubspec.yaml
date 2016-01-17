@@ -2,3 +2,4 @@ name: dart_algorithms
 description: Various calgorithms implemented in Dart
 dependencies:
   test: any
+  meta: any
