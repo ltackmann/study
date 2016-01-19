@@ -34,6 +34,22 @@ class Natural implements Comparable<Natural> {
   // operators
   // ---------
 
+  Natural operator <<(int places) {
+    if(places < 0) {
+      throw new ArgumentError("left shift with negative argument");
+    }
+    return _shiftLeft(this, places);
+  }
+
+  Natural operator >>(int places) {
+    if(places < 0) {
+      throw new ArgumentError("right shift with negative argument");
+    }
+    return _shiftRight(this, places);
+  }
+
+
+
   Natural operator +(Natural other) {
     if (other == null) {
       throw new ArgumentError("null argument in addition");
@@ -72,6 +88,26 @@ class Natural implements Comparable<Natural> {
 
   bool operator ==(Natural other) { return _compareTo(this, other) == 0; }
 
+  Natural operator /(Natural other) {
+    if (other == null) {
+      throw new ArgumentError("y is null in division");
+    } else if(other == Zero) {
+      throw new ArgumentError("division by zero");
+    } else {
+      return _divideWithRemainder(this, other).quotient;
+    }
+  }
+
+  Natural operator %(Natural other) {
+    if (other == null) {
+      throw new ArgumentError("y is null in remainder");
+    } else if(other == Zero) {
+      throw new ArgumentError("division by zero in remainder");
+    } else {
+      return _divideWithRemainder(this, other).remainder;
+    }
+  }
+
   // -------
   // methods
   // -------
@@ -104,6 +140,24 @@ class Natural implements Comparable<Natural> {
   // ----------------
   // internal statics
   // ----------------
+
+  static Natural _shiftLeft(Natural number, int places) {
+    if(places == 0) {
+      return number;
+    } else {
+      places--;
+      return new Natural(number, ZeroBit);
+    }
+  }
+
+  static Natural _shiftRight(Natural number, int places) {
+    if(places == 0) {
+      return number;
+    } else {
+      places--;
+      return (number.tail << places);
+    }
+  }
 
    // x + y  = { xtail : xhead } + { ytail : yhead }
    //        = (2 * xtail + xhead) + (2 * ytail + yhead)
@@ -234,6 +288,32 @@ class Natural implements Comparable<Natural> {
       return _compareTo(x.tail, y.tail) < 0 ? -1 : 1;
     }
   }
+
+  // x = y * q + r where r < y means what we really have to solve
+  // x = (2 * xtailq) * y + (2 * xtailr + xhead)
+  static DivisionResult _divideWithRemainder(Natural x, Natural y) {
+    // base case, zero divided by anything is zero
+    if (identical(x, Zero)) {
+      return new DivisionResult(Zero, Zero);
+    }
+
+    // (dec 10/5) 01010 / 0101 = (note recusion should be read buttom up)
+    // 0101/0101  => q=0000, r=0101
+    // 010/0101   => q=000, r=010
+    // 01/0101    => q=00, r=01
+    // 0/0101     => q=0, r=0
+    var divMod = _divideWithRemainder(x.tail, y);
+    // (2 * xtailq)
+    var quotient = new Natural(divMod.quotient, ZeroBit);
+    // (2 * xtailr + xhead)
+    var remainder = new Natural(divMod.remainder, x.head);
+    //
+    if (remainder >= y) {
+      remainder = _subtract(remainder, y);
+      quotient = _add(quotient, One);
+    }
+    return new DivisionResult(quotient, remainder);
+}
 }
 
 class Bit {
@@ -242,6 +322,13 @@ class Bit {
   const Bit(this.value);
 
   String toString() => this.value;
+}
+
+class DivisionResult {
+  final Natural quotient;
+  final Natural remainder;
+
+  const DivisionResult(this.quotient, this.remainder);
 }
 
 main() {
@@ -257,6 +344,22 @@ main() {
   print("addition of 2 + 1 is $three [011]");
   var five = three + two;
   print("addition of 3 + 2 is $five [0101]");
+  var twentyThree = five + five + five + five + three;
+  print("addition of 5 + 5 + 5 + 5 + 3 is $twentyThree [010111]");
+
+  // left shift
+  print("left shift of $one is ${one << 1}");
+  print("left shift of $two is ${two << 1}");
+  print("left shift of $three is ${three << 1}");
+  print("left shift of $five is ${five << 1}");
+  print("left shift of $twentyThree is ${twentyThree << 1}");
+
+  // right shift
+  print("right shift of $one is ${one >> 1}");
+  print("right shift of $two is ${two >> 1}");
+  print("right shift of $three is ${three >> 1}");
+  print("right shift of $five is ${five >> 1}");
+  print("right shift of $twentyThree is ${twentyThree >> 1}");
 
   // increment
   print("increment of 1 is ${one.increment}");
@@ -320,4 +423,20 @@ main() {
   print("asInteger [two] is ${two.asInteger}");
   print("asInteger [three] is ${three.asInteger}");
   print("asInteger [five] is ${five.asInteger}");
+
+  // divison
+  print("division [2/1 = 2] is ${two / one}");
+  print("division [3/2 = 1] is ${three / two}");
+  print("division [5/2 = 2] is ${five / two}");
+  print("division [23/2 = 11] is ${twentyThree / two}");
+  print("division [23/3 = 7] is ${twentyThree / three}");
+  print("division [23/5 = 4] is ${twentyThree / five}");
+
+  // remainder
+  print("remainder [2%1 = 0] is ${two % one}");
+  print("remainder [3%2 = 1] is ${three % two}");
+  print("remainder [5%2 = 1] is ${five % two}");
+  print("remainder [23%2 = 1] is ${twentyThree % two}");
+  print("remainder [23%3 = 2] is ${twentyThree % three}");
+  print("remainder [23%5 = 3] is ${twentyThree % five}");
 }
