@@ -5,7 +5,7 @@ import 'faic_natural.dart';
 /**
  * Represent integers as natural signed numbers
  */
-class Integer {
+class Integer implements Comparable<Integer> {
   static const Sign Positive = const Sign("+");
   static const Sign Negative = const Sign("-");
 
@@ -57,6 +57,17 @@ class Integer {
     return _power(this, other.asNatural);
   }
 
+  bool operator <(Integer other) { return _compareTo(this, other) < 0; }
+
+  bool operator >(Integer other) { return _compareTo(this, other) > 0; }
+
+  bool operator <=(Integer other) { return _compareTo(this, other) <= 0; }
+
+  bool operator >=(Integer other) { return _compareTo(this, other) >= 0; }
+
+  bool operator ==(Integer other) { return _compareTo(this, other) == 0; }
+
+
   // -------
   // methods
   // -------
@@ -83,6 +94,21 @@ class Integer {
   Integer get increment =>_add(this, One);
 
   Integer get decrement => _subtract(this, One);
+
+  @override
+  int compareTo(Integer other) { return _compareTo(this, other); }
+
+  @override
+  int get hashCode {
+    Integer x = this;
+    if (x._isDefault) x = Zero;
+    return asInt;
+  }
+
+  int get asInt {
+    int value = magnitude.asInt;
+    return (sign == Negative) ? -value : value;
+  }
 
   // ----------------
   // internal statics
@@ -141,6 +167,33 @@ class Integer {
     var sign = x.sign == Negative && exponent % Natural.Two != Natural.Zero ? Negative : Positive;
     var value = (x.magnitude)^exponent;
     return new Integer(sign, value);
+  }
+
+  static int _compareTo(Integer x, Integer y) {
+    if (identical(x, y)) {
+      return 0;
+    } else if (x == null) {
+      return -1;
+    } else if (y == null) {
+      return 1;
+    }
+
+    if (x._isDefault) x = Zero;
+    if (y._isDefault) y = Zero;
+
+    if (x.sign == Negative && y.sign == Positive) {
+      // x < 0 && y > 0
+      return -1;
+    } else if (x.sign == Positive && y.sign == Negative) {
+        // x > 0 && y < 0
+      return 1;
+    } else if (x.sign == Positive) {
+      // x > 0 && y > 0
+      return x.magnitude.compareTo(y.magnitude);
+    } else {
+      // x < 0 && y < 0
+      return y.magnitude.compareTo(x.magnitude);
+    }
   }
 }
 

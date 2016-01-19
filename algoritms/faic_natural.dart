@@ -82,11 +82,11 @@ class Natural implements Comparable<Natural> {
 
   bool operator <(Natural other) { return _compareTo(this, other) < 0; }
 
-  bool operator >( Natural other) { return _compareTo(this, other) > 0; }
+  bool operator >(Natural other) { return _compareTo(this, other) > 0; }
 
   bool operator <=(Natural other) { return _compareTo(this, other) <= 0; }
 
-  bool operator >=( Natural other) { return _compareTo(this, other) >= 0; }
+  bool operator >=(Natural other) { return _compareTo(this, other) >= 0; }
 
   bool operator ==(Natural other) { return _compareTo(this, other) == 0; }
 
@@ -118,13 +118,13 @@ class Natural implements Comparable<Natural> {
   int compareTo(Natural other) { return _compareTo(this, other); }
 
   @override
-  int get hashCode => asInteger;
+  int get hashCode => asInt;
 
-  int get asInteger {
+  int get asInt {
     if (identical(this, Zero)) {
       return 0;
     }
-    return (this.head == ZeroBit ? 0 : 1) + 2 * this.tail.asInteger;
+    return (this.head == ZeroBit ? 0 : 1) + 2 * this.tail.asInt;
   }
 
   @override

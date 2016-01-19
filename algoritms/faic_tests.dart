@@ -51,6 +51,57 @@ main() {
     // power
     print("power of 2^3 is ${two^three} [01000]");
     print("power of 3^2 is ${three^two} [01000]");
+
+    // <
+    print("comparison [-1 < 1] is ${minusOne < one}");
+    print("comparison [1 < 1] is ${one < one}");
+    print("comparison [2 < 3] is ${two < three}");
+    print("comparison [2 < 1] is ${two < one}");
+    print("comparison [2 < null] is ${two < null}");
+
+    // >
+    print("comparison [-1 > 1] is ${minusOne > one}");
+    print("comparison [1 > 1] is ${one > one}");
+    print("comparison [2 > 3] is ${two > three}");
+    print("comparison [2 > 1] is ${two > one}");
+    print("comparison [2 > null] is ${two > null}");
+
+    // <=
+    print("comparison [-1 <= 1] is ${minusOne <= one}");
+    print("comparison [1 <= 1] is ${one <= one}");
+    print("comparison [2 <= 3] is ${two <= three}");
+    print("comparison [2 <= 1] is ${two <= one}");
+    print("comparison [2 <= null] is ${two <= null}");
+
+    // >=
+    print("comparison [-1 >= 1] is ${minusOne >= one}");
+    print("comparison [1 >= 1] is ${one >= one}");
+    print("comparison [2 >= 3] is ${two >= three}");
+    print("comparison [2 >= 1] is ${two >= one}");
+    print("comparison [2 >= null] is ${two >= null}");
+
+    //==
+    print("comparison [-1 == 1] is ${minusOne == one}");
+    print("comparison [1 == 1] is ${one == one}");
+    print("comparison [2 == 3] is ${two == three}");
+    print("comparison [2 == 1] is ${two == one}");
+    print("comparison [2 == null] is ${two == null}");
+
+    // compareTo
+    print("comparison [1 compareTo 1] is ${one.compareTo(one)}");
+    print("comparison [2 compareTo 3] is ${two.compareTo(three)}");
+    print("comparison [2 compareTo 1] is ${two.compareTo(one)}");
+    print("comparison [2 compareTo null] is ${two.compareTo(null)}");
+
+    // hashCode
+    print("hashCode [zero] is ${zero.hashCode}");
+    print("hashCode [one] is ${one.hashCode}");
+
+    // asInt
+    print("asInteger [minusOne] is ${minusOne.asInt}");
+    print("asInteger [two] is ${two.asInt}");
+    print("asInteger [three] is ${three.asInt}");
+    print("asInteger [five] is ${five.asInt}");
   }, skip:false);
 
   group("natural numbers", () {
@@ -142,10 +193,10 @@ main() {
     print("hashCode [zero] is ${zero.hashCode}");
     print("hashCode [one] is ${one.hashCode}");
 
-    // asInteger
-    print("asInteger [two] is ${two.asInteger}");
-    print("asInteger [three] is ${three.asInteger}");
-    print("asInteger [five] is ${five.asInteger}");
+    // asInt
+    print("asInteger [two] is ${two.asInt}");
+    print("asInteger [three] is ${three.asInt}");
+    print("asInteger [five] is ${five.asInt}");
 
     // divison
     print("division [2/1 = 2] is ${two / one}");
