@@ -1,8 +1,9 @@
+library faic_natural;
 
 import 'package:meta/meta.dart';
 
 /**
- * Represent numbers as a linked list of bits
+ * Represent natural numbers as a linked list of bits
  */
 class Natural implements Comparable<Natural> {
   static const Bit ZeroBit = const Bit("0");
@@ -10,6 +11,7 @@ class Natural implements Comparable<Natural> {
 
   static const Natural Zero = const Natural._internal(null, ZeroBit);
   static const Natural One = const Natural._internal(Zero, OneBit);
+  static const Natural Two = const Natural._internal(One, ZeroBit);
 
   final Natural tail;
   final Bit head;
@@ -142,21 +144,21 @@ class Natural implements Comparable<Natural> {
   // ----------------
 
   static Natural _shiftLeft(Natural number, int places) {
-    if(places == 0) {
-      return number;
-    } else {
+    var result = number;
+    while(places > 0) {
+      result = new Natural(result, ZeroBit);
       places--;
-      return new Natural(number, ZeroBit);
     }
+    return result;
   }
 
   static Natural _shiftRight(Natural number, int places) {
-    if(places == 0) {
-      return number;
-    } else {
+    var result = number;
+    while(places > 0) {
+      result = result.tail;
       places--;
-      return (number.tail << places);
     }
+    return result;
   }
 
    // x + y  = { xtail : xhead } + { ytail : yhead }
@@ -321,6 +323,7 @@ class Bit {
 
   const Bit(this.value);
 
+  @override
   String toString() => this.value;
 }
 
@@ -329,114 +332,4 @@ class DivisionResult {
   final Natural remainder;
 
   const DivisionResult(this.quotient, this.remainder);
-}
-
-main() {
-  var zero = Natural.Zero;
-  print("zero is $zero [0]");
-  var one = Natural.One;
-  print("one is $one [01]");
-
-  // addition
-  var two = one + one;
-  print("addition of 1+1 is $two [010]");
-  var three  = two + one;
-  print("addition of 2 + 1 is $three [011]");
-  var five = three + two;
-  print("addition of 3 + 2 is $five [0101]");
-  var twentyThree = five + five + five + five + three;
-  print("addition of 5 + 5 + 5 + 5 + 3 is $twentyThree [010111]");
-
-  // left shift
-  print("left shift of $one is ${one << 1}");
-  print("left shift of $two is ${two << 1}");
-  print("left shift of $three is ${three << 1}");
-  print("left shift of $five is ${five << 1}");
-  print("left shift of $twentyThree is ${twentyThree << 1}");
-
-  // right shift
-  print("right shift of $one is ${one >> 1}");
-  print("right shift of $two is ${two >> 1}");
-  print("right shift of $three is ${three >> 1}");
-  print("right shift of $five is ${five >> 1}");
-  print("right shift of $twentyThree is ${twentyThree >> 1}");
-
-  // increment
-  print("increment of 1 is ${one.increment}");
-
-  // multiply
-  var mult = two * three * five;
-  print("multiplication of 2*3*5 is $mult [011110]");
-
-  // power
-  var power = two^three;
-  print("power of 2^3 is $power [01000]");
-
-  // subtract
-  var sub = three - two;
-  print("subtraction 3 - 2 is $sub [01]");
-
-  // decrement
-  print("decrement of 1 is ${sub.decrement} [0]");
-
-  // <
-  print("comparison [1 < 1] is ${one < one}");
-  print("comparison [2 < 3] is ${two < three}");
-  print("comparison [2 < 1] is ${two < one}");
-  print("comparison [2 < null] is ${two < null}");
-
-  // >
-  print("comparison [1 > 1] is ${one > one}");
-  print("comparison [2 > 3] is ${two > three}");
-  print("comparison [2 > 1] is ${two > one}");
-  print("comparison [2 > null] is ${two > null}");
-
-  // <=
-  print("comparison [1 <= 1] is ${one <= one}");
-  print("comparison [2 <= 3] is ${two <= three}");
-  print("comparison [2 <= 1] is ${two <= one}");
-  print("comparison [2 <= null] is ${two <= null}");
-
-  // >=
-  print("comparison [1 >= 1] is ${one >= one}");
-  print("comparison [2 >= 3] is ${two >= three}");
-  print("comparison [2 >= 1] is ${two >= one}");
-  print("comparison [2 >= null] is ${two >= null}");
-
-  //==
-  print("comparison [1 == 1] is ${one == one}");
-  print("comparison [2 == 3] is ${two == three}");
-  print("comparison [2 == 1] is ${two == one}");
-  print("comparison [2 == null] is ${two == null}");
-
-  // compareTo
-  print("comparison [1 compareTo 1] is ${one.compareTo(one)}");
-  print("comparison [2 compareTo 3] is ${two.compareTo(three)}");
-  print("comparison [2 compareTo 1] is ${two.compareTo(one)}");
-  print("comparison [2 compareTo null] is ${two.compareTo(null)}");
-
-  // hashCode
-  print("hashCode [zero] is ${zero.hashCode}");
-  print("hashCode [one] is ${one.hashCode}");
-
-  // asInteger
-  print("asInteger [two] is ${two.asInteger}");
-  print("asInteger [three] is ${three.asInteger}");
-  print("asInteger [five] is ${five.asInteger}");
-
-  // divison
-  print("division [2/1 = 2] is ${two / one}");
-  print("division [3/2 = 1] is ${three / two}");
-  print("division [5/2 = 2] is ${five / two}");
-  print("division [23/2 = 11] is ${twentyThree / two}");
-  print("division [23/3 = 7] is ${twentyThree / three}");
-  print("division [23/5 = 4] is ${twentyThree / five}");
-
-  // remainder
-  print("remainder [2%1 = 0] is ${two % one}");
-  print("remainder [3%2 = 1] is ${three % two}");
-  print("remainder [5%2 = 1] is ${five % two}");
-  print("remainder [23%2 = 1] is ${twentyThree % two}");
-  print("remainder [23%3 = 2] is ${twentyThree % three}");
-  print("remainder [23%5 = 3] is ${twentyThree % five}");
 }
