@@ -1,7 +1,5 @@
 library faic_natural;
 
-import 'package:meta/meta.dart';
-
 /**
  * Represent natural numbers as a linked list of bits
  */
