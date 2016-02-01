@@ -50,8 +50,6 @@ class Natural implements Comparable<Natural> {
     return _shiftRight(this, places);
   }
 
-
-
   Natural operator +(Natural other) {
     if (other == null) {
       throw new ArgumentError("null argument in addition");

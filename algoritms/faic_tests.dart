@@ -102,6 +102,20 @@ main() {
     print("asInteger [two] is ${two.asInt}");
     print("asInteger [three] is ${three.asInt}");
     print("asInteger [five] is ${five.asInt}");
+
+    // division
+    var seven = five + two;
+    var eleven = five + five + one;
+    print("division [11/7=1] is ${(eleven/seven).asInt}");
+    print("division [-11/7=-1] is ${((-eleven)/seven).asInt}");
+    print("division [11/-7=-1] is ${(eleven/(-seven)).asInt}");
+    print("division [-11/-7=1] is ${((-eleven)/(-seven)).asInt}");
+
+    // remainder
+    print("remainder [11%7=4] is ${(eleven%seven).asInt}");
+    print("remainder [-11%7=-4] is ${((-eleven)%seven).asInt}");
+    print("remainder [11%-7=4] is ${(eleven%(-seven)).asInt}");
+    print("remainder [-11%-7=-4] is ${((-eleven)%(-seven)).asInt}");
   }, skip:false);
 
   group("natural numbers", () {

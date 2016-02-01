@@ -20,7 +20,7 @@ main() {
         }
         return -1;
       }
-      
+
       expect(binarySearch([], 1), equals(-1));
       expect(binarySearch([1], 1), equals(0));
       expect(binarySearch([-1], 1), equals(-1));
@@ -31,25 +31,27 @@ main() {
       expect(binarySearch([1,2,3,4], 2), equals(1));
       expect(binarySearch([1,2,3,4], 5), equals(-1));
     });
-    
+
     test("binary search recursive", (){
       int binarySearchRecursive(List<Comparable> list, int start, int end, Comparable target) {
+        int index = null;
         if(start > end) {
-          return -1;
+          index = -1;
         } else {
           var pivot = (start + end) ~/ 2;
           var comp = list[pivot].compareTo(target);
           if(comp == 0) {
-            return pivot;
+            index = pivot;
           } else if(comp > 0) {
-            return binarySearchRecursive(list, start, pivot - 1, target);
+            index =  binarySearchRecursive(list, start, pivot - 1, target);
           } else if(comp < 0) {
-            return binarySearchRecursive(list, pivot + 1, end, target);
+            index = binarySearchRecursive(list, pivot + 1, end, target);
           }
         }
+        return index;
       }
       int binarySearch(List<Comparable> list, Comparable target) => binarySearchRecursive(list, 0, list.length - 1, target);
-      
+
       expect(binarySearch([], 1), equals(-1));
       expect(binarySearch([1], 1), equals(0));
       expect(binarySearch([-1], 1), equals(-1));

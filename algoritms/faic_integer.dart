@@ -67,6 +67,12 @@ class Integer implements Comparable<Integer> {
 
   bool operator ==(Integer other) { return _compareTo(this, other) == 0; }
 
+  Integer operator /(Integer other) { return _divide(this, other); }
+
+  Integer operator %(Integer other) { return _remainder(this, other); }
+
+
+
 
   // -------
   // methods
@@ -193,6 +199,26 @@ class Integer implements Comparable<Integer> {
     } else {
       // x < 0 && y < 0
       return y.magnitude.compareTo(x.magnitude);
+    }
+  }
+
+  static Integer _divide(Integer x, Integer y) {
+    if (x._isDefault) x = Zero;
+    if (y._isDefault) y = Zero;
+    if (y == Zero) {
+      throw new ArgumentError("cannot divide with zero");
+    } else {
+      return new Integer(x.sign == y.sign ? Positive : Negative, x.magnitude / y.magnitude);
+    }
+  }
+
+  static Integer _remainder(Integer x, Integer y) {
+    if (x._isDefault) x = Zero;
+    if (y._isDefault) y = Zero;
+    if (y == Zero) {
+      throw new ArgumentError("cannot finde remainder when dividing with zero");
+    } else {
+      return new Integer(x.sign, x.magnitude % y.magnitude);
     }
   }
 }
