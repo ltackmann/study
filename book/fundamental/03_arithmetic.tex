@@ -10,154 +10,304 @@
 % Associative property of multiplication (changing the grouping of factors in multiplication problems and see how it affects the product. 2×3×7 = (2×3)×7)
 % http://www.theguardian.com/science/alexs-adventures-in-numberland/2015/may/21/how-to-solve-the-maths-puzzle-for-vietnamese-eight-year-olds-that-stumped-parents-and-teachers
 % - rates
-
 % \glsentry{cube}{the cube of a number is the number multiplied by itself twice, eg 3 cubed = $3^3 = 3 × 3 × 3 = 27$.}
-
 % \glsentry{integer}{Positive and negative whole numbers such as -34, -5, 0, 1, 17, 1021}
-
 % \glsentry{product}{The result of multiplying together two or more numbers or things, eg the product of 4 and 5 is 20.}
-
 %\glsentry{quotient}{The result of dividing one number by another. The quotient of 14 and 7 is 2 as 14/7 = 2.}
 
-Numbers are an integral part of nature, a day can be split into $24$ equal parts, each of our hands has five fingers and so on. Thus even without any formal study of arithmetic humans have an elementary understanding of numbers. Arithmetic, the oldest branch of mathematics, consist of the study of numbers and the basic operations between them — addition, subtraction, multiplication and division.
+% primes and prime factorization (composite numbers)
 
-\myindent The earliest formal concepts of numbers dates back to the Babylonian, Egyptian and later Greek and Romean civilizations. Here tax collectors used tablets to record the tax payments of each citizen. When tabulating the tax payments various shorthands was invented. If a citizen payed five animals a tax collector may have written \rom{1}\rom{1}\rom{1}\rom{1}\rom{1}. Each \rom{1} representing one animal. If later additional five animals where collected he may have written \rom{10} instead of \rom{1}\rom{1}\rom{1}\rom{1}\rom{1}\rom{1}\rom{1}\rom{1}\rom{1}\rom{1} as its easer to read and deal with. From these early tabulation shorthands rose the first numerical systems where it was agreed upon to let specific symbols represent a quantity. By the far the most successful of these was the, still familiar, roman symbols \rom{1}, \rom{2}, \rom{3}, \rom{4}, \rom{5}, \rom{6}, \rom{7}, \rom{8}, \rom{9} and \rom{10}. Once the numbers was established various properties of them was researched, for example the greeks discovered the primes, which book \rom{7} of Euclid's elements deals extensively with. The concept of rational (fractional) numbers was also quickly arrived at as a useful device for division, such as dividing the land belonging to a village evenly among its inhabitants for harvesting. Egyptians used the word "nfr" to denote zero balance in accounting and later during the $7th$ century AD, negative numbers were used in India to represent debts.
+% http://www.cs.bu.edu/fac/byers/courses/330/S13/handouts/05multiply.ppt
+% http://youtu.be/w4Dy7v-Y5-Y (karetsuba muktiplication)
+% https://en.m.wikipedia.org/wiki/Karatsuba_algorithm
 
-\myindent The use of numbers in trading and science quickly outgrew the capabilities of the early numerical systems. The romans for example had no concept of number position, that is the use of the same symbol for the different orders of magnitude (for example, the "ones place", "tens place", "hundreds place"). This lack of position required them to either come up with new symbols for ever greater numbers (for example \rom{100} for $100$ and \rom{1000} for $1000$) thus greatly increasing the complexity of the system. Or to simply keep count using the symbols they already had (for example writing $11111$ as \rom{11111}). These shortcomings eventually led to efforts of creating a new better numeral system and around $400 AD$ a new system began surfacing in India. This new system used the position of ten numbers $0-9$ to denote any possible integral value.
+% grade school multiplication algorithm 
+% - http://www.cim.mcgill.ca/~langer/250/1-gradeschool.pdf
+% - http://www.cim.mcgill.ca/~langer/250/2-binary.pdf
+% http://jeremykun.com/2014/05/26/learning-to-love-complex-numbers/
+% excercise: 2.6598 / 7.8 = 0,341
+% 69\4 = 17.25
+% TODO define remainder and quotient
+% multi digit division and division with decimals
+
+% exponents 
+% - http://mathforum.org/library/drmath/view/55603.html 
+% - http://primes.utm.edu/glossary/page.php?sort=BinaryExponentiation 
+
+% adding and subtracting in scientific notatio (convert to same base first)
+
+% https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/the-quotient-remainder-theorem
+% https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/what-is-modular-arithmetic
+% https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/modular-inverses
+% http://www.csee.umbc.edu/~stephens/203/PDF/3-4.pdf
+% http://mathforum.org/library/drmath/view/52343.html
+
+% shift left (multiply by base n times (in base two a single left shift is the same as multiplying by two)
+% shift right (divide by base n times (in base two a single right shift is the same as dividing by two)
+
+% GCD algorithms
+% - binary https://en.wikipedia.org/wiki/Greatest_common_divisor#Binary_method
+% - https://en.wikipedia.org/wiki/Lehmer%27s_GCD_algorithm
+% - http://blog.janmr.com/2009/10/computing-the-greatest-common-divisor.html
+
+% Decimal conversion
+% - http://math.stackexchange.com/questions/46864/best-way-of-computing-the-decimal-representation-of-a-fraction-with-an-arbitrary
+% - http://mathforum.org/library/drmath/view/63848.html
+% - http://programmers.stackexchange.com/questions/192070/what-is-a-efficient-way-to-find-repeating-decimal
+
+% Determine if a number have a finite precision. Repeating decimals in base ten are all fraction with the denominator having at least one prime factors other than two and five  a fraction will terminate if and only if the denominator has for prime divisors only 2 and 5 since every terminating decimal has the form n/10^e, for some e >= 0 as n/10^e = n/(2*5)^e = n/(2^e*5^e)
+
+% Root algorithms
+% http://www.mathpath.org/Algor/squareroot/algor.square.root.why.htm
+% http://www.mathpath.org/Algor/algor.p-th.root.htm
+
+% Long division algorithm
+% http://www.mathpath.org/Algor/algor.long.div.htm
+% - binary https://www.quora.com/How-do-I-divide-two-numbers-using-only-bit-operations-in-Java
+% - http://mathlesstraveled.com/2008/09/07/rational-numbers-and-decimal-expansions/
+
+% Integer square root
+% - http://www.embedded.com/electronics-blogs/programmer-s-toolbox/4219659/Integer-Square-Roots
+% - http://stackoverflow.com/a/30136377
+
+% floor and ceiling http://blog.janmr.com/2009/09/useful-properties-of-the-floor-and-ceil-functions.html
+% http://math.stackexchange.com/a/344818
+% http://math.stackexchange.com/questions/1202456/how-to-calculate-the-integer-portion-of-a-fraction-using-only-div-and
+% http://math.stackexchange.com/a/582983
+% truncate (same as integer part http://planetmath.org/integerpart)  For positive numbers, trunc and floor give the same result. But for negative numbers, floor rounds down and trunc rounds up. This is because trunc always rounds toward 0.
+% IntegerPart[x]+FractionalPart[x] is always exactly x.
+
+% Fibonachi
+% - http://blog.janmr.com/2011/03/evaluation-of-fibonacci-numbers.html
+
+% Powers
+% - http://blog.janmr.com/2011/01/evaluation-of-powers.html
+
+% arithmetic 
+% - http://blog.janmr.com/2011/10/multiple-precision-addition.html
+% - http://blog.janmr.com/2011/10/multiple-precision-subtraction.html
+% - http://blog.janmr.com/2011/11/basic-multiple-precision-multiplication.html
+% - http://blog.janmr.com/2012/11/basic-multiple-precision-short-division.html
+
+
+
+
+Numbers are an integral part of nature; a day can be split into $24$ equal parts, each of our hands has five fingers and so on. Thus even without any formal study of arithmetic humans have a basic understanding of numbers
+
+\myindent The earliest known formal concepts of numbers dates back to the Babylonian, Egyptian and later Greek and Roman civilizations. Here tax collectors used tables to record tax payments and in the process came up with various standardised shorthands to record their work. For example if a citizen payed five animals a tax collector may have written \rom{1}\rom{1}\rom{1}\rom{1}\rom{1}. Each \rom{1} representing one animal. If later additional five animals where collected he may have recorded \rom{10} instead of \rom{1}\rom{1}\rom{1}\rom{1}\rom{1}\rom{1}\rom{1}\rom{1}\rom{1}\rom{1} as its easer to read. From these early shorthands rose the first numerical systems where it was agreed to let specific symbols represent a quantity. By far the most successful of these was the, still familiar, roman symbols \rom{1}, \rom{2}, \rom{3}, \rom{4}, \rom{5}, \rom{6}, \rom{7}, \rom{8}, \rom{9} and \rom{10}. 
+
+\myindent Once number systems where established their properties was explored. The \rom{7} book of Euclid's elements published around 300 BC. deals extensively with elementary number theory including divisibility and the existence of \index{prime}{prime numbers}. The concept of rational (fractional) numbers was introduced early as a useful device for division, such as dividing the land belonging to a village among its inhabitants for harvesting. Egyptians used the word "nfr" to denote zero balance in accounting and later during the $7th$ century AD, negative numbers were used in India to represent debts.
+
+\myindent The use of numbers in trading and science quickly outgrew the capabilities of early numerical systems. The romans for example had no concept of position where the same symbol is reused in different positions to denote different values. Thus they continuously had to invent new symbols for new numbers such as \rom{100} for $100$ and \rom{1000} for $1000$. As the system grew more complex it resulted in cryptic quantities such as \rom{11111} for $11111$. These shortcomings eventually led to the creation of simpler and better systems. Around $400 AD$ a new positional system began surfacing in India based on the now familiar ten numbers $0-9$. 
 
 \section{Hindu numeral system}
-The Hindu numeral system was invented between the $1st$ and $4th$ centuries by Hindu mathematicians. The system was adopted, by Persian and Arab mathematicians in the $9th$ century and from the $14th$ century on, Roman numerals began to be replaced by it; however, this process was gradual, and the use of Roman numerals continues to this day.
+The Hindu numeral system was invented between the $1st$ and $4th$ century and then later adopted by Persian and Arab mathematicians in the $9th$ century. From the $14th$ century Roman numerals gradually began to be replaced by it. The main advantage of the Hindu system is that it greatly simplifies operations such as addition and subtraction. Also its use of position to denote order of magnitude ensures it requires far fewer different symbols to represents numbers. For example the number $2506$ really represents
+\[
+2506 = 2 \times 1000 + 5 \times 100 + 0 \times 10 + 6 \times 1
+\]
+and the number $203$ is represented as 
+\[
+213 = 2 \times 100 + 1 \times 10 + 3 \times 1
+\]
+to add these we simply add the numbers in each position
+\begin{align*}
+2506 + 213 =& 2 \times 1000 + (5+2) \times 100 + (0+1) \times 10 + (6+3) \times 1 \\
+           =& 2 \times 1000 + 7 \times 100 + 1 \times 10 + 9 \times 1 \\
+           =& 2719 
+\end{align*}
+or more familiarly 
+\begin{figure}[H]
+\centering
+\opadd{2506}{213}
+\end{figure}
 
-The main advantage of the Hindu numeral system is it use of position to denote order of magnitude thus requiring far fewer different symbols to represents numbers as well as greatly simplifying operations such as adding and subtracting those numbers. For example the number $2506$ is represented as
+Using the exponent notation 
 \[
-2506 = 2 \times 1000 + 5 \times 100 + 0 \times 10 + 6 \times 1.
+10^{n} = \underbrace{10 \times \dots \times 10}_{n}
 \]
-% TODO explain addition and subtraction in this system
+that is $10^1 = 10$, $10^2 = 10 \times 10 = 100$ and $10^3 = 10 \times 10 \times 10 = 1000$ and taking advantage of that $10^0 = 1$ we can rewrite $2506$ as
+\[
+2506 = 2 \times 10^{3} + 5 \times 10^{2} + 0 \times 10^{1} + 6 \times 10^{0}.
+\]
+and in general we can write any possible integer $a_{n}a_{n-1} \cdots a_{1}a_{0}$ as
+\begin{equation}\label{arit:int-system}
+a_{n}a_{n-1} \cdots a_{1}a_{0} = a_{n} \times 10^{n} + a_{n-1} \times 10^{n-1} + \cdots + a_{1} \times 10^{1} + a_{0} \times 10^{0} 
+\end{equation}
+where each digit $a$ is a number between $0$ and $9$ and a sequence like $a_{3}a_{2}a_{1}a_{0}$ represents a four digit number such as $2506$. Using the \index{Sigma notation}{sigma notation} as a shorthand for sums 
+\[
+\sum_{k=1}^{n} k = \underbrace{1 + \dots + n}_{n}
+\]
+that is the sum $1 + 2 + 3 + 4 + 5 + 6$ can be written as 
+\[
+\sum_{n=1}^{6} n 
+\]
+and the sum $10^0 + 10^1 + 10^2 + 10^3$ can be written as
+\[
+\sum_{n=0}^{3} 10^n
+\]
+we can simplify \ref{arit:int-system} to
+\begin{equation}
+a_{n}a_{n-1} \cdots a_{1}a_{0} = \sum_{k=0}^{n} a_{k}10^{k}
+\end{equation}
 
-\section{Exponenets and logarithms}
-In 1544 {Michael Stifel}\index{Michael Stifel} (1487-1567) observed that $x^2 \times x^3 = (x \times x) \times (x \times x \times x) = x \times x \times x \times x \times x = x^5$ and noted that this  result could have been arrived at quickly simply by adding the exponents $2$ and $3$ so that $x^2 \times x^3 = x^{2+3}$. Using the general exponentiation notation
-\[
-x^n = \underbrace{x \times \dots \times x}_n
-\]
-this let to the general rule that
-\[
-x^m \times x^n = x^{m+n}
-\]
-Similarly, dividing exponents $\frac{x^3}{x^2} = \frac{x \times x \times x}{x \times x} = x = x^1 = x^{3-2}$ let to the generalization that 
-\[
-\frac{x^m}{x^n} = x^{m-n}
-\]
-Early in the development of exponent notation the above rule encountered issues when the exponent of the denominator was greater than that of the numerator, as in $x^3/x^5$, where the rule would give us $x^{3-5} = x^{-2}$. However by letting $x^{-n} = 1/x^n$ we obtain $x^{3-5} = x^{-2} = 1/x^2$ which agrees with the results of dividing $x^3$ by $x^5$ directly. When $m = n$ the above rule leads $x^m/x^n = x^{m-n} = x^0$ which we must define as one. 
+\section{Fractions and decimal numbers}
+% TODO
+% [Simplifying Fractions] (TODO examples 78/52
+% [Converting fractions to decimals]
 
-The use of exponents was greatly boosted by the Scottish landowner {John Napier}\index{John Napier} (1550-1617) who invented {logarithms}\index{logarithms} while searching for a way to simplify computation of large numbers. His idea was to utulize the $x^n \times x^m = x^{n+m}$ property of exponents to simplify multiplication and division as it was generally agreed that multiplication and devision was more dificult than addition and subtraction. 
-
-% TODO describe logarithmic base
-% TODO describe computation with logarithmeic tables and how they where constructed 
-% log (ab) = log a + log b
-% log (a/b) = log a - log b
-%log a^n = n log a,
-
-\section{Decimal numbers}
-
-using exponents we can rewrite $2506$ as
+The concept of fractions predates the hindu numerals as way of dividing a whole into parts. For example a farmer may decide to split his land into $4$ parts storing the crops from the three parts and selling the crops from the remaining one part. Thus the fraction $\frac{3}{4}$ represents the crops to keep and the remaining $\frac{1}{4}$ those to sell and $\frac{4}{4}$ represents the entire land. In the fraction $\frac{3}{4}$ the number $3$ is known as the \index{Numerator}{numerator} and tells us that the fraction represents $3$ equal parts. The \index{Denominator}{denominator} $4$ tells us that $4$ parts make up a whole. Equally the fraction $5/4$ tells us that $4/4$ makes up a whole and we have an extra $1/4$ part left. As fractions represents equal parts we need to take care when performing arithmetic on them. Consider the meaning of splitting two equal size pizzas such that one is cut into $3$ parts and the other into $4$ parts. Clearly $3/3 = 4/4$ since getting all of the slices of either pizza would equal to getting the entire pizza. However one slice of the pizza cut into three pieces is greater than one from the pizza cut into four, so that $1/3 > 1/4$. Thus when comparing the size of fractions we need to take into account how many equal parts makes up whole and how many of those we have. In general we have
+\begin{equation}
+\frac{a}{b} < \frac{c}{d} \text{if and only if $ad < bc$}.
+\end{equation}
+so when comparing $3/4$ to $5/7$ we compute $3 \times 7 = 21$ and $5 \times 4 = 20$ and as $21 > 20$ we know that $3/4 > 5/7$. From this we also see that two fractions have the same value when they represent the same parts of a hole e.g. 
+\begin{equation}
+\frac{a}{b} = \frac{c}{d} \text{if and only if $a \times d = b \times c$}.
+\end{equation}
+Its interesting to note that a fraction preservers its value when we multiply the numerator and denominator with the same value that is 
 \[
-2506 = 2 \times 10^3 + 5 \times 10^2 + 0 \times 10^1 + 6 \times 10^0.
+\frac{1}{2} = \frac{2 \times 1}{2 \times 2} = \frac{2}{4} 
 \]
-further taking advantage that $x^{-n} = \frac{1}{x^n}$ we see that $0.1 = \frac{1}{10} = 1 \times 10^{-1}$ and $0.02 = \frac{2}{100} = 2 \times 10^{-2}$ using this knowledge we can write decimal numbers as sums of integers and fractions, for example
+the rational from this being that getting one part of a pizza cut into halves results in the same amount of pizza as if receiving two slices of the same pizza cut into four parts. When adding or subtracting fractions we need to be extra vigilant. Adding $1/3$ to $1/4$ does not yield $2/7$. Instead we can only add or subtract two fractions when they represents the same division of a whole, that is they have a common denominator.
+In this case we can multiply the numerator and denominator of $1/4$ with $3$ to obtain the common denominator $12$ observing that this new fraction has the same value as the old as 
 \[
-5678.12 = 5 \times 10^3 + 6 \times 10^2 + 7 \times 10^1 + 8 \times 10^0 + 1 \times
-10^{-1} + 2 \times 10^{-2}
+\frac{1}{4} = \frac{3 \times 1}{3 \times 4} = \frac{3}{12}
 \]
-Generally we represent a number with $n$ integer digits $a_0 \cdots a_n$ and $m$ decimal digits $b_0 \cdots b_m$ as
-% TODO as
+Seminally we can multiply the numerator and denominator of $1/3$ with $4$ to obtain the same denominator i.e 
 \[
-a_0 \cdots a_n.b_0 \cdots b_m = a0 = a^0 \times 10^n + \cdots + a^n \times 10^0 . b^0 \times 10^{-1} + \cdots + b^m \times 10^{-m}
+\frac{1}{4} = \frac{4 \times 1}{4 \times 3} = \frac{4}{12}
+\] 
+and now we can add the two numbers as 
+\[
+\frac{1}{3} + \frac{1}{4} = \frac{4}{12} + \frac{3}{12} = 7/12
+\] 
+In general when adding fractions
+\begin{equation}
+\frac{a}{b} + \frac{c}{d} = \frac{a \times d + b \times b}{b \times d}
+\end{equation}
+and when subtracting them 
+\begin{equation}
+\frac{a}{b} - \frac{c}{d} = \frac{a \times d - c \times b}{b \times d}
+\end{equation}
+Here we make good use of a simple way of obtaining a common denominator by multiplying each fraction by the denominator of the other. 
+
+% TODO describe decimals here
+Place the decimal in the numerator and one in the denominator and multiply both with multiples of ten until the decimal point disapears e.g. $0.024 = 0.024/1 = 0.24/10 = 2.4/100 = 24/1000$
+
+\begin{description}
+\item [Multiplying fractions] $\frac{a}{b} * \frac{c}{d} = \frac{a*b}{c*d}$
+\item [Dividing fractions] Division is equivalent to multiplying by the
+reciprocal of the divisor fraction: $\frac{a}{b}/\frac{c}{d} =
+\frac{a}{b} \cdot \frac{d}{c}$
+\end{description}
+
+\subsection{Mixed numbers}
+Improper fractions such as $5/4$, where the numerator is larger than the denominator, are commonly represented as a combination of a whole number and a proper fraction called a mixed number e.g. $5/4 = 1\frac{1}{4}$.
+\begin{description}
+\item [Converting fractions to mixed numbers] Convert the numerator to a sum where the first part can be divided by the denominator and the last part has a lower value than the denominator e.g. $\frac{64}{5} = \frac{60 + 4}{5} = \frac{60}{5} + \frac{4}{5} = 12 \frac{4}{5}$
+\item [Converting mixed numbers to fractions] Multiply the leading integer with the denominator and add it to the numerator e.g. $12 \frac{2}{3} = \frac{3 * 12 + 2}{3} = \frac{38}{3}$
+\item [Adding and subtracting mixed numbers] A mixed number $a \frac{b}{c}$ is a short hand for $a + \frac{b}{c}$ so to add or subtract mixed numbers perform the operation step wise on the integer and fractional part of the numbers e.g. $6\frac{6}{12} - 3\frac{3}{5} = 6 + \frac{6}{12} - 3 - \frac{3}{5} = 2\frac{9}{10}$.
+\item [Multiplying mixed numbers] Convert the mixed number to a fraction and multiply these e.g. $1\frac{1}{4} * 4 = \frac{20}{4} = 5$
+\end{description}
+
+
+The system is easily extended to handle decimal numbers such as $2506.12$. If we use the exponent notation
+\[
+10^{-n} = \frac{1}{10^{n}}
 \]
-the class of numbers that can be written in this way is called {algebraic numbers}\index{Algebraic numbers}. From the above formula we also see the well known fact that when a decimal number is multiplied by $10$, every figure moves one place to the left
+that is $10^{-1} = \frac{1}{10} = 0.1$ and $10^{-2} = \frac{1}{100} = 0.01$. We can rewrite $2506.12$ as 
+\begin{align*}
+2506.12 =& 2 \times 1000 + 5 \times 100 + 0 \times 10 + 6 \times 1 + 1 \times 0.1 + 2 \times 0.01 \\
+        =& 2 \times 10^{3} + 5 \times 10^{2} + 0 \times 10^{1} + 6 \times 10^{0} + 1 \times 10^{-1} + 2 \times 10^{-2} 
+\end{align*}
+Generally we represent a number with $n$ integer digits $a_{n}a_{n-1} \cdots a_{1}a_{0}$ and $m$ decimal digits 
+$b_{1}b_{2} \cdots b_{m-1}b_{m}$ as 
+\begin{equation}\label{arit:decimal-system}
+a_{n}a_{n-1} \cdots a_{1}a_{0}.b_{1}b_{2} \cdots b_{m-1}b_{m} = \sum_{k=0}^{n} a_{k}10^{k}.\sum_{k=1}^{m} b_{k}10^{-k}
+\end{equation}
+From the above formula we also see why when a decimal number is multiplied by $10$, every figure moves one place to the left
 \begin{align*}
 1.25 \times 10 =& (1 \times 10^0 + 2 \times 10^{-1} + 5 \times 10^{-2}) \times 10 \\
-               =& 1 \times 10^1 + 2 \times 10^0 + 5 \times 10^{-1}                \\
-               =& 12.5                                                            \\
+               =& 1 \times 10^1 + 2 \times 10^0 + 5 \times 10^{-1} \\
+               =& 12.5 
 \end{align*}
-and when you divide by $10$, every figure moves one place to the right i.e
+and when divided by $10$, every figure moves one place to the right 
 \begin{align*}
-\frac{1.25}{10} =& 1.25 \times 10^{-1}                                                  \\
+\frac{1.25}{10} =& 1.25 \times 10^{-1} \\
                 =& (1 \times 10^0 + 2 \times 10^{-1} + 5 \times 10^{-2}) \times 10^{-1} \\
-                =& 1 \times 10^{-1} + 2 \times 10^{-2} + 5 \times 10^{-3}               \\
-                =& 0.125                                                                \\
+                =& 1 \times 10^{-1} + 2 \times 10^{-2} + 5 \times 10^{-3} \\
+                =& 0.125 
 \end{align*}
 
-\subsection{General Numeral systems}
-% TODO move to later number section
-% TODO binary numbers http://www.wildbunny.co.uk/blog/2012/11/07/understanding-binary/
-As time passed positional numbers systems was generalized such that the digits ($0-9$ in the decimal system) could be changed to accomedate different purposes. For example electric current can be in only two states on (power is flowing) or off (no power). Thus in cumputers its convinient to represent numbers using only two digits $0$ and $1$. To represent higher numbers multiple wires in either on or off states can be used for example if we have $4$ wires and all are on we can represent
-\[
-  1 \times 2^0 + 1 \times 2^1 + 1 \times 2^2 + 1 \times 2^3 = 1 + 2 + 4 + 8 = 15
-\]
-If all wires are off we have
-\[
-  0 \times 2^0 + 0 \times 2^1 + 0 \times 2^2 + 0 \times 2^3 = 0 + 0 + 0 + 0 = 0
-\]
-if the first and last are on we have
+\section{Basic properties of numbers}
+One of the many advantages of the positional number system is how it makes comparison of numerical values easy. In the roman numeral system this was only possible by memorising the quantities represented by each symbol; one simply had to remember that \rom{1000} was larger than \rom{100}. In the positional system we only need to compare the value of each digit in each position. To make this easy names for each position has been invented, some of these are listed below
+\begin{figure}[H]
+\centering
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{Decimal name} & \textbf{Decimal position}  \\ \hline
+thousands	         & $10^3 = 1000$               \\ \hline
+hundreds	             & $10^2 = 100$                \\ \hline
+tens	                 & $10^1 = 10$                 \\ \hline
+ones	                 & $10^0 = 1$                  \\ \hline
+tenths	             & $10^{-1} = 0.1$             \\ \hline
+hundredths	        & $10^{-2} = 0.01$             \\ \hline
+thousandths	        & $10^{-3} = 0.001$           \\ \hline
+\end{tabular}
+\end{figure}
+To compare $1000$ to $999$ we simply begin from the highest digit and work our way down. Since the first number has $1$ in the thousands place and the second has a zero ($999= 0999$) we know that $1000$ is greater than $999$ and we write $1000>999$. Generally if one number $a$ is larger than another $b$ we write $a > b$ and if smaller we write $b < a$. If all the digits are the same then the numbers are equal and we write $a=b$. 
 
-Thus with a four digit number in a binary number system we can represent the integers $0-15$ or $2^4$ different values. 
+\myindent Sometimes, for example when comparing the speed of cars, we are only interested in how far one number is from another. If the speed limit is $100$ and you are going $70$ and another driver is going $130$, both of you will likely get a ticket. This is because the difference between you and everybody else is $30$. Not $-30$ and $30$ but $30$. This concept is called \index{absolute value}{absolute value}. The absolute value of a integer $x$ is written $\abs{x}$ and is simply the numerical value obtained by removing any negative sign. Formally we write
+\begin{equation}
+  \abs{x}=\begin{cases}
+    x, & \text{if $x \geq 0$.}\\
+   -x, & \text{if $x < 0$.}
+  \end{cases}
+\end{equation}
+So the absolute value of $\abs{-30} = 30$ and that of $\abs{30} = 30$. 
 
-The generalized binary number looks like this where each bit bits, short for binary digits, is either 0 or 1.
+\myindent In many cases its only necessary to compare numbers to a certain precision for example when comparing the population of one country to another we may be satisfied to count their populations in millions. This is the process of \index{Rounding}{rounding}. The idea is to replace a number by another approximately equal value that has a shorter or simpler representation. The procedure is as follows: \textit{Pick the number to round to as the last digit to keep, leave it the same if the next digit is less than $5$ or increase it by $1$ if the next digit is $5$ or more. Finally turn all following digets into zeros}. The basic algorithm is as follows
+\begin{algorithm}[H]
+    \caption{Rounding algorithm}
+    \label{arit:rounding}
+    \begin{algorithmic}[1]
+        \Procedure{Round}{$n,i$} \Comment{Round $n$ to $i$'th place}
+            \State $digits \gets digitsOf(n)$ \Comment{Array with digits of $n$}
+            \State $inc \gets 0$
+            \If{$digits[i-1] > 4$}           \Comment{Increase digit if above $4$}
+                 \State $inc \gets 10^{i}$  
+            \EndIf
+            \While{$i > 0$}                    \Comment{Zero out remaining digits}
+               \State $digits[i-1] = 0$      
+               \State $i \gets i - 1$
+            \EndWhile
+            \State $r \gets numberOf(digits) $ \Comment{Turn array into number}
+            \State $r \gets r + inc$     
+            \State \textbf{return} $r$  \Comment{The rounded value of $n$}
+        \EndProcedure
+    \end{algorithmic}
+\end{algorithm}
+If we want to round the number $1997$ to the nearest ten ($i$ becomes $1$ as $10^1 = 10$) we first turn it into an array $\left[1,9,9,7\right]$ then examine the digit in the $i-1$ position which is $7$. As this is above $4$ we determine to increment the number by $10$. The lower digits are then zeroed out to $\left[1,9,9,0\right]$ and turned into the number $1990$ which we add the $10$ to form the final result $2000$. Besides the standard rounding method mentioned above two other popular methods exists called \index{Floor}{floor} and \index{Ceiling}{ceiling}. These maps a decimal number to the largest previous or the smallest following integer, respectively. More precisely, $floor(x) = \lfloor x \rfloor$ is the largest integer not greater than $x$ and $ceiling(x) =  \lceil x \rceil$ is the smallest integer not less than $x$. The following table should clarify how their difference
+\begin{figure}[H]
+\centering
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{Value}  & \textbf{Floor} & \textbf{Ceiling} & \textbf{Fractional part} \\ \hline
+2.4	            & 2	            & 3	              & 0.4                      \\ \hline
+2.9	            & 2	            & 3	              & 0.9                      \\ \hline
+-2.7	            & -3	            & -2	              & 0.3                      \\ \hline
+-2	            & -2	            & -2	              & 0                        \\ \hline
+\end{tabular}
+\end{figure}
 
-% TODO generalized base conversion
-A simple way to convert decimal to binary is the even/odd -divide by two algorithm. This algorithm uses the following steps: If the number is even, emit a 0. If the number is odd, emit a 1. Divide the number by 2 and throw away any fractional component or remainder. If the quotient is 0, the algorithm is complete. If the quotient is not 0 and is odd, insert a 1 before the current string; if the number is even, prefix your binary string with 0. Go back to step 2 and repeat.
-
-binary numbers are very verbose you need 8 bits to represent the number 202. Although we can convert between decimal and binary, the conversion is not a trivial task and since computers only understands binary at their corr, such a conversion would have to happen allot. The hexadecimal (base 16) numbering system solves many of the problems inherent in the binary system. Hexadecimal numbers offer the two features we're looking for: They're very compact, and it's simple to convert them to binary and vice versa. 
-
-Each hexadecimal digit can represent one of 16 values between 0 and 1510. Because there are only 10 decimal digits, we need to invent 6 additional digits to represent the values in the range 1010..1510. Rather than create new symbols for these digits, we'll use the letters A..F. 
-
-Ag first base 16 may seam hard to calculatr with but remebering $(a^m)^n = a^(n \times m)$ gives us that $16^2 = (2^4)^2 = 2^8 = 256$
-
-% Decimal Binary  Hexadecimal  
-% 0       0000  $0  
-% 1 0001  $1  
-% 2 0010  $2  
-% 3 0011  $3  
-% 4 0100  $4  
-% 5 0101  $5  
-% 6 0110  $6  
-% 7 0111  $7  
-% 8 1000  $8  
-% 9 1001  $9  
-% 10 1010  $A  
-% 11 1011  $B  
-% 12 1100  $C  
-% 13 1101  $D  
-% 14 1110  $E  
-% 15 1111  $F  
-
-To convert a hexadecimal number into a binary number, simply substitute the corresponding 4 bits for each hexadecimal digit in the number. For example, to convert ABCD into a binary value, simply convert each hexadecimal digit according to Table 2-1, as shown here: A  B  C  D  Hexadecimal  1010  1011  1100  1101  Binary  To convert a binary number into hexadecimal format is almost as easy. The first step is to pad the binary number with zeros to make sure that there is a multiple of 4 bits in the number. For example, given the binary number $1011001010$, the first step would be to add 2 bits to the left of the number so that it contains 12 bits. The converted binary value is $001011001010$. The next step is to separate the binary value into groups of 4 bits, for example, $0010\_1100\_1010$. Finally, look up these binary values in the table above.
-
-Note that shifting a value to the left is the same thing as multiplying it by its radix. For example, shifting a decimal number one position to the left (adding a 0 to the right of the number) effectively multiplies it by 10 (the radix): 1234 shl 1 = 12340 (shl 1 means shift one digit position to the left.) Because the radix of a binary number is 2, shifting it left multiplies it by 2. If you shift a binary value to the left twice, you multiply it by 2 twice (that is, you multiply it by 4). If you shift a binary value to the left three times, you multiply it by 8 (2*2*2). In general, if you shift a value to the left n times, you multiply that value by 2n.
-
-\myindent In the generalized positional number system we use the \index{base} (or \index{radix}) to represent the different symbols available to each digit within that system. For example, the decimal system has a radix of $10$, that is any diget in a number can have values $0-9$. In contrary computers work using electronic circuits and thus digets are represented with radix $2$. Other commonly used number systems are hexadecimal wich uses radix $16$ with digets represented with the numbers $0-9$ and letters $A-F$. Generally we have
-
-\subsection{Decimal representation}
-\[
-(a_{n}a_{n-1} \cdots a_{1}a_{0} . c_{1}c_{2} \cdots c_{m-1}c_{m}) =
-    \sum_{k=0}^{n}a_{k}b^{k} + \sum_{k=1}^{m}c_{k}b^{-k}
-\]
-The numbers $b^{k}$ and $b_{k}$ are the weights of the corresponding digits. The position $k$ is the logarithm of the corresponding weight $w$, that is $k = \log_{b} w = \log_{b} b^k$
-
-% TODO repeating decimals 0.77777 = 7/9
-
-For example to write $1/3$ in base $16$ we get
-% TODO http://en.wikipedia.org/wiki/Hexadecimal#Conversion
-
-\subsection{Conversion between systems}
-% - Number bases (convert 1/2 from base 10 base 6)
-
-\subsection{Scientific notation}
-Scientific notation is a way of writing numbers that are too big or too small to be conveniently written in decimal form. In scientific notation all numbers are written in the form
+Another device for easily comparing and writing numbers was invented when scientist began studying very large and small quantities. Using ordinary decimal numbers became inconvenient. To remedy this \index{Scientific notation}{scientific notation} was invented in which all numbers are written in the form
 \[
 a \times 10^b
 \]
-where the exponent $b$ is chosen so its absolute value is at least one but less than ten ($1 \leq |a| < 10$). Thus $350$ is written as $3.5×10^2$. The following table are examples of scientific notation:
+where the exponent $b$ is chosen so its absolute value is at least one but less than ten ($1 \leq |a| < 10$). Thus $350$ is written as $3.5×10^2$. Sometimes the so called \textit{E notation} is used where we write $e$ in the exponent instead of $10$ that is
+\[
+3.0 \times 10^{-9} = 3.0e−9
+\]
+this notation was originally invented as calculators could not display exponents correctly. Note that the $E$ or $e$ should not be confused with Euler's number $e$ which holds a completely different significance. The following table are examples of scientific notation:
 \begin{figure}[H]
 \centering
 \begin{tabular}{|l|l|l|l|}
@@ -172,42 +322,25 @@ where the exponent $b$ is chosen so its absolute value is at least one but less 
 0,000.000.007.51	           & $7,51 \times 10^{−9}$        \\ \hline
 \end{tabular}
 \end{figure}
-This form allows easy comparison of numbers, as the exponent b gives the number's order of magnitude. For example, the order of magnitude of $1500$ is $3$, since $1500$ may be written as $1.5 × 10^3$.
+This form allows easy comparison of numbers, as the exponent $b$ gives the number's \index{order of magnitude}{order of magnitude}. For example, the order of magnitude of $1500$ is $3$, since $1500$ is written as $1.5 × 10^3$. When adding and subtracting two numbers in scientific notation, we must adjust the two values so that their exponents are the same. For example, when adding $1.23e1$ and $4.56e0$, we first adjust $4.56e0$ to $0.456e1$ and then add it to $1.23e1$ which produces $1.686e1$.
 
-\subsection{Rounding}
-Rounding a number means replacing it by another that is approximately equal but has a shorter or simpler representation. The procedure is as follows. \textbf{Pick the number to round to as the last digit to keep. Leave it the same if the next digit is less than 5 or increase it by 1 if the next digit is 5 or more. Finally turn all following digets into zeros}. The following examples demonstrate the rounding procedure:
+\section{Arithmetic in the Hindu numeral system}
+As mentioned the perhaps biggest advantage of the Hindu numeral system was the ease with which merchants and scientist could carry out calculations such as addition, subtraction, multiplication and division
 
-\begin{description}
-\item [Round to the nearest hundred] $838.274$ is $800$ as $3 < 5$
-\item [Round to the nearest ten] $838.274$ is $840$ as $8 > 5$
-\item [Round to the nearest one] $838.274$ is $838$ as $2 < 5$
-\item [Round to the nearest tenth] $838.274$ is $838.3$ as $7 > 5$
-\item [Round to the nearest hundredth] $838.274$ is $838.27$ as $4 < 5$
-\end{description}
-
-Besides the standard rounding mentioned above two other methods called floor and ceiling which maps a real number to the largest previous or the smallest following integer, respectively. More precisely, $floor(x) = \lfloor x \rfloor$ is the largest integer not greater than $x$ and $ceiling(x) =  \lceil x \rceil$ is the smallest integer not less than $x$.
-\begin{figure}[H]
-\centering
-\begin{tabular}{|l|l|l|l|}
-\hline
-\textbf{Value}  & \textbf{Floor} & \textbf{Ceiling} & \textbf{Fractional part} \\ \hline
-2.4	            & 2	            & 3	              & 0.4                      \\ \hline
-2.9	            & 2	            & 3	              & 0.9                      \\ \hline
--2.7	            & -3	            & -2	              & 0.3                      \\ \hline
--2	            & -2	            & -2	              & 0                        \\ \hline
-\end{tabular}
-\end{figure}
-
-\subsection{Significant figures}
-The significant figures of a number are those digits that carry meaning contributing to its precision. The procedure for identifying significant figures is as follows
+The order of arithmetic operators is as follows
 \begin{enumerate}
-\item Identify the non-zero digits and any zeros between them. These are all significant.
-\item Leading zeros are not significant.
-\item If its a decimal, then trailing zeros are significant.
+\item Parentheses and exponents
+\item Multiplication and division
+\item Addition and subtraction
 \end{enumerate}
+When multiple operations exists on the same level you do the one that it closest on the left, for example
+\[
+2-10+8-(-2)+(-10) = 2 - 10 + 8 + 2 - 10 
+= (2 - 10 + 8) + 2 - 10 = (-8 + 8) + 2 - 10 = 0 + 2 - 10 = -8
+\]
 
-\newpage
-\section{Addition}
+
+\subsection{Addition}
 % TODO missing addition concepts
 % - describe adding decimals
 Addition represents the operation of adding objects to a collection. For example, $2+3$ can be though of as if you have $2$ apples and someone give you $3$ more, then you have $5$ apples in total. Assuming $b$ is positive then on a number line $a+b$ represents starting on number $a$ and moving $b$ places to the right. Similar if $b$ is negative then $a+b$ represents starting on number $a$ and moving $b$ places to the left. Unlike subtraction the addition operations is both commutative (that is $a + b = b + a$) and associative (that is $a + (b + c) = (a + b) + c$)
@@ -225,14 +358,11 @@ To understand why this procedure works consider that the number $143 = 100 + 40 
 \begin{align}
 143 + 89 &= (100 + 40 + 3) + (80 + 9) \\
          &= 100 + (40+80) + (3+9)     \\
-         &= 100 + (40+80) + 12        \\
-         &= 100 + (10+40+80) + 2      \\
-         &= 100 + 130 + 2             \\
-         &= (100 + 100) + 30 + 2      \\
+         &= 100 + 120 + 12            \\
          &= 232
 \end{align}
 \]
-\item [Adding decimals] We add decimals semilar to integers by starting
+\item [Adding decimals] We add decimals similar to integers by starting
 from the rightmost decimal.
 \begin{figure}[H]
 \centering
@@ -240,7 +370,26 @@ from the rightmost decimal.
 \end{figure}
 \end{description}
 
-\section{Subtraction}
+\begin{algorithm}[H]
+    \caption{Add two N digit numbers a and b represented as arrays of digits}
+    \label{arit:addition}
+    \begin{algorithmic}[1]
+        \Procedure{Addition}{$a,a$} 
+            \State $carry \gets 0$ 
+            \For{$i=0 \text{ to } N-1$} 
+                \State $sum \gets a[i] + b[i] + carry$
+                \State $carry \gets sum / 10$ \Comment{TODO}
+                \State $r[i] \gets sum \% 10$ \Comment{TODO}
+            \EndFor
+            \State $r[N] \gets carry$
+            \Return $r$  
+        \EndProcedure
+    \end{algorithmic}
+\end{algorithm}
+% TODO explain div and mod                 \State $carry \gets (a[i] + b[i] + carry)/10$
+% r[i] \gets (a[i] + b[i] + carry) % 10
+
+\subsection{Subtraction}
 Subtraction represents the operation of removing objects from a collection. For example, $5-2$ can be though of as if you have $5$ apples and take $2$ away, then you have $3$ apples left. Assuming $b$ is positive then on a number line $a-b$ represents starting on number $a$ and moving $b$ places to the left. Similar if $b$ is negative then $a-b$ represents starting on number $a$ and moving $b$ places to the right.
 
 Subtraction is not commutative, that is $a - b \neq b - a$ instead we can reverse the subtraction order by $a - b = -(b - a) = -b + a$. Further subtraction is not associative so $a  - (b - c) \neq (a - b) - c$ instead it holds $a - b - c = a - (b + c)$ and $a - b - c - d = a - (b + c + d)$ and so on.
@@ -257,7 +406,7 @@ number to the left by decreasing its value by one:
 % TODO subtracting decimals
 \end{description}
 
-\section{Multiplication}
+\subsection{Multiplication}
 Multiplication of two whole numbers is equivalent to the addition of one of them with itself as many times as the value of the other one; for example, $3 \cdot 4$ can be calculated by adding $4$ to itself $3$ times:
 \[
 3 \cdot 4 = 4 + 4 + 4 = 12
@@ -274,6 +423,7 @@ Formally we say that multiplication is both commutative (i.e. the order in which
 \end{description}
 
 % TODO missing multiplication areas
+% - factors and products
 % - explain operations of single and multi diget
 % - explain meaning of multiplying negative numbers
 % - explain techniques for muktiplication
@@ -307,46 +457,22 @@ To understand why this procedure works consider that the number $142 = 100 + 40 
 \end{itemize}
 \end{description}
 
-\section{Fractions}
-In the fraction $3/4$, the numerator $3$ (also known as the dividend) tells us that the fraction represents $3$ equal parts, and the denominator $4$ (also known as the divisor) tells us that $4$ parts make up a whole. The fraction $5/4$ equally tells us that $4/4$ makes up a whole and we have an extra $1/4$ part left.
-% TODO define remainder and quotient
-\begin{description}
-% TODO explain why these works
-\item [Equal fractions] Fractions have the same value when they represent the
-same parts of a hole e.g. $\frac{a}{b} = \frac{c}{d}$ if and only if
-$a \cdot d = b \dot c$.
-\item [Ordering fractions] When both denominators are positive
-$\frac{a}{b} < \frac{c}{d}$ if and only if $ad < bc$. If either denominator is
-negative convert them into postive numbers by negating the numerator.
-\item [Additive inverse] $-\left(\frac{a}{b}\right) = \frac{-a}{b} = \frac{a}{-b}$
-\item [Multiplicative inverse] $\left(\frac{a}{b}\right)^{-1} = \frac{b}{a}$
-\item [Simplifying Fractions] (TODO examples 78/52
-\item [Adding fractions] $\frac{a}{b} + \frac{c}{d} = \frac{a*d + b*c}{b*d}$
-\item [Subtracting fractions] $\frac{a}{b} - \frac{c}{d} = \frac{a*d - c*c}{b*d}$
-\item [Multiplying fractions] $\frac{a}{b} * \frac{c}{d} = \frac{a*b}{c*d}$
-\item [Dividing fractions] Division is equivalent to multiplying by the
-reciprocal of the divisor fraction: $\frac{a}{b}/\frac{c}{d} =
-\frac{a}{b} \cdot \frac{d}{c}$
-\item [Exponentiation to integer power] If $n$ is a non-negative integer, then
-$\left(\frac{a}{b}\right)^{n} = \frac{a^n}{b^n}$ and if $a \neq 0$ then
-$\left(\frac{a}{b}\right)^{-n} = \frac{1}{\left(\frac{a}{b}\right)^n} =
-\frac{1}{\frac{a^n}{b^n}} =\frac{b^n}{a^n}$.
-\item [Converting decimals to fractions] Place the decimal in the numerator
-and one in the denominator and multiply both with multiples of ten until the
-decimal point disapears e.g. $0.024 = 0.024/1 = 0.24/10 = 2.4/100 = 24/1000$
-\end{description}
-
-\subsection{Mixed numbers}
-Improper fractions such as $5/4$, where the numerator is larger than the denominator, are commonly represented as a combination of a whole number and a proper fraction called a mixed number e.g. $5/4 = 1\frac{1}{4}$.
-\begin{description}
-\item [Converting fractions to mixed numbers] Convert the numerator to a sum where the first part can be divided by the denominator and the last part has a lower value than the denominator e.g. $\frac{64}{5} = \frac{60 + 4}{5} = \frac{60}{5} + \frac{4}{5} = 12 \frac{4}{5}$
-\item [Converting mixed numbers to fractions] Multiply the leading integer with the denominator and add it to the numerator e.g. $12 \frac{2}{3} = \frac{3 * 12 + 2}{3} = \frac{38}{3}$
-\item [Adding and subtracting mixed numbers] A mixed number $a \frac{b}{c}$ is a short hand for $a + \frac{b}{c}$ so to add or subtract mixed numbers perform the operation step wise on the integer and fractional part of the numbers e.g. $6\frac{6}{12} - 3\frac{3}{5} = 6 + \frac{6}{12} - 3 - \frac{3}{5} = 2\frac{9}{10}$.
-\item [Multiplying mixed numbers] Convert the mixed number to a fraction and multiply these e.g. $1\frac{1}{4} * 4 = \frac{20}{4} = 5$
-\end{description}
+When multiplying numbers of different precision care should be taken when deciding on the preccion of the result. To facilitate this the concept of \index{significant figures}{significant figures} has been invented. The significant figures of a number are those digits that carry meaning contributing to its precision. The procedure for identifying significant figures is as follows 
+\begin{enumerate}
+\item Identify the non-zero digits and any zeros between them. These are all significant.
+\item Leading zeros are not significant.
+\item If its a decimal, then trailing zeros are significant.
+\end{enumerate}
+for example
+\[
+1.234 \times 2.0 = 2.468\cdots \equiv 2.5
+\]
+here the first factor $1.234$ has four significant figures and the second $2.0$ has two significant figures. The factor with the least number of significant figures is the second one with only two, so the final result should also have a total of two significant figures.
 
 
-\section{Division}
+
+
+\subsection{Division}
 % TODO missing division
 % - using  prime factorisation to simplify numbers (see number theory)
 % - factors
@@ -531,14 +657,20 @@ The remainder from the division $a/b$ is represented mathematically as $a \textr
 \end{enumerate}
 For example $7 mod 2 = 1$ since we can make a clock with numbers $0,1$ then start at $0$ and go through $7$ numbers in a clockwise sequence $1,0,1,0,1,0,1$. Similar $-5 mod 3 = 1$ since we make a clock with numbers $0,1,2$ then start at $0$ and go through $5$ numbers in counter-clockwise sequence  $2,1,0,2,1$
 
-\section{Percents}
-% TODO percents missing concepts
-% - relationship between percents, fractions and divisions (100 * 1.05 = 105, 100/1.05 = ??
-% - pie costs 11 price drops 45 how much do you save (11 * 0.45 = what you save, 11 * 0.55 = what it will cost)
-% - wholesale price and markup (explain concepts)
 
 
-\section{Exponents and roots}\label{arit:exp}
+
+this let to the general rule that
+\[
+x^m \times x^n = x^{m+n}
+\]
+Similarly, dividing exponents $\frac{x^3}{x^2} = \frac{x \times x \times x}{x \times x} = x = x^1 = x^{3-2}$ let to the generalisation that 
+\[
+\frac{x^m}{x^n} = x^{m-n}
+\]
+Early in the development of exponent notation the above rule encountered issues when the exponent of the denominator was greater than that of the numerator, as in $x^3/x^5$, where the rule would give us $x^{3-5} = x^{-2}$. However by letting $x^{-n} = 1/x^n$ we obtain $x^{3-5} = x^{-2} = 1/x^2$ which agrees with the results of dividing $x^3$ by $x^5$ directly. When $m = n$ the above rule leads $x^m/x^n = x^{m-n} = x^0$ which we must define as one. 
+
+\section{Exponents and logarithms}\label{arit:exp}
 If we multiply 3 by itself 4 times we get
 \[
 3 \cdot 3 \cdot 3 \cdot 3 = 81
@@ -562,8 +694,22 @@ where 3 is the base and the superscript 4 is called the power or exponent.
 \item [Powers of fractions] $\left(\frac{a}{b}\right)^n = \frac{a^n}{b^n}$ this can be seen as $\left(\frac{2}{3}\right)^3 = \frac{2}{3} \cdot \frac{2}{3} \cdot \frac{2}{3} = \frac{2^3}{3^3}$
 \item [Powers of powers] $(a^m)^n = a^{(m \cdot n)}$ this can be seen as $(5^2)^3 = 5^2 \cdot 5^2 \cdot 5^2 = 5^{6}$
 \item [Fractional powers] $a^{\frac{x}{y}} = (a^{\frac{1}{y}})^x$. This can be related to roots since $\sqrt{a} \cdot \sqrt{a} = a$ can be satisfied as $a^{x} \cdot a^{x} = a^{x+x} = a^{1}$ only when $x = 1/2$. That is $\sqrt{a} = a^{1/2}$. Generally we have $\sqrt[n]{a} = a^{1/n}$.
-\item [Simplifying radicals] Radicals such as $\sqrt{32}$ are simplified by rewriting them to lower terms using the above rules e.g. $3\sqrt{8} - 6\sqrt{32} = 3\sqrt{4}\sqrt{2} - 6\sqrt{16}\sqrt{2} = 6\sqrt{2} - 24\sqrt{2} = -18\sqrt{2}$. Often it can be constructive to rewrite radicals using their prime factorization e.g. $\sqrt[3]{81} = \sqrt[3]{9 \cdot 9} = \sqrt[3]{3 \cdot 3 \cdot 3 \cdot 3} = 3\sqrt[3]{3}$
+\item [Simplifying radicals] Radicals such as $\sqrt{32}$ are simplified by rewriting them to lower terms using the above rules e.g. $3\sqrt{8} - 6\sqrt{32} = 3\sqrt{4}\sqrt{2} - 6\sqrt{16}\sqrt{2} = 6\sqrt{2} - 24\sqrt{2} = -18\sqrt{2}$. Often it can be constructive to rewrite radicals using their prime factorisation e.g. $\sqrt[3]{81} = \sqrt[3]{9 \cdot 9} = \sqrt[3]{3 \cdot 3 \cdot 3 \cdot 3} = 3\sqrt[3]{3}$
+\item [Exponentiation of fractions] If $n$ is a non-negative integer, then
+$\left(\frac{a}{b}\right)^{n} = \frac{a^n}{b^n}$ and if $a \neq 0$ then
+$\left(\frac{a}{b}\right)^{-n} = \frac{1}{\left(\frac{a}{b}\right)^n} =
+\frac{1}{\frac{a^n}{b^n}} =\frac{b^n}{a^n}$.
 \end{description}
+
+The use of exponents was greatly boosted by the Scottish landowner {John Napier}\index{John Napier} (1550-1617) who invented {logarithms}\index{logarithms} while searching for a way to simplify computation of large numbers. His idea was to utulize the $x^n \times x^m = x^{n+m}$ property of exponents to simplify multiplication and division as it was generally agreed that multiplication and devision was more difficult than addition and subtraction. 
+
+His line of thought was this: If we could write any positive number as a power of some given, fixed number (later to be called a base), then multiplication and division of numbers would be equivalent to addition and subtraction of their exponents. Furthermore, raising a number to the nth power (that is, multiplying it by itself n times) would be equivalent to adding the exponent n times to itself—that is, to multiplying it by n—and finding the nth root of a number would be equivalent to n repeated subtractions—that is, to division by n. In short, each arithmetic operation would be reduced to the one below it in the hierarchy of operations, thereby greatly reducing the drudgery of numerical computations. Let us illustrate how this idea works by choosing as our base the number 2. Table 1.1 shows the successive powers of 2, beginning with n = -3 and ending with n = 12. Suppose we wish to multiply 32 by 128. We look in the table for the exponents corresponding to 32 and 128 and find them to be 5 and 7, respectively. Adding these exponents gives us 12. We now reverse the process, looking for the number whose corresponding exponent is 12; this number is 4,096, the desired answer. As a second example, supppose we want to find 45. We find the exponent corresponding to 4, namely 2, and this time multiply it by 5 to get 10. We then look for the number whose exponent is 10 and find it to be 1,024. And, indeed, 45 = (22)5 = 210 = 1,024.
+
+% TODO describe logarithmic base
+% TODO describe computation with logarithmeic tables and how they where constructed 
+% log (ab) = log a + log b
+% log (a/b) = log a - log b
+%log a^n = n log a,
 
 \subsection{Estimating roots}
 \begin{description}
@@ -575,22 +721,99 @@ where 3 is the base and the superscript 4 is called the power or exponent.
 \item [Cube roots] find the prime factors and see if any come three times. For example $\sqrt[3]{3430}$ is divisible by $10$ and there for have $5$ and $2$ as prime factors, $343 = 7^3$ so we have $\sqrt[3]{3430} = \sqrt[3]{2 \cdot 5 \cdot 7 \cdot 7 \cdot 7} = 7 \cdot \sqrt[3]{10}$
 \end{description}
 
-\subsection{Scientific notation}
-When adding and subtracting two numbers in scientific notation, we must adjust the two values so that their exponents are the same. For example, when adding 1.23e1 and 4.56e0, we must adjust the values so they have the same exponent. One way to do this is to convert 4.56e0 to 0.456e1 and then add. This produces 1.686e1.
 
-\section{Order of operators}\label{arit:order}
-The order of arithmetic operators is as follows
-\begin{enumerate}
-\item Parentheses and exponents
-\item Multiplication and division
-\item Addition and subtraction
-When multiple operations exists on the same level you do the one that it closest on the left, for example
+
+\section{Percents}
+% TODO percents missing concepts
+% - relationship between percents, fractions and divisions (100 * 1.05 = 105, 100/1.05 = ??
+% - pie costs 11 price drops 45 how much do you save (11 * 0.45 = what you save, 11 * 0.55 = what it will cost)
+% - wholesale price and markup (explain concepts)
+
+
+
+
+\section{General Numeral systems}
+% TODO move to later number section
+% TODO binary numbers http://www.wildbunny.co.uk/blog/2012/11/07/understanding-binary/
+As time passed positional numbers systems was generalized such that the digits ($0-9$ in the decimal system) could be changed to accomedate different purposes. For example electric current can be in only two states on (power is flowing) or off (no power). Thus in cumputers its convinient to represent numbers using only two digits $0$ and $1$. To represent higher numbers multiple wires in either on or off states can be used for example if we have $4$ wires and all are on we can represent
 \[
-2-10+8-(-2)+(-10) = 2 - 10 + 8 + 2 - 10 = (2 - 10 + 8) + 2 - 10 = (-8 + 8) + 2 - 10 = 0 + 2 - 10 = -8
+  1 \times 2^0 + 1 \times 2^1 + 1 \times 2^2 + 1 \times 2^3 = 1 + 2 + 4 + 8 = 15
 \]
-\end{enumerate}
+If all wires are off we have
+\[
+  0 \times 2^0 + 0 \times 2^1 + 0 \times 2^2 + 0 \times 2^3 = 0 + 0 + 0 + 0 = 0
+\]
+if the first and last are on we have
 
+Thus with a four digit number in a binary number system we can represent the integers $0-15$ or $2^4$ different values. 
+
+The generalized binary number looks like this where each bit bits, short for binary digits, is either 0 or 1.
+
+% TODO generalized base conversion
+A simple way to convert decimal to binary is the even/odd -divide by two algorithm. This algorithm uses the following steps: If the number is even, emit a 0. If the number is odd, emit a 1. Divide the number by 2 and throw away any fractional component or remainder. If the quotient is 0, the algorithm is complete. If the quotient is not 0 and is odd, insert a 1 before the current string; if the number is even, prefix your binary string with 0. Go back to step 2 and repeat.
+
+binary numbers are very verbose you need 8 bits to represent the number 202. Although we can convert between decimal and binary, the conversion is not a trivial task and since computers only understands binary at their corr, such a conversion would have to happen allot. The hexadecimal (base 16) numbering system solves many of the problems inherent in the binary system. Hexadecimal numbers offer the two features we're looking for: They're very compact, and it's simple to convert them to binary and vice versa. 
+
+Each hexadecimal digit can represent one of 16 values between 0 and 1510. Because there are only 10 decimal digits, we need to invent 6 additional digits to represent the values in the range 1010..1510. Rather than create new symbols for these digits, we'll use the letters A..F. 
+
+Ag first base 16 may seam hard to calculator with but remembering $(a^m)^n = a^(n \times m)$ gives us that $16^2 = (2^4)^2 = 2^8 = 256$
+
+% Decimal Binary  Hexadecimal  
+% 0       0000  $0  
+% 1 0001  $1  
+% 2 0010  $2  
+% 3 0011  $3  
+% 4 0100  $4  
+% 5 0101  $5  
+% 6 0110  $6  
+% 7 0111  $7  
+% 8 1000  $8  
+% 9 1001  $9  
+% 10 1010  $A  
+% 11 1011  $B  
+% 12 1100  $C  
+% 13 1101  $D  
+% 14 1110  $E  
+% 15 1111  $F  
+
+To convert a hexadecimal number into a binary number, simply substitute the corresponding 4 bits for each hexadecimal digit in the number. For example, to convert ABCD into a binary value, simply convert each hexadecimal digit according to Table 2-1, as shown here: A  B  C  D  Hexadecimal  1010  1011  1100  1101  Binary  To convert a binary number into hexadecimal format is almost as easy. The first step is to pad the binary number with zeros to make sure that there is a multiple of 4 bits in the number. For example, given the binary number $1011001010$, the first step would be to add 2 bits to the left of the number so that it contains 12 bits. The converted binary value is $001011001010$. The next step is to separate the binary value into groups of 4 bits, for example, $0010\_1100\_1010$. Finally, look up these binary values in the table above.
+
+Note that shifting a value to the left is the same thing as multiplying it by its radix. For example, shifting a decimal number one position to the left multiplies it by $10$ (the radix). Because the radix of a binary number is $2$, shifting it left multiplies it by $2$. If you shift a binary value to the left twice, you multiply it by $2$ twice (that is, you multiply it by $4$). If you shift a binary value to the left three times, you multiply it by $8$ ($2 \times 2 \times 2$). In general, if you shift a value to the left $n$ times, you multiply that value by $2n$.
+
+\myindent In the generalised positional number system we use the \index{base} (or \index{radix}) to represent the different symbols available to each digit within that system. For example, the decimal system has a radix of $10$, that is any diget in a number can have values $0-9$. In contrary computers work using electronic circuits and thus digets are represented with radix $2$. Other commonly used number systems are hexadecimal wich uses radix $16$ with digets represented with the numbers $0-9$ and letters $A-F$. Generally we have
+
+\subsection{Decimal representation}
+\[
+(a_{n}a_{n-1} \cdots a_{1}a_{0} . c_{1}c_{2} \cdots c_{m-1}c_{m}) =
+    \sum_{k=0}^{n}a_{k}b^{k} + \sum_{k=1}^{m}c_{k}b^{-k}
+\]
+The numbers $b^{k}$ and $b_{k}$ are the weights of the corresponding digits. The position $k$ is the logarithm of the corresponding weight $w$, that is $k = \log_{b} w = \log_{b} b^k$
+
+% TODO repeating decimals 
+% - 0.77777 = 7/9
+% - 1.8911111 
+% - x = 1.8911111 
+% - 100x = 189.11111 
+% - 100x-x = 189.11111 - 1.8911111 
+% - 99x = 187.22
+% - x = 187.22/99 = 189.11111 
+
+
+For example to write $1/3$ in base $16$ we get
+% TODO http://en.wikipedia.org/wiki/Hexadecimal#Conversion
+
+\subsection{Conversion between systems}
+% - Number bases (convert 1/2 from base 10 base 6)
+
+\newpage
 \section{Exercises}
+
+% The sum of four consequtive odd integers is 136 what are the integers
+% 136 = x + (x+2) + (x+4) + (x+6) + (x+8) where x=2n+1
+% 4x + 12 = 135
+% 4x = 124
+% x=31
+% so 31 + 33 + 35 + 37 
 %% EXCERCISES
 % [Addition]
 % - Single, multi and decimal
@@ -609,6 +832,102 @@ When multiple operations exists on the same level you do the one that it closest
 % - The volume of the Earth is 1.1⋅10^21 cubic meters. The volume of the sun is 1.4⋅10^27 cubic meters. How many Earths could fit inside the sun?
 % - A strainbif bqcferia triples every hour,mif fhere initially ia 200bqcteria how many are fhere afger four hours (ans after one hour there are 3*200 after two there are 3*3*200 after four ghere are 3^4*200)
 
+% To put the number in scientific notation we need to rewrite it as a number between 1 and  10, multiplied by a power of 10 since 0.4920 is smaller than 1 so we need to change how this number is written for it to meet the definition of scientific notation.
+
+Before we get to the integers though we’re going to start with the naturals. The naturals are the numbers 0, 1, 2, 3, … and so on; they’re the “counting numbers”. We can loosely[1. A proper definition would also include restrictions like “zero is not the successor of any number” and “unequal numbers have unequal successors” and so on, but we don’t need to take a formal axiomatic approach for the purposes of this series.] define the natural numbers recursively:
+
+- 0 is a natural number.
+- The successor of a natural number is a natural number.
+
+There are lots of ways to represent natural numbers. A standard way to represent the naturals in set theory is to say that a natural number is represented by the set of all natural numbers smaller than it. So zero, having no natural numbers smaller than it, is the empty set, {}. One has only zero smaller than it, so it is {{}}. Two has zero and one smaller than it, so it is {{},{{}}}.  Three is {{}, {{}}, {{},{{}}}}. 
+
+Ok, addition and multiplication are in the can. Those are the easy ones because the set of natural numbers is “closed” over those operations. That is, if you have any two naturals then both their sum and their product is also a natural. Not so subtraction! To see why, first we have to state what subtraction really is.
+
+Subtraction relates three numbers: the minuend and the subtrahend, which are given, and the difference, which is the result. When we say m - s = d what we are really saying is that d is the solution to the equation m = s + d. But for, say, m as 2 and s as 3 there is no solution d which is still a natural. The integers are closed over subtraction, but the naturals are not.
+
+The purpose of the division and remainder operators is to take two natural numbers, x and y, and find two natural numbers called the quotient and remainder such that:
+
+
+The purpose of the division and remainder operators is to take two natural numbers, x and y, and find two natural numbers called the quotient and remainder such that x/y means 
+
+x = y * q + r
+r < y
+Clearly if y is zero then there is no remainder smaller than it, so on those grounds alone we can disqualify division by zero. But even if we allowed a zero remainder in the case where y was zero, then we either have infinitely many solutions for q if x is zero, or no solutions for q if x is not zero. Thus division by zero is illegal.
+
+The integers are an extension to the naturals that closes them over subtraction. Rather than do anything fancy, I’m simply going to say that an integer is a natural with an associated sign, and that zero is always “positive”. We don’t want to end up in a situation where there are two forms of zero, since that is confusing. 
+
+the \% operator is the remainder operator. When extending the division and remainder operators from naturals to integers, I require that the following conditions be true for dividend x, non-zero divisor y, quotient q and remainder r:
+
+x == y * q + r
+if x and y are non-negative then 0 <= r < y
+(-x) / y == x / (-y) == -(x / y)
+Let’s take a look at the consequences of these three facts.
+
+First off, when the sign of an operand changes then the quotient changes sign but not magnitude.
+
+TODO check that solvr comply with this
+11 / 7 == 1, so -11 / 7 == -1 and 11 / -7 == -1 and -11 / -7 == 1.
+
+I hope this is reasonable; it would be very strange if -11 / 7 and -(11 / 7) had different values.
+
+TODO add these words to subtraction in the arithmetic chapter
+
+TODO understand this
+
+“If you don’t like that — if you’d rather -11 % 7 be 3” should be “If you don’t like that — if you’d rather -11 % 7 be 4”
+No, it’s not a typo. The point Eric is making is that remainder and modulus are not the same: -11 is congruent to 3 modulo 7, but the remainder is -4. The way to think of modular arithmetic is like a cycle: the congruence class for 3 is 3, 3+7 = 10, 3+7+7 = 17, 24, 31, etc. So, if you go backwards, it is also congruent to 3-7 = -4 (the remainder), 3-7-7 = -11, -18, -25, etc. Some people think you can use the remainder operation to get a positive modulus (3), but that’s not how it works for negative numbers
+
+http://math.stackexchange.com/questions/801962/difference-between-modulus-and-remainder
+http://stackoverflow.com/questions/13683563/whats-the-difference-between-mod-and-remainder
+
+As we know from grade school, when we divide one integer by another (nonzero) integer we get an integer quotient (the "answer") plus a remainder (generally a rational number). For instance,
+13/5 = 2 ("the quotient") + 3/5 ("the remainder").
+We can rephrase this division, totally in terms of integers, without reference to the division operation:
+13 = 2(5) + 3.
+Note that this expression is obtained from the one above it by multiplying through by the divisor 5.
+We refer to this way of writing a division of integers as the Division Algorithm for Integers. More formally stated:
+
+If a and b are positive integers, there exist integers unique non-negative integers q and r so that
+a = qb + r , where 0[less than or equal]r < b.
+q is called the quotient and r the remainder.
+
+% GCD
+The greatest common divisor of integers a and b, denoted by gcd(a,b), is the largest integer that divides (without remainder) both a and b. So, for example:
+
+gcd(15, 5) = 5,	gcd(7, 9) = 1,	gcd(12, 9) = 3,	gcd(81, 57) = 3.
+
+It is well known that if the gcd(a, b) = r then there exist integers p and s so that:
+
+p(a) + s(b) = r.
+By reversing the steps in the Euclidean Algorithm, it is possible to find these integers p and s. We shall do this with the above example:
+Starting with the next to last line, we have:
+
+3 = 9 -1(6)
+From the line before that, we see that 6 = 24 - 2(9), so:
+3 = 9 - 1(24 - 2(9)) = 3(9) - 1(24).
+From the line before that, we have 9 = 57 - 2(24), so:
+3 = 3( 57 - 2(24)) - 1(24) = 3(57) - 7(24).
+And, from the line before that 24 = 81 - 1(57), giving us:
+3 = 3(57) - 7( 81 - 1(57)) = 10(57) -7(81).
+So we have found p = -7 and s = 10.
+
+The procedure we have followed above is a bit messy because of all the back substitutions we have to make. It is possible to reduce the amount of computation involved in finding p and s by doing some auxillary computations as we go forward in the Euclidean algorithm (and no back substitutions will be necessary). This is known as the extended Euclidean Algorithm.
+
+%http://www.math.utah.edu/~fguevara/ACCESS2013/Euclid.pdf
+%http://pages.pacificcoast.net/~cazelais/222/xeuclid.pdf
+
+%https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/the-euclidean-algorithm
+
+http://www.cut-the-knot.org/recurrence/conversion.shtml
+
+http://math.stackexchange.com/questions/48968/how-to-change-from-base-n-to-m
+
+http://www.cut-the-knot.org/blue/frac_conv.shtml
+
+http://cs.stackexchange.com/questions/10318/the-math-behind-converting-from-any-base-to-any-base-without-going-through-base
+https://en.wikipedia.org/wiki/Positional_notation#Base_conversion
+https://en.wikipedia.org/wiki/Binary_number#Conversion_to_and_from_other_numeral_systems
+
 \begin{ExerciseList}
 
 \Exercise Reduce the following fractions
@@ -625,7 +944,7 @@ When multiple operations exists on the same level you do the one that it closest
 \Exercise If it takes 36 minutes for $5$ people to paint $9$ walls. How many minutes does it take $10$ people to paint $7$ walls?
 \Answer $36/9$ is the time it takes for $5$ people to paint one wall, therefor $5 * 36/9$ is the time it takes for one person to paint one wall. Thus it will take $7 * ((5 * 36)/9) = 140$ for one person to paint $7$ walls and therefor $140/10 = 14$ minutes for $10$ people
 
-\Exercise Philip is going on a 4000-kilometer road trip with three friends. The car consumes $6$ liters of gas per $100$ kilometers, and gas costs $1.50$ per liter. If Philip and his friends want to split the cost of gas evenly, how much should they each pay?.
+\Exercise Philip is going on a $4000$-kilometer trip with his three friends. The car consumes $6$ liters per $100$ kilometers, and gas costs $1.50$ per liter. how much should each pay if they want to split the cost of gas evenly?
 \Answer The car will spend $4000/100 * 6 = 240$ liters of gas at a price of $240 * 1.5 = 360$, as there are four people in the car the cost per person becomes $360/4 = 90$.
 
 % TODO add to Solvr arithmetic tests
@@ -634,13 +953,36 @@ When multiple operations exists on the same level you do the one that it closest
 \Question $6 -1 \cdot 0 + 2/2$
 \Question $-2 + (-3) + 4 - (-3) - 5$
 \Question $3 + (-4) - 8 - (-1) - 1$
-\Answer Using the PEMDAS meme (parentheses, exponents, multiplication,
-division, addition, subtraction) listed in \ref{arit:order} we get:
+\Answer Using the PEMDAS meme (parentheses, exponents, multiplication, division, addition, subtraction) listed in \ref{arit:order} we get:
 \begin{enumerate}
  \item\myindent $7 + 7/7 + 7 cdot 7 - 7 = 7 + (7/7) + (7 \cdot 7) - 7 = 50$.
  \item\myindent $6 - 1 \cdot 0 + 2/2 = 6 + -1 \cdot 0 + 2/2 = 6 + 0 + 2/2 = 7$
  \item\myindent $-2 + (-3) + 4 - (-3) - 5 = -2 - 3 + 4 + 3 - 5 = -5 + 7 - 5 = -3$
  \item\myindent $3 + (-4) - 8 - (-1) - 1 = 3 - 4 - 8 + 1 - 1 = -1 - 8 $
+\end{enumerate}
+
+\Exercise Calculate the roots 
+\Question $x^2 = 144$
+\Question $x^3 = 216$
+\Answer Using prime factorisation and the long hand square root algorithm we get
+\begin{enumerate}
+\item\myindent $\sqrt[2]{x^2} = \sqrt[2]{144}$ factoring gives $144 = 16 \times 9 = 3^2 \times 2^4 = 12 \times 12$ so $x = 12$.
+\item\myindent $\sqrt[3]{x^3} = \sqrt[3]{216}$ factoring gives $216 = 8 \times 27 = 2^3 \times 3^3 = 6 \times 6 \times 6$ so $x = 6$.
+\end{enumerate}
+
+\Exercise Round $838.274$ to the
+\Question Nearest hundred
+\Question Nearest ten 
+\Question Nearest one
+\Question Nearest tenth
+\Question Nearest hundredth
+\Answer Using the rounding algorithm from \ref{arit:rounding} we get
+\begin{enumerate}
+\item\myindent $800$ as $3 < 5$
+\item\myindent $840$ as $8 > 5$
+\item\myindent $838$ as $2 < 5$
+\item\myindent $838.3$ as $7 > 5$
+\item\myindent is $838.27$ as $4 < 5$
 \end{enumerate}
 
 \Exercise Reduce the following

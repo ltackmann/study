@@ -1,7 +1,5 @@
 \chapter{Mathematical foundations}
 
-% http://jeremykun.com/2014/05/26/learning-to-love-complex-numbers/
-
 \epigraph{You just keep pushing. You just keep pushing. I made every mistake that could be made. But I just kept pushing.}{Rene Descartes}
 
 \section{Problem solving}
@@ -14,3 +12,25 @@
 % TODO http://jeremykun.com/2015/06/08/methods-of-proof-diagonalization/
 \subsection{Proof by induction}
 \subsection{Proof checklist}
+
+\section{Algorithms}
+A large part of mathematics deal with procedures for obtaining results such as the grade school procedure thought to millions of children for multiplying two integers, Euclids method for computing the greatest common denominator or Newtons method for computing roots. Such procedures are known as algorithms and are integral part of modern mathematics. It is the author opinion that understanding how mathematics is applied in algorithms to obtain results strengths the students understand of the subject thus a large array of algorithms are included. That being said algorithms are usually a subject for programmers and any students who only wish a firm grasp on the mathematics in this book can safely skip the algorithms or return to them later if the need should arise.
+
+\myindent In this section we will introduce the format used to describe algorithms, sometimes known as pseudo code, that is a simplified form of programming. 
+
+% TODO move to number theory and add proof
+\begin{algorithm}
+    \caption{Euclid’s algorithm}
+    \label{euclid}
+    \begin{algorithmic}[1] % The number tells where the line numbering should start
+        \Procedure{Euclid}{$a,b$} \Comment{The g.c.d. of a and b}
+            \State $r\gets a \bmod b$
+            \While{$r\not=0$} \Comment{We have the answer if r is 0}
+                \State $a \gets b$
+                \State $b \gets r$
+                \State $r \gets a \bmod b$
+            \EndWhile\label{euclidendwhile}
+            \State \textbf{return} $b$\Comment{The gcd is b}
+        \EndProcedure
+    \end{algorithmic}
+\end{algorithm}

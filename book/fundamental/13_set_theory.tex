@@ -8,14 +8,28 @@
 %\section{Axiomatic set theory}
 %\section{Cantor and the Transfinite Realm}
 % Morphism In many fields of mathematics, morphism refers to a structure-preserving mapping[disambiguation needed] from one mathematical structure to another.
+% Set builder notation
+% Cartesian product (including algorithm)
+% Power set
 
-\section{Sets}
-A indexed set is a collection of values associated with indices. For example
-\begin{itemize}
-\item An ordered pair is a family indexed by the two element set $2 = \{1, 2\}$.
-\item An n-tuple is a family indexed by $n$.
-\end{itemize}
-the set that whose members label (or index) members of a family is called an index set. Some common operations on sets
+Loosely speaking a set is a collection of well defined objects. 
+
+- Properties
+    - Cardinality - number of elements in the set
+    - X in y
+    - X !in y
+    - Sets can contain other sets
+    - Two sets are equal if they contain the same elements {1,2} = {2,1,2} (order and repetitions are not important)
+    - x subset y - every element of x is in y
+    - x proper-subset y - every element of x is in y and x is not equal to y
+    - x union y = x in X or x in Y (or x in both)
+    - x intersect y = x in X and x in Y
+    - x \ y = x in X and x !in y (if y subset x then x\y is complement of y in x)
+    - (a,b) - interval greater than a and less than b
+    - [a,b] - interval from a to b (both included)
+    - X x Y - set product is all pairs (x,y) where x in X and y in Y
+
+Some common operations on sets
 \begin{description}
 \item[Empty set] $\varnothing = \{\}$.
 \item[Set intersection] $S \cap T$ is the set containing all the elements that are in both $S$ and $T$:
@@ -27,6 +41,44 @@ S \cap T := \left\{{x: x \in S \land x \in T}\right\}
 S \cup T := \left\{{x: x \in S \lor x \in T}\right\}
 \end{equation}
 \end{description}
+
+
+
+A indexed set is a collection of values associated with indices. For example
+\begin{itemize}
+\item An ordered pair is a family indexed by the two element set $2 = \{1, 2\}$.
+\item An n-tuple is a family indexed by $n$.
+\end{itemize}
+the set that whose members label (or index) members of a family is called an index set. 
+
+- 
+
+
+- Operations
+    - Equivalence
+    - Converse
+    - Implication
+- Functions
+    - Map
+    - Injective
+    - Bijective
+    - Surjective
+    - Inverse
+- Proof
+    - Definition
+    - Statement
+    - Theorem
+
+
+standard refresher on how to write a recursive method:
+
+- Are we in a trivial case? Then solve the problem and return the solution.
+- Otherwise, split the problem into one or more strictly smaller problems.
+- Solve the subproblems recursively.
+- Combine their solutions to solve the larger problem.
+
+\section{Sets}
+
 
 \section{Exercises}
 \begin{ExerciseList}

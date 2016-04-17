@@ -58,6 +58,60 @@
 % - http://www.mathsisfun.com/algebra/polynomials-remainder-factor.html
 % - http://www.mathsisfun.com/algebra/polynomials-solving.html
 
+% Proportional relationships
+% - relation ships are proportional if they go straight through 0,0 TODO why is this
+
+% Equations with sqare and cube roots (square and cube on both sides)
+
+% x-intercept (set y to zero) and y-intercept (set x to zero)
+
+% linear equation with no solutions (x+2=x+3)
+% linear equation with infinitely many solutions (x+2=x+2)
+
+% elimination (add both sides of equations to each other) vs substitution (TODO)
+% -5x-3y = 9 and 4x-18y=54
+% if we multiply 3y by -66 then we have 18y in both equations
+%     -6 \times (-5x-3y) = -6 \times 9 
+%     30x + 18y = -54 
+% adding the two equations together (which we are allowed to do as we can add the same thing to both sides of an equation) gives us
+%     (4x-18y) + (30x + 18y) = 54 - 54
+%     34x = 0
+% so x=0 substituting this into 4x-18y=54 gives us 
+%     4\times0-18y=54
+%     -18y = 54
+%     y = 54/-18 = -3
+
+% system of linear equations
+% solutions of systems of equations
+% - algebraically = (no solutions (ex: -4 = 10), one solutions (ex: 2x=24) or infinitly many solutions (0=0)).
+% - graphically a solution of a system of linear equations is represented by a point of intersection between the lines defined by each equation. The number of solutions is the same as the number of the points of intersection between the lines.
+
+% TODO describe slope intercept form
+% Solve graphically for 
+%     y=x+7
+%     y=x−8
+% Both equations are in the slope-intercept form, so we can find the slopes and yyy-intercept of their lines relatively easily. Based on that information, we can find the number of solutions of the system without the need to solve them. The first equation y=x+7y has slope of its line is 1 and the y-intercept is  (0,7). The second equation  y=x−8y has the slope of its line is 1 and the y-intercept is (0,−8). Since both lines have the same slopes but different y-intercepts, they are distinct parallel which don't intersect, so we conclude that the system has no solutions.
+
+% Solve graphically for 
+%    8x+y=8 
+%    9x−3y=−3
+% first we convert to slope intercept form 
+%    8x+y=8 => y=8-8x 
+%    9x−3y=−3 => -3y = -3-9x => y=1+3x
+% so the first equation has y-intercept (0,8) and a slope of -8 means that when x increases by 1 y decreases by -8 So another point on the line is (0+1,8-8)=(1,0). Semilarly the second eqatuion has y-intercept (0,1) and a slope of 3 which means that when x increases by 1 y increases by 3 so another point on the line is (0+1,1+3) = (1,4)
+
+% exercise
+% - y=5x+1 and y=−2x−8 (Answer: one solution as slopes differ (5 and -2) and y-intersects differ (0,1) and (0,-8)
+% - 10x+2y=-8 and y=-5x-4 (Answer: infinite solutions as 10x+2y=-8 => 2y=-8-10x => y=-4-5x yielding same slope and same y-intercepts)
+% - y=2+2x and y=2x-1 (Answer: no solutions as slopes are the same (2) but y-intercepts differ (0,2) and (0,-1)
+% - Bhavik bought 3 liters of milk and 5 loaves of bread for a total of 11 dollar A month later, he bought 4 liters of milk and 4 loaves of bread at the same prices, for a total of 10dollar. How much does a liter of milk cost, and how much does a loaf of bread cost? (Answer: 3L + 5B = 11 and 4L + 4B = 10, so 4B=10-4L => B = 2.5-L substituting this for B gives us 3L + 5(2.5-L)=11, so L=0.75 and B=1.75).
+
+% slope = change in y / change in x = \delta y / \delta x (for a line this number is constant) An undefined slope (or an infinitely large slope) is the slope of a vertical line! The x-coordinate never changes no matter what the y-coordinate is!
+
+% direct and inverse variation
+
+% polynominal long division http://math.stackexchange.com/questions/215734/pseudo-code-for-polynomial-long-division
+
 Algebraic expressions are expressions that involves unknown variables, for example
 \begin{align*}
 8x - 6               &   \\
@@ -385,31 +439,43 @@ Which reduces to
 
 \Exercise Solve the following linear equations
 \Question $\frac{12}{x-12} = \frac{6}{5}$
-\Question $\frac{3}{5} = \frac{18}{a + 11}$
-\Question $\frac{5}{6} = \frac{k-7}{18}$
-\Question $\frac{3}{8} = \frac{15}{t-1}$
-\Question $\frac{y-8}{25} = \frac{7}{5}$
-\Answer The solutioms are
+\Question $\frac{3}{5} = \frac{18}{x + 11}$
+\Question $\frac{5}{6} = \frac{x-7}{18}$
+\Question $\frac{3}{8} = \frac{15}{x-1}$
+\Question $\frac{x-8}{25} = \frac{7}{5}$
+\Answer The solutions are
 \begin{enumerate}
 \item\myindent $x = \frac{12 \cdot 5}{6} + 12 = 22$.
-\item\myindent $a = \frac{18 \cdot 5}{3} - 11 = 19$.
-\item\myindent $k = \frac{5 \cdot 18}{6} + 7 = 22$.
-\item\myindent $t = \frac{15 \cdot 8}{3} + 1 = 41$.
-\item\myindent $y = \frac{7 \cdot 25}{5} + 8 = 43$.
+\item\myindent $x = \frac{18 \cdot 5}{3} - 11 = 19$.
+\item\myindent $x = \frac{5 \cdot 18}{6} + 7 = 22$.
+\item\myindent $x = \frac{15 \cdot 8}{3} + 1 = 41$.
+\item\myindent $x = \frac{7 \cdot 25}{5} + 8 = 43$.
+\item\myindent $x = -1$.
+\end{enumerate}
+
+\Exercise Solve the following linear equations with parenthesis
+\Question $-9-(9x - 6) = 3(4x + 6)$
+\Question $2x + 4 = 5(-4 - 2x)$
+\Question $2 - 16x = 6(-3x + 2)$
+\Answer The solutions are
+\begin{enumerate}
+\item\myindent $x = -1$.
+\item\myindent $x = -2$.
+\item\myindent $x = 5$.
 \end{enumerate}
 
 \Exercise Solve these linear inequalities for $x$:
 \Question $-12x < 1$
 \Question $-18x > -10$
 \Question $−16x \geq 13$
-\Question $12b - 15 > 21$
+\Question $12x - 15 > 21$
 \Question $14 - 3x < -1$
 \Answer $x$ is
 \begin{enumerate}
 \item\myindent $x > -\frac{1}{12}$.
 \item\myindent $x < \frac{5}{9}$.
 \item\myindent $x \leq -\frac{13}{16}$.
-\item\myindent $b>3$.
+\item\myindent $x>3$.
 \item\myindent $x>5$.
 \end{enumerate}
 

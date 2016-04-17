@@ -1,8 +1,11 @@
 \ProvidesPackage{BookTemplate}
 
 %% IMPORTS
+\usepackage{algorithm}                                     % algorithms                                
+\usepackage[noend]{algpseudocode}                          
 \usepackage{amsmath,amssymb,amsfonts,amsthm}               % math symbols
 \usepackage[answerdelayed,lastexercise]{exercise}          % exercises
+\usepackage{commath}                                       % math such as abs/norm
 \usepackage{float}
 \usepackage{listings}                                      % source code
 \usepackage{pgfplots}                                      % plotting
@@ -29,6 +32,8 @@
 % - TIKZ 
 \usetkzobj{all}
 \usetikzlibrary{quotes,angles}
+% - algorithms (align comments)
+%\algrenewcomment[1]{\(\triangleright\) #1}
 % - ams theorem Styles
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
