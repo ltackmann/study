@@ -1,0 +1,33 @@
+apply plugin: 'java'
+
+// multi project build
+//- test code for testing
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+	compile project(':jpa')
+
+	// Hibernate
+    compile('org.hibernate:hibernate-core:5.0.5.Final')
+    compile('org.hibernate:hibernate-entitymanager:5.0.5.Final')
+    compile('javax.transaction:jta:1.1')
+    compile('org.slf4j:slf4j-log4j12:1.7.13')						// logging for hibernate
+    
+    // test
+    testCompile('org.testng:testng:6.9.9') {
+    	exclude module: 'junit' 
+    }
+    testCompile('org.hamcrest:hamcrest-all:1.3')
+    testCompile('org.dbunit:dbunit:2.5.1') {
+    	exclude module: 'junit' 
+    }
+    testCompile('org.codehaus.btm:btm:2.1.4')
+    testCompile('org.hsqldb:hsqldb:2.3.3')
+}
+
+test {
+    useTestNG()
+}

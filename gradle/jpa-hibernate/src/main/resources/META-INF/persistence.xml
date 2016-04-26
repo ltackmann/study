@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0">
+	<persistence-unit name="jpa-test" transaction-type="JTA">
+		<jta-data-source>jpa-test</jta-data-source>
+		<class>jpa.domain.Address</class>
+		<class>jpa.domain.AuditLog</class>
+		<class>jpa.domain.Category</class>
+		<class>jpa.domain.Country</class>
+		<class>jpa.domain.Customer</class>
+		<class>jpa.domain.Employee</class>
+		<class>jpa.domain.LoginLog</class>
+		<class>jpa.domain.Order</class>
+		<class>jpa.domain.OrderItem</class>
+		<class>jpa.domain.Product</class>
+		<class>jpa.domain.products.Book</class>
+		<class>jpa.domain.products.Music</class>
+		<class>jpa.domain.products.Software</class>
+		<class>jpa.domain.Supplier</class>
+		<class>jpa.domain.User</class>
+
+		<properties>
+			<!-- configuration -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" />
+			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.use_sql_comments" value="true" />
+		</properties>
+	</persistence-unit>
+	
+	<persistence-unit name="jpa-local" transaction-type="RESOURCE_LOCAL">
+		<class>jpa.domain.Address</class>
+		<class>jpa.domain.AuditLog</class>
+		<class>jpa.domain.Category</class>
+		<class>jpa.domain.Country</class>
+		<class>jpa.domain.Customer</class>
+		<class>jpa.domain.Employee</class>
+		<class>jpa.domain.LoginLog</class>
+		<class>jpa.domain.Order</class>
+		<class>jpa.domain.OrderItem</class>
+		<class>jpa.domain.Product</class>
+		<class>jpa.domain.products.Book</class>
+		<class>jpa.domain.products.Music</class>
+		<class>jpa.domain.products.Software</class>
+		<class>jpa.domain.Supplier</class>
+		<class>jpa.domain.User</class>
+
+		<properties>
+			<!-- connection -->
+			<property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:file:~/Projects/java/jpa/hsql.db" />
+			<property name="javax.persistence.jdbc.user" value="sa" />
+			<property name="javax.persistence.jdbc.password" value="" />
+
+			<!-- configuration -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" />
+			<!-- property name="hibernate.hbm2ddl.auto" value="update" /-->
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.use_sql_comments" value="true" />
+		</properties>
+	</persistence-unit>
+</persistence>
+
+
