@@ -1,9 +1,9 @@
-package jpa.test.utils;
+package jpa.spring.utils;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 
-import jpa.config.PersistenceJPAConfig;
+import jpa.spring.config.PersistenceJPAConfig;
 
 public abstract class SpringTester {
     public SpringTester() {

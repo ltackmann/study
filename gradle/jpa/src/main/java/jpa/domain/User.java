@@ -17,7 +17,7 @@ public abstract class User implements Serializable {
 
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
 
     @Enumerated
     @Column(name = "USER_TYPE", insertable = false, updatable = false)
@@ -78,7 +78,7 @@ public abstract class User implements Serializable {
         return email;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 

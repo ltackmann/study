@@ -1,4 +1,4 @@
-package jpa.utils;
+package jpa.hibernate.utils;
 
 import java.io.File;
 import java.net.URL;

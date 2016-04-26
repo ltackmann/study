@@ -4,7 +4,6 @@
 - Use spring transaction and configure spring using Java
  - http://blog.jhades.org/how-does-spring-transactional-really-work/
  - http://stackoverflow.com/questions/1099025/spring-transactional-what-happens-in-background
-- Rename top package to jpa
 - Event listeners 
   * AbstractEventListener (AbstractReassociateEventListener)
   * @PrePersist and @PostPersist

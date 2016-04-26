@@ -1,7 +1,8 @@
-package jpa.config;
+package jpa.spring.config;
 
 import java.util.Properties;
 
+import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 import org.springframework.context.annotation.Bean;
@@ -18,7 +19,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan("jpa.impl")
+@ComponentScan("jpa.spring.impl")
 public class PersistenceJPAConfig {
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean() {
@@ -42,18 +43,16 @@ public class PersistenceJPAConfig {
 	public DataSource createDataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("org.hsqldb.jdbcDriver");
-		dataSource.setUrl("jdbc:hsqldb:file:~/Projects/java/gradle/hsql.db");
+		//dataSource.setUrl("jdbc:hsqldb:file:~/Projects/java/gradle/hsql.db");
+		dataSource.setUrl("jdbc:hsqldb:mem:mymemdb");
 		dataSource.setUsername("sa");
 		dataSource.setPassword("");
 		return dataSource;
 	}
 
 	@Bean
-	public PlatformTransactionManager transactionManager() {
-		JpaTransactionManager transactionManager = new JpaTransactionManager();
-		transactionManager.setEntityManagerFactory(this.entityManagerFactoryBean().getObject());
-
-		return transactionManager;
+	public PlatformTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
+		return new JpaTransactionManager(entityManagerFactory);
 	}
 
 	@Bean
@@ -67,6 +66,6 @@ public class PersistenceJPAConfig {
 		properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
 		properties.setProperty("hibernate.format_sql", "true");
 		properties.setProperty("hibernate.use_sql_comments", "true");
-		return null;
+		return properties;
 	}
 }

@@ -1,4 +1,4 @@
-package jpa.test.utils;
+package jpa.spring.utils;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -14,12 +14,12 @@ import org.dbunit.dataset.xml.FlatXmlDataSet;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 
-import jpa.config.PersistenceJPAConfig;
+import jpa.spring.config.PersistenceJPAConfig;
 
-public class SetupData {
+public class ExportDatabase {
     private final IDatabaseConnection connection;
 
-    public SetupData(IDatabaseConnection connection) {
+    public ExportDatabase(IDatabaseConnection connection) {
         this.connection = connection;
     }
 
@@ -42,7 +42,7 @@ public class SetupData {
         java.sql.Connection connection = entityManager.unwrap(java.sql.Connection.class);
         
         // export database
-        SetupData data = new SetupData(new DatabaseConnection(connection));
+        ExportDatabase data = new ExportDatabase(new DatabaseConnection(connection));
         data.dumpData();
     }
 

@@ -1,1 +1,1 @@
-include 'gwt', 'jpa'
+include 'gwt', 'jpa', 'jpa-hibernate', 'jpa-spring'

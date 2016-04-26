@@ -5,8 +5,6 @@ import java.io.Serializable;
 
 /**
  * Product manufacturer
- *
- * @author Lars Tackmann
  */
 @Entity
 @Table(name = "SUPPLIERS")

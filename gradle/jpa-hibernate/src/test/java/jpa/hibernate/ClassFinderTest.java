@@ -1,4 +1,4 @@
-package jpa.test;
+package jpa.hibernate;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.testng.annotations.Test;
 
-import jpa.utils.ClassFinder;
+import jpa.hibernate.utils.ClassFinder;
 
 public class ClassFinderTest {
 	@Test
