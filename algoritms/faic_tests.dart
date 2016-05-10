@@ -103,19 +103,44 @@ main() {
     print("asInteger [three] is ${three.asInt}");
     print("asInteger [five] is ${five.asInt}");
 
-    // division
+    // quotient
     var seven = five + two;
-    var eleven = five + five + one;
-    print("division [11/7=1] is ${(eleven/seven).asInt}");
-    print("division [-11/7=-1] is ${((-eleven)/seven).asInt}");
-    print("division [11/-7=-1] is ${(eleven/(-seven)).asInt}");
-    print("division [-11/-7=1] is ${((-eleven)/(-seven)).asInt}");
+    var ten = five + five;
+    var eleven = ten + one;
+    print("quotient [11/7=1] is ${(eleven/seven).asInt}");
+    print("quotient [-11/7=-1] is ${((-eleven)/seven).asInt}");
+    print("quotient [11/-7=-1] is ${(eleven/(-seven)).asInt}");
+    print("quotient [-11/-7=1] is ${((-eleven)/(-seven)).asInt}");
+    print("quotient [3/10=0] is ${(three/ten).asInt}");
+    print("quotient [3/-10=0] is ${(three/-ten).asInt}");
+    print("quotient [-3/10=0] is ${(-three/ten).asInt}");
+    print("quotient [-3/-10=0] is ${(-three/-ten).asInt}");
+    print("quotient [10/3=3] is ${(ten/three).asInt}");
+    print("quotient [-10/3=-3] is ${(-ten/three).asInt}");
+    print("quotient [10/-3=-3] is ${(ten/-three).asInt}");
+    print("quotient [-10/-3=3] is ${(-ten/-three).asInt}");
+    print("quotient [5/3=1] is ${(five/three).asInt}");
+    print("quotient [-5/3=-1] is ${(-five/three).asInt}");
+    print("quotient [5/-3=-1] is ${(five/-three).asInt}");
+    print("quotient [-5/-3=1] is ${(-five/-three).asInt}");
 
     // remainder
     print("remainder [11%7=4] is ${(eleven%seven).asInt}");
     print("remainder [-11%7=-4] is ${((-eleven)%seven).asInt}");
     print("remainder [11%-7=4] is ${(eleven%(-seven)).asInt}");
     print("remainder [-11%-7=-4] is ${((-eleven)%(-seven)).asInt}");
+    print("remainder [3%10=3] is ${(three%ten).asInt}");
+    print("remainder [3%-10=3] is ${(three%-ten).asInt}");
+    print("remainder [-3%10=-3] is ${(-three%ten).asInt}");
+    print("remainder [-3%-10=-3] is ${(-three%-ten).asInt}");
+    print("remainder [10%3=1] is ${(ten%three).asInt}");
+    print("remainder [-10%3=-1] is ${(-ten%three).asInt}");
+    print("remainder [10%-3=1] is ${(ten%-three).asInt}");
+    print("remainder [-10%-3=-1] is ${(-ten%-three).asInt}");
+    print("remainder [5%3=2] is ${(five%three).asInt}");
+    print("remainder [-5%3=-2] is ${(-five%three).asInt}");
+    print("remainder [5%-3=2] is ${(five%-three).asInt}");
+    print("remainder [-5%-3=-2] is ${(-five%-three).asInt}");
   }, skip:false);
 
   group("natural numbers", () {

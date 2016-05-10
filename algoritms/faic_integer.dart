@@ -37,25 +37,15 @@ class Integer implements Comparable<Integer> {
   // operators
   // ---------
 
-  Integer operator -() {
-    return _negate(this);
-  }
+  Integer operator -() => _negate(this);
 
-  Integer operator +(Integer other) {
-    return _add(this, other);
-  }
+  Integer operator +(Integer other) => _add(this, other);
 
-  Integer operator -(Integer other) {
-    return _subtract(this, other);
-  }
+  Integer operator -(Integer other) => _subtract(this, other);
 
-  Integer operator *(Integer other) {
-    return _multiply(this, other);
-  }
+  Integer operator *(Integer other) => _multiply(this, other);
 
-  Integer operator ^(Integer other) {
-    return _power(this, other.asNatural);
-  }
+  Integer operator ^(Integer other) => _power(this, other.asNatural);
 
   bool operator <(Integer other) { return _compareTo(this, other) < 0; }
 
@@ -70,9 +60,6 @@ class Integer implements Comparable<Integer> {
   Integer operator /(Integer other) { return _divide(this, other); }
 
   Integer operator %(Integer other) { return _remainder(this, other); }
-
-
-
 
   // -------
   // methods

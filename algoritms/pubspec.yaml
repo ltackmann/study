@@ -2,4 +2,3 @@ name: dart_algorithms
 description: Various algorithms and data strcutres implemented in Dart
 dependencies:
   test: any
-  meta: any
