@@ -56,10 +56,26 @@ public class HibernateSetup {
 		this.schemaExport = new SchemaExport(serviceRegistry, metadata, false);
 	}
 	
+	/**
+	 * Construct HibernateSetup programmatically using a {@link ServiceRegistry}
+	 * 
+	 * @param transactionManagerSetup
+	 * @param properties
+	 * @param annotatedClasses
+	 */
 	public HibernateSetup(TransactionManagerSetup transactionManagerSetup, Properties properties, List<Class<?>> annotatedClasses) {
 		this(transactionManagerSetup, properties, annotatedClasses, new LinkedList<Interceptor>(), new LinkedList<SessionFactoryObserver>());
 	}
 
+	/**
+	 * Construct HibernateSetup programmatically using a {@link ServiceRegistry}
+	 * 
+	 * @param transactionManagerSetup
+	 * @param properties
+	 * @param annotatedClasses
+	 * @param inteceptors
+	 * @param observers
+	 */
 	public HibernateSetup(TransactionManagerSetup transactionManagerSetup, Properties properties, List<Class<?>> annotatedClasses, List<Interceptor> inteceptors, List<SessionFactoryObserver> observers) {
 		Properties mergedProperties = mergeProperties(properties, getDefaultHibernateProperties());
 
@@ -95,7 +111,7 @@ public class HibernateSetup {
 		settings.setTransactionType(transactionManagerSetup.getTransactionType());
 
 		Map<String, String> configuration = new HashMap<>();
-		configuration.put("hibernate.ejb.metamodel.population", "enabled");
+		// configuration.put("hibernate.ejb.metamodel.population", "enabled"); // force metamodel population
 
 		final String persistenceUnitName = transactionManagerSetup.getDataSourceUniqueName();
 		this.entityManagerFactory = new EntityManagerFactoryImpl(persistenceUnitName, (SessionFactoryImplementor) sessionFactory, (MetadataImplementor) metadata, settings, configuration);
@@ -128,19 +144,20 @@ public class HibernateSetup {
 		properties.put("hibernate.use_outer_join", "true");
 		properties.put("hibernate.default_entity_mode", "pojo");
 		properties.put("hibernate.generate_statistics", "false");
-		properties.put("hibernate.cache.use_structured_entries", "true");
 		properties.put("hibernate.use_identifer_rollback", "true");
 		properties.put("hibernate.use_sql_comments", "false");
 		properties.put("hibernate.order_updates", "true");
 		properties.put("hibernate.order_inserts", "true");
 		properties.put("hibernate.default_batch_fetch_size", "8");
 		properties.put("hibernate.max_fetch_depth", "3");
+		properties.put("hibernate.bytecode.use_reflection_optimizer", "true");
 		properties.put("hibernate.jdbc.fetch_size", "8");
 		properties.put("hibernate.jdbc.batch_size", "100");
 		properties.put("hibernate.jdbc.batch_versioned_data", "false");
 		properties.put("hibernate.jdbc.use_scrollable_resultset", "true");
 
-		// <!-- Cache --, "
+		// <!-- Cache --, 
+		properties.put("hibernate.cache.use_structured_entries", "true");
 		properties.put("hibernate.cache.provider_class", "org.hibernate.cache.NoCacheProvider");
 		properties.put("hibernate.cache.use_minimal_puts", "false"); // set true if using clustered cache
 		properties.put("hibernate.cache.use_query_cache", "false");
@@ -151,23 +168,18 @@ public class HibernateSetup {
 		properties.put("hibernate.connection.autocommit", "false");
 		properties.put("hibernate.transaction.flush_before_completion", "true");
 		properties.put("hibernate.transaction.auto_close_session", "false");
-		properties.put("hibernate.bytecode.use_reflection_optimizer", "true");
+		
+		// <!-- Bitronix JTA/transaction setup --, "
+		properties.put("hibernate.transaction.coordinator_class", "jta");
+		properties.put("hibernate.current_session_context_class", "jta");
 		properties.put("hibernate.transaction.jta.platform", "org.hibernate.service.jta.platform.internal.BitronixJtaPlatform");
-
+	
 		// TODO implement own
 		properties.put("hibernate.insertsorter.class", "com.schantz.foundation.hibernate.InsertSorter");
 		
-		return mergeProperties(getDebugHibernateProperties(), properties);
-	}
-	
-	protected Properties getDebugHibernateProperties() {
-		Properties properties = new Properties();
-		properties.put("hibernate.hbm2ddl.auto", "create-drop");
-		properties.put("hibernate.show_sql", "true");
-		properties.put("hibernate.format_sql", "true");
-		properties.put("hibernate.use_sql_comments", "true");	
 		return properties;
 	}
+
 
 	/**
 	 * Merge original properties with values from property overrides 

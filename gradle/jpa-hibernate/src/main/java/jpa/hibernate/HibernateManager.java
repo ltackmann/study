@@ -7,6 +7,7 @@ import jpa.hibernate.utils.TransactionManagerSetup;
 import javax.persistence.*;
 import javax.transaction.UserTransaction;
 
+import org.hibernate.SessionFactory;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 
 import java.util.*;
@@ -29,6 +30,7 @@ public class HibernateManager {
 	protected HibernateManager(String persistenceUnitName, DatabaseProduct databaseProduct, String connectionUrl, List<Class<?>> annotatedClasses, Properties properties) {
 		try {
 			TransactionManagerSetup transactionManagerSetup = new TransactionManagerSetup(databaseProduct, connectionUrl, persistenceUnitName);
+			properties.put("hibernate.dialect", databaseProduct.hibernateDialect);
 			this.hibernateSetup = new HibernateSetup(transactionManagerSetup, properties, annotatedClasses);
 		} catch (Exception e) {
 			throw new RuntimeException(e);
@@ -46,6 +48,7 @@ public class HibernateManager {
 	protected HibernateManager(String persistenceUnitName, DatabaseProduct databaseProduct, String connectionUrl, Properties properties) {
 		try {
 			TransactionManagerSetup transactionManagerSetup = new TransactionManagerSetup(databaseProduct, connectionUrl, persistenceUnitName);
+			properties.put("hibernate.dialect", databaseProduct.hibernateDialect);
 			this.hibernateSetup = new HibernateSetup(transactionManagerSetup, properties, persistenceUnitName);
 		} catch (Exception e) {
 			throw new RuntimeException(e);
@@ -68,9 +71,19 @@ public class HibernateManager {
 		return hibernateSetup.getEntityManagerFactory();
 	}
 
+	/**
+	 * closing the HibernateManager will also close any EntityManager's created from the underlying EntityManagerFactory
+	 */
 	public void close() {
-		getEntityManagerFactory().close();
-		hibernateSetup.getTransactionManagerSetup().close();
+		EntityManagerFactory entityManagerFactory = getEntityManagerFactory();
+		if(entityManagerFactory != null) {
+			SessionFactory sessionFactory = entityManagerFactory.unwrap(SessionFactory.class);
+			sessionFactory.close();
+		} else {
+			// only close database connection directly if no EntityManagerFactory exists as 
+			// closing the EntityManagerFactory will itself close the database connection
+			hibernateSetup.getTransactionManagerSetup().close();
+		}
 	}
 
 	public UserTransaction getTransaction() {

@@ -29,8 +29,8 @@ public class HibernateJpaTest {
     @BeforeClass
     public static void setUp() {    	
     	// "jdbc:hsqldb:file:~/Projects/java/gradle/hsql.db"
-    	//hibernateManager = HibernateManagerFactory.getHibernateManager("jpa-test", DatabaseProduct.HSQLDB, "jdbc:hsqldb:mem:mymemdb", "jpa.domain");
-    	hibernateManager = HibernateManagerFactory.getHibernateManager("jpa-test", DatabaseProduct.HSQLDB, "jdbc:hsqldb:mem:mymemdb");
+    	hibernateManager = HibernateManagerFactory.getTestHibernateManager("jpa-test", DatabaseProduct.HSQLDB, "jdbc:hsqldb:mem:mymemdb", "jpa.domain");
+    	//hibernateManager = HibernateManagerFactory.getTestHibernateManager("jpa-test", DatabaseProduct.HSQLDB, "jdbc:hsqldb:mem:mymemdb");
     	entityManager = hibernateManager.getEntityManagerFactory().createEntityManager();
     }
     
@@ -48,10 +48,10 @@ public class HibernateJpaTest {
         Customer customer = new Customer("donald@duck.com", "donald", "secret", "Donald Duck", address);
         assertThat(customer.getId(), nullValue());
         
-        tx.begin();
-        
+        tx.begin();  
         entityManager.persist(customer); 
-        tx.commit();
+        entityManager.flush();
+        tx.commit();       
         assertThat(customer.getId(), notNullValue());
     }
     
@@ -70,10 +70,6 @@ public class HibernateJpaTest {
 
     @AfterClass
     public static void tearDown() {
-        // Stop JPA
-        if (entityManager != null) {
-            entityManager.close();
-        }
         if (hibernateManager != null) {
         	hibernateManager.close();
         }

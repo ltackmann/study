@@ -29,8 +29,7 @@ public class TransactionManagerSetup {
 	protected final PoolingDataSource datasource;
 	protected final String dataSourceUniqueName;
 
-	public TransactionManagerSetup(DatabaseProduct databaseProduct, String connectionURL, String dataSourceUniqueName)
-			throws Exception {
+	public TransactionManagerSetup(DatabaseProduct databaseProduct, String connectionURL, String dataSourceUniqueName) throws Exception {
 		this.dataSourceUniqueName = dataSourceUniqueName;
 		logger.debug("Starting database connection pool with id " + dataSourceUniqueName);
 
@@ -45,6 +44,9 @@ public class TransactionManagerSetup {
 
 		logger.debug("Disabling warnings when the database isn't accessed in a transaction");
 		TransactionManagerServices.getConfiguration().setWarnAboutZeroResourceTransaction(false);
+		
+		logger.debug("setting transaction timeout to 3600 seconds");
+		TransactionManagerServices.getConfiguration().setDefaultTransactionTimeout(3600);
 
 		logger.debug("Creating connection pool");
 		datasource = new PoolingDataSource();
@@ -53,9 +55,8 @@ public class TransactionManagerSetup {
 		datasource.setMaxPoolSize(5);
 		datasource.setPreparedStatementCacheSize(10);
 
-		// Our locking/versioning tests assume READ COMMITTED transaction
-		// isolation. This is not the default on MySQL InnoDB, so we set
-		// it here explicitly.
+		// Our locking/versioning assume READ COMMITTED transaction isolation
+		// This is not the default by databases so we set it explicitly.
 		datasource.setIsolationLevel("READ_COMMITTED");
 
 		// Hibernate's SQL schema generator calls connection.setAutoCommit(true)

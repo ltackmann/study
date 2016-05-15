@@ -20,15 +20,6 @@
 		<class>jpa.domain.products.Software</class>
 		<class>jpa.domain.Supplier</class>
 		<class>jpa.domain.User</class>
-
-		<properties>
-			<!-- configuration -->
-			<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" />
-			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
-			<property name="hibernate.show_sql" value="true" />
-			<property name="hibernate.format_sql" value="true" />
-			<property name="hibernate.use_sql_comments" value="true" />
-		</properties>
 	</persistence-unit>
 	
 	<persistence-unit name="jpa-local" transaction-type="RESOURCE_LOCAL">
