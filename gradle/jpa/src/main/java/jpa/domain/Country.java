@@ -46,6 +46,10 @@ public class Country implements Serializable {
 	public String getCode() {
 		return code;
 	}
+	
+	public String getName() {
+		return name;
+	}
 
 	public long getId() {
 		return id;
@@ -61,5 +65,9 @@ public class Country implements Serializable {
 
 	public void setCode(String code) {
 		this.code = code;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
 	}
 }

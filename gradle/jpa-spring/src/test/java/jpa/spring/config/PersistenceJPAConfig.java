@@ -13,6 +13,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -23,17 +24,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class PersistenceJPAConfig {
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean() {
-		JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter() {
-			{
-				//setDatabasePlatform("org.hibernate.dialect.HSQLDialect");
-				//setDatabase(Database.HSQL);
-				//setGenerateDdl(true);
-			}
-		};
 		LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
 		factoryBean.setDataSource(this.createDataSource());
 		factoryBean.setPackagesToScan(new String[] { "jpa.domain" });
-		factoryBean.setJpaVendorAdapter(vendorAdapter);
+		factoryBean.setJpaVendorAdapter(getVendorAdapter());
 		factoryBean.setJpaProperties(this.additionlProperties());
 
 		return factoryBean;
@@ -43,8 +37,7 @@ public class PersistenceJPAConfig {
 	public DataSource createDataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("org.hsqldb.jdbcDriver");
-		//dataSource.setUrl("jdbc:hsqldb:file:~/Projects/java/gradle/hsql.db");
-		dataSource.setUrl("jdbc:hsqldb:mem:mymemdb");
+		dataSource.setUrl(getConnectionUrl());
 		dataSource.setUsername("sa");
 		dataSource.setPassword("");
 		return dataSource;
@@ -60,12 +53,25 @@ public class PersistenceJPAConfig {
 		return new PersistenceExceptionTranslationPostProcessor();
 	}
 	
-	Properties additionlProperties() {
+	protected Properties additionlProperties() {
 		Properties properties = new Properties();
-		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.HSQLDialect");
-		properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
 		properties.setProperty("hibernate.format_sql", "true");
-		properties.setProperty("hibernate.use_sql_comments", "true");
 		return properties;
+	}
+	
+	protected JpaVendorAdapter getVendorAdapter() {
+		return new HibernateJpaVendorAdapter() {
+			{
+				setDatabasePlatform("org.hibernate.dialect.HSQLDialect");
+				setDatabase(Database.HSQL);
+				//setGenerateDdl(true);
+				setShowSql(true);
+			}
+		};
+	}
+	
+	protected String getConnectionUrl() {
+		// "jdbc:hsqldb:mem:mymemdb"
+		return "jdbc:hsqldb:file:~/Projects/java/gradle/jpa-spring/hsql.db";
 	}
 }
