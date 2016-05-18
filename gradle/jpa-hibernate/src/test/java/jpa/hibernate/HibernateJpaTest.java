@@ -3,11 +3,16 @@ package jpa.hibernate;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
+
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 import javax.transaction.UserTransaction;
 
+import org.dbunit.DatabaseUnitException;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -18,6 +23,7 @@ import jpa.domain.Customer;
 import jpa.domain.User;
 import jpa.hibernate.HibernateManager;
 import jpa.hibernate.utils.DatabaseProduct;
+import jpa.hibernate.utils.ExportDatabase;
 
 /**
  * Test creating an entity manager using {@link Persistence} and persistence.xml
@@ -37,6 +43,14 @@ public class HibernateJpaTest {
     @Test
     public void schemaExportTest() {   	
     	hibernateManager.createSchema("schema-test.sql");
+    }
+    
+    @Test
+    public void exportDatabaseTest() throws DatabaseUnitException, SQLException, IOException {
+    	Connection connection = entityManager.unwrap(Connection.class);
+    	assertThat(connection, notNullValue());
+        ExportDatabase data = new ExportDatabase(connection);
+        data.dumpData("database-data.xml");
     }
     
     @Test
