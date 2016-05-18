@@ -35,21 +35,20 @@ public class DataExporter extends SpringInjector {
 		int tableCount = doInTransaction(new TransactionCallback<Integer>() {
 			@Override
 			public Integer doInTransaction(TransactionStatus status) {
-				int tableCount = 0;
+				int tables = 0;
 				IDataSet dataSet = getSortedDataSet(entityManager);
-				ITableIterator iterator;
 				try {
-					iterator = dataSet.iterator();
+					ITableIterator iterator = dataSet.iterator();
 					while (iterator.next()) {
 						ITable table = iterator.getTable();
 						assertThat(table.getRowCount(), is(0));
-						tableCount++;
+						tables++;
 					};
 				} catch (DataSetException e) {
 					e.printStackTrace();
 					throw new RuntimeException(e);
 				}
-				return tableCount;
+				return tables;
 			}
 		});
 		
