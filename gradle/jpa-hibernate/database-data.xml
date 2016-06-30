@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <ADDRESSES ID="2" CITY="Duckburg" STREET_NAME="Quack Street" STREET_NUMBER="1112" COUNTRIES_ID="3"/>
+  <AUDIT_LOG/>
+  <BOOKS/>
+  <CATEGORIES/>
+  <COUNTRIES ID="3" CODE="US" NAME="USA"/>
+  <EMPLOYEE_DETAILS/>
+  <LOGIN_LOG/>
+  <MUSIC/>
+  <ORDERS/>
+  <ORDER_ITEMS/>
+  <PRODUCTS/>
+  <PRODUCT_HAS_CATEGORIES/>
+  <SOFTWARE/>
+  <SUPPLIERS/>
+  <USERS USER_TYPE="0" ID="1" ACTIVE="true" CREATION_DATE="2016-06-30 13:59:01.753" EMAIL="donald@duck.com" NAME="Donald Duck" PASSWORD="secret" USERNAME="donald" ADDRESSES_ID="2"/>
+</dataset>

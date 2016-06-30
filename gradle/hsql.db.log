@@ -1,6 +1,0 @@
-/*C4*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C6*/SET SCHEMA PUBLIC
-alter table PRODUCTS drop constraint UKjhprgkmri59rnrdfb176w8mqk
-alter table PRODUCTS add constraint UKjhprgkmri59rnrdfb176w8mqk unique (PRODUCT_NAME, SUPPLIERS_ID)
-DISCONNECT

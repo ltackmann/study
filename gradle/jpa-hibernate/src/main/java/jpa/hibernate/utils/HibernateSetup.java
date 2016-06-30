@@ -1,5 +1,6 @@
 package jpa.hibernate.utils;
 
+import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -26,6 +27,7 @@ import org.hibernate.jpa.boot.internal.SettingsImpl;
 import org.hibernate.jpa.internal.EntityManagerFactoryImpl;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
+import org.hibernate.tool.schema.TargetType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -37,7 +39,7 @@ public class HibernateSetup {
 
 	private final TransactionManagerSetup transactionManagerSetup;
 	private final EntityManagerFactory entityManagerFactory;
-	private final SchemaExport schemaExport;
+	private final Metadata metadata;
 	
 	/**
 	 * Construct HibernateSetup from persistence.xml using {@link Persistence#createEntityManagerFactory(String)}
@@ -49,11 +51,8 @@ public class HibernateSetup {
 		Properties mergedProperties = mergeProperties(properties, getDefaultHibernateProperties());
 		this.entityManagerFactory = Persistence.createEntityManagerFactory(persistenceUnit, mergedProperties);
 		this.transactionManagerSetup = transactionManagerSetup;
-		// unwrap entityManagerFactory to access schemaExport
-		SessionFactory sessionFactory = entityManagerFactory.unwrap(SessionFactory.class);
-		ServiceRegistry serviceRegistry = sessionFactory.getSessionFactoryOptions().getServiceRegistry();
 		MetadataImplementor metadata = MetadataProvider.getMetadata();
-		this.schemaExport = new SchemaExport(serviceRegistry, metadata, false);
+		this.metadata = metadata;
 	}
 	
 	/**
@@ -115,16 +114,12 @@ public class HibernateSetup {
 
 		final String persistenceUnitName = transactionManagerSetup.getDataSourceUniqueName();
 		this.entityManagerFactory = new EntityManagerFactoryImpl(persistenceUnitName, (SessionFactoryImplementor) sessionFactory, (MetadataImplementor) metadata, settings, configuration);
-		this.schemaExport = new SchemaExport(serviceRegistry, (MetadataImplementor) metadata, false);
+		this.metadata = metadata;
 		this.transactionManagerSetup = transactionManagerSetup;
 	}
 
 	public EntityManagerFactory getEntityManagerFactory() {
 		return entityManagerFactory;
-	}
-
-	public SchemaExport getSchemaExport() {
-		return schemaExport;
 	}
 
 	public TransactionManagerSetup getTransactionManagerSetup() {
@@ -199,5 +194,14 @@ public class HibernateSetup {
 			 merged.put(e.getKey(), e.getValue());
         }
 		return merged;
+	}
+
+	public void createSchema(String outputFilename) {
+		EnumSet<TargetType> targetTypes = EnumSet.of(TargetType.SCRIPT);
+		SchemaExport scemaExport = new SchemaExport();
+		scemaExport.setOutputFile(outputFilename);
+		scemaExport.setDelimiter("\n");
+		scemaExport.setFormat(true);
+		scemaExport.createOnly(targetTypes, metadata);
 	}
 }

@@ -13,6 +13,8 @@ import javax.persistence.Query;
 import javax.transaction.UserTransaction;
 
 import org.dbunit.DatabaseUnitException;
+import org.hibernate.Session;
+import org.hibernate.jdbc.Work;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -41,16 +43,25 @@ public class HibernateJpaTest {
     }
     
     @Test
-    public void schemaExportTest() {   	
+    public void exportDatabaseSchemaTest() {   	
     	hibernateManager.createSchema("schema-test.sql");
     }
     
     @Test
-    public void exportDatabaseTest() throws DatabaseUnitException, SQLException, IOException {
-    	Connection connection = entityManager.unwrap(Connection.class);
-    	assertThat(connection, notNullValue());
-        ExportDatabase data = new ExportDatabase(connection);
-        data.dumpData("database-data.xml");
+    public void exportDatabaseDataTest() {
+    	Session session = entityManager.unwrap(Session.class);
+    	session.doWork(new Work() {
+			@Override
+			public void execute(Connection connection) throws SQLException {
+				assertThat(connection, notNullValue());
+				try {
+					ExportDatabase data = new ExportDatabase(connection);
+					data.dumpData("database-data.xml");
+				} catch (Exception e) {
+					throw new RuntimeException(e);
+				}
+			}
+    	});
     }
     
     @Test

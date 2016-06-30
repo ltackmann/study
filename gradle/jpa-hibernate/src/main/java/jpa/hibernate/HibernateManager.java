@@ -8,7 +8,6 @@ import javax.persistence.*;
 import javax.transaction.UserTransaction;
 
 import org.hibernate.SessionFactory;
-import org.hibernate.tool.hbm2ddl.SchemaExport;
 
 import java.util.*;
 
@@ -61,10 +60,7 @@ public class HibernateManager {
 	 * @param outputFilename
 	 */
 	public void createSchema(String outputFilename) {
-		SchemaExport schemaExport = hibernateSetup.getSchemaExport();
-		schemaExport = schemaExport.setOutputFile(outputFilename);
-		schemaExport.setFormat(false);
-		schemaExport.execute(true, false, false, true);
+		hibernateSetup.createSchema(outputFilename);
 	}
 
 	public EntityManagerFactory getEntityManagerFactory() {
