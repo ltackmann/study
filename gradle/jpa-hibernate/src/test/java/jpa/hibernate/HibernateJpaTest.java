@@ -3,7 +3,6 @@ package jpa.hibernate;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -12,7 +11,6 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 import javax.transaction.UserTransaction;
 
-import org.dbunit.DatabaseUnitException;
 import org.hibernate.Session;
 import org.hibernate.jdbc.Work;
 import org.testng.annotations.AfterClass;
