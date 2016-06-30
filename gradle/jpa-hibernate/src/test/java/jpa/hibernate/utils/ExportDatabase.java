@@ -12,6 +12,7 @@ import org.dbunit.dataset.DataSetException;
 import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSet;
 
+// TODO merge with DbUtils from Spring project and move to JPA
 public class ExportDatabase {
     private final IDatabaseConnection connection;
     
