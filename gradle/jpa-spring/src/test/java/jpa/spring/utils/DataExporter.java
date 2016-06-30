@@ -31,7 +31,7 @@ public class DataExporter extends SpringInjector {
 		super(PersistenceTestJPAConfig.class);
 	}
 	
-	public void assertEmptyDatabase() {
+	public void assertEmptyDatabaseTables() {
 		int tableCount = doInTransaction(new TransactionCallback<Integer>() {
 			@Override
 			public Integer doInTransaction(TransactionStatus status) {
@@ -81,7 +81,7 @@ public class DataExporter extends SpringInjector {
 	
 	public static void main(String[] args) {
 		DataExporter exporter = new DataExporter();
-		exporter.assertEmptyDatabase();
+		exporter.assertEmptyDatabaseTables();
 		exporter.createTestData();
 		exporter.exportDatabase();
 	}
