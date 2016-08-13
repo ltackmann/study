@@ -5,7 +5,8 @@ import 'dart:html';
 
 import 'package:angular2/core.dart';
 
-const _namesPath = 'https://www.dartlang.org/codelabs/darrrt/files/piratenames.json';
+const _namesPath = 'piratenames.json';
+//'https://www.dartlang.org/codelabs/darrrt/files/piratenames.json';
 
 @Injectable()
 class NameService {
