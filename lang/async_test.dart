@@ -10,6 +10,11 @@ void main() {
       expect(isOnline(), completion(equals(true)));
     });
 
+    test("return value immediatly - async block verison", () async {
+      var value = await new Future.value(10);
+      expect(value, equals(10));
+    });
+
     test("create future from non-async function", () {
       bool checkConnection() => false;
       Future<bool> asyncCheckConnection() => new Future.sync(checkConnection);
@@ -34,7 +39,7 @@ void main() {
 
   group("stream -", () {
     test("synchronous generator", () {
-      // produces values on demand, consumers pull the values from the generator. 
+      // produces values on demand, consumers pull the values from the generator.
       Iterable naturalsTo(n) sync* {
         int k = 0;
         // returns iterator immediatly, the body of the function will first start executing when one calls listen
