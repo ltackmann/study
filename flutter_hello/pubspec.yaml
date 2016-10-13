@@ -1,5 +1,0 @@
-name: flutter_hello
-description: A new flutter project.
-dependencies:
-  flutter:
-    sdk: flutter
