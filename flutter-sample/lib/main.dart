@@ -1,48 +1,30 @@
 import 'package:flutter/material.dart';
 
+import 'contact_list.dart';
+import 'contact_data.dart';
+
 void main() {
   runApp(
     new MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter Sample',
       theme: new ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: new FlutterDemo(),
+      home: new ContactsPage(),
     ),
   );
 }
 
-class FlutterDemo extends StatefulWidget {
-  FlutterDemo({Key key}) : super(key: key);
-
-  @override
-  _FlutterDemoState createState() => new _FlutterDemoState();
-}
-
-class _FlutterDemoState extends State<FlutterDemo> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+class ContactsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('Flutter Demo'),
-      ),
-      body: new Center(
-        child: new Text(
-            'Button tapped $_counter time${ _counter == 1 ? '' : 's' }.'),
-      ),
-      floatingActionButton: new FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: new Icon(Icons.add),
-      ),
-    );
+        appBar: new AppBar(
+          title: new Text("Contacts"),
+        ),
+        body: new ContactList(kContacts)
+      );
   }
+
 }
