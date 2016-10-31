@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-
-import 'contact_list.dart';
-import 'contact_data.dart';
+import 'package:flutter_sample/view/contacts_view.dart';
+import 'package:flutter_sample/dependency_injection.dart';
 
 void main() {
+  Injector.configure(Flavor.PRO);
+
   runApp(
     new MaterialApp(
       title: 'Flutter Sample',
@@ -13,18 +14,4 @@ void main() {
       home: new ContactsPage(),
     ),
   );
-}
-
-class ContactsPage extends StatelessWidget {
-
-  @override
-  Widget build(BuildContext context) {
-    return new Scaffold(
-        appBar: new AppBar(
-          title: new Text("Contacts"),
-        ),
-        body: new ContactList(kContacts)
-      );
-  }
-
 }

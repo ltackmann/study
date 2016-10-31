@@ -1,0 +1,121 @@
+{
+  "results": [
+    {
+      "gender": "female",
+      "name": {
+        "title": "miss",
+        "first": "filippa",
+        "last": "larsen"
+      },
+      "location": {
+        "street": "9046 \u00e5parken",
+        "city": "esbjerg v",
+        "state": "midtjylland",
+        "postcode": 68263
+      },
+      "email": "filippa.larsen@example.com",
+      "login": {
+        "username": "silvergorilla943",
+        "password": "fruity",
+        "salt": "Rh7ORVwz",
+        "md5": "95d1f143d92280fd62ffa113ef0bf706",
+        "sha1": "e06c6e2c2b85e2176700888ad0573ae9e619baba",
+        "sha256": "e5edf4e6df552733d7d25cfb714cc56841a7c551657cc51ae7f72520f751f798"
+      },
+      "dob": "1990-09-05 05:35:41",
+      "registered": "2016-05-24 05:00:07",
+      "phone": "49473436",
+      "cell": "51124717",
+      "id": {
+        "name": "CPR",
+        "value": "238922-0510"
+      },
+      "picture": {
+        "large": "https:\/\/randomuser.me\/api\/portraits\/women\/95.jpg",
+        "medium": "https:\/\/randomuser.me\/api\/portraits\/med\/women\/95.jpg",
+        "thumbnail": "https:\/\/randomuser.me\/api\/portraits\/thumb\/women\/95.jpg"
+      },
+      "nat": "DK"
+    },
+    {
+      "gender": "male",
+      "name": {
+        "title": "mr",
+        "first": "alexis",
+        "last": "young"
+      },
+      "location": {
+        "street": "3937 22nd ave",
+        "city": "clinton",
+        "state": "saskatchewan",
+        "postcode": 16152
+      },
+      "email": "alexis.young@example.com",
+      "login": {
+        "username": "yellowpeacock799",
+        "password": "dynamite",
+        "salt": "67md66ph",
+        "md5": "49439ea4b9bafce731687eca39803863",
+        "sha1": "9b84d10bb0114e11dcffbfcabcca1f9ef1ac0b4f",
+        "sha256": "cebcd47ce0a8340da5ec51df21712e23f7a645490289c9f41f0affc9716a8398"
+      },
+      "dob": "1946-05-10 23:50:50",
+      "registered": "2016-02-04 02:20:21",
+      "phone": "171-766-1866",
+      "cell": "178-344-1012",
+      "id": {
+        "name": "",
+        "value": null
+      },
+      "picture": {
+        "large": "https:\/\/randomuser.me\/api\/portraits\/men\/65.jpg",
+        "medium": "https:\/\/randomuser.me\/api\/portraits\/med\/men\/65.jpg",
+        "thumbnail": "https:\/\/randomuser.me\/api\/portraits\/thumb\/men\/65.jpg"
+      },
+      "nat": "CA"
+    },
+    {
+      "gender": "male",
+      "name": {
+        "title": "monsieur",
+        "first": "benjamin",
+        "last": "fabre"
+      },
+      "location": {
+        "street": "4626 place du 8 novembre 1942",
+        "city": "montpreveyres",
+        "state": "appenzell ausserrhoden",
+        "postcode": 2271
+      },
+      "email": "benjamin.fabre@example.com",
+      "login": {
+        "username": "lazyleopard357",
+        "password": "jackson5",
+        "salt": "i6bVDkDb",
+        "md5": "fab23f5682e0c68e68430c4c1f33726d",
+        "sha1": "ccb61c2b7a8f2a67a80f6fceb9ab99483ee11b4e",
+        "sha256": "2d4b453ec9db8e5a0115301507fb1f3dea8457e6f881b220d374219f50fda0dd"
+      },
+      "dob": "1976-03-26 05:31:52",
+      "registered": "2011-07-18 23:52:25",
+      "phone": "(237)-171-9378",
+      "cell": "(866)-824-0416",
+      "id": {
+        "name": "AVS",
+        "value": "756.PQFG.FYIB.07"
+      },
+      "picture": {
+        "large": "https:\/\/randomuser.me\/api\/portraits\/men\/7.jpg",
+        "medium": "https:\/\/randomuser.me\/api\/portraits\/med\/men\/7.jpg",
+        "thumbnail": "https:\/\/randomuser.me\/api\/portraits\/thumb\/men\/7.jpg"
+      },
+      "nat": "CH"
+    }
+  ],
+  "info": {
+    "seed": "de6d15e91b1a41be",
+    "results": 3,
+    "page": 1,
+    "version": "1.1"
+  }
+}
