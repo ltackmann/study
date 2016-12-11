@@ -1,8 +1,8 @@
-namespace Core
+namespace Foundation
 
 open System
 
-module Foundation =
+module Util =
     type SafeDate = SafeDate of System.DateTime
 
     let birthDateOfAge (ageYears : int, ageMonths : int, ageDays : int) = 

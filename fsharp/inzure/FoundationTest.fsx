@@ -1,11 +1,11 @@
 open System
 
-#load "foundation.fs"
-open Core
+#load "Foundation.fs"
+open Foundation.Util
 
-let opt = Foundation.birthDateOfAge(43,3,14);;
+let birthDate = birthDateOfAge(43,3,14);;
 
-printfn "%A" <| Option.get opt
+printfn "%A" <| Option.get birthDate
 
 Console.ReadKey(true) |> ignore
 
