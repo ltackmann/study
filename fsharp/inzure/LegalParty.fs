@@ -6,7 +6,6 @@ open Foundation.Util
 module LegalParty =
     type Gender = Male | Female
 
-    [<StructuralEquality; NoComparison>]
     type PersonName = {
         FirstName : string;
         LastName : string
@@ -28,13 +27,12 @@ module LegalParty =
         Country : string
     }
 
-    // PrimaryContactPoint, List<ContactPoint>
     type LegalPartyInfo = {
         PrimaryContactPoint : ContactPoint
         Address : PhysicalAddress option
     }
 
-    // TODO deathDate, Gender
+    // TODO deathDate, version of LegalPartyInfo
     type Person = {
         Id : int;
         Name : PersonName;
@@ -53,5 +51,32 @@ module LegalParty =
         | Person
         | Company
 
+module LegalPartyRepository =
+    open LegalParty 
+    let mutable private persons : Map<int, Person> = Map.empty
 
-
+    let createPerson(personId : int, personName : PersonName, birthDate : SafeDate, gender : Gender, personInfo : LegalPartyInfo) =
+        match persons.TryFind(personId) with
+        | Some(person) -> None // person already exists
+        | None -> 
+            let newPerson = { Id = personId; 
+                Name = personName; 
+                BirthDate = birthDate;
+                Gender = gender; 
+                Info = personInfo
+            } 
+            persons <- persons.Add(personId, newPerson)
+            Some newPerson
+    
+    let updateLegalPartyInfo(personId : int, personInfo : LegalPartyInfo) =
+        match persons.TryFind(personId) with
+        | None -> None     // cannot update info of non existing person
+        | Some(person) ->  // person already exists
+            let clonedPerson = { Id = person.Id; 
+                Name = person.Name; 
+                BirthDate = person.BirthDate;
+                Gender = person.gender; 
+                Info = personInfo
+            } 
+            persons <- persons.Add(personId, newPerson)
+            Some newPerson
