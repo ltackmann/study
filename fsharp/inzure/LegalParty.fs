@@ -30,6 +30,7 @@ module LegalParty =
     type LegalPartyInfo = {
         PrimaryContactPoint : ContactPoint
         Address : PhysicalAddress option
+        
     }
 
     // TODO deathDate, version of LegalPartyInfo

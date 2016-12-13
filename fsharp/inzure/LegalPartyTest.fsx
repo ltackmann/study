@@ -18,6 +18,7 @@ printfn "%A" madsSkjern
 
 Console.ReadKey(true) |> ignore
 
+// TODO figure out if LegalPartyInfo has history or versions
 
 // case create person twice with same id fails
 
