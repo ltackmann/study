@@ -5,4 +5,4 @@ open FsUnit
 
 [<Test>]
 let ``Example Test`` () =
-    1 |> should equal 1
+    1 |> should equal 2

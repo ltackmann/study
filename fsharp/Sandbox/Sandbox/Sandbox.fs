@@ -1,4 +1,4 @@
-module Inzure.Life.Test
+module Sandbox
 
 [<EntryPoint>]
 let main argv =

@@ -5,4 +5,6 @@ NUGET
     FsUnit (2.3.2)
       FSharp.Core (>= 3.1.2.5)
       NUnit (3.5)
+    Fuchu (1.0.3)
+      FSharp.Core (>= 3.1.2.1)
     NUnit (3.5)
