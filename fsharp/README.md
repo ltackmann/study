@@ -14,6 +14,14 @@
  * > Add Reference
  * > New Project
 
+  F#: Add Current File To Project and F#: Remove Current File To Project. Forge will try to find appropriate project file and add or remove file there.
+
+Another important operation is file ordering - to control it F#: Move File Up and F#: Move File Down commands exist.
+
+Run main function main([||]);;
+
+fsharpc --lib:lib -r:nunit.framework.dll -r:FsUnit.NUnit.dll -r:FsCheck.dll some.fs
+
 # Links
  * https://blogs.msdn.microsoft.com/chrsmith/2008/05/09/f-in-20-minutes-part-ii/ 
  * https://rogerjohansson.blog/2012/07/09/functional-ddd-in-f/
@@ -21,4 +29,15 @@
  * http://coderscoffeehouse.com/tech/2016/08/19/real-world-aspnetcore-linux-example.html
  * http://www.hanselman.com/blog/ExploringAMinimalWebAPIWithASPNETCore.aspx
  * http://stackoverflow.com/questions/38275408/asp-net-core-1-0-f-project
+ * http://fsharp.github.io/FAKE/
 
+# Features
+
+ * New product development and ongoing product maintenance 
+ * Quotations/illustrations and application management 
+ * Assessment and underwriting of risks
+ * Policy issuance
+ * Collections and disbursements
+ * Technical subledger accounting
+ * Ongoing contract administration and endorsements 
+ * Benefits and claims management
