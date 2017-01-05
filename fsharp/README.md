@@ -35,6 +35,8 @@ fsharpc -I ../../packages/ -r:Fuchu/lib/Fuchu.dll Sandbox.fs
  * http://fsharp.github.io/FAKE/
  * https://jonathan.curran.in/posts/2016-01-16-using-fsharp-on-linux.html
  * https://github.com/fsprojects/ProjectScaffold
+ * https://code.visualstudio.com/Docs/editor/tasks
+ * https://gitter.im/ionide/ionide-project
 
 # Features
 
