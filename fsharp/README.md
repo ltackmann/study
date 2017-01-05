@@ -22,6 +22,8 @@ Run main function main([||]);;
 
 fsharpc --lib:lib -r:nunit.framework.dll -r:FsUnit.NUnit.dll -r:FsCheck.dll some.fs
 
+fsharpc -I ../../packages/ -r:Fuchu/lib/Fuchu.dll Sandbox.fs
+
 # Links
  * https://blogs.msdn.microsoft.com/chrsmith/2008/05/09/f-in-20-minutes-part-ii/ 
  * https://rogerjohansson.blog/2012/07/09/functional-ddd-in-f/
@@ -30,6 +32,7 @@ fsharpc --lib:lib -r:nunit.framework.dll -r:FsUnit.NUnit.dll -r:FsCheck.dll some
  * http://www.hanselman.com/blog/ExploringAMinimalWebAPIWithASPNETCore.aspx
  * http://stackoverflow.com/questions/38275408/asp-net-core-1-0-f-project
  * http://fsharp.github.io/FAKE/
+ * https://jonathan.curran.in/posts/2016-01-16-using-fsharp-on-linux.html
 
 # Features
 

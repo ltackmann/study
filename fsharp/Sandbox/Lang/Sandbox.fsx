@@ -1,5 +1,5 @@
-#I @"../../packages/Fuchu/lib"
-#r "Fuchu.dll"
+#I @"../../packages"
+#r "Fuchu/lib/Fuchu.dll"
 
 //#load @"Sandbox.fs"
 
