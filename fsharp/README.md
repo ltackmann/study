@@ -1,5 +1,6 @@
 # F Sharp Cookbook
  * Install software: mono .paket/paket.exe install
+ * Add package mono .paket/paket.exe add nuget Fuchu
 
 
 # VSCode
