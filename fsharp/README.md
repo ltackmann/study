@@ -34,6 +34,7 @@ fsharpc -I ../../packages/ -r:Fuchu/lib/Fuchu.dll Sandbox.fs
  * http://stackoverflow.com/questions/38275408/asp-net-core-1-0-f-project
  * http://fsharp.github.io/FAKE/
  * https://jonathan.curran.in/posts/2016-01-16-using-fsharp-on-linux.html
+ * https://github.com/fsprojects/ProjectScaffold
 
 # Features
 
