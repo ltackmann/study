@@ -4,3 +4,4 @@ target
 .project
 .settings
 .gradle
+.DS_Store
