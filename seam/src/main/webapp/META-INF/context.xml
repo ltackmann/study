@@ -1,8 +1,0 @@
-<!-- JNDI for tomcat -->
-<Context reloadable="true" privileged="true" crossContext="true">
-	<Resource name="jdbc/wikidb" auth="Container"
-		type="javax.sql.DataSource"
-		driverClassName="org.apache.derby.jdbc.ClientDriver"
-		url="jdbc:derby://localhost:1527/wikidb;create=true" username="admin"
-		password="secret" />
-</Context>
