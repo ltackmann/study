@@ -24,6 +24,7 @@
     <!-- TYPES -->
 	<xsd:simpleType name="UserRole">
 		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="ADMIN" />
 			<xsd:enumeration value="USER" />
 		</xsd:restriction>
 	</xsd:simpleType>
