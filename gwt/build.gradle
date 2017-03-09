@@ -1,2 +1,19 @@
-apply plugin: 'java'
+dependencies {
+    compile group: 'org.hsqldb', name: 'hsqldb', version: ver.hsqldb
+    compile group: 'com.google.gwt', name: 'gwt-user', version: '2.8.0'
+    compile group: 'com.google.gwt.inject', name: 'gin', version: '2.1.2'
+    compile group: 'javax.inject', name: 'javax.inject', version: '1'
+    compile group: 'org.springframework', name: 'spring-webmvc', version: ver.spring
+    compile group: 'org.slf4j', name: 'slf4j-api', version: ver.slf4j
+    compile group: 'org.slf4j', name: 'slf4j-log4j12', version: ver.slf4j
 
+    // test
+    testCompile group: 'org.mockito', name: 'mockito-core', version: ver.mockito
+    testCompile group: 'com.google.gwt.gwtmockito', name: 'gwtmockito', version: '1.1.6'
+    testCompile group: 'org.hamcrest', name: 'hamcrest-all', version: ver.hamcrest
+    testCompile group: 'junit', name: 'junit', version: ver.junit
+}
+
+test {
+    useJUnit()
+}

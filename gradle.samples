@@ -1,3 +1,6 @@
+apply settings from external files
+apply from: "../dependencies.gradle"
+
 // static defined task
 task hello {
     doLast {
