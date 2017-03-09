@@ -1,9 +1,20 @@
+ext {
+    ver = [
+            hsqldb: '2.3.4',
+            junit: '4.12',
+            spring: '4.2.3.RELEASE'
+    ]
+}
+
 allprojects {
     apply plugin: 'java'
     group = 'co.tackmann'
     version = '1.0'
-}
 
+    repositories {
+        mavenCentral()
+    }
+}
 
 // do not build test code in release
 

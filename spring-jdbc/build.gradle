@@ -1,0 +1,19 @@
+apply from: "../dependencies.gradle"
+apply plugin: 'java'
+
+// TODO freeze versions
+dependencies {
+    compile('org.springframework:spring-context:${springVersion}')
+    compile('org.springframework:spring-jdbc:${springVersion}')
+    compile('javax.annotation:jsr250-api')
+
+    // test
+    testCompile('org.springframework:spring-test:${springVersion}')
+    testCompile('org.mockito:mockito-all')
+    testCompile('junit:junit:${junitVersion}')
+}
+
+test {
+    useJUnit()
+}
+

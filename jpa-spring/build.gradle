@@ -1,12 +1,5 @@
 apply plugin: 'java'
 
-// multi project build
-//- test code for testing
-
-repositories {
-    mavenCentral()
-}
-
 dependencies {
 	compile project(':jpa')
 
