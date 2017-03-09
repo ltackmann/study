@@ -1,12 +1,11 @@
-// TODO freeze versions
 dependencies {
-    compile('org.springframework:spring-context:${springVersion}')
-    compile('org.springframework.security:spring-security-core:${springVersion}')
+    compile group: 'org.springframework', name: 'spring-context', version: ver.spring
+    compile group: 'org.springframework.security', name: 'spring-security-core', version: ver.spring
 
     // test
-    testCompile('org.springframework:spring-test:${springVersion}')
-    testCompile('org.mockito:mockito-all')
-    testCompile('junit:junit')
+    testCompile group: 'org.springframework', name: 'spring-test', version: ver.spring
+    testCompile group: 'org.mockito', name: 'mockito-all', version: ver.mockito
+    testCompile group: 'junit', name: 'junit', version: ver.junit
 }
 
 test {
