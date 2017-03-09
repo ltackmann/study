@@ -12,6 +12,7 @@ public class Address implements Serializable {
 	@JoinColumn(name = "COUNTRIES_ID", nullable = false)
 	private Country country;
 
+	// TODO make embedded based on customer
 	@Id
 	@GeneratedValue
 	private long id;
