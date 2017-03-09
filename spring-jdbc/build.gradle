@@ -1,13 +1,12 @@
-// TODO freeze versions
 dependencies {
-    compile('org.springframework:spring-context:${springVersion}')
-    compile('org.springframework:spring-jdbc:${springVersion}')
-    compile('javax.annotation:jsr250-api')
+    compile group: 'org.springframework', name: 'spring-context', version: ver.spring
+    compile group: 'org.springframework', name: 'spring-jdbc', version: ver.spring
+    compile group: 'javax.annotation', name: 'jsr250-api', version: '1.0'
 
     // test
-    testCompile('org.springframework:spring-test:${springVersion}')
-    testCompile('org.mockito:mockito-all')
-    testCompile('junit:junit:${junitVersion}')
+    testCompile group: 'org.springframework', name: 'spring-test', version: ver.spring
+    testCompile group: 'org.mockito', name: 'mockito-core', version: ver.mockito
+    testCompile group: 'junit', name: 'junit', version: ver.junit
 }
 
 test {

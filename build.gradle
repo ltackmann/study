@@ -5,12 +5,16 @@ ext {
             junit: '4.12',
             mockito: '2.7.14',
             slf4j: '1.7.24',
-            spring: '4.2.3.RELEASE'
+            spring: '4.3.5.RELEASE',
+            springSecurity: '4.2.2.RELEASE'
     ]
 }
 
 allprojects {
     apply plugin: 'java'
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
     group = 'co.tackmann'
     version = '1.0'
 

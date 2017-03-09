@@ -1,10 +1,10 @@
 dependencies {
     compile group: 'org.springframework', name: 'spring-context', version: ver.spring
-    compile group: 'org.springframework.security', name: 'spring-security-core', version: ver.spring
+    compile group: 'org.springframework.security', name: 'spring-security-core', version: ver.springSecurity
 
     // test
     testCompile group: 'org.springframework', name: 'spring-test', version: ver.spring
-    testCompile group: 'org.mockito', name: 'mockito-all', version: ver.mockito
+    testCompile group: 'org.mockito', name: 'mockito-core', version: ver.mockito
     testCompile group: 'junit', name: 'junit', version: ver.junit
 }
 
