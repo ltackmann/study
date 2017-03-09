@@ -1,0 +1,2 @@
+serviceClass: gwtDemo.client.service.UserService
+path: F2322292F6D517638FF1DA6F5BA80334.gwt.rpc
