@@ -1,6 +1,4 @@
-package gwtDemo.itest;
-
-import gwtDemo.itest.utils.WebRunner;
+package gwtDemo.test;
 
 public class GwtDemoWebRunner extends WebRunner {
 	// TODO start selenium
