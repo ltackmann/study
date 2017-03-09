@@ -8,7 +8,7 @@ import java.io.Serializable;
 public class Address implements Serializable {
 	private static final long serialVersionUID = 5992202784266467771L;
 
-	@ManyToOne(cascade = CascadeType.PERSIST)
+	@ManyToOne
 	@JoinColumn(name = "COUNTRIES_ID", nullable = false)
 	private Country country;
 
