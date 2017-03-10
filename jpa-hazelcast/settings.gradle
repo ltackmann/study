@@ -1,0 +1,2 @@
+include 'jpa'
+rootProject.name = 'jpa-hazelcast'
