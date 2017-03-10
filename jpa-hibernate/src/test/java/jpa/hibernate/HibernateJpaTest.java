@@ -65,8 +65,12 @@ public class HibernateJpaTest {
     @Test
     public void entityCreationTest() throws Exception {
     	UserTransaction tx = hibernateManager.getTransaction();
-        
         Country country = new Country("USA", "US");
+        
+    	tx.begin();  
+    	entityManager.persist(country); 
+        tx.commit();   
+        
         Address address = new Address("Quack Street", "1112", "Duckburg", country);
         Customer customer = new Customer("donald@duck.com", "donald", "secret", "Donald Duck", address);
         assertThat(customer.getId(), nullValue());

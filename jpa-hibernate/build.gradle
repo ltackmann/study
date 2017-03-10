@@ -13,8 +13,8 @@ dependencies {
     compile group: 'org.slf4j', name: 'slf4j-log4j12', version: ver.slf4j
 
     // test
-    testCompile group: 'org.testng', name: 'testng', version:'6.11'
-    testCompile group: 'org.dbunit', name: 'dbunit', version:'2.5.3'
+    testCompile group: 'org.testng', name: 'testng', version: ver.testng
+    testCompile group: 'org.dbunit', name: 'dbunit', version: ver.dbunit
     testCompile group: 'org.hamcrest', name: 'hamcrest-all', version: ver.hamcrest
     testCompile group: 'org.codehaus.btm', name: 'btm', version: '2.1.4'
     testCompile group: 'org.hsqldb', name: 'hsqldb', version: ver.hsqldb

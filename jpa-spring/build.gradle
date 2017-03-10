@@ -1,3 +1,8 @@
+configurations {
+    // exclude junit from transitive dependencies of both testng and dbunit
+    testCompile.exclude group: 'junit', module: 'junit'
+}
+
 dependencies {
 	compile project(':jpa')
 
@@ -12,13 +17,9 @@ dependencies {
     compile('javax.inject:javax.inject:1')
     
     // test
-    testCompile('org.testng:testng:6.9.9') {
-    	exclude module: 'junit' 
-    }
-    testCompile('org.hamcrest:hamcrest-all:1.3')
-    testCompile('org.dbunit:dbunit:2.5.1') {
-    	exclude module: 'junit' 
-    }
+    testCompile group: 'org.testng', name: 'testng', version: ver.testng
+    testCompile group: 'org.dbunit', name: 'dbunit', version: ver.dbunit
+    testCompile group: 'org.hamcrest', name: 'hamcrest-all', version: ver.hamcrest
     testCompile('org.hsqldb:hsqldb:2.3.3')
 }
 
