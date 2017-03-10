@@ -1,0 +1,7 @@
+<suite name="PuzzleSuite" >
+  <test name="expressive">
+    <classes>
+      <class name="javapuzzlers.expressive.ExpressiveTest"  />
+    </classes>
+  </test>
+</suite>
