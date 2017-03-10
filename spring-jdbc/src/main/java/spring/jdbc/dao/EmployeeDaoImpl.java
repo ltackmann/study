@@ -8,13 +8,14 @@ import javax.annotation.Resource;
 import javax.sql.DataSource;
 
 import spring.jdbc.domain.Employee;
+
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.SqlOutParameter;
 import org.springframework.jdbc.core.SqlParameter;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
-import org.springframework.jdbc.core.simple.ParameterizedBeanPropertyRowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
-import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -30,11 +31,11 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	}
 
 	public Employee find(String username) {
-		SimpleJdbcTemplate jdbcTemplate = new SimpleJdbcTemplate(dataSource);
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		// SQL select
 		Employee employee = jdbcTemplate.queryForObject(
 				"select * from employees where username = ?",
-				ParameterizedBeanPropertyRowMapper.newInstance(Employee.class),
+				BeanPropertyRowMapper.newInstance(Employee.class),
 				username);
 		return employee;
 	}
@@ -50,18 +51,16 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	}
 
 	public void delete(Employee employee) {
-		SimpleJdbcTemplate jdbcTemplate = new SimpleJdbcTemplate(dataSource);
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		// SQL delete
-		jdbcTemplate.update("delete from employees where id = ?", employee
-				.getId());
+		jdbcTemplate.update("delete from employees where username = ?", employee.getUsername());
 	}
 
 	public Employee find(Long id) {
 		SimpleJdbcCall jdbcCall = new SimpleJdbcCall(dataSource)
 				.withFunctionName("employeeFindById").returningResultSet(
 						"rs",
-						ParameterizedBeanPropertyRowMapper
-								.newInstance(Employee.class));
+						BeanPropertyRowMapper.newInstance(Employee.class));
 		Map<String, Object> args = new HashMap<String, Object>();
 		args.put("employee_id", id);
 		// TODO use Function that takes primitive and returns a cursor
