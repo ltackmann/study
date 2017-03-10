@@ -1,1 +1,1 @@
-include 'gwt', 'jpa', 'jpa-hibernate', 'jpa-spring', 'sandbox', 'spring-jdbc', 'spring-security'
+include 'gwt', 'jpa', 'jpa-hibernate', 'jpa-flyway', 'jpa-hazelcast', 'jpa-spring', 'sandbox', 'spring-jdbc', 'spring-security'

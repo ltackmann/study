@@ -1,4 +1,2 @@
-// To declare projects as part of a multi-project build use the 'include' method
 include 'jpa'
-
 rootProject.name = 'jpa-hibernate'

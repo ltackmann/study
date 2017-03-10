@@ -1,6 +1,11 @@
 apply settings from external files
 apply from: "../dependencies.gradle"
 
+Commands
+- Show projects: gradle projects
+
+Scripting:
+
 // static defined task
 task hello {
     doLast {
