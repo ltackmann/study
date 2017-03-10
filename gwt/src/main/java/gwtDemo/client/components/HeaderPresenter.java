@@ -14,7 +14,7 @@ public class HeaderPresenter extends ComponentPresenter<HeaderComponent> {
 	private final PasswordValidator passwordValidator = new PasswordValidator();
 	
     public HeaderPresenter(HeaderComponent component) {
-    	super(component, injector);
+    	super(component);
     }
     
     public void changeLanguage(final String language) {

@@ -26,7 +26,7 @@ public class LoginComponent extends Component {
 	@Override
 	public void initComponent() {
 		setId("ui-login");
-		ClientMessages messages = injector.getClientMessages();
+		ClientMessages messages = get(ClientMessages.class);
 		UiPopupBox container = new UiPopupBox();
 		
 		container.add(new UiLabel(messages.loginTitle()));
