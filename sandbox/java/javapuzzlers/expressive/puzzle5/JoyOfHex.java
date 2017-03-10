@@ -1,4 +1,4 @@
-package com.javapuzzlers.expressive.puzzle5;
+package javapuzzlers.expressive.puzzle5;
 
 public class JoyOfHex {
     public static void main(String[] args) {

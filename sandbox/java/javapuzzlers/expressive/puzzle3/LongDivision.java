@@ -1,4 +1,4 @@
-package com.javapuzzlers.expressive.puzzle3;
+package javapuzzlers.expressive.puzzle3;
 
 public class LongDivision {
     public static long divide() {

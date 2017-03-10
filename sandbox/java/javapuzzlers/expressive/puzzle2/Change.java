@@ -1,4 +1,4 @@
-package com.javapuzzlers.expressive.puzzle2;
+package javapuzzlers.expressive.puzzle2;
 
 import java.math.BigDecimal;
 

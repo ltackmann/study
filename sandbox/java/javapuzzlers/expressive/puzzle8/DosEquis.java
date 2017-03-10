@@ -1,4 +1,4 @@
-package com.javapuzzlers.expressive.puzzle8;
+package javapuzzlers.expressive.puzzle8;
 
 public class DosEquis {
     public static void main(String[] args) {

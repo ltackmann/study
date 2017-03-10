@@ -1,4 +1,4 @@
-package com.javapuzzlers.expressive.puzzle7;
+package javapuzzlers.expressive.puzzle7;
 
 public class CleverSwap {
     public static void main(String[] args) {

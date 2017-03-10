@@ -1,4 +1,4 @@
-package com.javapuzzlers.expressive.puzzle10;
+package javapuzzlers.expressive.puzzle10;
 
 public class Tweedledee {
     public static void main(String[] args) {

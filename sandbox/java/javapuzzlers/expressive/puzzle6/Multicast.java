@@ -1,4 +1,4 @@
-package com.javapuzzlers.expressive.puzzle6;
+package javapuzzlers.expressive.puzzle6;
 
 public class Multicast {
     public static void main(String[] args) {

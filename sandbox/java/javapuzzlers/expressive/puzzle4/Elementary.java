@@ -1,4 +1,4 @@
-package com.javapuzzlers.expressive.puzzle4;
+package javapuzzlers.expressive.puzzle4;
 
 public class Elementary {
     public static long addition() {

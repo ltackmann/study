@@ -18,7 +18,7 @@ sourceSets {
 
 dependencies {
     compile group: 'org.hsqldb', name: 'hsqldb', version: ver.hsqldb
-    //compile('org.hsqldb:hsqldb:2.4.3')
+	compile group: 'org.glassfish', name: 'javax.el', version: '3.0.0'
 
     // test
     testCompile group: 'junit', name: 'junit', version: ver.junit

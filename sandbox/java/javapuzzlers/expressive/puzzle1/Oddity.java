@@ -1,4 +1,4 @@
-package com.javapuzzlers.expressive.puzzle1;
+package javapuzzlers.expressive.puzzle1;
 
 public class Oddity {
 	public static boolean isOdd(int i) {

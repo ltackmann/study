@@ -1,4 +1,4 @@
-package com.javapuzzlers.expressive;
+package javapuzzlers.expressive;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
@@ -10,10 +10,10 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import com.javapuzzlers.expressive.puzzle1.Oddity;
-import com.javapuzzlers.expressive.puzzle2.Change;
-import com.javapuzzlers.expressive.puzzle3.LongDivision;
-import com.javapuzzlers.expressive.puzzle4.Elementary;
+import javapuzzlers.expressive.puzzle1.Oddity;
+import javapuzzlers.expressive.puzzle2.Change;
+import javapuzzlers.expressive.puzzle3.LongDivision;
+import javapuzzlers.expressive.puzzle4.Elementary;
 
 public class ExpressiveTest {
 

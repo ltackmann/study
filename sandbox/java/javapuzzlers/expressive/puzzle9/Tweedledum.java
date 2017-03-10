@@ -1,4 +1,4 @@
-package com.javapuzzlers.expressive.puzzle9;
+package javapuzzlers.expressive.puzzle9;
 
 public class Tweedledum {
     public static void main(String[] args) {
