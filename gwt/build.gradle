@@ -8,6 +8,8 @@ dependencies {
     compile group: 'org.slf4j', name: 'slf4j-log4j12', version: ver.slf4j
 
     // test
+    testCompile group: 'org.eclipse.jetty', name: 'jetty-server', version: ver.jetty 
+	testCompile group: 'org.eclipse.jetty', name: 'jetty-webapp', version: ver.jetty 
     testCompile group: 'org.mockito', name: 'mockito-core', version: ver.mockito
     testCompile group: 'com.google.gwt.gwtmockito', name: 'gwtmockito', version: '1.1.6'
     testCompile group: 'org.hamcrest', name: 'hamcrest-all', version: ver.hamcrest
