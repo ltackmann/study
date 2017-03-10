@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import org.junit.Test;
+import org.testng.annotations.Test;
 
 public class JdbcTest {
 	@Test
@@ -15,7 +15,7 @@ public class JdbcTest {
 		
         String user = "sa";
         String pwd = "";
-        String url = "jdbc:hsqldb:file:~/Projects/java/sandbox/target/hsql.db";
+        String url = "jdbc:hsqldb:file:~/Projects/java/sandbox/hsql.db";
         Connection connection = DriverManager.getConnection (url, user,pwd);
         
         createDatabase(connection);

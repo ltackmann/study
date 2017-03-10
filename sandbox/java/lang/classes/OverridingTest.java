@@ -1,8 +1,6 @@
 package lang.classes;
 
-import junit.framework.TestCase;
-
-public class OverridingTest extends TestCase {
+public class OverridingTest {
 	public void testOverriding() {
 		
 	}

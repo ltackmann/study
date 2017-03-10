@@ -1,10 +1,14 @@
 package lang;
 
-import junit.framework.TestCase;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
-public class DataTypes extends TestCase {
+import org.testng.annotations.Test;
+
+public class DataTypes {
 	private static final double nonStrictFloat = Math.PI * Math.E * (1.0 / 3.0);
 
+	@Test
 	public void testLong() {
 		// representing longs in hex, decimal and binary notation
 		final long hexNum = 0xFFFF;
@@ -16,6 +20,7 @@ public class DataTypes extends TestCase {
 		assertEquals(binNum, longNum);
 	}
 
+	@Test
 	public void testUnicode() {
 		// unicode
 		final String integers = "\uD835\uDD6B";
@@ -30,11 +35,13 @@ public class DataTypes extends TestCase {
 	 * sure they are restricted to 64bit JVM precision rather than processor
 	 * specific float registers (80bit on x86)
 	 */
+	@Test
 	public strictfp void testStrictFP() {
 		final double strictFloat = Math.PI * Math.E * 1.0 / 3.0;
 		assertTrue(nonStrictFloat != strictFloat);
 	}
 	
+	@Test
 	public void testRounding() {
 		final double val = 9.9;
 		

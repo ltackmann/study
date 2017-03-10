@@ -15,7 +15,7 @@ import javax.naming.directory.SearchResult;
 import javax.naming.ldap.InitialLdapContext;
 import javax.naming.ldap.LdapContext;
 
-import org.junit.Test;
+import org.testng.annotations.Test;
 
 public class LdapClientTest {
 	private static final String LDAP_SERVER = "ldap://localhost:10389";

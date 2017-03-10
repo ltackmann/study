@@ -1,12 +1,17 @@
 package lang;
 
+import static org.testng.Assert.assertNotNull;
+import static org.testng.Assert.assertTrue;
+
 import java.lang.reflect.Field;
 
-import junit.framework.TestCase;
+import org.testng.annotations.Test;
+
 import lang.classes.ClassTest;
 
-public class AccessTest extends TestCase {
+public class AccessTest  {
 	// test that we cannot circumvent access rules to non public code
+	@Test
 	public void testNonPublicAccessCannotBeCircumvented() throws Exception {
 		ClassTest clazzTest = new ClassTest();
 		Object o = clazzTest.getNonPublicInterface1();

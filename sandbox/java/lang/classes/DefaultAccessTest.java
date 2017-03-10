@@ -1,8 +1,12 @@
 package lang.classes;
 
-import junit.framework.TestCase;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotNull;
 
-public class DefaultAccessTest extends TestCase {
+import org.testng.annotations.Test;
+
+public class DefaultAccessTest {
+	@Test
 	public void testDefaultAccessToNonPublicClassesInSamePackage() {
 		// grab non public classes from same package
 		NonPublicClass1 np1 = new NonPublicClass1();
@@ -16,6 +20,7 @@ public class DefaultAccessTest extends TestCase {
 		assertEquals(np1.name, np2.name);
 	}
 	
+	@Test
 	public void testDefaultAccessToNonPublicInterfacesInSamePackage() {
 		assertNotNull(NonPublicInterface1.name);
 		assertNotNull(NonPublicInterface2.name);

@@ -2,9 +2,10 @@ package lang;
 
 import java.math.BigDecimal;
 
-import junit.framework.TestCase;
+import org.testng.annotations.Test;
 
-public class NumberTest extends TestCase {
+@Test
+public class NumberTest  {
 	public void testHex() {
 		System.out.println(0xcafebabe);
 	}

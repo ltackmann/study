@@ -2,13 +2,11 @@ package javapuzzlers.expressive;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertFalse;
+import static org.hamcrest.MatcherAssert.assertThat;
 
-import org.junit.Ignore;
-import org.junit.Test;
+import org.testng.annotations.Test;
 
 import javapuzzlers.expressive.puzzle1.Oddity;
 import javapuzzlers.expressive.puzzle2.Change;
@@ -41,7 +39,7 @@ public class ExpressiveTest {
 	public void puzzle2Test() {
 		double res = 0.90;
 		assertThat(Change.change(), is(not(res)));
-		assertTrue(Change.change() < res);
+		assertThat(Change.change() < res, is(true));
 		assertThat(Change.fixedChange(), is(res));
 	}
 
@@ -65,7 +63,6 @@ public class ExpressiveTest {
 	}
 	
 	@Test
-	@Ignore
 	public void puzzle6Test() {
 		
 	}

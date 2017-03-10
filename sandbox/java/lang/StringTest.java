@@ -1,8 +1,11 @@
 package lang;
 
-import junit.framework.TestCase;
+import static org.testng.Assert.assertEquals;
 
-public class StringTest extends TestCase {
+import org.testng.annotations.Test;
+
+@Test
+public class StringTest  {
 	static final String integerSymbol = "𝕫";
 
 	public void testUTF8() {

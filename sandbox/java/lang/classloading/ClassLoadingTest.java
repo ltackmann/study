@@ -1,11 +1,14 @@
 package lang.classloading;
 
-import static org.junit.Assert.*;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotNull;
+import static org.testng.Assert.assertNotSame;
+import static org.testng.Assert.assertTrue;
 
 import java.lang.reflect.Method;
 
-import org.junit.Test;
-import org.junit.Before;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 import lang.classloading.utils.ConfigurableClassLoader;
 import lang.classloading.utils.Init;
@@ -14,7 +17,7 @@ import lang.classloading.utils.LoadOrder;
 // http://www.martinlippert.org/events/WJAX2008-ClassloadingTypeVisibilityOSGi.pdf
 @SuppressWarnings("unused")
 public class ClassLoadingTest {
-	@Before
+	@BeforeClass
 	public void runBefore() {
 		prepareLoading();
 	}

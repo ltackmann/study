@@ -2,11 +2,12 @@ package selenium;
 
 import com.thoughtworks.selenium.*;
 
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
 import org.openqa.selenium.server.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
+// https://automatictester.wordpress.com/2015/06/11/basic-cucumberjvm-selenium-webdriver-test-automation-framework/
 public class SeleniumTest {
 	public static Selenium selenium;
 	public static SeleniumServer seleniumserver;

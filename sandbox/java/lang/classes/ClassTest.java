@@ -1,8 +1,9 @@
 package lang.classes;
 
-import junit.framework.TestCase;
+import org.testng.annotations.Test;
 
-public class ClassTest extends TestCase {
+@Test
+public class ClassTest  {
 	// try to expose non public interface through a public class
 	public NonPublicInterface1 getNonPublicInterface1() {
 		return new NonPublicInterface1() {

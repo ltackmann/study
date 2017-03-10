@@ -1,14 +1,14 @@
 package el;
 
-import static org.junit.Assert.*;
+import static org.testng.Assert.assertEquals;
 
 import javax.el.ELContext;
 import javax.el.ELProcessor;
 import javax.el.LambdaExpression;
 import javax.el.TypeConverter;
 
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 public class ElTest {
 	private static ELProcessor elProcessor;
