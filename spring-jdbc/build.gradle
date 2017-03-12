@@ -1,3 +1,8 @@
+configurations {
+    // exclude junit from transitive dependencies 
+    testCompile.exclude group: 'junit', module: 'junit'
+}
+
 dependencies {
     compile group: 'org.springframework', name: 'spring-context', version: ver.spring
     compile group: 'org.springframework', name: 'spring-jdbc', version: ver.spring
@@ -5,11 +10,10 @@ dependencies {
 
     // test
     testCompile group: 'org.springframework', name: 'spring-test', version: ver.spring
-    testCompile group: 'org.mockito', name: 'mockito-core', version: ver.mockito
-    testCompile group: 'junit', name: 'junit', version: ver.junit
+    testCompile group: 'org.testng', name: 'testng', version: ver.testng
+    testCompile group: 'org.hamcrest', name: 'hamcrest-all', version: ver.hamcrest
 }
 
 test {
-    useJUnit()
+    useTestNG()
 }
-

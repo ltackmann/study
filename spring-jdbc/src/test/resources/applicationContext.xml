@@ -6,7 +6,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<!-- annotation based dependency injection -->
-	<context:component-scan base-package="org.randompage.samples.ws" />
+	<context:component-scan base-package="spring.jdbc" />
 	<context:annotation-config />
 
 </beans>

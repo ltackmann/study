@@ -1,5 +1,5 @@
 configurations {
-    // exclude junit from transitive dependencies of both testng and dbunit
+    // exclude junit from transitive dependencies 
     testCompile.exclude group: 'junit', module: 'junit'
 }
 
