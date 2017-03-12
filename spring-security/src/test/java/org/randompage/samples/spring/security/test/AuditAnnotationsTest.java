@@ -6,12 +6,14 @@ import static org.hamcrest.Matchers.notNullValue;
 
 import java.util.Arrays;
 
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import org.randompage.samples.spring.security.SecuredService;
 import org.randompage.samples.spring.security.domain.Role;
 import org.randompage.samples.spring.security.test.utils.AuthUtils;
 import org.randompage.samples.spring.security.test.utils.SpringTester;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.testng.annotations.Test;
 
 /**
  * Test behaviour of JSR250 annotations
@@ -20,12 +22,15 @@ import org.testng.annotations.Test;
  * 
  */
 public class AuditAnnotationsTest extends SpringTester {
+	@Rule
+    public ExpectedException thrown= ExpectedException.none();
 	@Autowired
 	private SecuredService secured;
 	@Autowired
 	private AuthUtils authUtils;
 
-	@Test(description = "should assert that roles from @DeclareRoles are the ones allowed in isUserInRole")
+	// assert that roles from @DeclareRoles are the ones allowed in isUserInRole
+	@Test
 	public void declareRolesTest() {
 		// login using role not listed in declare roles
 		final String ROLE_NEW = "ROLE_NEW";
@@ -36,24 +41,32 @@ public class AuditAnnotationsTest extends SpringTester {
 		throw new AssertionError("TODO");
 	}
 
-	@Test(description = "Should assert that indirect calls to @DenyAll methods are allowed")
+	// assert that indirect calls to @DenyAll methods are allowed
+	@Test
 	public void denyAllIndirectTest() {
 		assertThat(secured.denyAllIndirect(), notNullValue());
 	}
 
-	@Test(description = "Should assert that direct calls to @DenyAll methods are prohibited", expectedExceptions = { RuntimeException.class })
+	// assert that direct calls to @DenyAll methods are prohibited
+	@Test
 	public void denyAllTest() {
+		thrown.expect(RuntimeException.class);
+		
 		authUtils.loginAs(Role.ROLE_ADMIN);
 		secured.denyAll();
 	}
 
-	@Test(description = "Should assert that @PermitAll methods requires fails without a role", expectedExceptions = { RuntimeException.class })
+	// assert that @PermitAll methods requires fails without a role
+	@Test
 	public void permitAllFailTest() {
+		thrown.expect(RuntimeException.class);	
+		
 		authUtils.clearAuth();
 		secured.permitAll();
 	}
 
-	@Test(description = "Should assert that @PermitAll methods executes under any role")
+	// assert that @PermitAll methods executes under any role
+	@Test
 	public void permitAllTest() {
 		for (String role : Role.allRoles) {
 			authUtils.loginAs(role);
@@ -61,19 +74,24 @@ public class AuditAnnotationsTest extends SpringTester {
 		}
 	}
 
-	@Test(description = "Should assert that @RolesAllowed methods fails with incorrect role", expectedExceptions = { RuntimeException.class })
+	// assert that @RolesAllowed methods fails with incorrect role
+	@Test
 	public void rolesAllowedFailTest() {
+		thrown.expect(RuntimeException.class);
+		
 		authUtils.loginAs(Role.ROLE_USER);
 		secured.rolesAllowed();
 	}
 
-	@Test(description = "Should assert that @RolesAllowed methods succeeds with correct role")
+	// assert that @RolesAllowed methods succeeds with correct role
+	@Test
 	public void rolesAllowedTest() {
 		authUtils.loginAs(Role.ROLE_ADMIN);
 		assertThat(secured.rolesAllowed(), notNullValue());
 	}
 
-	@Test(description = "Should assert that @RunAs propagates roles on nested calls")
+	// assert that @RunAs propagates roles on nested calls
+	@Test
 	public void runAsTest() {
 		authUtils.loginAs(Role.ROLE_USER);
 		// @RunAs specifies role for subsequent invocations within a method

@@ -34,13 +34,6 @@ public class AuthUtils {
 		store(token);
 	}
 
-	// store authenticated token in the security context 
-	private void store(Authentication token) {
-		SecurityContext secureContext = new SecurityContextImpl();
-		secureContext.setAuthentication(token);
-		SecurityContextHolder.setContext(secureContext);
-	}
-
 	public void loginAs(String... roles) {
 		final String username = "dummy";
 		final String password = "secret";
@@ -54,12 +47,19 @@ public class AuthUtils {
 		if (list == null)
 			list = new LinkedList<AuthenticationProvider>();
 		list.add(new TestingAuthenticationProvider());
-		providerManager.setProviders(list);
+		//providerManager.setProviders(list);
 		// store token with our grants
 		store(token);
 	}
-
+	
 	public void clearAuth() {
 		store(null);
+	}
+	
+	// store authenticated token in the security context 
+	private void store(Authentication token) {
+		SecurityContext secureContext = new SecurityContextImpl();
+		secureContext.setAuthentication(token);
+		SecurityContextHolder.setContext(secureContext);
 	}
 }

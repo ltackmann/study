@@ -1,16 +1,17 @@
 package org.randompage.samples.spring.security.test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.notNullValue;
+import static org.hamcrest.Matchers.*;
 
 import javax.annotation.security.PermitAll;
 
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 import org.randompage.samples.spring.security.test.utils.AuthUtils;
 import org.randompage.samples.spring.security.test.utils.SpringTester;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
 
 public class AuditInterceptorTest extends SpringTester {
 	@Component
@@ -26,12 +27,13 @@ public class AuditInterceptorTest extends SpringTester {
 	@Autowired
 	private Audit audit;
 	
-	@BeforeMethod
+	@Before
 	public final void beforeMethod() {
 		authUtils.clearAuth();
 	}
 	
-	@Test(description = "should assert that access is granted and principal is avalible")
+	// assert that access is granted and principal is available
+	@Test
 	public void allowedToAccessTest() {
 		final String username = "john@doe.com";
 		authUtils.login(username, "secret");
@@ -41,18 +43,22 @@ public class AuditInterceptorTest extends SpringTester {
 		//FIXME assertThat(AuditInterceptor.principal, is(username));
 	}
 	
-	@Test(description = "should assert that access is denied if no login is performed")
+	// assert that access is denied if no login is performed
+	@Test
 	public void noLoginTest() {
-		
+		Assert.fail("TODO implement");
+		assertThat(audit.guarded(), nullValue());
 	}
 	
-	@Test(description = "should assert that access is denied if not granted the correct rights")
+	// assert that access is denied if not granted the correct rights
+	@Test
 	public void grantsTest() {
-		
+		Assert.fail("TODO implement");
 	}
 	
-	@Test(description = "should assert that all methods are checked on types annotated for auditing")
+	// assert that all methods are checked on types annotated for auditing
+	@Test
 	public void typesTest() {
-		
+		Assert.fail("TODO implement");
 	}
 }

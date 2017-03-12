@@ -5,18 +5,17 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.notNullValue;
 
+import org.junit.Test;
 import org.randompage.samples.spring.security.annotations.Log;
 import org.randompage.samples.spring.security.test.utils.SpringTester;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.testng.annotations.Test;
 
 /**
  * Test spring injection of loggers
  * 
  * @author Lars Tackmann
- * 
  */
 public class LogTest extends SpringTester {
 	@Autowired
@@ -24,7 +23,8 @@ public class LogTest extends SpringTester {
 	@Log
 	private Logger myLogger;
 
-	@Test(description = "should assert that logger injection work")
+	// assert that logger injection work
+	@Test
 	public void loggerInjectionTest() {
 		// test that auto wiring loggers in spring beans works
 		assertThat(loggable, notNullValue());
