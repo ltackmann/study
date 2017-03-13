@@ -5,22 +5,23 @@ configurations {
 
 dependencies {
 	compile project(':jpa')
-
+	
 	// Hibernate
-    compile('org.hibernate:hibernate-core:5.0.5.Final')
-    compile('org.hibernate:hibernate-entitymanager:5.0.5.Final')
-    compile('javax.transaction:jta:1.1')
-    compile('org.slf4j:slf4j-log4j12:1.7.13')						// logging for hibernate
+    compile group: 'org.hibernate', name: 'hibernate-core', version: ver.hibernate
+    compile group: 'org.hibernate', name: 'hibernate-entitymanager', version: ver.hibernate
+    compile group: 'javax.transaction', name: 'jta', version: '1.1'
+    compile group: 'org.slf4j', name: 'slf4j-log4j12', version: ver.slf4j
+    
     // Spring with Java injection
-    compile('org.springframework:spring-orm:4.2.3.RELEASE')     	// spring-tx for hibernate   
-    compile('org.springframework:spring-context:4.2.3.RELEASE') 	// spring java config
-    compile('javax.inject:javax.inject:1')
+    compile group: 'org.springframework', name: 'spring-orm', version: ver.spring
+    compile group: 'org.springframework', name: 'spring-context', version: ver.spring         	
+    compile group: 'javax.inject', name: 'javax.inject', version: ver.javaxInject
     
     // test
     testCompile group: 'org.testng', name: 'testng', version: ver.testng
     testCompile group: 'org.dbunit', name: 'dbunit', version: ver.dbunit
     testCompile group: 'org.hamcrest', name: 'hamcrest-all', version: ver.hamcrest
-    testCompile('org.hsqldb:hsqldb:2.3.3')
+    testCompile group: 'org.hsqldb', name: 'hsqldb', version: ver.hsqldb
 }
 
 test {
