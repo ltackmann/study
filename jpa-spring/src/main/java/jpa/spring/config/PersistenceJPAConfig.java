@@ -72,6 +72,6 @@ public class PersistenceJPAConfig {
 	
 	protected String getConnectionUrl() {
 		// "jdbc:hsqldb:mem:mymemdb"
-		return "jdbc:hsqldb:file:~/Projects/java/gradle/jpa-spring/hsql.db";
+		return "jdbc:hsqldb:file:~/Projects/java/jpa-spring/hsql.db";
 	}
 }
