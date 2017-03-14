@@ -26,7 +26,7 @@ public class HibernateManager {
 	 * @param annotatedClasses
 	 * @param properties
 	 */
-	protected HibernateManager(String persistenceUnitName, DatabaseProduct databaseProduct, String connectionUrl, List<Class<?>> annotatedClasses, Properties properties) {
+	protected HibernateManager(String persistenceUnitName, DatabaseProduct databaseProduct, String connectionUrl, Set<Class<?>> annotatedClasses, Properties properties) {
 		try {
 			TransactionManagerSetup transactionManagerSetup = new TransactionManagerSetup(databaseProduct, connectionUrl, persistenceUnitName);
 			properties.put("hibernate.dialect", databaseProduct.hibernateDialect);

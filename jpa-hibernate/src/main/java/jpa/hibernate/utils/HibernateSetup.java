@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Properties;
+import java.util.Set;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -62,7 +63,7 @@ public class HibernateSetup {
 	 * @param properties
 	 * @param annotatedClasses
 	 */
-	public HibernateSetup(TransactionManagerSetup transactionManagerSetup, Properties properties, List<Class<?>> annotatedClasses) {
+	public HibernateSetup(TransactionManagerSetup transactionManagerSetup, Properties properties, Set<Class<?>> annotatedClasses) {
 		this(transactionManagerSetup, properties, annotatedClasses, new LinkedList<Interceptor>(), new LinkedList<SessionFactoryObserver>());
 	}
 
@@ -75,7 +76,7 @@ public class HibernateSetup {
 	 * @param inteceptors
 	 * @param observers
 	 */
-	public HibernateSetup(TransactionManagerSetup transactionManagerSetup, Properties properties, List<Class<?>> annotatedClasses, List<Interceptor> inteceptors, List<SessionFactoryObserver> observers) {
+	public HibernateSetup(TransactionManagerSetup transactionManagerSetup, Properties properties, Set<Class<?>> annotatedClasses, List<Interceptor> inteceptors, List<SessionFactoryObserver> observers) {
 		Properties mergedProperties = mergeProperties(properties, getDefaultHibernateProperties());
 
 		StandardServiceRegistryBuilder serviceRegistryBuilder = new StandardServiceRegistryBuilder();

@@ -1,11 +1,14 @@
 package jpa.hibernate;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.util.Set;
 
-import jpa.hibernate.utils.ClassFinder;
+import javax.persistence.Entity;
+
+import org.reflections.Reflections;
+
 import jpa.hibernate.utils.DatabaseProduct;
 
 /**
@@ -25,7 +28,7 @@ public class HibernateManagerFactory {
 	 */
 	public static synchronized HibernateManager getHibernateManager(String persistenceUnitName, DatabaseProduct databaseProduct, String connectionUrl, String rootPackage, Properties properties) {
 		if(!hibernateManagers.containsKey(persistenceUnitName)) {	
-			List<Class<?>> annotatedClasses = ClassFinder.findEntities(rootPackage);
+			final Set<Class<?>> annotatedClasses = getEntities(rootPackage);
 			HibernateManager hibernateManager = new HibernateManager(persistenceUnitName, databaseProduct, connectionUrl, annotatedClasses, properties);
 			hibernateManagers.put(persistenceUnitName, hibernateManager);
 		}
@@ -60,7 +63,7 @@ public class HibernateManagerFactory {
 	 */
 	public static synchronized HibernateManager getTestHibernateManager(String persistenceUnitName, DatabaseProduct databaseProduct, String connectionUrl, String rootPackage) {
 		if(!hibernateManagers.containsKey(persistenceUnitName)) {
-			List<Class<?>> annotatedClasses = ClassFinder.findEntities(rootPackage);
+			final Set<Class<?>> annotatedClasses = getEntities(rootPackage);
 			HibernateManager hibernateManager = new HibernateManager(persistenceUnitName, databaseProduct, connectionUrl, annotatedClasses, getTestProperties());
 			hibernateManagers.put(persistenceUnitName, hibernateManager);
 		} 
@@ -90,5 +93,11 @@ public class HibernateManagerFactory {
 		properties.put("hibernate.format_sql", "true");
 		properties.put("hibernate.use_sql_comments", "true");
 		return properties;
+	}
+	
+	private static Set<Class<?>> getEntities(String rootPackage) {
+		Reflections reflections = new Reflections(rootPackage);
+		final Set<Class<?>> annotatedClasses = reflections.getTypesAnnotatedWith(Entity.class);
+		return annotatedClasses;
 	}
 }
