@@ -4,15 +4,7 @@ sourceSets {
             srcDir 'java'
         }
         //output.classesDir = "$workDir/client/program"
-    }
-    test {
-        /*
-        java {
-            srcDir 'sources/test/java'
-        }
-        output.classesDir = "$workDir/client/tests"
-        output.resourcesDir = "$workDir/client/tests"
-        */
+        //output.resourcesDir = "$workDir/client/tests"
     }
 }
 
@@ -21,11 +13,10 @@ dependencies {
 	compile group: 'org.glassfish', name: 'javax.el', version: '3.0.0'
 	compile group: 'org.eclipse.jetty', name: 'jetty-server', version: ver.jetty 
 	compile group: 'org.eclipse.jetty', name: 'jetty-webapp', version: ver.jetty 
-
-    // test
-    testCompile group: 'org.testng', name: 'testng', version: ver.testng
-    testCompile group: 'org.hamcrest', name: 'hamcrest-all', version: ver.hamcrest
-	testCompile group: 'net.sourceforge.htmlunit', name: 'htmlunit', version: '2.25'
+    // mark test depencencies as compile since we dont use test source folder in sandbox
+    compile group: 'org.testng', name: 'testng', version: ver.testng
+    compile group: 'org.hamcrest', name: 'hamcrest-all', version: ver.hamcrest
+    compile group: 'net.sourceforge.htmlunit', name: 'htmlunit', version: '2.25'
 }
 
 test {
