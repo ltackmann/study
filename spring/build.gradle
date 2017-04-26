@@ -1,0 +1,31 @@
+ext {
+    ver = [
+            hamcrest: '1.3',
+            junit: '4.12',
+            slf4j: '1.7.24',
+            spring: '4.3.5.RELEASE',
+            springSecurity: '4.2.2.RELEASE',
+            testng: '6.11'
+    ]
+}
+
+allprojects {
+    group = 'co.tackmann'
+    version = '1.0'
+}
+
+subprojects {  subproject ->
+    apply plugin: "java"
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+    buildDir = new File(subproject.projectDir, "bin")
+
+    repositories {
+        mavenCentral()
+    }
+
+    task(hello).doLast {
+        println "build dir ${subproject.buildDir}"
+        println "project dir ${subproject.projectDir}"
+    }
+}
