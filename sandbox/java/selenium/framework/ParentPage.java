@@ -1,7 +1,11 @@
 package selenium.framework;
 
-/**
- * Created by ltackmann on 15/03/2017.
- */
-public class ParentPage {
+import org.openqa.selenium.WebDriver;
+
+public abstract class ParentPage extends DSL {
+
+    public ParentPage(WebDriver driver) {
+        super(driver);
+    }
+
 }
