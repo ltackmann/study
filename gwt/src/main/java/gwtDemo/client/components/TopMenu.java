@@ -1,11 +1,13 @@
-package gwtDemo.client.elements;
+package gwtDemo.client.components;
 
-import gwtDemo.client.framework.UiElement;
+import gwtDemo.client.elements.UiLinkButton;
+import gwtDemo.client.elements.UiVerticalList;
+import gwtDemo.client.framework.Component;
 import gwtDemo.client.pages.AdminPage;
 import gwtDemo.client.pages.MainPage;
 
-public class UiTopMenu extends UiElement {
-	public UiTopMenu() {
+public class TopMenu extends Component {
+	public TopMenu() {
 		super("div");
 		initComponent();
     }

@@ -1,8 +1,7 @@
 package gwtDemo.client.app;
 
-import gwtDemo.client.components.HeaderComponent;
+import gwtDemo.client.components.TopMenu;
 import gwtDemo.client.elements.UiDiv;
-import gwtDemo.client.elements.UiTopMenu;
 import gwtDemo.client.framework.AppFrame;
 import gwtDemo.client.framework.Node;
 import gwtDemo.client.framework.Page;
@@ -16,13 +15,12 @@ public class DemoAppFrame extends AppFrame {
 		
 		Node container = new UiDiv();
 		container.setId("ui-container");
-		container.add(new UiTopMenu());
+		container.add(new TopMenu());
 		
 		pageWrapper = new UiDiv();
 		pageWrapper.setId("ui-page-wrapper");
 		container.add(pageWrapper);
 		
-		frame.add(new HeaderComponent());
 		frame.add(container);
 		
 		return frame;
