@@ -4,24 +4,24 @@ import java.lang.management.ManagementFactory;
 import java.util.Scanner;
 
 import javax.management.InstanceAlreadyExistsException;
-import javax.management.MalformedObjectNameException;
 import javax.management.MBeanRegistrationException;
 import javax.management.MBeanServer;
+import javax.management.MalformedObjectNameException;
 import javax.management.NotCompliantMBeanException;
 import javax.management.ObjectName;
 
-import jmx.basic.*;
+import jmx.basic.Basic;
+import jmx.basic.BasicMX;
+import jmx.composit.CompositMX;
 
-//http://www.javaworld.com/article/2072279/the-jmx-mxbean.html
-public class BasicJmx {
+public class JmxServer {
 	@SuppressWarnings("resource")
 	public static void main(final String[] arguments) {
-		final String mbeanObjectNameStr = "example:type=Status";
-		final String mxbeanObjectNameStr = "example:type=StatusMX";
 		// final String mbean3ObjectNameStr = "example:type=Status3";
 		final MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
-		registerMBean(mbs, mbeanObjectNameStr, Status.class);
-		registerMBean(mbs, mxbeanObjectNameStr, StatusMX.class);
+		JmxServer.registerMBean(mbs, "example:type=BasicStatus", Basic.class);
+		JmxServer.registerMBean(mbs, "example:type=BasicStatusMX", BasicMX.class);
+		JmxServer.registerMBean(mbs, "example:type=CompositStatusMX", CompositMX.class);
 		// registerMBean(mbs, mbean3ObjectNameStr, Status3.class);
 		Scanner in = new Scanner(System.in);
 		in.nextLine();

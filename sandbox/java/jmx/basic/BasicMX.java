@@ -1,10 +1,7 @@
 package jmx.basic;
 
-public class Status implements StatusMBean {
+public class BasicMX implements BasicMXBean {
 	private StatusEnum statusEnum = StatusEnum.UNSPECIFIED;
-
-	public Status() {
-	}
 
 	public StatusEnum getStatus() {
 		return this.statusEnum;

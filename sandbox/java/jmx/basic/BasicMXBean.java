@@ -1,6 +1,6 @@
 package jmx.basic;
 
-public interface StatusMBean {
+public interface BasicMXBean {
 	public StatusEnum getStatus();
 
 	public void setStatus(final StatusEnum status);
