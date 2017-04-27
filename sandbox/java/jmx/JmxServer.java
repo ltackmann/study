@@ -10,19 +10,22 @@ import javax.management.MalformedObjectNameException;
 import javax.management.NotCompliantMBeanException;
 import javax.management.ObjectName;
 
-import jmx.basic.Basic;
-import jmx.basic.BasicMX;
-import jmx.composit.CompositMX;
+import jmx.metrics.beans.DatabaseMetricsImpl;
+import jmx.metrics.beans.GuiMetricsImpl;
+import jmx.metrics.beans.MetricsRegistryImpl;
+import jmx.metrics.beans.ServiceMetricsImpl;
+import jmx.metrics.beans.SystemMetricsImpl;
 
 public class JmxServer {
 	@SuppressWarnings("resource")
 	public static void main(final String[] arguments) {
 		// final String mbean3ObjectNameStr = "example:type=Status3";
 		final MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
-		JmxServer.registerMBean(mbs, "example:type=BasicStatus", Basic.class);
-		JmxServer.registerMBean(mbs, "example:type=BasicStatusMX", BasicMX.class);
-		JmxServer.registerMBean(mbs, "example:type=CompositStatusMX", CompositMX.class);
-		// registerMBean(mbs, mbean3ObjectNameStr, Status3.class);
+		JmxServer.registerMBean(mbs, "example:type=DatabaseMetrics", DatabaseMetricsImpl.class);
+		JmxServer.registerMBean(mbs, "example:type=GuiMetrics", GuiMetricsImpl.class);
+		JmxServer.registerMBean(mbs, "example:type=MetricsRegistry", MetricsRegistryImpl.class);
+		JmxServer.registerMBean(mbs, "example:type=ServiceMetrics", ServiceMetricsImpl.class);
+		JmxServer.registerMBean(mbs, "example:type=SystemMetrics", SystemMetricsImpl.class);
 		Scanner in = new Scanner(System.in);
 		in.nextLine();
 	}
