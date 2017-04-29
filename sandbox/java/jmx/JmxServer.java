@@ -19,7 +19,6 @@ import jmx.metrics.beans.SystemMetricsImpl;
 public class JmxServer {
 	@SuppressWarnings("resource")
 	public static void main(final String[] arguments) {
-		// final String mbean3ObjectNameStr = "example:type=Status3";
 		final MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
 		JmxServer.registerMBean(mbs, "example:type=DatabaseMetrics", DatabaseMetricsImpl.class);
 		JmxServer.registerMBean(mbs, "example:type=GuiMetrics", GuiMetricsImpl.class);
@@ -30,6 +29,7 @@ public class JmxServer {
 		in.nextLine();
 	}
 	
+	@SuppressWarnings("rawtypes")
 	public static void registerMBean(final MBeanServer mbs, final String mBeanObjectName, final Class mBeanClass) {
 		try {
 			final ObjectName name = new ObjectName(mBeanObjectName);
