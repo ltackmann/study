@@ -12,4 +12,6 @@ public interface ServiceMetrics {
 	List<ServiceStat> getMostCalledServices();
 	
 	Map<String,Long> getSlowestServices();
+	
+	long getServiceCallsPerMinute();
 }

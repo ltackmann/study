@@ -11,7 +11,6 @@ import javax.management.NotCompliantMBeanException;
 import javax.management.ObjectName;
 
 import jmx.metrics.DatabaseMetrics;
-import jmx.metrics.beans.DatabaseMetricsImpl;
 import jmx.metrics.beans.GuiMetricsImpl;
 import jmx.metrics.beans.MetricsRegistryImpl;
 import jmx.metrics.beans.ServiceMetricsImpl;
@@ -25,7 +24,7 @@ public class JmxServer {
 		}
 		
 		final MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
-		DatabaseMetricsImpl databaseMetrics = registerMBean(mbs, "example:type=DatabaseMetrics", DatabaseMetricsImpl.class);
+		DatabaseMetrics databaseMetrics = registerMBean(mbs, "example:type=DatabaseMetrics", DatabaseMetrics.class);
 		GuiMetricsImpl guiMetrics = registerMBean(mbs, "example:type=GuiMetrics", GuiMetricsImpl.class);
 		ServiceMetricsImpl serviceMetrics = registerMBean(mbs, "example:type=ServiceMetrics", ServiceMetricsImpl.class);
 		SystemMetricsImpl systemMetrics = registerMBean(mbs, "example:type=SystemMetrics", SystemMetricsImpl.class);

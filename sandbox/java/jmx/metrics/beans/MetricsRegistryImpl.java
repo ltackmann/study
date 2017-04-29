@@ -25,7 +25,6 @@ public class MetricsRegistryImpl implements MetricsRegistry {
 	private final GuiMetrics guiMetrics;
 	private final ServiceMetrics serviceMetrics;
 	private final SystemMetrics systemMetrics;
-	
 
 	public MetricsRegistryImpl(DatabaseMetrics databaseMetrics, GuiMetrics guiMetrics, ServiceMetrics serviceMetrics, SystemMetrics systemMetrics) {
 		this.databaseMetrics =  databaseMetrics;
@@ -33,13 +32,11 @@ public class MetricsRegistryImpl implements MetricsRegistry {
 		this.serviceMetrics = serviceMetrics;
 		this.systemMetrics = systemMetrics;
 	}
-	
 
 	@Override
 	public DatabaseMetrics getDatabaseMetrics() {
 		return databaseMetrics;
 	}
-
 
 	@Override
 	public GuiMetrics getGuiMetrics() {
