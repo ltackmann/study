@@ -5,9 +5,13 @@ import java.util.Map;
 
 import javax.management.MXBean;
 
+import jmx.metrics.stat.GuiStat;
+
 @MXBean
 public interface GuiMetrics {
 	List<String> getMostVisitedPages();
 	
-	Map<String,List<String>> getServicesPerPage();
+	List<GuiStat> getPagesWithMostServicesCalls();
+	
+	List<GuiStat> getSlowestPages();
 }

@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import jmx.metrics.ServiceMetrics;
+import jmx.metrics.stat.ServiceStat;
 
 public class ServiceMetricsImpl implements ServiceMetrics {
 	@Override

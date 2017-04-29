@@ -9,36 +9,52 @@ import jmx.metrics.GuiMetrics;
 import jmx.metrics.MetricsRegistry;
 import jmx.metrics.ServiceMetrics;
 import jmx.metrics.SystemMetrics;
+import jmx.metrics.stat.ServiceStat;
 
 public class MetricsRegistryImpl implements MetricsRegistry {
 	static Map<String, ServiceStat> serviceStats = new HashMap<>();
 	static {
-		serviceStats.put("AQuery", new ServiceStat("AQuery", Arrays.asList("LoginPage", "PersonPage"), 23, 100L));
-		serviceStats.put("BQuery", new ServiceStat("BQuery", Arrays.asList("PersonPage", "SettingsPage"), 12, 234L));
-		serviceStats.put("CQuery", new ServiceStat("CQuery", Arrays.asList("PersonPage"), 4, 123L));
-		serviceStats.put("DQuery", new ServiceStat("DQuery", Arrays.asList("SettingsPage"), 17, 88L));
-		serviceStats.put("EQuery", new ServiceStat("EQuery", Arrays.asList("AccountPage", "PersonPage"), 9, 400L));
+		serviceStats.put("AQuery", new ServiceStat("AQuery", Arrays.asList("LoginPage", "PersonPage"), 23L, 100L));
+		serviceStats.put("BQuery", new ServiceStat("BQuery", Arrays.asList("PersonPage", "SettingsPage"), 12L, 234L));
+		serviceStats.put("CQuery", new ServiceStat("CQuery", Arrays.asList("PersonPage"), 4L, 123L));
+		serviceStats.put("DQuery", new ServiceStat("DQuery", Arrays.asList("SettingsPage"), 17L, 88L));
+		serviceStats.put("EQuery", new ServiceStat("EQuery", Arrays.asList("AccountPage", "PersonPage"), 9L, 400L));
 	}
 	private int count = 10;
+	private final DatabaseMetrics databaseMetrics;
+	private final GuiMetrics guiMetrics;
+	private final ServiceMetrics serviceMetrics;
+	private final SystemMetrics systemMetrics;
+	
 
-	@Override
-	public ServiceMetrics getServiceMetrics() {
-		return new ServiceMetricsImpl();
+	public MetricsRegistryImpl(DatabaseMetrics databaseMetrics, GuiMetrics guiMetrics, ServiceMetrics serviceMetrics, SystemMetrics systemMetrics) {
+		this.databaseMetrics =  databaseMetrics;
+		this.guiMetrics = guiMetrics;
+		this.serviceMetrics = serviceMetrics;
+		this.systemMetrics = systemMetrics;
 	}
-
-	@Override
-	public GuiMetrics getGuiMetrics() {
-		return new GuiMetricsImpl();
-	}
+	
 
 	@Override
 	public DatabaseMetrics getDatabaseMetrics() {
-		return new DatabaseMetricsImpl();
+		return databaseMetrics;
+	}
+
+
+	@Override
+	public GuiMetrics getGuiMetrics() {
+		return guiMetrics;
+	}
+
+
+	@Override
+	public ServiceMetrics getServiceMetrics() {
+		return serviceMetrics;
 	}
 
 	@Override
 	public SystemMetrics getSystemMetrics() {
-		return new SystemMetricsImpl();
+		return systemMetrics;
 	}
 
 	@Override

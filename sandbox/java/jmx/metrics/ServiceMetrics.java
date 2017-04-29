@@ -5,7 +5,7 @@ import java.util.Map;
 
 import javax.management.MXBean;
 
-import jmx.metrics.beans.ServiceStat;
+import jmx.metrics.stat.ServiceStat;
 
 @MXBean
 public interface ServiceMetrics {
