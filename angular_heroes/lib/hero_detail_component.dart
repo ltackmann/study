@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:angular2/core.dart';
 import 'package:angular2/router.dart';
+import 'dart:html' show window;
 
 import 'hero.dart';
 import 'hero_service.dart';
