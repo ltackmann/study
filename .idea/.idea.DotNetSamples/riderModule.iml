@@ -9,7 +9,7 @@
       <sourceFolder url="file://$MODULE_DIR$/../../EntityFramework" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../FSharp.Sandbox" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../Nancy" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../../PowerShell Sandbox" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../PowerShell.Sandbox" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../WebAPI" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/../../Asp/bin" />
       <excludeFolder url="file://$MODULE_DIR$/../../Asp/obj" />
@@ -23,8 +23,8 @@
       <excludeFolder url="file://$MODULE_DIR$/../../FSharp.Sandbox/obj" />
       <excludeFolder url="file://$MODULE_DIR$/../../Nancy/bin" />
       <excludeFolder url="file://$MODULE_DIR$/../../Nancy/obj" />
-      <excludeFolder url="file://$MODULE_DIR$/../../PowerShell Sandbox/bin" />
-      <excludeFolder url="file://$MODULE_DIR$/../../PowerShell Sandbox/obj" />
+      <excludeFolder url="file://$MODULE_DIR$/../../PowerShell.Sandbox/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/../../PowerShell.Sandbox/obj" />
       <excludeFolder url="file://$MODULE_DIR$/../../WebAPI/bin" />
       <excludeFolder url="file://$MODULE_DIR$/../../WebAPI/obj" />
       <excludeFolder url="file://$MODULE_DIR$/../../packages" />

@@ -13,13 +13,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CastleWindsor", "CastleWind
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{C588566F-957E-45C0-B73E-8DA752317929}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PowerShell Sandbox", "PowerShell Sandbox\PowerShell Sandbox.vbproj", "{10DD03D6-24CA-4146-B3A8-D27CA04F4A64}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessApp", "Access\AccessApp.sln", "{BEE1CDDF-079F-4A60-8566-EBB87002EF9E}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSharp.Sandbox", "FSharp.Sandbox\FSharp.Sandbox.fsproj", "{6E07F96B-1837-476C-9774-EF5CCA2895E9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.Sandbox", "CSharp.Sandbox\CSharp.Sandbox.csproj", "{BA3E03B4-ADDB-4FBD-A985-45F1C5FFA2BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerShell.Sandbox", "PowerShell.Sandbox\PowerShell.Sandbox.csproj", "{47ECADAC-DFC1-4E41-B8E6-BD9B499F525D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,16 +81,6 @@ Global
 		{C588566F-957E-45C0-B73E-8DA752317929}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{C588566F-957E-45C0-B73E-8DA752317929}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{C588566F-957E-45C0-B73E-8DA752317929}.Release|Win32.ActiveCfg = Release|Any CPU
-		{10DD03D6-24CA-4146-B3A8-D27CA04F4A64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{10DD03D6-24CA-4146-B3A8-D27CA04F4A64}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{10DD03D6-24CA-4146-B3A8-D27CA04F4A64}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{10DD03D6-24CA-4146-B3A8-D27CA04F4A64}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{10DD03D6-24CA-4146-B3A8-D27CA04F4A64}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{10DD03D6-24CA-4146-B3A8-D27CA04F4A64}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{10DD03D6-24CA-4146-B3A8-D27CA04F4A64}.Release|Any CPU.Build.0 = Release|Any CPU
-		{10DD03D6-24CA-4146-B3A8-D27CA04F4A64}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{10DD03D6-24CA-4146-B3A8-D27CA04F4A64}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{10DD03D6-24CA-4146-B3A8-D27CA04F4A64}.Release|Win32.ActiveCfg = Release|Any CPU
 		{BEE1CDDF-079F-4A60-8566-EBB87002EF9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BEE1CDDF-079F-4A60-8566-EBB87002EF9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEE1CDDF-079F-4A60-8566-EBB87002EF9E}.Debug|Mixed Platforms.ActiveCfg = Debug|Mixed Platforms
@@ -127,6 +117,18 @@ Global
 		{BA3E03B4-ADDB-4FBD-A985-45F1C5FFA2BD}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{BA3E03B4-ADDB-4FBD-A985-45F1C5FFA2BD}.Release|Win32.ActiveCfg = Release|Any CPU
 		{BA3E03B4-ADDB-4FBD-A985-45F1C5FFA2BD}.Release|Win32.Build.0 = Release|Any CPU
+		{47ECADAC-DFC1-4E41-B8E6-BD9B499F525D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47ECADAC-DFC1-4E41-B8E6-BD9B499F525D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47ECADAC-DFC1-4E41-B8E6-BD9B499F525D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{47ECADAC-DFC1-4E41-B8E6-BD9B499F525D}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{47ECADAC-DFC1-4E41-B8E6-BD9B499F525D}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{47ECADAC-DFC1-4E41-B8E6-BD9B499F525D}.Debug|Win32.Build.0 = Debug|Any CPU
+		{47ECADAC-DFC1-4E41-B8E6-BD9B499F525D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47ECADAC-DFC1-4E41-B8E6-BD9B499F525D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47ECADAC-DFC1-4E41-B8E6-BD9B499F525D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{47ECADAC-DFC1-4E41-B8E6-BD9B499F525D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{47ECADAC-DFC1-4E41-B8E6-BD9B499F525D}.Release|Win32.ActiveCfg = Release|Any CPU
+		{47ECADAC-DFC1-4E41-B8E6-BD9B499F525D}.Release|Win32.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
