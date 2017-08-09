@@ -53,7 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="code.ps1" />
+    <None Include="powershell_samples.ps1" />
     <None Include="db_import.ps1" />
     <None Include="MyProfile.ps1" />
   </ItemGroup>
