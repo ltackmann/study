@@ -1,6 +1,4 @@
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace EntityFrameworkDemo.Models
+namespace CS.EntityFramework.Models
 {
 	//[Table("EMPLOYEE")]
 	public class Employee

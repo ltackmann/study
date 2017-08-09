@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace EntityFrameworkDemo.Models
+namespace CS.EntityFramework.Models
 {
 	[Table("COUNTRIES")]
 	public class Country

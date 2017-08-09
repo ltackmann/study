@@ -10,6 +10,7 @@
       <sourceFolder url="file://$MODULE_DIR$/../../CS.WebApi" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../FS.Sandbox" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../PowerShell.Sandbox" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../README.md" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/../../CS.Asp/bin" />
       <excludeFolder url="file://$MODULE_DIR$/../../CS.Asp/obj" />
       <excludeFolder url="file://$MODULE_DIR$/../../CS.CastleWindsor/bin" />
@@ -23,7 +24,6 @@
       <excludeFolder url="file://$MODULE_DIR$/../../CS.WebApi/bin" />
       <excludeFolder url="file://$MODULE_DIR$/../../CS.WebApi/obj" />
       <excludeFolder url="file://$MODULE_DIR$/../../FS.Sandbox/bin" />
-      <excludeFolder url="file://$MODULE_DIR$/../../FS.Sandbox/obj" />
       <excludeFolder url="file://$MODULE_DIR$/../../PowerShell.Sandbox/bin" />
       <excludeFolder url="file://$MODULE_DIR$/../../PowerShell.Sandbox/obj" />
       <excludeFolder url="file://$MODULE_DIR$/../../packages" />
