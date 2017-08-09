@@ -5,19 +5,22 @@
       <sourceFolder url="file://$MODULE_DIR$/../../Access/AccessApp.sln" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../Asp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../CastleWindsor" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../../CSharp Sandbox" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../CSharp.Sandbox" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../EntityFramework" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../FSharp.Sandbox" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../Nancy" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../PowerShell Sandbox" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../WebAPI" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/../../Asp/bin" />
       <excludeFolder url="file://$MODULE_DIR$/../../Asp/obj" />
-      <excludeFolder url="file://$MODULE_DIR$/../../CSharp Sandbox/bin" />
-      <excludeFolder url="file://$MODULE_DIR$/../../CSharp Sandbox/obj" />
+      <excludeFolder url="file://$MODULE_DIR$/../../CSharp.Sandbox/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/../../CSharp.Sandbox/obj" />
       <excludeFolder url="file://$MODULE_DIR$/../../CastleWindsor/bin" />
       <excludeFolder url="file://$MODULE_DIR$/../../CastleWindsor/obj" />
       <excludeFolder url="file://$MODULE_DIR$/../../EntityFramework/bin" />
       <excludeFolder url="file://$MODULE_DIR$/../../EntityFramework/obj" />
+      <excludeFolder url="file://$MODULE_DIR$/../../FSharp.Sandbox/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/../../FSharp.Sandbox/obj" />
       <excludeFolder url="file://$MODULE_DIR$/../../Nancy/bin" />
       <excludeFolder url="file://$MODULE_DIR$/../../Nancy/obj" />
       <excludeFolder url="file://$MODULE_DIR$/../../PowerShell Sandbox/bin" />
@@ -25,12 +28,6 @@
       <excludeFolder url="file://$MODULE_DIR$/../../WebAPI/bin" />
       <excludeFolder url="file://$MODULE_DIR$/../../WebAPI/obj" />
       <excludeFolder url="file://$MODULE_DIR$/../../packages" />
-    </content>
-    <content url="file://$MODULE_DIR$/../../../csharp/Sandbox/x64">
-      <sourceFolder url="file://$MODULE_DIR$/../../../csharp/Sandbox/x64" isTestSource="false" />
-    </content>
-    <content url="file://$MODULE_DIR$/../../../csharp/Sandbox/x86">
-      <sourceFolder url="file://$MODULE_DIR$/../../../csharp/Sandbox/x86" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

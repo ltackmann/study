@@ -3,12 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using NUnit.Framework;
 
 namespace Sandbox.Lang
 {
 	class Animal { }
 	class Cat: Animal { }
 	
+	[TestFixture]
 	public class VarianceTest
 	{
 		// To understand what the new CoVariance and ContraVariance code does for you
@@ -16,7 +18,8 @@ namespace Sandbox.Lang
 		delegate T Func1<out T>();
 		delegate void Action1<in T>(T a);
 
-		static void Main(string[] args)
+		[Test]
+		public void TestVariance()
 		{
 			// Covariance
 			Func1<Cat> cat = () => new Cat();
@@ -28,4 +31,5 @@ namespace Sandbox.Lang
 		}        
 	}
 }
+
 

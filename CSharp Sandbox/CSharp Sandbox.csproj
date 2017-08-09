@@ -30,13 +30,6 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ItemGroup>
-    <Compile Include="Lang\ConsoleTest.cs" />
-    <Compile Include="Lang\NumbersTest.cs" />
-    <Compile Include="Db\SQLiteFileTest.cs" />
-    <Compile Include="Db\SQLiteMemoryTest.cs" />
-    <Compile Include="Lang\VarianceTest.cs" />
-  </ItemGroup>
   <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
