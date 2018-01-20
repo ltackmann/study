@@ -1,2 +1,4 @@
-include 'gwt', 'jpa', 'jpa-hibernate', 'jpa-flyway', 'jpa-hazelcast', 'jpa-spring', 'sandbox'
+include 'gwt'
+include  'sandbox'
+includeBuild 'jpa'
 includeBuild 'spring'
