@@ -29,10 +29,5 @@ subprojects {  subproject ->
     repositories {
         mavenCentral()
     }
-
-    task(hello).doLast {
-        println "build dir ${subproject.buildDir}"
-        println "project dir ${subproject.projectDir}"
-    }
 }
 
