@@ -8,3 +8,7 @@ bin
 .gradle
 .DS_Store
 .idea
+.wrapper/
+gradlew
+gradlew.bat
+java.iml

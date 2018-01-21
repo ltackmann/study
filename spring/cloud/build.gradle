@@ -1,26 +1,16 @@
 buildscript {
-	ext {
-		springBootVersion = '1.5.8.RELEASE'
-	}
 	repositories {
+		mavenLocal()
 		mavenCentral()
+		jcenter()
 	}
 	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${ver.springBootVersion}")
 	}
 }
 
-apply plugin: 'java'
-apply plugin: 'eclipse'
+apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
-
-group = 'com.qurasense'
-version = '0.1.0'
-sourceCompatibility = 1.8
-
-repositories {
-	mavenCentral()
-}
 
 dependencies {
 	compile("org.springframework.boot:spring-boot-starter-web")
@@ -32,21 +22,3 @@ dependencies {
 	// end::tests[]
 }
 
-/*
-dependencies {
-	// Google
-	compile group: 'com.google.cloud', name: 'google-cloud-datastore', version: '1.7.0'
-	compile 'com.google.cloud:google-cloud-pubsub:0.25.0-beta'
-
-	// swagger
-	compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.7.0'
-	compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.7.0'
-
-	// spring
-	compile("org.springframework.boot:spring-boot-starter-web")
-	compile("org.springframework.boot:spring-boot-starter-security")
-	// compile("org.springframework.boot:spring-boot-starter-actuator")
-	testCompile('org.springframework.boot:spring-boot-starter-test')
-	testCompile group: 'org.springframework.security', name: 'spring-security-test'
-}
-*/
