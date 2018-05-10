@@ -1,5 +1,0 @@
-name: logging_sandbox
-description: Logging sandbox
-dependencies:
-  logging: any
-  unittest: any

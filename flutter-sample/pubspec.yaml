@@ -1,7 +1,0 @@
-name: flutter_sample
-description: Flutter sample project
-dependencies:
-  flutter:
-    sdk: flutter
-dev_dependencies:
-  test:

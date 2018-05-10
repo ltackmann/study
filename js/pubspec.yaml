@@ -1,6 +1,0 @@
-name: js_sandbox
-description: JS Sandbox
-dependencies:
-  test: any
-  browser: any
-  js: ^0.6.0
