@@ -1,4 +1,0 @@
-name: dart_patterns
-description: Various patterns implemented in Dart
-dependencies:
-  test: any

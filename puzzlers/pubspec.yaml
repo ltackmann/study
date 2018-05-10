@@ -1,4 +1,0 @@
-name: dart_puzzlers
-description: Various computer science puzzlers solved in dart
-dependencies:
-  test: any
