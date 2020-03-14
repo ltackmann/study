@@ -172,19 +172,60 @@ S = \{a-nb|n \in \mathbb{Z}\} = {a,a \pm b,a \pm 2b,...}
 \]
 \end{proof}
 
-\subsection{Euclid's Algorithm}
+\section{Euclid's Algorithm}
+% GCD
+The greatest common divisor of integers a and b, denoted by gcd(a,b), is the largest integer that divides (without remainder) both a and b. So, for example:
+
+gcd(15, 5) = 5,	gcd(7, 9) = 1,	gcd(12, 9) = 3,	gcd(81, 57) = 3.
+
+It is well known that if the gcd(a, b) = r then there exist integers p and s so that:
+
+p(a) + s(b) = r.
+By reversing the steps in the Euclidean Algorithm, it is possible to find these integers p and s. We shall do this with the above example:
+Starting with the next to last line, we have:
+
+3 = 9 -1(6)
+From the line before that, we see that 6 = 24 - 2(9), so:
+3 = 9 - 1(24 - 2(9)) = 3(9) - 1(24).
+From the line before that, we have 9 = 57 - 2(24), so:
+3 = 3( 57 - 2(24)) - 1(24) = 3(57) - 7(24).
+And, from the line before that 24 = 81 - 1(57), giving us:
+3 = 3(57) - 7( 81 - 1(57)) = 10(57) -7(81).
+So we have found p = -7 and s = 10.
+
+The procedure we have followed above is a bit messy because of all the back substitutions we have to make. It is possible to reduce the amount of computation involved in finding p and s by doing some auxillary computations as we go forward in the Euclidean algorithm (and no back substitutions will be necessary). This is known as the extended Euclidean Algorithm.
+
+%http://www.math.utah.edu/~fguevara/ACCESS2013/Euclid.pdf
+%http://pages.pacificcoast.net/~cazelais/222/xeuclid.pdf
 Euclid devised a clever algorithm for locating the greatest common divisor.
+% TODO GCD and LCM
+% TODO add proof
+\begin{algorithm}
+    \caption{Euclid’s algorithm}
+    \label{euclid}
+    \begin{algorithmic}[1] % tells where the line numbering should start
+        \Procedure{Euclid}{$a,b$} \Comment{The g.c.d. of a and b}
+            \State $r\gets a \bmod b$
+            \While{$r\not=0$} \Comment{We have the answer if r is 0}
+                \State $a \gets b$
+                \State $b \gets r$
+                \State $r \gets a \bmod b$
+            \EndWhile\label{euclidendwhile}
+            \State \textbf{return} $b$\Comment{The gcd is b}
+        \EndProcedure
+    \end{algorithmic}
+\end{algorithm}
 
 \section{Primes}
-The \textit{prime numbers} or \textit{primes} are the numbers
-\[
-2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37 ...
-\]
-which cannot be resolved into smaller factors\pagenote{There are technical reasons for not counting $1$ as a prime}. The primes are the material out of which all numbers are build up by multiplication
+A prime number is a natural number greater than 1 that cannot be formed by multiplying two smaller natural numbers. A natural number greater than 1 that is not prime is called a composite number. For example, $5$ is prime because the only ways of writing it as a product, $1 \cdot 5$ or $5 \cdot 1$. On the other hand $10$ is a composite as it can be written as $2 \cdot 5$. Semilarly 666 is not a prime as 
 \[
 666 = 2 \cdot 3 \cdot 3 \cdot 37
 \]
-indeed the following holds true:
+ The first primes are
+\[
+2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37 ...
+\]
+As we shall se later there are infintly many prime numbers. Prime numbers are thus important as they serve as the building blocks of other integers, indeed the following holds true:
 
 \begin{proposition}\label{prim_div}
 Every integer n $>$ 1 is divisible by at least one prime

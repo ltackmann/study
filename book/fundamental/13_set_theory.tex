@@ -9,12 +9,22 @@
 %\section{Cantor and the Transfinite Realm}
 % Morphism In many fields of mathematics, morphism refers to a structure-preserving mapping[disambiguation needed] from one mathematical structure to another.
 % Set builder notation
-% Cartesian product (including algorithm)
 % Power set
+%
+%- Operations
+%    - Equivalence
+%    - Converse
+%    - Implication
+%- Functions
+%    - Map
+%    - Injective
+%    - Bijective
+%    - Surjective
+%    - Inverse
 
+\section{Sets}
 Loosely speaking a set is a collection of well defined objects. 
 
-- Properties
     - Cardinality - number of elements in the set
     - X in y
     - X !in y
@@ -40,9 +50,9 @@ S \cap T := \left\{{x: x \in S \land x \in T}\right\}
 \begin{equation}
 S \cup T := \left\{{x: x \in S \lor x \in T}\right\}
 \end{equation}
+\item[Cardinality] For finite sets A and B, |A × B| = |A|·|B|. 
+% TODO include algorithm
 \end{description}
-
-
 
 A indexed set is a collection of values associated with indices. For example
 \begin{itemize}
@@ -51,35 +61,35 @@ A indexed set is a collection of values associated with indices. For example
 \end{itemize}
 the set that whose members label (or index) members of a family is called an index set. 
 
-- 
+\section{Functions}
+% TODO consider merging with input from "thinking like a mathematician"
+Loosely speaking, a function is a rule that, for each element in some set D of possible inputs,  assigns a possible output. The output is said to be the image of the input under the function 
 
+For a function named f, the image of q under f is denoted by f(q). If r = f(q), we say that  q maps to r under f. The notation for “q maps to r” is q )→ r. (This notation omits specifying  the function; it is useful when there is no ambiguity about which function is intended.)  It is convenient when specifying a function to specify a co-domain for the function. The  co-domain is a set from which the function’s output values are chosen. Note that one has some  leeway in choosing the co-domain since not all of its members need be outputs.  The notation  f : D −→ F  means that f is a function whose domain is the set D and whose co-domain (the set of possible  outputs) is the set F. (More briefly: “a function from D to F”, or “a function that maps D to F.”) 
 
-- Operations
-    - Equivalence
-    - Converse
-    - Implication
-- Functions
-    - Map
-    - Injective
-    - Bijective
-    - Surjective
-    - Inverse
-- Proof
-    - Definition
-    - Statement
-    - Theorem
+Consider the function prod that takes as input a pair of integers greater than  1 and outputs their product. The domain (set of inputs) is the set of pairs of integers greater  than 1. We choose to define the co-domain to be the set of all integers greater than 1. The  image of the function, however, is the set of composite integers since no domain element maps  to a prime number. 
 
+\subsection{Identity function} 
+For any domain D, there is a function idD : D −→ D called the identity function for D, defined  by  idD(d) = d  for every d ∈ D. 
 
-standard refresher on how to write a recursive method:
+\subsection{Composition of functions}  
+The operation functional composition combines two functions to get a new function. We will later  define matrix multiplication in terms of functional composition. Given two functions f : A −→ B  and g : B −→ C, the function g ◦f, called the composition of g and f, is a function whose domain  is A and its co-domain is C. It is defined by the rule  (g ◦ f)(x) = g(f(x))  for every x ∈ A.  If the image of f is not contained in the domain of g then g ◦ f is not a legal expression.  Example 0.3.10: Say the domain and co-domains of f and g are R, and f(x) = x + 1 and  g(y) = y2. Then g ◦ f(x)=(x + 1)2. 
 
-- Are we in a trivial case? Then solve the problem and return the solution.
-- Otherwise, split the problem into one or more strictly smaller problems.
-- Solve the subproblems recursively.
-- Combine their solutions to solve the larger problem.
+show that composition of functions is associative:  
 
-\section{Sets}
-
+Proposition 0.3.12 (Associativity of composition): For functions f, g, h,  h ◦ (g ◦ f)=(h ◦ g) ◦ f 
+% TODO proof
+Let x be any member of the domain of f.  
+(h ◦ (g ◦ f))(x) = h((g ◦ f)(x)) by definition of h ◦ (g ◦ f))  
+                 = h(g(f(x)) by definition of g ◦ f  
+                 = (h ◦ g)(f(x)) by definition of h ◦ g  
+                 = ((h ◦ g) ◦ f)(x) by definition of (h ◦ g) ◦ f 
+                 
+functional inverse of h as well.  In general,  Definition 0.3.13: We say that functions f and g are functional inverses of each other if  • f ◦ g is defined and is the identity function on the domain of g, and  • g ◦ f is defined and is the identity function on the domain of f.  Not every function has an inverse. A function that has an inverse is said to be invertible.  Examples of noninvertible functions are shown in Figures 2 and 3  Definition 0.3.14: Consider a function f : D −→ F. We say that f is one-to-one if for every  x, y ∈ D, f(x) = f(y) implies x = y. We say that f is onto if, for every z ∈ F, there exists  x ∈ D such that f(x) = z. 
 
 \section{Exercises}
 \begin{ExerciseList}
+% TODO rewrite sample
+%\Exercise What is the cardinality of {1, 2, 3,..., 10, J, Q, K} × {♥, ♠, ♣, ♦}? 
+%\Answer The cardinality of the first set is 13, and the cardinality of the  second set is 4, so the cardinality of the Cartesian product is 13 · 4, which is 52. 
 \end{ExerciseList}

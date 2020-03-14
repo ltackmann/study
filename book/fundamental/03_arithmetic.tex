@@ -891,31 +891,6 @@ If a and b are positive integers, there exist integers unique non-negative integ
 a = qb + r , where 0[less than or equal]r < b.
 q is called the quotient and r the remainder.
 
-% GCD
-The greatest common divisor of integers a and b, denoted by gcd(a,b), is the largest integer that divides (without remainder) both a and b. So, for example:
-
-gcd(15, 5) = 5,	gcd(7, 9) = 1,	gcd(12, 9) = 3,	gcd(81, 57) = 3.
-
-It is well known that if the gcd(a, b) = r then there exist integers p and s so that:
-
-p(a) + s(b) = r.
-By reversing the steps in the Euclidean Algorithm, it is possible to find these integers p and s. We shall do this with the above example:
-Starting with the next to last line, we have:
-
-3 = 9 -1(6)
-From the line before that, we see that 6 = 24 - 2(9), so:
-3 = 9 - 1(24 - 2(9)) = 3(9) - 1(24).
-From the line before that, we have 9 = 57 - 2(24), so:
-3 = 3( 57 - 2(24)) - 1(24) = 3(57) - 7(24).
-And, from the line before that 24 = 81 - 1(57), giving us:
-3 = 3(57) - 7( 81 - 1(57)) = 10(57) -7(81).
-So we have found p = -7 and s = 10.
-
-The procedure we have followed above is a bit messy because of all the back substitutions we have to make. It is possible to reduce the amount of computation involved in finding p and s by doing some auxillary computations as we go forward in the Euclidean algorithm (and no back substitutions will be necessary). This is known as the extended Euclidean Algorithm.
-
-%http://www.math.utah.edu/~fguevara/ACCESS2013/Euclid.pdf
-%http://pages.pacificcoast.net/~cazelais/222/xeuclid.pdf
-
 %https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/the-euclidean-algorithm
 
 http://www.cut-the-knot.org/recurrence/conversion.shtml
