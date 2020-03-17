@@ -1,4 +1,4 @@
-\chapter{Set theory}
+\chapter{Sets and functions}
 % TODO Sets missing concepts
 % - union, complement and intersection of sets
 % - filtered set, unordered sets, ordered set
@@ -23,6 +23,20 @@
 %    - Inverse
 
 \section{Sets}
+%. TODO rewrite
+A set is a collection of objects, and a function is an association of members of one set to members of another. Most high-level mathematics is about sets and functions between them. For example, calculus is the study of functions from the set of real numbers to the set of real numbers that have the property that we can differentiate them. In effect, we can view sets and functions as the mathematician’s building blocks.
+
+(We don’t care about the ordering of the list. nor about duplicates so {1,2} is the same set as {2,1} which is the same as {2,1, 2}) If x is a member of the set X, then we write x ∈ X. We read this as ‘x is an element (or member) of X’ or ‘x is in X’.3 If x is not a member, then we write x ∉ X .
+
+The set containing the numbers 1, 2, 3, 4 and 5 is written {1, 2, 3, 4, 5}. The number 3 is an element of the set, i.e. 3 ∈ {1, 2, 3, 4, 5}, but 6 ∉ {1, 2, 3, 4, 5}. Note that we could have written the set as {3, 2, 5, 4, 1} as the order of the elements is unimportant.
+
+The set {1, 5, 12, {dog, cat}, {5, 72}} is the set containing the numbers 1, 5, 12 and the sets {dog, cat} and {5, 72}. Note that sets can contain sets as members.
+
+It is vitally important to note that {5} and 5 are not the same. That is, we must distinguish between being a set and being an element of a set. Confusion is possible since in the last example we have {5, 72}, which is a set in its own right but can also be thought of as an element of a set, i.e. {5, 72} ∈ {1, 5, 12, {dog, cat}, {5, 72}}.
+
+% TODO write this out as a defenition with a number
+% A set is a well-defined collection of objects.2 The objects in the set are called the elements or members of the set.
+
 Loosely speaking a set is a collection of well defined objects. 
 
     - Cardinality - number of elements in the set
