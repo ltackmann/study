@@ -89,9 +89,6 @@
 % - http://blog.janmr.com/2011/11/basic-multiple-precision-multiplication.html
 % - http://blog.janmr.com/2012/11/basic-multiple-precision-short-division.html
 
-
-
-
 Numbers are an integral part of nature; a day can be split into $24$ equal parts, each of our hands has five fingers and so on. Thus even without any formal study of arithmetic humans have a basic understanding of numbers
 
 \myindent The earliest known formal concepts of numbers dates back to the Babylonian, Egyptian and later Greek and Roman civilizations. Here tax collectors used tables to record tax payments and in the process came up with various standardised shorthands to record their work. For example if a citizen payed five animals a tax collector may have written \rom{1}\rom{1}\rom{1}\rom{1}\rom{1}. Each \rom{1} representing one animal. If later additional five animals where collected he may have recorded \rom{10} instead of \rom{1}\rom{1}\rom{1}\rom{1}\rom{1}\rom{1}\rom{1}\rom{1}\rom{1}\rom{1} as its easer to read. From these early shorthands rose the first numerical systems where it was agreed to let specific symbols represent a quantity. By far the most successful of these was the, still familiar, roman symbols \rom{1}, \rom{2}, \rom{3}, \rom{4}, \rom{5}, \rom{6}, \rom{7}, \rom{8}, \rom{9} and \rom{10}. 
@@ -346,7 +343,7 @@ When multiple operations exists on the same level you do the one that it closest
 Addition represents the operation of adding objects to a collection. For example, $2+3$ can be though of as if you have $2$ apples and someone give you $3$ more, then you have $5$ apples in total. Assuming $b$ is positive then on a number line $a+b$ represents starting on number $a$ and moving $b$ places to the right. Similar if $b$ is negative then $a+b$ represents starting on number $a$ and moving $b$ places to the left. Unlike subtraction the addition operations is both commutative (that is $a + b = b + a$) and associative (that is $a + (b + c) = (a + b) + c$)
 
 \begin{description}
-\item [Adding integers] We add integers by adding the ones, tens,hundreds etc. in each number individually, starting from the right. If the result of addition is above $10$ then we subtract $10$ from the result and add one (known as a carry) to the next group to be added. For example
+\item [Adding integers] We add integers by adding the ones, tens, hundreds etc. in each number individually, starting from the right. If the result of addition is above $10$ then we subtract $10$ from the result and add one (known as a carry) to the next group to be added. For example
 \begin{figure}[H]
 \centering
 \opadd{143}{89}
@@ -457,11 +454,11 @@ To understand why this procedure works consider that the number $142 = 100 + 40 
 \end{itemize}
 \end{description}
 
-When multiplying numbers of different precision care should be taken when deciding on the preccion of the result. To facilitate this the concept of \index{significant figures}{significant figures} has been invented. The significant figures of a number are those digits that carry meaning contributing to its precision. The procedure for identifying significant figures is as follows 
+When multiplying numbers of different precision care should be taken when deciding on the precision of the result. To facilitate this the concept of \index{significant figures}{significant figures} has been invented. The significant figures of a number are those digits that carry meaning contributing to its precision. The procedure for identifying significant figures is as follows 
 \begin{enumerate}
 \item Identify the non-zero digits and any zeros between them. These are all significant.
 \item Leading zeros are not significant.
-\item If its a decimal, then trailing zeros are significant.
+\item If it's a decimal, then trailing zeros are significant.
 \end{enumerate}
 for example
 \[
@@ -638,7 +635,7 @@ here the first factor $1.234$ has four significant figures and the second $2.0$ 
 % TODO proove these
 The following rules can test numbers for divisibility
 \begin{description}
-\item [Divisible by $2$] if the last didget is divisible by $2$.
+\item [Divisible by $2$] if the last diget is divisible by $2$.
 \item [Divisible by $3$] if the sum of the digits is divisible by $3$.
 \item [Divisible by $4$] if the number formed by the last two digits is
 divisible by $4$.
@@ -656,9 +653,6 @@ The remainder from the division $a/b$ is represented mathematically as $a \textr
 \item Wherever we land is our solution.
 \end{enumerate}
 For example $7 mod 2 = 1$ since we can make a clock with numbers $0,1$ then start at $0$ and go through $7$ numbers in a clockwise sequence $1,0,1,0,1,0,1$. Similar $-5 mod 3 = 1$ since we make a clock with numbers $0,1,2$ then start at $0$ and go through $5$ numbers in counter-clockwise sequence  $2,1,0,2,1$
-
-
-
 
 this let to the general rule that
 \[

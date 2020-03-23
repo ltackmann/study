@@ -1,61 +1,114 @@
 \chapter{Sets and functions}
+% - (a,b) - interval greater than a and less than b
+% - [a,b] - interval from a to b (both included)
+% - X x Y - set product is all pairs (x,y) where x in X and y in Y
+
+Sets and functions are the basic building blocks of most mathematics and while they might appear so trivial to not warrant any discussion, getting a good grip of their behaviour is essential to becoming skilled at mathematics (and indeed for reading and understanding this book). Loosely speaking a set is a collection of objects, and a function is an association of members of one set to members of another. 
+
+\section{Sets}
+A set is a collection of well defined objects. We use the notation $\{1,2,3\}$ to denote the set containing the elements $one$, $two$ and $three$. For sets we don't care about their order nor about duplicates so $\{1,2,3\}$ is the same set as $\{3,2,1\}$ which is the same as $\{3,2,1,2,3\}$. If element $x$ is a member of the set $X$, we write $x \in X$, for example $3 \in \{1,2,3\}$. Similarly if $x$ is not a member, then we write $x \notin X$, for example $5 \notin \{1,2,3\}$. The reason why we need this rigor of defining membership of sets using $\in$ and $\notin$ is because for many mathematical results we need to be clear about what objects/numbers a particular theorem applies to in order to prove it.
+ 
+\bigskip
+Sets are not only restricted to numbers, their elements can be any well defined object. So we can have a set such as $\{\text{car}, \text{bike}\}$. Further sets can also contain other sets, such as the set $Y = \{1, 2, \{3\}\}$. Where $Y$ is the set containing the numbers $one$ and $two$ and the set $\{3\}$. Note the importance of the difference between being a set and being an element of a set. In the previous example $1 \in Y$ but $3 \notin Y$. The later is because its the set $\{3\}$ that is the member of $Y$ and not the number $three$ that is a member. That is $\{3\} \in Y$ as we must distinguish between $3$ and $\{3\}$.
+
+\subsection{Some common sets and operations}
+In the following we will introduce some common classes (sets) of numbers. We will use these to demonstrate how we can work with sets, some common operations on sets and why clear definitions of set membership is important. The first set of numbers we will introduce is the most basic, counting (or natural numbers):
+\begin{definition}
+The natural numbers is the whole, non-negative numbers $\{1,2,3, \cdots\}$ and is denoted by $\mathbb{N}$. These are named "natural" as their members represent natural occurring quantities that can be counted such as "two birds" or "one apple", for this reason the natural numbers are often referred to as the counting numbers.  
+\end{definition}
+Note the number $0$ is usually not included in the set of natural numbers such that $0 \notin  \mathbb{N}$ however some mathematicians does indeed include zero even though its not a natural occurring quantity as it can be a helpful addition.
+
+
+Integers
+The set of integers is {. . . , −4, −3, −2, 0, 1, 2, 3, 4, . . . } and is denoted by Z. The Z symbol comes from the German word Zahlen, which means number. From this set it is easy to define the non-negative integers, {0, 1, 2, 3, 4, . . . }, often denoted Z+. Note that all natural numbers are integers.
+
+Rational numbers
+The set of rational numbers is denoted by Q and consists of all fractional numbers, i.e. x ∈ Q if x can be written in the form p/q where p and q are integers with q ≠ 0. For example, 1/2, 6/1 and 80/5. Note that the representation is not unique since, for example, 80/4 = 40/2 = 20/1 = 20 Note also that all integers are rational numbers since we can write x ∈ Z as x/1.
+
+Real numbers
+The real numbers, denoted R, are hard to define rigorously. For the moment let us take them to be any number that can be given a decimal representation (including infinitely long representations) or as being represented as a point on an infinitely long number line. The real numbers include all rational numbers (hence integers, hence natural numbers). Also real are π and e, neither of which is a rational number. 4 The number √2 is not rational as we shall see in Chapter 23. The set of real numbers that are not rational are called irrational numbers.
+
+complex numbers
+denoted , by pretending that the square root of −1 exists. This is one of the most powerful additions to the mathematician’s toolbox as complex numbers can be used in pure and applied mathematics.
+
+Transendential numbers
+% TDOO you have written about this elsewhere
+
+\subsection{Properties of sets}
+% Go through numbers and use them to define various properties such as 
+% Set builder notation
+% Power set
+% - Cardinality - number of elements in the set
+% - X in y
+% - X !in y
+% - Sets can contain other sets
+% - x subset y - every element of x is in y
+% - x proper-subset y - every element of x is in y and x is not equal to y
+% x union y = x in X or x in Y (or x in both)
+% - x intersect y = x in X and x in Y
+% - x \ y = x in X and x !in y (if y subset x then x\y is complement of y in x)
+
+
+Empty set
+The set with no elements is called the empty set and is denoted ∅. It may appear to be a strange object to define. The set has no elements so what use can it be? Rather surprisingly this set allows us to build up ideas about counting.
+$\varnothing = \{\}$
+The set {∅} is the set that contains the empty set. This set has one element. Note that we can then write∅ ∈ {∅}, but we cannot write ∅ ∈ ∅ as the empty set has, by definition, no elements.
+
+Equality
+Two sets are equal if they have the same elements. If set X equals set Y then we write X = Y . If not we write X ≠ Y.
+% TODO as examples and excercises
+(i) The sets {5, 7, 15} and {7, 15, 5} are equal, i.e. {5, 7, 15} = {7, 15, 5}. 
+(ii) The sets {1, 2, 3} and {2, 3} are not equal, i.e. {1, 2, 3} ≠ {2, 3}. 
+(iii) The sets {2, 3} and {{2}, 3} are not equal. 
+(iv) The sets R and N are not equal.
+
+Cardinality
+If the set X has a finite number of elements, then we say that X is a finite set. If X is finite, then the number of elements is called the cardinality of X and is denoted |X|. For finite sets A and B, |A × B| = |A|·|B|.
+If X has an infinite number of elements, then it becomes difficult to define the cardinality of X. We shall see why in Chapter 30. Essentially it is because there are different sizes of infinity! 
+% TODO refer to section on cantor
+% TODO include algorithm
+Examples 
+(i) The set {∅, 3, 4, cat} has cardinality 4. 
+(ii) The set {∅, 3, {4, cat} } has cardinality 3.
+Exercises 
+What is the cardinality of the following sets? 
+(i) {1, 2, 5, 4, 6} 
+(ii) {π, 6, {π, 5, 8, 10}} 
+(iii) {π, 6, {π, 5, 8, 10}, {dog, cat, {5}}}
+(iv) ∅ 
+(v) N 
+(vi) {dog, ∅} 
+(vii) {∅, {∅, {∅}}} 
+(viii) {∅, {20, π, {∅}}, 14}
+
+Subset
+Suppose X is a set. A set Y is a subset of X if every element of Y is an element of X. We write Y ⊆ X. This is the same as saying that, if x ∈ Y , then x ∈ X. 
+Examples
+(i) The set Y = {1, {3, 4}, mouse} is a subset of X = {1, 2, dog, {3, 4}, mouse}. 
+(ii) The set of even numbers is a subset of N.
+(iii) The set {1, 2, 3} is not a subset of {2, 3, 4} or {2, 3}. 
+(iv) For any set X, we have X ⊆ X. 
+(v) For any set X, we have ∅ ⊆ X. 
+Remark 1.13 It is vitally important that you distinguish between being an element of a set and being a subset of a set. These are often confused by students. If x ∈ X, then {x} ⊆ X. Note the brackets. Usually, and I stress usually, if x ∈ X, then {x} ∉ X, but sometimes {x} ∈ X, as the following special example shows. 
+% TODO create into an excercise
+Example 1.14 Consider the set X = {x, {x}}. Then x ∈ X and {x} ⊆ X (the latter since x ∈ X) but we also have {x} ∈ X. Therefore we cannot state any simple rule such as ‘if a ∈ A, then it would be wrong to write a ⊆ A’, and vice versa.
+
+Propper subset
+A subset Y of X is called a proper subset of X if Y is not equal to X. We denote this by Y ⊂ X. Some people use Y  X for this. 
+Examples 1.16 
+(i) {1, 2, 5} is a proper subset of {−6, 0, 1, 2, 3, 5}. 
+(ii) For any set X, the subset X is not a proper subset of X. 
+(iii) For any set X ≠ ∅, the empty set ∅ is a proper subset of X. Note that, if X = ∅, then the empty set ∅ is not a proper subset of X.
+(iv) For numbers, we have N ⊂  ⊂ Q ⊂  ⊂ C.
+Now let’s consider where the notation came from. It is is obvious that for a finite set the two statements If X ⊆ Y, then |X| ≤ |Y |, and If X ⊂ Y, then |X| < |Y| are true. So ⊆ is similar to ≤ and ⊂ is similar to < as concepts and not just as symbols.
+
+
+
 % TODO Sets missing concepts
 % - union, complement and intersection of sets
 % - filtered set, unordered sets, ordered set
-%\section{Naive set theory}
-%\section{Counting the Infinite}
-%\subsection{Problems with naive set theory}
-%\section{Axiomatic set theory}
-%\section{Cantor and the Transfinite Realm}
-% Morphism In many fields of mathematics, morphism refers to a structure-preserving mapping[disambiguation needed] from one mathematical structure to another.
-% Set builder notation
-% Power set
-%
-%- Operations
-%    - Equivalence
-%    - Converse
-%    - Implication
-%- Functions
-%    - Map
-%    - Injective
-%    - Bijective
-%    - Surjective
-%    - Inverse
 
-\section{Sets}
-%. TODO rewrite
-A set is a collection of objects, and a function is an association of members of one set to members of another. Most high-level mathematics is about sets and functions between them. For example, calculus is the study of functions from the set of real numbers to the set of real numbers that have the property that we can differentiate them. In effect, we can view sets and functions as the mathematician’s building blocks.
-
-(We don’t care about the ordering of the list. nor about duplicates so {1,2} is the same set as {2,1} which is the same as {2,1, 2}) If x is a member of the set X, then we write x ∈ X. We read this as ‘x is an element (or member) of X’ or ‘x is in X’.3 If x is not a member, then we write x ∉ X .
-
-The set containing the numbers 1, 2, 3, 4 and 5 is written {1, 2, 3, 4, 5}. The number 3 is an element of the set, i.e. 3 ∈ {1, 2, 3, 4, 5}, but 6 ∉ {1, 2, 3, 4, 5}. Note that we could have written the set as {3, 2, 5, 4, 1} as the order of the elements is unimportant.
-
-The set {1, 5, 12, {dog, cat}, {5, 72}} is the set containing the numbers 1, 5, 12 and the sets {dog, cat} and {5, 72}. Note that sets can contain sets as members.
-
-It is vitally important to note that {5} and 5 are not the same. That is, we must distinguish between being a set and being an element of a set. Confusion is possible since in the last example we have {5, 72}, which is a set in its own right but can also be thought of as an element of a set, i.e. {5, 72} ∈ {1, 5, 12, {dog, cat}, {5, 72}}.
-
-% TODO write this out as a defenition with a number
-% A set is a well-defined collection of objects.2 The objects in the set are called the elements or members of the set.
-
-Loosely speaking a set is a collection of well defined objects. 
-
-    - Cardinality - number of elements in the set
-    - X in y
-    - X !in y
-    - Sets can contain other sets
-    - Two sets are equal if they contain the same elements {1,2} = {2,1,2} (order and repetitions are not important)
-    - x subset y - every element of x is in y
-    - x proper-subset y - every element of x is in y and x is not equal to y
-    - x union y = x in X or x in Y (or x in both)
-    - x intersect y = x in X and x in Y
-    - x \ y = x in X and x !in y (if y subset x then x\y is complement of y in x)
-    - (a,b) - interval greater than a and less than b
-    - [a,b] - interval from a to b (both included)
-    - X x Y - set product is all pairs (x,y) where x in X and y in Y
-
-Some common operations on sets
 \begin{description}
-\item[Empty set] $\varnothing = \{\}$.
 \item[Set intersection] $S \cap T$ is the set containing all the elements that are in both $S$ and $T$:
 \begin{equation}
 S \cap T := \left\{{x: x \in S \land x \in T}\right\}
@@ -63,9 +116,8 @@ S \cap T := \left\{{x: x \in S \land x \in T}\right\}
 \item[Set union] $S \cup T$ is the set containing all the elements that are in either or both of the sets $S$ and $T$:
 \begin{equation}
 S \cup T := \left\{{x: x \in S \lor x \in T}\right\}
-\end{equation}
-\item[Cardinality] For finite sets A and B, |A × B| = |A|·|B|. 
-% TODO include algorithm
+\end{equation} 
+
 \end{description}
 
 A indexed set is a collection of values associated with indices. For example
@@ -76,6 +128,13 @@ A indexed set is a collection of values associated with indices. For example
 the set that whose members label (or index) members of a family is called an index set. 
 
 \section{Functions}
+%- Functions
+%    - Map
+%    - Injective
+%    - Bijective
+%    - Surjective
+%    - Inverse
+
 % TODO consider merging with input from "thinking like a mathematician"
 Loosely speaking, a function is a rule that, for each element in some set D of possible inputs,  assigns a possible output. The output is said to be the image of the input under the function 
 

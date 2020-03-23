@@ -14,6 +14,55 @@
 % Gamma function and Stirling's approximation
 % TODO eulers identity
 % general binomial theorem (the binomial theorem for fractional and negative powers).
+% https://medium.com/fintechexplained/calculus-2-a-must-know-concept-for-every-professional-a86599caa2a5
+
+% TODO rewrite
+Differentiation: Helps us understand how an output of a function changes when its inputs change. This article will concentrate on the concept of differentiation.
+Integration: Helps us calculate the total impact of the change over time and helps us compute a function from its derivative. The next article will outline the concept of integration.
+Rate of change is a measure of how much a quantity changes (increases or decreases) in relation to the change in another quantity.
+Derivative of a function measures how sensitive an output of a function is to the input of the function. Differentiation is the name of the process in which a set of steps are performed to find the derivative of a function.
+
+Example
+Let’s consider that a variable y depends on a variable x. For instance, y could be the speed of a football player kicking a ball and x could be the number of hours the player spent in the training camp.
+Let’s now start recording the ball speed and the number of hours the players spent in the training camp. Let’s also record whether they are left footed or right footed by the sign of x: negative sign implies that the player is left footed and position sign means that the player is right footed:
+When x=-4, y =16.
+When x =-3, y =9
+When x=0, y =0.
+When x =1, y =1.
+When x =2, y = 4.
+When x =3,
+When x= 10, y = 100
+When x = -11, y = 121
+If we plot the chart where y points are plotted on the y axis and x points are plotted on the x-axis then we’ll see a y = x² chart:
+
+We could pick a point on the chart (x,y), draw a line tangent to the chart and take our rate of change as change in y over change in x. We would then repeat this exercise for all points on the chart and calculate the average of the gradient.
+Tangent is a strange line that aims to have the same gradient as the curve.
+
+Rate of change (or gradient) = difference in y / difference in x = dy/dx
+
+Slope is also known as the gradient of a chart
+
+The gradient at point (x1,y1) and (x2,y2) will be completely different from the gradient at point (y4,x3) and (x2, y2).
+We could instead use the techniques of calculus and utilise differentiation to find the instantaneous rate of change. Differentiation will enable us to find the rate of change of value of y when the value of x changes by a very small unit. Derivative is essentially finding the rate of change in the function when we change the value of x.
+
+We understood that derivative is all about finding how fast/slow the output of a function changes when we change the input of the function. Therefore, we can start changing the value of x by 1 unit and start seeing how the value of y changes. Or, we could plot the chart and pick any of the two points on x axis, then find the value of y and then calculate the slope.
+Let’s refer to the small increment to the input in x as Z.
+Therefore, the function f(x) becomes: f(x + Z) implying that we are adding Z to the value of x.
+
+rate of change (or gradient) = (f(x + Z) - f(x))/(x+Z-x)
+
+This is known as Newton’s difference quotient.
+
+the power rule.
+d/dx x^a = a * x^(a-1)
+Therefore: If f(x) = x² Then its derivative is 2x
+
+Second Order Differentiation:
+It merely means repeating the differentiation twice. Differentiating a function returns a new function. Second order differentiation is about calculating the derivative of the derivative:
+
+% Excercises
+% - derivatie of x^3 = 3x^2
+% - derivatie of 3x^2 = 6x
 
 \section{Logarithms}
 If I'm driving at a constant velocity, say 60 km per hour, the distance I travel is changing in a constant manner, ie every hour I cover 60 km. We can say the rate of change of the distance I travel with respect to time is constant. However, if my car is moving with constant acceleration, its velocity is changing in a constant manner, but the distance I travel is not changing constantly - because I'm accelerating. We can say the rate of change of the distance I travel, with respect to time, is not constant.
