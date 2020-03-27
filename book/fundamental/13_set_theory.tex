@@ -16,11 +16,40 @@ In the following we will introduce some common classes (sets) of numbers. We wil
 \begin{definition}
 The natural numbers is the whole, non-negative numbers $\{1,2,3, \cdots\}$ and is denoted by $\mathbb{N}$. These are named "natural" as their members represent natural occurring quantities that can be counted such as "two birds" or "one apple", for this reason the natural numbers are often referred to as the counting numbers.  
 \end{definition}
-Note the number $0$ is usually not included in the set of natural numbers such that $0 \notin  \mathbb{N}$ however some mathematicians does indeed include zero even though its not a natural occurring quantity as it can be a helpful addition.
+Note the number $0$ is usually not included in the set of natural numbers such that $0 \notin  \mathbb{N}$ however some mathematicians does indeed include zero even though its not a natural occurring quantity as it can be a helpful in certian mathematical proofs to have it included. Once we have the counting numbers in place it becomes natural to extend them with negative numbers, to be able to denote concepts such as a debt owed or the subtraction of a quantity from another. We therefor define the integers to be the set of numbers containing both the natural numbers as well as the negative whole numbers (and zero). 
+\begin{definition}
+The set of integers is $\{\cdots −3, −2, 0, 1, 2, 3\cdots\}$ and is denoted by the symbol $\mathbb{Z}$. 
+\end{definition}
+As we can see the natural numbers is contained within the set of integers. This property that every element in one set is contained in another set is known as being a subset and written as $\mathbb{N} \subseteq \mathbb{Z}$. More formally we can define a subset as
+\begin{definition}
+The set $Y$ is a subset of the set $X$ if every element of $Y$ is also an element of $X$. That is we write $Y \subseteq X$ if for all $x \in Y$, then $x \in X$. 
+\end{definition}
+Note that the reverse is not true, that is the the integers is not a subset of the natural numbers so that $\mathbb{Z} \nsubseteq \mathbb{N}$. 
 
+\bigskip
+Examples
+(i) The set Y = {1, {3, 4}, mouse} is a subset of X = {1, 2, dog, {3, 4}, mouse}. 
+(ii) The set of even numbers is a subset of N.
+(iii) The set {1, 2, 3} is not a subset of {2, 3, 4} or {2, 3}. 
+(iv) For any set X, we have X ⊆ X. 
+(v) For any set X, we have ∅ ⊆ X. 
+Remark 1.13 It is vitally important that you distinguish between being an element of a set and being a subset of a set. These are often confused by students. If x ∈ X, then {x} ⊆ X. Note the brackets. Usually, and I stress usually, if x ∈ X, then {x} ∉ X, but sometimes {x} ∈ X, as the following special example shows. 
+% TODO create into an excercise
+Example 1.14 Consider the set X = {x, {x}}. Then x ∈ X and {x} ⊆ X (the latter since x ∈ X) but we also have {x} ∈ X. Therefore we cannot state any simple rule such as ‘if a ∈ A, then it would be wrong to write a ⊆ A’, and vice versa.
 
-Integers
-The set of integers is {. . . , −4, −3, −2, 0, 1, 2, 3, 4, . . . } and is denoted by Z. The Z symbol comes from the German word Zahlen, which means number. From this set it is easy to define the non-negative integers, {0, 1, 2, 3, 4, . . . }, often denoted Z+. Note that all natural numbers are integers.
+\bigskip
+
+Propper subset
+A subset Y of X is called a proper subset of X if Y is not equal to X. We denote this by Y ⊂ X. Some people use Y  X for this. 
+Examples 1.16 
+(i) {1, 2, 5} is a proper subset of {−6, 0, 1, 2, 3, 5}. 
+(ii) For any set X, the subset X is not a proper subset of X. 
+(iii) For any set X ≠ ∅, the empty set ∅ is a proper subset of X. Note that, if X = ∅, then the empty set ∅ is not a proper subset of X.
+(iv) For numbers, we have N ⊂  ⊂ Q ⊂  ⊂ C.
+Now let’s consider where the notation came from. It is is obvious that for a finite set the two statements If X ⊆ Y, then |X| ≤ |Y |, and If X ⊂ Y, then |X| < |Y| are true. So ⊆ is similar to ≤ and ⊂ is similar to < as concepts and not just as symbols.
+
+From this set it is easy to define the non-negative integers, {0, 1, 2, 3, 4, . . . }, often denoted Z+. Note that all natural numbers are integers.
+\bigskip
 
 Rational numbers
 The set of rational numbers is denoted by Q and consists of all fractional numbers, i.e. x ∈ Q if x can be written in the form p/q where p and q are integers with q ≠ 0. For example, 1/2, 6/1 and 80/5. Note that the representation is not unique since, for example, 80/4 = 40/2 = 20/1 = 20 Note also that all integers are rational numbers since we can write x ∈ Z as x/1.
@@ -81,26 +110,7 @@ What is the cardinality of the following sets?
 (vii) {∅, {∅, {∅}}} 
 (viii) {∅, {20, π, {∅}}, 14}
 
-Subset
-Suppose X is a set. A set Y is a subset of X if every element of Y is an element of X. We write Y ⊆ X. This is the same as saying that, if x ∈ Y , then x ∈ X. 
-Examples
-(i) The set Y = {1, {3, 4}, mouse} is a subset of X = {1, 2, dog, {3, 4}, mouse}. 
-(ii) The set of even numbers is a subset of N.
-(iii) The set {1, 2, 3} is not a subset of {2, 3, 4} or {2, 3}. 
-(iv) For any set X, we have X ⊆ X. 
-(v) For any set X, we have ∅ ⊆ X. 
-Remark 1.13 It is vitally important that you distinguish between being an element of a set and being a subset of a set. These are often confused by students. If x ∈ X, then {x} ⊆ X. Note the brackets. Usually, and I stress usually, if x ∈ X, then {x} ∉ X, but sometimes {x} ∈ X, as the following special example shows. 
-% TODO create into an excercise
-Example 1.14 Consider the set X = {x, {x}}. Then x ∈ X and {x} ⊆ X (the latter since x ∈ X) but we also have {x} ∈ X. Therefore we cannot state any simple rule such as ‘if a ∈ A, then it would be wrong to write a ⊆ A’, and vice versa.
 
-Propper subset
-A subset Y of X is called a proper subset of X if Y is not equal to X. We denote this by Y ⊂ X. Some people use Y  X for this. 
-Examples 1.16 
-(i) {1, 2, 5} is a proper subset of {−6, 0, 1, 2, 3, 5}. 
-(ii) For any set X, the subset X is not a proper subset of X. 
-(iii) For any set X ≠ ∅, the empty set ∅ is a proper subset of X. Note that, if X = ∅, then the empty set ∅ is not a proper subset of X.
-(iv) For numbers, we have N ⊂  ⊂ Q ⊂  ⊂ C.
-Now let’s consider where the notation came from. It is is obvious that for a finite set the two statements If X ⊆ Y, then |X| ≤ |Y |, and If X ⊂ Y, then |X| < |Y| are true. So ⊆ is similar to ≤ and ⊂ is similar to < as concepts and not just as symbols.
 
 
 
