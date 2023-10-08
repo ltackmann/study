@@ -1,0 +1,37 @@
+﻿<Properties GitUserInfo="UsingGIT">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../csharp/WebAPI/web.config">
+    <Files>
+      <File FileName="../csharp/WebAPI/web.config" Line="4" Column="6" />
+      <File FileName="../csharp/WebAPI/Global.asax.cs" Line="11" Column="15" />
+      <File FileName="../csharp/WebAPI/Global.asax" Line="1" Column="83" />
+      <File FileName="Nancy/web.config" Line="8" Column="5" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Nancy" expanded="True" />
+          <Node name="WebAPI" expanded="True" selected="True">
+            <Node name="References" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+      <Pad Id="ConnectionManagerPad">
+        <State selected="True" />
+      </Pad>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
