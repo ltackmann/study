@@ -1,0 +1,4 @@
+name: lang_sandbox
+description: Lang sandbox
+dependencies:
+  test: any
