@@ -1,0 +1,6 @@
+rootProject.name = 'spring'
+
+include 'axon'
+include 'boot'
+include 'jdbc'
+include 'security'

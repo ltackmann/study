@@ -1,0 +1,34 @@
+[Lars Tackmann: 9-aug-2008, Core JavaServer Faces, 2ed]
+
+==Components==
+* 2 standard sets of components implemented via taglibs
+    - Core (abrivated "f", namespace=http://java.sun.com/jsf/core) = Render agnostic components
+        Usually represents behaviour/object you can attach to components (the targetwe attach objects to is known as the
+        "parent component"). Typically we attach:
+            = Attributes: Key/value map stored/accessable in the parent 
+            = Parameters: List of values stored in a specific child component inside a parent
+            = Converters: 
+            = Validators:
+            = Listeners:
+            = Facets: Add nested components to parent
+            = Select items:
+    - HTML (abrivated "h", namespace=http://java.sun.com/jsf/html) = Renders HTML
+
+===Core Components===
+* <f:view>: Create toplevel view
+    - Restrictions: only one <f:view> pr JSF page
+    - Attributes:
+        = locale: Set locale for this view
+* <f:subView>: Create a subview. 
+    Commonly used to reuse parts of a page. Prefered method over frame as frames makes bookmarking hard (and generates seperate
+    HTTP requests)
+    - Restrictions: Included pages must not contain a <f:view>.
+    - Attributes
+        = id: uniquely identify this component within the scope of enclosing  naming container.
+    - Example
+        ----
+        <f:subview id="header">
+            <c:import url="header.xhtml"/>
+        </f:subview>
+        ---- 
+    

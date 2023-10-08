@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sch="http://randompage.org/hr/schemas">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sch:HolidayRequest>
+         <!--You may enter the following 2 items in any order-->
+         <sch:Holiday>
+            <sch:StartDate>2009-10-04</sch:StartDate>
+            <sch:EndDate>2009-10-05</sch:EndDate>
+         </sch:Holiday>
+         <sch:Employee>
+            <sch:UserName>franke</sch:UserName>
+         </sch:Employee>
+      </sch:HolidayRequest>
+   </soapenv:Body>
+</soapenv:Envelope>

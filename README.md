@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Study projects
 
 * [Assembly](http://nickdesaulniers.github.io/blog/2014/04/18/lets-write-some-x86-64) introduction to writing x86-64 assembler.

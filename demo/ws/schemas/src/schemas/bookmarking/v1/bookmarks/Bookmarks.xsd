@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://www.randompage.org/xml/ns/bookmarking/v1/bookmarks"
+            targetNamespace="http://www.randompage.org/xml/ns/bookmarking/v1/bookmarks"
+            xmlns:cmn="http://www.randompage.org/xml/ns/bookmarking/v1/common"
+            xmlns:tag="http://www.randompage.org/xml/ns/bookmarking/v1/tags"
+            elementFormDefault="qualified" version="1.0">
+
+    <xsd:import namespace="http://www.randompage.org/xml/ns/bookmarking/v1/common"
+                schemaLocation="../common/Common.xsd"/>
+    <xsd:import namespace="http://www.randompage.org/xml/ns/bookmarking/v1/tags"
+                schemaLocation="../tags/Tags.xsd"/>
+
+    <!-- TYPES -->
+    <xsd:complexType name="BookmarkType">
+        <xsd:complexContent>
+            <xsd:extension base="cmn:IdentityType">
+                <xsd:sequence>
+                    <xsd:element name="Content" type="xsd:string"/>
+                    <xsd:element name="CreationDate" type="xsd:dateTime"/>
+                    <xsd:element name="Tags" type="tag:TagList"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="BookmarkListType">
+        <xsd:sequence maxOccurs="unbounded">
+            <xsd:element name="Bookmarks" type="BookmarkType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

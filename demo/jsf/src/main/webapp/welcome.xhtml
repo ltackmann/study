@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.w3.org/1999/xhtml http://www.w3.org/2002/08/xhtml/xhtml1-transitional.xsd">
+<f:view>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+        <title>
+            <h:outputFormat value="#{msgs.welcomeWindowTitle}">
+                <f:param value="#{user.admin ? msgs.adminTitle : msgs.userTitle}"/>
+            </h:outputFormat>
+        </title>
+        <link href="static/layout.css" type="text/css" rel="stylesheet"/>
+        <link href="static/style.css" type="text/css" rel="stylesheet"/>
+    </head>
+    <body>
+    <div id="wrapper">
+        <div id="container">
+            <div id="header">
+					<span id="userInfo">
+						<h:outputText value="#{msgs.user} #{user.name}"/>
+						<h:outputFormat value=" | #{msgs.lastLogin}" rendered="#{!user.firstLogin}">
+                            <f:param value="#{user.lastLogin}"/>
+                        </h:outputFormat>
+					</span>
+                <h:form id="logout">
+                    <h:commandLink action="#{logoutAction.logout}" value="logout"/>
+                </h:form>
+            </div>
+
+            <div id="left" class="column">
+                <p/>
+                <!-- message creation -->
+                <h:form rendered="#{user.role == 'USER'}">
+                    <h:panelGrid columns="2" border="1" rules="all" rowClasses="oddRows,evenRows">
+                        <f:facet name="header">
+                            <h:outputText value="Create Message"/>
+                        </f:facet>
+                        <h:outputLabel value="#{msgs.messageTitleLabel}"/>
+                        <h:panelGroup>
+                            <h:inputText id="messageTitle" value="#{messageAction.message.title}"
+                                         required="true" label="#{msgs.messageTitlePrompt}"
+                                         validatorMessage="input text has invalid size">
+                                <f:validator validatorId="javax.faces.Length"/>
+                                <f:attribute name="minimum" value="2"/>
+                                <f:attribute name="maximum" value="50"/>
+                            </h:inputText>
+                            <h:message for="messageTitle"/>
+                        </h:panelGroup>
+                        <h:outputLabel value="#{msgs.messageTextLabel}"/>
+                        <h:inputTextarea value="#{messageAction.message.text}" rows="5" cols="35"/>
+                    </h:panelGrid>
+
+                    <p>
+                        <h:commandButton value="#{msgs.messageSave}" action="#{messageAction.storeMessage}"/>
+                        <h:commandButton value="#{msgs.messageClear}" type="reset"/>
+                    </p>
+                </h:form>
+                <!-- message display -->
+                <h:form rendered="#{not(empty user.messages)}">
+                    <h:dataTable value="#{user.messages}" var="msg">
+                        <f:facet name="caption">
+                            <h:outputText value="#{msgs.messageList}"/>
+                        </f:facet>
+                        <!-- first column -->
+                        <h:column headerClass="columnHeader" footerClass="columnFooter">
+                            <f:facet name="header">
+                                <h:outputText value="#{msgs.titleColumn}"/>
+                            </f:facet>
+                            <h:outputText value="#{msg.title}"/>
+                        </h:column>
+                        <!-- second column -->
+                        <h:column headerClass="columnHeader" footerClass="columnFooter">
+                            <f:facet name="header">
+                                <h:outputText value="#{msgs.dateColumn}"/>
+                            </f:facet>
+                            <h:outputText value="#{msg.creationDate}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:form>
+            </div>
+
+            <div id="right" class="column">
+                <h2>This is the right sidebar.</h2>
+            </div>
+        </div>
+
+        <div id="footer">This is the footer.</div>
+    </div>
+    </body>
+</f:view>
+</html>
+  

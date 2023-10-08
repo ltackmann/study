@@ -1,0 +1,51 @@
+* {
+    font-family: Arial;
+    font-size: small;
+}
+
+#wrapper {
+    min-height: 100%;
+}
+
+#container {
+    margin: 0pt auto;
+    padding: 10px 0pt;
+    width: 760px;
+    overflow: hidden;
+}
+
+#container .column {
+    padding-bottom: 1001em; /* X + padding-bottom */
+    margin-bottom: -1000em; /* X */
+}
+
+#left {
+    float: left;
+    padding: 0pt 10px;
+    width: 475px;
+}
+
+#right {
+    float: right;
+    width: 250px;
+}
+
+#header {
+    margin: 0pt auto 15px 0pt;
+    position: relative;
+    text-align: center;
+}
+
+#banner {
+    clear: both;
+    height: 120px;
+    margin-bottom: 25px;
+}
+
+/* TODO inherit width from container */
+#footer {
+    margin: -22px auto 4px;
+    padding-top: 3px;
+    position: relative;
+    width: 740px;
+}

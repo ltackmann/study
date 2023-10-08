@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <!-- password's in test are always the MD5 hash of the name part of the email address -->
+	<users id="1" full_name="Admin One" role="ADMIN" email="admin1@bookmarking.com" password_md5="e00cf25ad42683b3df678c61f42c6bda" creation_date="2008-01-01 12:00:00.000000000" />
+    <users id="2" full_name="User One" role="USER" email="user1@bookmarking.com" password_md5="24c9e15e52afc47c225b757e7bee1f9d" creation_date="2008-03-03 14:00:00.000000000" />
+    <users id="3" full_name="User Two" role="USER" email="user2@bookmarking.com" password_md5="7e58d63b60197ceb55a1c487989a3720" creation_date="2008-04-04 15:00:00.000000000" />
+</dataset>

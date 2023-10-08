@@ -1,0 +1,153 @@
+==Overview==
+The bookmarking service consists of the following parts:
+- user accounts
+- bookmarks
+- tags (metadata for bookmarks)
+- bundles (named collection of tags)
+
+Further trend analysis can be performed to gain information about
+- newness: how much new bookmarking activity is their for a domain
+- popularity: how many have bookmarked a domain (and when was the last bookmark)
+- tag clouds: what information does users attach to bookmark
+- recommendations: people who bookmarked/tagged X, what else have they bookmarked (and tagged).
+
+
+==Scenarios==
+===Resources===
+METHOD | URL            | SECURITY ROLES | FUNCTION    | RESPONSE                                  |
+----------------------------------------------------------------------------------------------------
+GET    | /users/{email} | NONE           | Show user   | 200(OK), 404(Not Found)                   |
+PUT    | /users/{email} | USER, ADMIN    | Update user | 200(OK), 409(Conflict)                    |
+DELETE | /users/{email} | USER, ADMIN    | Delete user | 200(OK), 401(Unauthorized), 404(Not Found)|
+POST   | /users         | NONE           | Create user | 201(Created), 409(Conflict)               |
+GET    | /users         | ADMIN          | List users  | 200(OK)                                   |
+
+
+User management resource
+- Create a user account: POST /users [public]
+    - [TEST CASE]: Public create new user (return 201 "created" with "Location" header set to new user URL)
+    - [TEST CASE]: Creation of existing user must fail with 409 "conflict" and "Location" header to the conflicting URL 
+- View a user account: GET /users/{email} [auth]
+    - [TEST CASE]: Authenticate and view yourself (return 200 OK and user in entity body)
+    - [TEST CASE]: Authenticate and fail viewing user you don't own (return 401 "Unauthorized" and no user entity)
+    - [TEST CASE]: Fail auth (return 401 "Unauthorized" and no user entity).
+- Modify a user account: PUT /users/{email} [auth]
+    - [TEST CASE]: Authenticate and modify yourself (return 200 OK)
+    - [TEST CASE]: Authenticate and fail modifying user you don't own (return 401 "Unauthorized")
+    - [TEST CASE]: Fail auth (return 401 "Unauthorized").
+- Delete a user account: DELETE /users/{email} [auth]
+    - [TEST CASE]: Authenticate and delete yourself (return 200 OK)
+    - [TEST CASE]: Authenticate and fail deleting user you don't own (return 401 "Unauthorized")
+    - [TEST CASE]: Fail auth (return 401 "Unauthorized").
+
+Bookmark management resource [auth]
+- Create a bookmark: POST /users/{email}/bookmarks
+- Fetch a bookmark: GET /users/{email}/bookmarks/{URI-MD5}
+- Modify a bookmark: PUT /users/{email}/bookmarks/{URI-MD5}
+- Delete a bookmark: DELETE /users/{email}/bookmarks/{URI-MD5}
+- Fetch users posting history: GET /users/{email}/calendar
+- Fetch users posting history by tag: GET /users/{email}/calendar/{tag}
+- See when user last posted a bookmark: Conditional (If-Modified-Since) GET GET /users/{email}/calendar
+
+User bookmark finding resource [auth]
+- Fetch all of users bookmarks: GET /posts/{email}
+- Fetch range of a user's bookmarks: GET /posts/{email}?from=epoch (optional &to=epoch)
+- Fetch users bookmark with a certain tag: GET /posts/{email}/{tag}
+- Fetch users bookmark with any/all tags: GET /posts/{email}/tag/?tag={tag1}&restriction={any|all}
+
+Public bookmark finding resource [public]
+- See recently posted bookmarks: GET /recent
+- See recently posted bookmarks for a certain tag: GET /recent/{tag}
+- See which users have bookmarked a certain URI: GET /uris/{URI-MD5}
+
+Tags and bundles [auth]
+- Fetch a users tags: GET /users/{email}/tags
+- Rename tag (for a user}: PUT /users/{email}/tags/{tag}
+- Group tags into a bundle:  POST /users/{email}/bundles
+- Fetch list of users tag bundles: GET /users/{email}/bundles
+- Fetch a single bundle: GET /users/{email}/bundles/{bundle}
+- Modify a bundle: PUT /users/{email}/bundles/{bundle}
+- Delete a bundle: DELETE /users/{email}/bundles/{bundle}
+
+
+==Technology==
+===JAX-RS===
+We integrate JAX-RS with spring via the applicationContext.xml (we don't use annotations in order to keep
+the beans cleaner (i.e. only be annotated with JAX-RS)). Note that spring beans must explicitly be marked
+as request scoped to ensure they are instantiated within the scope of the HTTP request. This highlights
+a difference between the default scopes for JAX-RS or Jersey and Spring. The default scope for JAX-RS is
+per request. By comparison, the default scope for Spring is a singleton, that is, one instance per web
+application.
+
+===Versioning===
+I like to argue that "Versioning" is the most important concept in SOA as a service is a reusable IT asset.
+- Backwards Compatible: Newer software can read older versions of documents (update XSD and old documents validate)
+- Forwards Compatible: Older software can read newer versions of documents
+Guidelines
+- Sender ?can ?put ?new ?information ?in ?without ?breaking ?receiver
+- Receivers ?must ?ignore ?content ?they ?don’t ?understand
+
+====URL Versioning====
+----
+http://foo.example/api/v1/accounts/3
+----
+This approach as it implies that an account in one version of the API is really a different
+resource than the account in a different version of the API.
+
+====Content Versioning====
+Here we use the the Accept header, to describe the type of content we want:
+----
+Accept: application/vnd.mycompany.app-v1+xml
+----
+
+or to avoid problems with browsers/HTTP-tools, we can use a more common content version standard
+----
+Accept: text/xml; version=1.0
+----
+
+HTTP requests can also indicates that the consumer can operate using either version 1 or 2
+of the API but it prefers version 2
+----
+GET /accounts/42
+Accept: application/vnd.myapp-v2+xml, application/vnd.myapp-v1+xml;q=0.8
+----
+Accept headers can include any number of MIME media types along with preference indicators (the q=number part).
+One problem with this approach is that setting custom content types is hard, changing the URL is easy.
+
+===XSD Versioning and Reuse===
+from http://www.xfront.com/SchemaVersioning.html
+Recommendation 1: To avoid breaking namespace-aware applications with each new version of an
+	              XML Schema use the same namespace for all versions.
+Recommendation 2: To prevent breaking old instance documents give the new Schema version a
+	              different filename or a different URL location or both.
+Recommendation 3: To facilitate an application in recognizing that an element's content has
+	              changed, don't use anonymous types. Instead, use named types.
+Recommendation 4: If you change a type when you create a new version of a Schema then give
+	              the type a different name.
+Recommendation 5: Change the name of an element's type only if its immediate content has changed.
+Recommendation 6: Use a version attribute on the root element. If an instance document is a
+	              compound document - that is, an assembly of XML fragments - then place a version
+	              attribute on the root of each fragment.
+Recommendation 7: Applications should use the tag names to locate data in instance documents.
+	              Applications should be designed to anticipate that the order of tags may change.
+Recommendation 8: Define a system-wide protocol (e.g., fault reporting mechanism) to be used
+	              when an application is unable to process an instance document it receives from
+	              another application.
+
+
+==Open Issues==
+[NEED]
+* [[[[[Get anonymous auth working in spring-security for REST application]]]]]
+* Get UsersResourceTest working.
+* Create user representation (check REST/XML version recommendations and OIO rest XML schemas)
+* check OIO versioning and read
+-- www.xml.com/pub/a/2004/10/27/extend.html?page=1
+-- www.informit.com/articles/article.aspx?p=1566460
+* make resources request scoped as needed in applicationContext.xml
+* add spring-security URL blocking and test security auth
+* create functionality that allows domain admins to log in and see their bookmarking activity
+
+[NICE]
+* Find stackoverflow recommendation for REST api's and follow this style when documenting this API.
+* Check OIO-REST api doc
+* Only ordinary users can be created via the URLs (existing spring security isAnnonmous checks should ensure this)

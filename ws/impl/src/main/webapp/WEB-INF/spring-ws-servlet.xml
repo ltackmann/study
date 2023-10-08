@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- annotation based dependency injection -->
+	<context:component-scan base-package="org.randompage.samples.ws" />
+	<context:annotation-config />
+
+	<!-- Automatic WSDL generation support -->
+	<!--
+		bean id="holiday"
+		class="org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition">
+		<property name="schema" ref="hr" /> <property name="portTypeName"
+		value="holiday" /> <property name="locationUri"
+		value="http://localhost:8080/holidayService/" /> <property
+		name="targetNamespace" value="http://randompage.org/hr/schemas" />
+		</bean
+	-->
+
+	<!-- Publish WSDL file -->
+	<bean id="holiday"
+		class="org.springframework.ws.wsdl.wsdl11.SimpleWsdl11Definition">
+		<constructor-arg value="classpath:/holiday.wsdl" />
+	</bean>
+
+	<!-- Publish XSD so we can in-line it in the WSDL -->
+	<bean id="hr" class="org.springframework.xml.xsd.SimpleXsdSchema">
+		<property name="xsd" value="classpath:/hr.xsd" />
+	</bean>
+
+	<!-- Route messages to the Endpoint via annotations -->
+	<bean
+		class="org.springframework.ws.server.endpoint.mapping.PayloadRootAnnotationMethodEndpointMapping" />
+
+	<!-- Configure XML Marshaller -->
+	<bean
+		class="org.springframework.ws.server.endpoint.adapter.GenericMarshallingMethodEndpointAdapter">
+		<constructor-arg ref="marshaller" />
+	</bean>
+	<bean id="marshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+		<!-- package containing JAXB beans to be bound -->
+		<property name="contextPath" value="org.randompage.samples.ws.api" />
+	</bean>
+</beans>

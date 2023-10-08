@@ -1,0 +1,67 @@
+==Scenarios==
+===Security Rules===
+The following security groups exists
+* ROLE_USER
+    - User can only retrieve/manage self
+* ROLE_RESELLER
+    - Resellers may manage the users they own
+* ROLE_ADMIN
+    - Admin can retrieve/manage/create everyone
+* ROLE_ANONYMOUS (users who are not logged in)
+    - Can create new users of type ROLE_USER.
+    - Helps providing a "deny-all" approach to security by enforcing anonymous role on methods
+      rather than nothing (thus forcing users of these methods to first create a anonymous session
+      since non-authenticated users are blocked). This principle can be seen in:
+        - getUser: since method is used during logins. 
+        - createUser: since method is used during signup
+    - Tech note see [this][3] article.
+
+
+==Technology==
+For JPA provider we use Hibernate as it makes integration testing easy (since Hibernate, unlike EclipsLink, can use
+Spring's JNDI mocks (EclipseLink requires javax.naming.Name and this is currently unsupported)).
+
+===Spring Security===
+Login and Permission checks are done as
+1) The AuthenticationProvider authenticates the login as follows:
+    a. Retrieves username/password from the login form/method
+    b. Encodes the entered password via the specified "password-encoder" (MD5 in this case)
+    c. Hands over the username to the UserDetailsService. Which based on the username returns a
+       "UserDetails" object which encapsulates the user's security data (roles, username, password).
+        - If the user does not exists then it throws a "UsernameNotFoundException".
+    d. Compares the encoded password with the password retrieved in the "UserDetails" object.
+        - If the password's does not match then it throws a "BadCredentialsException"
+2) Once the user is logged in the permission checks are performed
+    a. If authentication is required but missing then throw AuthenticationCredentialsNotFoundException
+    b. PostAuthorize is fired after method is executed (but prior to returning value)
+    c. PreAuthorize is fired before method is executed
+        - Supported expressions are documented [here][1] and [here][2]
+    d. If access is not granted then throw AccessDeniedException
+
+===Integration Tests===
+As our security is implemented via Aspects, a propper test must assert that these are correctly configured. Thus our
+security tests will not be mocked unit-tests but instead full integration test using both a Spring container and a
+test database created by DBUnit
+
+Alternatively we could create a test version of "springSecurity.xml" containing a mock "authentication-provider"
+that does not use a DB. But such a integration test would leave the real SQL "authentication-provider" untested.
+
+
+==Open Issues==
+[NEED]
+- Find better way to create singleton mocks than internal hashMap in MocskFactory (factoryMethod)
+
+[NICE]
+* Add a reseller role that may only administer his own users
+  - Expand User/Username-evaluators to handle these cases
+  - See: http://blog.springsource.com/2009/01/02/spring-security-customization-part-1-customizing-userdetails-or-extending-grantedauthority
+* Register LoggingInterceptor by hand (do spring ship a default loggin interceptor) ?
+* Find way to mock JNDI for EclipseLink (perhaps SO question)
+* Perhaps have multiple authorizes/roles for users via JPA enum-collections
+* Joel Spolsky style error logging (i.e. where errors in the same part of code get same identifier)
+
+
+==Links==
+  [1]: http://static.springsource.org/spring-security/site/docs/3.0.x/reference/el-access.html
+  [2]: http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/expressions.html
+  [3]: http://docs.huihoo.com/spring/spring-security/3.0.x/anonymous.html

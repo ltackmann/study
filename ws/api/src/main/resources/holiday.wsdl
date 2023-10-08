@@ -1,0 +1,55 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:schema="http://randompage.org/hr/schemas"
+	xmlns:tns="http://randompage.org/hr/definitions" targetNamespace="http://randompage.org/hr/definitions">
+	<!-- XML types that can be transmitted -->
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://randompage.org/hr/schemas"
+				schemaLocation="hr.xsd" />
+		</xsd:schema>
+	</wsdl:types>
+	<!-- Messages that will be transmitted -->
+	<wsdl:message name="HolidayRequest">
+		<!-- map message parts to XML types -->
+		<wsdl:part element="schema:HolidayRequest" name="HolidayRequest" />
+	</wsdl:message>
+	<wsdl:message name="HolidayResponse">
+		<wsdl:part element="schema:HolidayResponse" name="HolidayResponse" />
+	</wsdl:message>
+	<!-- Supported operations (function library) -->
+	<wsdl:portType name="HumanResource">
+		<!-- Function definition and the messages involved. -->
+		<wsdl:operation name="Holiday">
+			<!-- operation input (message = type, name = parameter name) -->
+			<wsdl:input message="tns:HolidayRequest" name="HolidayRequest" />
+			<!-- operation output -->
+			<wsdl:output message="tns:HolidayResponse" name="HolidayResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<!-- Define message format and protocol details for each port -->
+	<wsdl:binding name="HumanResourceBinding" type="tns:HumanResource">
+		<!-- SOAP style (RPC or document) and transport protocol used -->
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<!-- Operation that port exposes -->
+		<wsdl:operation name="Holiday">
+			<!-- intent of operation -->
+			<soap:operation soapAction="http://randompage.org/RequestHoliday" />
+			<!-- message accepted for operation -->
+			<wsdl:input name="HolidayRequest">
+				<!-- encoding of the message body -->
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="HolidayResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<!-- Collection of related ports and how to invoke them -->
+	<wsdl:service name="HumanResourceService">
+		<wsdl:port binding="tns:HumanResourceBinding" name="HumanResourcePort">
+			<!-- service end point -->
+			<soap:address location="http://localhost:8080/holidayService/" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,19 @@
+configurations {
+    // exclude junit from transitive dependencies 
+    testCompile.exclude group: 'junit', module: 'junit'
+}
+
+dependencies {
+    compile group: 'org.springframework', name: 'spring-context', version: ver.spring
+    compile group: 'org.springframework', name: 'spring-jdbc', version: ver.spring
+    compile group: 'javax.annotation', name: 'jsr250-api', version: '1.0'
+
+    // test
+    testCompile group: 'org.springframework', name: 'spring-test', version: ver.spring
+    testCompile group: 'org.testng', name: 'testng', version: ver.testng
+    testCompile group: 'org.hamcrest', name: 'hamcrest-all', version: ver.hamcrest
+}
+
+test {
+    useTestNG()
+}

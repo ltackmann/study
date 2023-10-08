@@ -1,0 +1,64 @@
+==Scenatios==
+
+==Solution Specification==
+* Front Page
+    - All users will find: 
+        1) A banner with rotating marketing messages
+        2) A login box
+            - Users are required to sign in with their email and password
+                1) If supplied credentials are correct then
+                    a. if user is a ordinary user then he is send to welcome page that provides a nice overview of his tags
+                    b. if user is a reseller then he is send to a manage page where he can see his users and a overview of their activity
+                    c. if user is a administrator then he is send to a admin page where he can manage everyone and see recent site activity
+                2) If credentials are wrong then a local error message is shown
+        3) A Signup form
+            - Name, email and password (+ confirmation must be entered)
+            - [Data formats]     
+                a. Email must be valid adr
+                b. Name must not be null/empty
+                c. password must be 6 characters or more 
+            - [Error Handling]:
+                a. all fields must be entered in the fomat described above else display error below signup form and 
+                    validate previous altered field when user types in new one 
+                b. if name, email, password or passoword-confirm is missing/invalid then display error for field(s)
+                c. if passwords does not match then display match error  
+        4) A box containing a tag/link cloud of the latest links
+        5) Application Title "Bookmarking Manager"
+    - [DEMONSTRATES]
+        1. Login procedure and session creation (ensure that users cannot view content without login)
+        2. Dynamic content (rotating banner messages, tag/link cloud)
+        3. Internationalized messages (change via menu or browser local)
+        4. Input validation (signup box that colors invalid input fields and show nifty styled message)
+
+
+
+* Dashboard
+    - All users will find:
+        1) Header with accout name "Account: john@doe.com"
+        2*) Box with latest bookmarks/tags (updates on bookmark/tag creation)
+    - Users will find:
+        1) Bookmark manager box
+            - Contains list of your bookmarks (updates on bookmark creation)
+                - Add, adit, delete, scroll
+        2) First time login users will find a welcome message
+    - Admins will find: 
+        1) User manager box
+            - Contains list of recent users
+                - Add, edit, delete, scroll
+            [Implementation notes] 
+                - Reuses user creation form from frontpage
+                - If user navigates away from tab with unsubmitted data then alarm him
+        3) Existing users will find system tips
+        [alternation] 2*) Show user count for each tag/bookmark 
+        3) Box with latest users (updates on user creation)
+    - [DEMONSTRATES]
+        1. Adaptive content (different menues for Admin and users) 
+        2. Dynamic content (banner messages, tag/link cloud)
+        3. Reusable components 
+            - Admin's will see user creation box, same as on frontpage but different styling
+        4. Message formating: The header account message use text replacement.
+        5. Event handling 
+            - instant update of user/bookmark lists when values change.
+            - notifications fired when leaving active field (flow/user handling)
+        6. [alternation of 2*] Demonstrates context aware components (components that 
+            renders differently depeneding on context (in this case depending on user role).

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+     <!-- Mock DAOs when unit testing -->
+    <bean id="mocksFactory" name="userDao" class="org.randompage.bookmarking.backend.testUtils.MocksFactory">
+        <property name="type" value="org.randompage.bookmarking.backend.dao.UserDao"/>
+    </bean>
+
+    <!-- Service interfaces -->
+    <bean id="userManager" class="org.randompage.bookmarking.backend.UserManagerBean"/>
+
+    <import resource="classpath:springSecurity.xml"/>
+</beans>

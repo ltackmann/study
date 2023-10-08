@@ -1,0 +1,6 @@
+[Lars Tackmann: 25-july-2008, Core JavaServer Faces, 2ed]
+
+==Cheat Sheet==
+* Life cycle
+    - Simplified: 
+        JSF components are created, asked to process their input (if any), and then asked to render themselves.

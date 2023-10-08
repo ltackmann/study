@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://randompage.org/hr/definitions"
+	targetNamespace="http://randompage.org/hr/definitions"
+	xmlns:req="http://www.randompage.org/xml/ns/bookmarking/v1/request"
+	xmlns:res="http://www.randompage.org/xml/ns/bookmarking/v1/response">
+	<!-- XML types that can be transmitted -->
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://www.randompage.org/xml/ns/bookmarking/v1/request"
+				schemaLocation="BookmarkingRequest.xsd" />
+			<xsd:import
+				namespace="http://www.randompage.org/xml/ns/bookmarking/v1/response"
+				schemaLocation="BookmarkingResponse.xsd" />
+		</xsd:schema>
+	</wsdl:types>
+	<!-- Messages that will be transmitted -->
+	<wsdl:message name="BookmarkRequest">
+		<!-- map message parts to XML types -->
+		<wsdl:part element="req:BookmarkRequest" name="BookmarkRequest" />
+	</wsdl:message>
+	<wsdl:message name="BookmarkResponse">
+		<wsdl:part element="res:BookmarkResponse" name="BookmarkResponse" />
+	</wsdl:message>
+	<!-- Supported operations (function library) -->
+	<wsdl:portType name="BookmarkPort">
+		<!-- Function definition and the messages involved. -->
+		<wsdl:operation name="Bookmark">
+			<!-- operation input (message = type, name = parameter name) -->
+			<wsdl:input message="tns:BookmarkRequest" name="BookmarkRequest" />
+			<!-- operation output -->
+			<wsdl:output message="tns:BookmarkResponse" name="BookmarkResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<!-- Define message format and protocol details for each port -->
+	<wsdl:binding name="BookmarkBinding" type="tns:BookmarkPort">
+		<!--
+			SOAP style (RPC or document) and transport protocol used by port
+		-->
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<!-- Operation that port exposes -->
+		<wsdl:operation name="Bookmark">
+			<!-- intent of operation -->
+			<soap:operation soapAction="" />
+			<!-- message accepted for operation -->
+			<wsdl:input name="BookmarkRequest">
+				<!-- encoding of the message body -->
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="BookmarkResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<!-- Collection of related ports and how to invoke them -->
+	<wsdl:service name="BookmarkService">
+		<wsdl:port binding="tns:BookmarkBinding" name="Bookmarking">
+			<!-- service end point -->
+			<soap:address location="http://localhost:8080/bookmarking-ws-soap/" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

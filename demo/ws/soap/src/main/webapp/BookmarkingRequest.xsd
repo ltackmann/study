@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://www.randompage.org/xml/ns/bookmarking/v1/request"
+	targetNamespace="http://www.randompage.org/xml/ns/bookmarking/v1/request"
+	elementFormDefault="qualified" version="1"
+	xmlns:bkm="http://www.randompage.org/xml/ns/bookmarking/v1/bookmarks"
+	xmlns:usr="http://www.randompage.org/xml/ns/bookmarking/v1/users">
+
+	<xsd:import namespace="http://www.randompage.org/xml/ns/bookmarking/v1/bookmarks"
+		schemaLocation="http://www.randompage.org/xml/ns/bookmarking/v1/bookmarks/Bookmarks.xsd" />
+	<xsd:import namespace="http://www.randompage.org/xml/ns/bookmarking/v1/users"
+		schemaLocation="http://www.randompage.org/xml/ns/bookmarking/v1/users/Users.xsd" />
+	
+	<!-- ELEMENTS -->	
+	<xsd:element name="BookmarkRequest">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element name="Bookmark" type="bkm:BookmarkType" />
+				<xsd:element name="User" type="usr:UserType" />
+			</xsd:all>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

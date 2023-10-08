@@ -1,0 +1,26 @@
+configurations {
+    // exclude junit from transitive dependencies 
+    testCompile.exclude group: 'junit', module: 'junit'
+}
+
+dependencies {
+    compile project(':jpa-domain')
+
+    // Hibernate
+    compile group: 'org.hibernate', name: 'hibernate-core', version: ver.hibernate
+    compile group: 'org.hibernate', name: 'hibernate-entitymanager', version: ver.hibernate
+    compile group: 'org.reflections', name: 'reflections', version: '0.9.11'
+    compile group: 'org.codehaus.btm', name: 'btm', version: '2.1.4'
+    compile group: 'javax.transaction', name: 'jta', version: '1.1'
+    compile group: 'org.slf4j', name: 'slf4j-log4j12', version: ver.slf4j
+
+    // test
+    testCompile group: 'org.testng', name: 'testng', version: ver.testng
+    testCompile group: 'org.dbunit', name: 'dbunit', version: ver.dbunit
+    testCompile group: 'org.hamcrest', name: 'hamcrest-all', version: ver.hamcrest
+    testCompile group: 'org.hsqldb', name: 'hsqldb', version: ver.hsqldb
+}
+
+test {
+    useTestNG()
+}

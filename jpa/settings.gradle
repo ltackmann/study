@@ -1,0 +1,5 @@
+rootProject.name = 'jpa'
+
+include 'domain'
+include 'hanzelcast'
+include 'hibernate'

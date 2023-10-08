@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+		http://www.springframework.org/schema/aop 
+   		http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+   		http://www.springframework.org/schema/context 
+   		http://www.springframework.org/schema/context/spring-context-2.5.xsd
+   		http://www.springframework.org/schema/security 
+   		http://www.springframework.org/schema/security/spring-security-2.0.xsd">
+
+	<!-- annotation based dependency injection -->
+	<context:component-scan base-package="org.randompage.samples.spring" />
+	<context:annotation-config />
+	
+	<!-- security setup -->
+	<security:authentication-manager alias="authenticationManager" />
+	<security:authentication-provider>
+		<!-- in memory users -->
+		<security:user-service>
+			<security:user name="john@doe.com" password="secret"
+				authorities="ROLE_ADMIN" />
+			<security:user name="jane@doe.com" password="secret"
+				authorities="ROLE_USER" />
+		</security:user-service>
+	</security:authentication-provider>
+	
+	<!-- enable security annotations from JSR-250 -->
+	<security:global-method-security
+		jsr250-annotations="enabled" />
+		
+	<!-- enable @AspectJ annotations -->
+	<aop:aspectj-autoproxy proxy-target-class="true"/>
+		
+	<!-- Custom BeanPostProcessors -->
+	<bean
+		class="org.randompage.samples.spring.security.processors.LoggerPostProcessor" />
+</beans>

@@ -1,0 +1,48 @@
+<!-- GlassFish setup -->
+<project name="glassfish-setup" default="main" basedir=".">
+	<!-- libaries goes here -->
+	<property name="lib.home" location="../lib" />
+	<!-- configuration files goes here (fx. log4j.properties) -->
+	<property name="conf.home" location="${basedir}/conf" />
+	<property name="domain.lib" location="../src/domain/lib" />
+	<property file="db.properties" />
+	<property file="../config/system.properties" />
+	<import file="../src/glassfish-common.xml" />
+
+	<target name="http-setup" description="Configure http settings">
+		<!-- clean old setup -->
+		<remove-http-listener name="http-listener-1" />
+		<remove-http-listener name="http-listener-2" />
+		<!-- add listeners -->
+		<add-http-listener server="server" name="http-listener-1" port="80" ssl="false" />
+		<add-http-listener server="server" name="http-listener-2" port="443" ssl="true" />
+	</target>
+
+	<target name="database-setup" depends="classpath-setup" description="Configure db settings">
+		<db-setup dbpool="ServiceDB" port="${db.port}" pwd="${db.pwd}" user="${db.type}" host="${db.ip}" db="mydb" dbsrc="${db.driver}" />
+	</target>
+
+	<target name="classpath-setup" description="Setup classpath">
+		<path id="classpath">
+			<pathelement location="${lib.home}/mysql-connector-java-5.0.7-bin.jar" />
+			<pathelement location="${domain.lib}/log4j-1.2.14.jar" />
+			<pathelement location="${conf.home}/" />
+		</path>
+		<property name="path" refid="classpath" />
+		<exec executable="${asadmin}" failonerror="true" vmlauncher="false">
+			<arg line="set ${login} server.java-config.classpath_suffix=${path}" />
+		</exec>
+	</target>
+
+	<target name="restart-server" description="Restart application server">
+		<restart-server />
+	</target>
+
+	<target name="core-setup" depends="restart-server, database-setup" description="Core Setup">
+		<restart-server />
+	</target>
+
+	<target name="main" depends="core-setup, http-setup" description="Full Setup">
+		<restart-server />
+	</target>
+</project>

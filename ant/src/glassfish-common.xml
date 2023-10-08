@@ -1,0 +1,114 @@
+<project name="glassfish-common" basedir=".">
+	<property file="../config/system.properties" />
+	<property name="login" value="--user ${glassfish.user} --passwordfile ${glassfish.passwordfile}" />
+
+	<macrodef name="add-http-listener" description="Add HTTP lister to server">
+		<attribute name="server" />
+		<attribute name="name" />
+		<attribute name="port" />
+		<attribute name="address" default="0.0.0.0" />
+		<attribute name="ssl" />
+		<sequential>
+			<exec executable="${asadmin}" failonerror="true" vmlauncher="false">
+				<arg line="create-http-listener --securityenabled=@{ssl} 
+					--listeneraddress @{address} --listenerport @{port} 
+					--defaultvs @{server} @{name}" />
+			</exec>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="remove-http-listener" description="Remove a HTTP listener">
+		<attribute name="name" />
+		<sequential>
+			<exec executable="${asadmin}" failonerror="false" vmlauncher="false">
+				<arg line="delete-http-listener @{name}" />
+			</exec>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="add-virtual-server" description="Adds new virtual server">
+		<attribute name="name" />
+		<attribute name="host" default="localhost" />
+		<sequential>
+			<exec executable="${asadmin}" failonerror="true" vmlauncher="false">
+				<arg line="create-virtual-server --hosts @{host} @{name}" />
+			</exec>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="remove-virtual-server" description="Remove virtual server">
+		<attribute name="name" />
+		<sequential>
+			<exec executable="${asadmin}" failonerror="false" vmlauncher="false">
+				<arg line="delete-virtual-server @{name}" />
+			</exec>
+		</sequential>
+	</macrodef>
+
+	<!-- DB	Examples: 
+        # PostgreSQL
+        <db-setup dbpool="PSQLDB" port="5432" pwd="${db.pwd}" user="${db.user}"
+            host="${db.ip}" db="${db.name}"
+            dbsrc="org.postgresql.ds.PGSimpleDataSource" />
+    -->
+	<macrodef name="db-setup" description="Sets up a JDBC connection pool">
+		<attribute name="dbpool" />
+		<attribute name="port" />
+		<attribute name="pwd" />
+		<attribute name="user" />
+		<attribute name="host" />
+		<attribute name="db" />
+		<attribute name="dbsrc" />
+		<sequential>
+			<exec executable="${asadmin}" failonerror="false" vmlauncher="false">
+				<arg line="delete-jdbc-connection-pool --cascade ${login} @{dbpool}" />
+			</exec>
+			<exec executable="${asadmin}" failonerror="true" vmlauncher="false">
+				<arg line="create-jdbc-connection-pool ${login} 
+					--datasourceclassname @{dbsrc} --restype javax.sql.DataSource --property 
+					portNumber=@{port}:password=@{pwd}:user=@{user}:serverName=@{host}:databaseName=@{db} 
+				    @{dbpool}" />
+			</exec>
+			<exec executable="${asadmin}" failonerror="true" vmlauncher="false">
+				<arg line="create-jdbc-resource ${login} --connectionpoolid @{dbpool} jdbc/@{dbpool}" />
+			</exec>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="start-glassfish" description="Starts GlassFish">
+		<sequential>
+			<exec executable="${asadmin}" failonerror="true">
+				<arg line="start-domain" />
+			</exec>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="stop-glassfish" description="Stops GlassFish">
+		<sequential>
+			<exec executable="${asadmin}">
+				<arg line="stop-domain" />
+			</exec>
+			<sleep seconds="2" />
+		</sequential>
+	</macrodef>
+
+	<macrodef name="deploy" description="Deploy application">
+		<attribute name="target" />
+		<sequential>
+			<echo level="info">Deploying @{target}</echo>
+			<exec executable="${asadmin}" failonerror="true">
+				<arg line="deploy ${login} @{target}" />
+			</exec>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="undeploy" description="Undeploy application">
+		<attribute name="target" />
+		<sequential>
+			<echo level="info">Undeploying @{target}</echo>
+			<exec executable="${asadmin}" failonerror="false">
+				<arg line="undeploy ${login} @{target}" />
+			</exec>
+		</sequential>
+	</macrodef>
+</project>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.w3.org/1999/xhtml http://www.w3.org/2002/08/xhtml/xhtml1-transitional.xsd">
+<f:view>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+        <title>
+            <h:outputText value="#{msgs.loginWindowTitle}"/>
+        </title>
+        <link href="static/layout.css" type="text/css" rel="stylesheet"/>
+        <link href="static/style.css" type="text/css" rel="stylesheet"/>
+        <script type="text/javascript" src="static/script.js"/>
+    </head>
+    <body>
+    <div id="wrapper">
+        <div id="container">
+            <div id="header">This is the header</div>
+            <div id="banner">
+                <h:graphicImage value="/static/logo.gif" alt="The image could not be found."
+                                height="120" style="float: left;"/>
+                <h:outputText value="#{bannerAction.bannerMessage}" styleClass="bannerMessage"/>
+            </div>
+
+            <div id="left" class="column">
+                <h2>This is the left sidebar.</h2>
+            </div>
+            <div id="right" class="column">
+                <div id="loginBox">
+                    <h3>
+                        <h:outputText value="#{msgs.login}"/>
+                    </h3>
+                    <h:form>
+                        <h:messages globalOnly="true" fatalClass="errors"/>
+                        <h:panelGrid>
+                            <h:outputLabel for="loginEmail" value="#{msgs.email}"/>
+                            <h:panelGroup>
+                                <h:inputText id="loginEmail" value="#{identity.email}" required="true"/>
+                                <h:message for="loginEmail" errorClass="errors"/>
+                            </h:panelGroup>
+
+                            <h:outputLabel for="loginPassword" value="#{msgs.password}"/>
+                            <h:panelGroup>
+                                <h:inputSecret id="loginPassword" value="#{identity.password}" required="true"/>
+                                <h:message for="loginPassword" errorClass="errors"/>
+                            </h:panelGroup>
+                        </h:panelGrid>
+
+                        <p>
+                            <h:commandButton value="Login" action="#{loginAction.login}" id="loginAction"/>
+                        </p>
+                    </h:form>
+                </div>
+                <div id="signupBox">
+                    <h3>
+                        <h:outputText value="#{msgs.signup}"/>
+                    </h3>
+                    <h:form id="signupForm" onsubmit="return checkPassword();">
+                        <h:message for="signupForm" fatalClass="errors"/>
+                        <h:panelGrid>
+                            <h:outputLabel for="signupName" value="#{msgs.name}"/>
+                            <h:panelGroup>
+                                <h:inputText id="signupName" value="#{user.name}" required="true"/>
+                                <h:message for="signupName" errorClass="errors"/>
+                            </h:panelGroup>
+
+                            <h:outputLabel for="signupEmail" value="#{msgs.email}"/>
+                            <h:panelGroup>
+                                <h:inputText id="signupEmail" value="#{user.email}" required="true"/>
+                                <h:message for="signupEmail" errorClass="errors"/>
+                            </h:panelGroup>
+
+                            <h:outputLabel for="signupPassword" value="#{msgs.password}"/>
+                            <h:panelGroup>
+                                <h:inputSecret id="signupPassword" value="#{user.password}" required="true"/>
+                                <h:message for="signupPassword" errorClass="errors"/>
+                            </h:panelGroup>
+
+                            <h:outputLabel for="signupConfirmPassword" value="#{msgs.confirmPassword}"/>
+                            <h:panelGroup>
+                                <h:inputSecret id="signupConfirmPassword" required="true"/>
+                                <h:message for="signupConfirmPassword" errorClass="errors" showSummary="false"/>
+                            </h:panelGroup>
+                        </h:panelGrid>
+
+                        <p>
+                            <h:commandButton value="#{msgs.signupButton}" action="#{signupAction.signup}"/>
+                        </p>
+                    </h:form>
+                </div>
+            </div>
+            <div id="footer">This is the footer.</div>
+        </div>
+    </div>
+    </body>
+</f:view>
+</html>
+
