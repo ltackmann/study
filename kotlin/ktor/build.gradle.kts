@@ -29,3 +29,14 @@ dependencies {
     testImplementation("io.ktor:ktor-server-tests-jvm")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
 }
+
+java {
+    toolchain{
+        // kotlin does not work with later versions
+        languageVersion.set(JavaLanguageVersion.of(19))
+    }
+}
+
+//task wrapper(type: Wrapper) {
+//    gradleVersion = '8.4'
+//}
