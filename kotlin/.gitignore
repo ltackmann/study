@@ -1,3 +1,7 @@
+# gradle directories
+**/build
+**/.gradle
+# gradle files
 gradle-wrapper.jar
 gradlew
 gradlew.bat
