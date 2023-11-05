@@ -5,22 +5,26 @@ class GalleryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      Text(
-        "Gallery of Flutter widgets",
-        style: TextStyle(fontSize: 18),
-      ),
-      Row(children: [
-        BigCard(
-          title: "Display widgets",
-          description: "For displaying content such as text or images",
+    return Column(
+      children: [
+        Text(
+          "Gallery of Flutter widgets",
+          style: TextStyle(fontSize: 18),
         ),
-        BigCard(
-          title: "Interaction widgets",
-          description: "For user interactions such as buttons and input",
-        ),
-      ])
-    ]);
+        Row(
+          children: [
+            BigCard(
+              title: "Display widgets",
+              description: "For displaying content such as text or images",
+            ),
+            BigCard(
+              title: "Interaction widgets",
+              description: "For user interactions such as buttons and input",
+            ),
+          ],
+        )
+      ],
+    );
   }
 }
 

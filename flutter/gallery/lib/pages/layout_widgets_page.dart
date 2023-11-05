@@ -6,8 +6,11 @@ class LayoutWidgetsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [SampleWidget("Column"), SampleWidget("Row")],
+    return Row(
+      children: [
+        SampleWidget("Column"),
+        SampleWidget("Row"),
+      ],
     );
   }
 }
