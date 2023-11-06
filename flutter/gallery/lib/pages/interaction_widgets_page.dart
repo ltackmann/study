@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gallery/widgets/sample_widget.dart';
+import 'package:gallery/interaction_widgets/elevated_button_samples.dart';
 
 class InteractionWidgetsPage extends StatelessWidget {
   const InteractionWidgetsPage({super.key});
@@ -8,8 +8,9 @@ class InteractionWidgetsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        SampleWidget("ElevatedButton"),
-        SampleWidget("ElevatedButton.icon"),
+        ElevatedButtonSamples(),
+        //SampleWidget("ElevatedButton"),
+        //SampleWidget("ElevatedButton.icon"),
       ],
     );
   }
