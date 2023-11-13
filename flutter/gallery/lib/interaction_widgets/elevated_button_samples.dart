@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gallery/widgets/sample_widget.dart';
 
 class ElevatedButtonSamples extends StatefulWidget {
   const ElevatedButtonSamples({super.key});
@@ -48,7 +47,7 @@ class _ElevatedButtonSamplesState extends State<ElevatedButtonSamples> {
               color: Colors.black,
             ),
           ),
-          margin: EdgeInsets.all(8.0),
+          padding: EdgeInsets.all(8.0),
           width: 150,
           child: Text(
             '''Long sample text so we can see how it wraps, aligns and truncates''',
