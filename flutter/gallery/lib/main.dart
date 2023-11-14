@@ -4,11 +4,11 @@ import 'package:gallery/app_layout.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(GalleryApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class GalleryApp extends StatelessWidget {
+  const GalleryApp({super.key});
 
   @override
   Widget build(BuildContext context) {

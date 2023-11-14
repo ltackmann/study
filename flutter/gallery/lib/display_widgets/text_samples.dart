@@ -1,63 +1,73 @@
 import 'package:flutter/material.dart';
+import 'package:gallery/display_widgets/text/text_example1.dart';
+import 'package:gallery/display_widgets/text/text_example2.dart';
+import 'package:gallery/display_widgets/text/text_example3.dart';
+import 'package:gallery/display_widgets/text/text_example4.dart';
+import 'package:gallery/display_widgets/text/text_example5.dart';
 import 'package:gallery/display_widgets/text_align/text_align_center_example.dart';
 import 'package:gallery/display_widgets/text_align/text_align_end_example.dart';
 import 'package:gallery/display_widgets/text_align/text_align_justify_example.dart';
 import 'package:gallery/display_widgets/text_align/text_align_default_example.dart';
 import 'package:gallery/display_widgets/text_align/text_align_start_example.dart';
+import 'package:gallery/display_widgets/text_style/text_style_example1.dart';
+import 'package:gallery/display_widgets/text_style/text_style_example2.dart';
+import 'package:gallery/widgets/gallery_widget.dart';
 
-class TextSamples extends StatefulWidget {
+class TextSamples extends StatelessWidget {
   const TextSamples({super.key});
 
   @override
-  State<TextSamples> createState() => _TextSamplesState();
-}
-
-class _TextSamplesState extends State<TextSamples> {
-  var samples = [
-    (widget: TextAlignDefaultExample(), ex: "textAlign: default"),
-    (widget: TextAlignCenterExample(), ex: "textAlign: TextAlign.center"),
-    (widget: TextAlignEndExample(), ex: "textAlign: TextAlign.end"),
-    (widget: TextAlignJustifyExample(), ex: "textAlign: TextAlign.justify"),
-    (widget: TextAlignStartExample(), ex: "textAlign: TextAlign.start"),
-  ];
-  late Widget _current = samples.first.widget;
-
-  @override
   Widget build(BuildContext context) {
-    return Row(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: EdgeInsets.all(8.0),
-          child: Text("Text align examples"),
+        GalleryWidget(
+          description: "Text",
+          examples: [
+            (sampleWidget: TextExample1(), sampleText: "Text: default"),
+            (sampleWidget: TextExample2(), sampleText: "Text: maxLines 2"),
+            (sampleWidget: TextExample3(), sampleText: "TextOverflow.clip"),
+            (sampleWidget: TextExample4(), sampleText: "TextOverflow.ellipsis"),
+            (sampleWidget: TextExample5(), sampleText: "TextOverflow.fade"),
+          ],
         ),
-        Padding(
-          padding: EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: samples.map((sample) {
-              return GestureDetector(
-                onTap: () {
-                  setState(() {
-                    _current = sample.widget;
-                  });
-                },
-                child: Text(
-                  sample.ex,
-                  style: TextStyle(
-                    color:
-                        (_current == sample.widget) ? Colors.red : Colors.black,
-                  ),
-                ),
-              );
-            }).toList(),
-          ),
+        GalleryWidget(
+          description: "TextStyle",
+          examples: [
+            (
+              sampleWidget: TextStyleExample1(),
+              sampleText: "TextStyle: color and font size"
+            ),
+            (
+              sampleWidget: TextStyleExample2(),
+              sampleText: "TextStyle: fontWeight bold"
+            ),
+          ],
         ),
-        Padding(
-          padding: EdgeInsets.all(8.0),
-          child: Container(
-            child: _current,
-          ),
+        GalleryWidget(
+          description: "TextAlign",
+          examples: [
+            (
+              sampleWidget: TextAlignDefaultExample(),
+              sampleText: "TextAlign: default"
+            ),
+            (
+              sampleWidget: TextAlignCenterExample(),
+              sampleText: "TextAlign: TextAlign.center"
+            ),
+            (
+              sampleWidget: TextAlignEndExample(),
+              sampleText: "TextAlign: TextAlign.end"
+            ),
+            (
+              sampleWidget: TextAlignJustifyExample(),
+              sampleText: "TextAlign: TextAlign.justify"
+            ),
+            (
+              sampleWidget: TextAlignStartExample(),
+              sampleText: "TextAlign: TextAlign.start"
+            ),
+          ],
         ),
       ],
     );
