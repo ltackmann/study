@@ -1,14 +1,14 @@
 main() {
-  // record as a indexed tuple
-  (String, int) nameAndAge;
-  nameAndAge = ("lars", 42);
-  print("${nameAndAge.$1} is ${nameAndAge.$2} years old");
+  // records are indexed
+  (String, int) indexedRecord;
+  indexedRecord = ("lars", 42);
+  print("${indexedRecord.$1} is ${indexedRecord.$2} years old");
 
-  // deconstruct tuple into named values
-  var (nameValue, ageValue) = nameAndAge;
+  // deconstruct indexed into named values
+  var (nameValue, ageValue) = indexedRecord;
   print("$nameValue is $ageValue years old");
 
-  // named record
+  // record values can also be named
   ({String name, int age}) namedRecord;
   namedRecord = (name: "Lars", age: 42);
   print("${namedRecord.name} is ${namedRecord.age} years old");
