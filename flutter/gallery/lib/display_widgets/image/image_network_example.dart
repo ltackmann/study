@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class ImageAssetExample extends StatelessWidget {
+class ImageNetworkExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Image(
-      image: AssetImage("web/icons/Icon-192.png"),
+      image: NetworkImage("https://picsum.photos/250?image=9"),
     );
   }
 }

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-class TextAlignCenterExample extends StatelessWidget {
-  const TextAlignCenterExample({super.key});
-
+class TextAlignStartExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // use sized box to ensure text wraps, so we can see alignment
@@ -10,7 +8,7 @@ class TextAlignCenterExample extends StatelessWidget {
       width: 150,
       child: Text(
         '''Long sample text so we can see how it wraps, aligns and truncates''',
-        textAlign: TextAlign.center,
+        textAlign: TextAlign.start,
       ),
     );
   }

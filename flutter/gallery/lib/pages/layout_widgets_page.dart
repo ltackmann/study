@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gallery/widgets/sample_widget.dart';
+import 'package:gallery/layout_widgets/fitted_box_examples.dart';
 
 class LayoutWidgetsPage extends StatelessWidget {
   const LayoutWidgetsPage({super.key});
@@ -8,8 +8,7 @@ class LayoutWidgetsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        SampleWidget("Column"),
-        SampleWidget("Row"),
+        FittedBoxExamples(),
       ],
     );
   }

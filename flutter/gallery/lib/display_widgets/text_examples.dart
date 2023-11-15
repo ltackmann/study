@@ -4,17 +4,17 @@ import 'package:gallery/display_widgets/text/text_example2.dart';
 import 'package:gallery/display_widgets/text/text_example3.dart';
 import 'package:gallery/display_widgets/text/text_example4.dart';
 import 'package:gallery/display_widgets/text/text_example5.dart';
-import 'package:gallery/display_widgets/text_align/text_align_center_example.dart';
-import 'package:gallery/display_widgets/text_align/text_align_end_example.dart';
-import 'package:gallery/display_widgets/text_align/text_align_justify_example.dart';
-import 'package:gallery/display_widgets/text_align/text_align_default_example.dart';
-import 'package:gallery/display_widgets/text_align/text_align_start_example.dart';
-import 'package:gallery/display_widgets/text_style/text_style_example1.dart';
-import 'package:gallery/display_widgets/text_style/text_style_example2.dart';
+import 'package:gallery/display_widgets/text/align/text_align_center_example.dart';
+import 'package:gallery/display_widgets/text/align/text_align_end_example.dart';
+import 'package:gallery/display_widgets/text/align/text_align_justify_example.dart';
+import 'package:gallery/display_widgets/text/align/text_align_default_example.dart';
+import 'package:gallery/display_widgets/text/align/text_align_start_example.dart';
+import 'package:gallery/display_widgets/text/style/text_style_example1.dart';
+import 'package:gallery/display_widgets/text/style/text_style_example2.dart';
 import 'package:gallery/widgets/gallery_widget.dart';
 
-class TextSamples extends StatelessWidget {
-  const TextSamples({super.key});
+class TextExamples extends StatelessWidget {
+  const TextExamples({super.key});
 
   @override
   Widget build(BuildContext context) {

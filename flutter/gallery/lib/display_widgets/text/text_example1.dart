@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 class TextExample1 extends StatelessWidget {
-  const TextExample1({super.key});
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(

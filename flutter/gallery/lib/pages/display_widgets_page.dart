@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:gallery/display_widgets/image_samples.dart';
-import 'package:gallery/display_widgets/text_samples.dart';
+import 'package:gallery/display_widgets/icon_examples.dart';
+import 'package:gallery/display_widgets/image_examples.dart';
+import 'package:gallery/display_widgets/text_examples.dart';
 
 class DisplayWidgetsPage extends StatelessWidget {
   const DisplayWidgetsPage({super.key});
@@ -8,7 +9,11 @@ class DisplayWidgetsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: [ImageSamples(), TextSamples()],
+      children: [
+        IconExamples(),
+        ImageExamples(),
+        TextExamples(),
+      ],
     );
   }
 }
