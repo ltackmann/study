@@ -1,1 +1,13 @@
+# OS directories
 .DS_Store
+
+# gradle directories
+**/build
+**/gradle
+**/.gradle
+
+# gradle files
+gradle-wrapper.jar
+gradlew
+gradlew.bat
+
