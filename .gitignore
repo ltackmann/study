@@ -4,6 +4,9 @@
 # IDE files
 .idea
 
+# SQLlite files (store schema and SQL files in git)
+*.sqlite
+
 # gradle directories
 **/build
 **/gradle
