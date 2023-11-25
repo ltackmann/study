@@ -1,6 +1,9 @@
 # OS directories
 .DS_Store
 
+# IDE files
+.idea
+
 # gradle directories
 **/build
 **/gradle
