@@ -1,0 +1,88 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "codelab_first",
+            "cwd": "codelab_first",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "codelab_first (profile mode)",
+            "cwd": "codelab_first",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "codelab_first (release mode)",
+            "cwd": "codelab_first",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "gallery",
+            "cwd": "gallery",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "gallery (profile mode)",
+            "cwd": "gallery",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "gallery (release mode)",
+            "cwd": "gallery",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "hello_world",
+            "cwd": "hello_world",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "hello_world (profile mode)",
+            "cwd": "hello_world",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "hello_world (release mode)",
+            "cwd": "hello_world",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "site",
+            "cwd": "candq_site/site",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "site (profile mode)",
+            "cwd": "candq_site/site",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "site (release mode)",
+            "cwd": "candq_site/site",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
