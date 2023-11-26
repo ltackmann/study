@@ -8,7 +8,7 @@ class GenericsTest  {
     
     @Test fun `generic function`() {
         val res = compareTo("short", "long text")
-       assertEquals(res, 1) 
+        assertEquals(7, res) 
     }
     
     // TODO in and out
