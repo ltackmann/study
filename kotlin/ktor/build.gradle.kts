@@ -3,8 +3,8 @@ val kotlin_version: String by project
 val logback_version: String by project
 
 plugins {
-    kotlin("jvm") version "1.9.10"
-    id("io.ktor.plugin") version "2.3.5"
+    kotlin("jvm") version "1.9.21"
+    id("io.ktor.plugin") version "2.3.6"
 }
 
 group = "com.example"
@@ -32,7 +32,12 @@ dependencies {
 java {
     toolchain{
         // kotlin does not work with later versions
-        languageVersion.set(JavaLanguageVersion.of(19))
+        languageVersion.set(JavaLanguageVersion.of(21))
     }
 }
+
+tasks.test {
+    useJUnitPlatform()
+}
+
 
