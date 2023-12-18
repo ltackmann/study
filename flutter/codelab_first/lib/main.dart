@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_first/app_state.dart';
-import 'package:flutter_first/pages/home_page.dart';
+import 'package:codelab_first/app_state.dart';
+import 'package:codelab_first/pages/home_page.dart';
 import 'package:provider/provider.dart';
 
 void main() {

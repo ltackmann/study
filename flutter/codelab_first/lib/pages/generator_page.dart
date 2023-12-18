@@ -1,4 +1,4 @@
-import 'package:flutter_first/app_state.dart';
+import 'package:codelab_first/app_state.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:english_words/english_words.dart';

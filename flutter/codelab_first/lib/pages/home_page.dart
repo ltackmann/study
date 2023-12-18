@@ -1,5 +1,5 @@
-import 'package:flutter_first/pages/favorite_page.dart';
-import 'package:flutter_first/pages/generator_page.dart';
+import 'package:codelab_first/pages/favorite_page.dart';
+import 'package:codelab_first/pages/generator_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
